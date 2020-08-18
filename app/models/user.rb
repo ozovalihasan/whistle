@@ -8,6 +8,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true
 
+  has_one_attached :profile_picture
+  has_one_attached :cover_image
+
   def will_save_change_to_email?
     false
   end
