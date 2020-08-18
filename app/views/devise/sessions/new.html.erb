@@ -5,11 +5,8 @@
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true %>
   </div>
+  <%= f.hidden_field :password,value: 'aaaaaa' %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
