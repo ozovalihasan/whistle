@@ -1,0 +1,28 @@
+<div class='center'>
+    <%= form_with model: @whiistle do |f| %>
+        <%= f.label 'Tweet something' %> <br>
+        <%= f.text_area :body, size: "60x12" %>
+        <%= f.submit "Create" %>
+    <% end %>
+    <% @whiistles.each do |w|  %>
+        <div>
+            <%= w.user.username %>
+        </div>
+        <div>
+            <%= w.body  %>
+        </div>
+    <% end %>
+</div>
+<div style='background-color: orange' class='right'>
+    <% @suggested_users.last(3).reverse.each do |user| %>
+        <div>
+            <%=  user.profile_picture.attached? ? image_tag(user.profile_picture) : image_tag('default_profile_picture.png') %>
+        </div>
+        <div>
+            <%= user.username %>
+        </div>
+        <div>
+            <%=  user.fullname %>
+        </div>
+    <% end %>
+</div>
