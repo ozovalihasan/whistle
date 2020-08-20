@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class WhiistlesController < ApplicationController
+class WhiistlesController < ApplicationController\
+  before_filter :authenticate_user!, only: [:index]
+
   def index
     @whiistle = Whiistle.new
     followings = current_user.followings.pluck(:id) << current_user.id
