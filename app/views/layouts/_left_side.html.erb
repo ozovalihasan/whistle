@@ -1,25 +1,35 @@
-<div class="sidebar-sticky pt-3 left">
-    <div class="d-flex">
-        <div>
+<div class="sidebar-left bg-first-color">
+    <div class=" d-flex align-items-center p-2 pt-4 ">
+        <div class='w-auto pm0 '>
             <%=  current_user.profile_picture.attached? ? image_tag(current_user.profile_picture, size:"50x50") : image_tag('default_profile_picture.png', size:"50x50") %>
         </div>
-        <div>
+        <div class="text-center col ">
             <%=  current_user.fullname %>
         </div>
     </div>
-    <div class="d-flex row">
-        <div class="col">
-            <%=  current_user.followings.size %>
+    <div class="d-flex px-0 py-3 w-100">
+        <div class="w-100 d-flex flex-column align-items-center border border-dark-color p-0 py-2">
+            <div class="text-sixth-color">
+                <%=  current_user.followings.size %>
+            </div>
+            <div class="">
+                Following
+            </div>
         </div>
-        <div class="col">
-            <%=  current_user.followers.size %>
+        <div class="w-100 d-flex flex-column align-items-center border border-dark-color p-0 py-2">
+            <div class="text-sixth-color">
+                <%=  current_user.followers.size %>
+            </div>
+            <div class="">
+                Followers
+            </div>
         </div>
     </div>
     <ul class="nav flex-column">
         <li class="nav-item">
             <a class="nav-link active" href="#">
                 <i class="fas fa-house-user"></i>
-                HOME <span class="sr-only">(current)</span>
+                HOME 
             </a>
         </li>
         <li class="nav-item">

@@ -14,7 +14,55 @@
  *= require_self
  */
 
-$first-color: blue;
-.sidebar-sticky {
-  background-color: $first-color;
+$first-color: #15202b;
+$second-color: #1da1f2;
+$third-color: #657786;
+$fourth-color: #f5f8fa;
+$fifth-color: darken($first-color, 2%);
+$sixth-color: lighten($third-color, 30%);
+
+$colors: (
+  first-color: $first-color,
+  second-color: $second-color,
+  third-color: $third-color,
+  fourth-color: $fourth-color,
+  fifth-color: $fifth-color,
+  sixth-color: $sixth-color,
+);
+
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+  .text-#{$name} {
+    color: $color;
+  }
+}
+
+body {
+  color: $third-color;
+  a {
+    color: unset;
+  }
+}
+
+.sidebar-left {
+  width: 255px;
+  a {
+    &:hover {
+      color: $fourth-color;
+      background-color: $second-color;
+    }
+  }
+  .nav-link {
+    padding: 1.5em;
+  }
+}
+
+.sidebar-right {
+  width: 350px;
+}
+
+.border-dark-color {
+  border-color: $fifth-color !important;
 }

@@ -32,7 +32,7 @@ User.first.following_relations.create(followed_id: User.second.id)
   end
 end
 
-30.times do
+5.times do
   user = User.find(rand(1..User.all.size))
   rand(1..2).times do
     user.whiistles.create(body: Faker::Quote.most_interesting_man_in_the_world)
