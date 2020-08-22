@@ -1,0 +1,70 @@
+<div class='center w-100'>
+    <div>
+        <%=  @user.cover_image.attached? ? image_tag(@user.cover_image, size:"600x200") : image_tag('default_profile_picture.png', size:"600x200") %>
+    </div>
+    <%= form_with model: @whiistle do |f| %>
+        <%= f.label 'Tweet something' %> <br>
+        <%= f.text_area :body, size: "60x12", value: "@#{@user.username}" %>
+        <%= f.submit "Create" %>
+    <% end %>
+    <div>
+        <h1>New tweets</h1>
+    </div>
+    <% @whiistles.find_each do |w|  %>
+        <div class='d-flex'>
+            <div>
+                <%= show_profile_picture(@user) %>
+            </div>
+            <div>
+                <div>
+                    <%= @user.username %>
+                </div>
+                <div>
+                    <%= w.body  %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+<div style='background-color: orange' class='right'>
+    <div class='d-flex'>
+        <div>
+            <%= show_profile_picture(@user) %>
+        </div>
+        <div>
+            <%= @user.fullname %>
+        </div>
+        <div>
+            <%= @user.username %>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div> Tweets 
+            <div>
+                <%= @whiistles.size %>
+            </div>
+        </div>
+        <div> Followings 
+            <div>
+                <%= @user.followings.size %>
+            </div>
+        </div>
+        <div> Followers 
+            <div>
+                <%= @user.followers.size %>
+            </div>
+        </div>
+    </div>
+    <h1>Followed by</h1>
+    <% @followers.last(3).reverse.each do |user| %>
+        <div>
+            <%= show_profile_picture(user) %>
+        </div>
+        <div>
+            <%= link_to user.fullname, user_path(user) %>
+        </div>
+        <div>
+            <%= link_to user.username, user_path(user) %>
+        </div>
+    <% end %>
+</div>

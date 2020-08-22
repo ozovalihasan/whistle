@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class WhiistlesController < ApplicationController\
-  before_filter :authenticate_user!, only: [:index]
+class WhiistlesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @whiistle = Whiistle.new

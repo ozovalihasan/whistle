@@ -7,22 +7,41 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-20.times do
-  User.create(
+require 'open-uri'
+
+User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@hillary.hillary', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
+             { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@hasan.hasan', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
+
+User.first.whiistles.create(body: 'Etiam ut eleifend nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
+User.second.whiistles.create(body: 'Aliquam consectetur felis a accumsan dignissim. Phasellus sed luctus orci, ut laoreet mi. Sed eu dui gravida, porta massa in, mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam massa, eleifend eget finibus sed, aliquet sed sem. Mauris vitae est metus. Sed velit orci, ullamcorper suscipit feugiat egestas, sollicitudin egestas ex. Nunc accumsan non magna sed egestas. Aenean vel lacinia mi. ')
+User.first.whiistles.create(body: 'hi rasheed')
+User.first.following_relations.create(followed_id: User.second.id)
+
+5.times do
+  user = User.create(
     username: Faker::Name.name.split(' ').join.downcase,
     fullname: Faker::Name.name,
     email: Faker::Internet.email,
     password: 'aaaaaa',
     password_confirmation: 'aaaaaa'
   )
+
+  rand(1...User.all.size).times do
+    user.following_relations.create(followed_id: rand(1...User.all.size))
+    User.find(rand(1...User.all.size)).following_relations.create(followed_id: user.id)
+  end
 end
 
-User.create([{ username: 'hillary', email: 'hillary@hillary.hillary', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-             { username: 'hasan', email: 'hasan@hasan.hasan', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-             { username: 'dila', email: 'dila@dila.dila', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
-User.first.following_relations.create(followed_id: User.second.id)
-User.first.following_relations.create(followed_id: User.third.id)
-User.second.following_relations.create(followed_id: User.third.id)
-User.first.whiistles.create(body: 'Etiam ut eleifend nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
-User.second.whiistles.create(body: 'Aliquam consectetur felis a accumsan dignissim. Phasellus sed luctus orci, ut laoreet mi. Sed eu dui gravida, porta massa in, mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam massa, eleifend eget finibus sed, aliquet sed sem. Mauris vitae est metus. Sed velit orci, ullamcorper suscipit feugiat egestas, sollicitudin egestas ex. Nunc accumsan non magna sed egestas. Aenean vel lacinia mi. ')
-User.third.whiistles.create(body: 'Vivamus nec scelerisque lectus, at laoreet nulla. Vivamus ac venenatis mauris. Praesent venenatis aliquet risus tristique convallis. Ut ut risus mollis, interdum lectus vel, condimentum eros. Mauris facilisis fermentum sapien nec vestibulum. Etiam tempor odio id metus varius lacinia. Nunc nec pulvinar ipsum. Cras viverra, elit vitae ullamcorper aliquet, turpis augue laoreet tellus, sed iaculis nibh est ac ipsum. Cras vel massa ante. Mauris a eros non erat congue ullamcorper ut non ex. ')
+30.times do
+  user = User.find(rand(1..User.all.size))
+  rand(1..2).times do
+    user.whiistles.create(body: Faker::Quote.most_interesting_man_in_the_world)
+  end
+end
+
+User.all.find_each do |user|
+  avatar = open('https://loremflickr.com/300/300/face')
+  user.profile_picture.attach(io: avatar, filename: 'foo.jpg')
+  cover = open('https://loremflickr.com/600/200/view')
+  user.cover_image.attach(io: cover, filename: 'fooo.jpg')
+end

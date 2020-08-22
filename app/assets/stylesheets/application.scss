@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+$first-color: blue;
+.sidebar-sticky {
+  background-color: $first-color;
+}

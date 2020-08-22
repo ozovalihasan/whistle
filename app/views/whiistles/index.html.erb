@@ -30,10 +30,10 @@
             <%= show_profile_picture(user) %>
         </div>
         <div>
-            <%= user.username %>
+            <%= link_to user.fullname, user_path(user) %>
         </div>
         <div>
-            <%=  user.fullname %>
+            <%= link_to user.username, user_path(user) %>
         </div>
     <% end %>
 </div>
