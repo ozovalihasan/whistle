@@ -44,6 +44,9 @@ body {
   a {
     color: unset;
   }
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
+    "Helvetica Neue", sans-serif;
+  line-height: 1.3125;
 }
 
 .sidebar-left {
@@ -65,4 +68,14 @@ body {
 
 .border-dark-color {
   border-color: $fifth-color !important;
+}
+
+.border-light-color {
+  border-color: $sixth-color !important;
+}
+
+.cover-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
 }

@@ -14,7 +14,6 @@ class WhiistlesController < ApplicationController
     @whiistle = current_user.whiistles.new(whiistle_params)
 
     if @whiistle.save
-
       redirect_to root_path
     else
       render 'new'

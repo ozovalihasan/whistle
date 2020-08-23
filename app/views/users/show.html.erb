@@ -1,70 +1,95 @@
-<div class='center w-100'>
+<div class='bg-fourth-color d-flex'>
     <div>
-        <%=  @user.cover_image.attached? ? image_tag(@user.cover_image, size:"600x200") : image_tag('default_profile_picture.png', size:"600x200") %>
-    </div>
-    <%= form_with model: @whiistle do |f| %>
-        <%= f.label 'Tweet something' %> <br>
-        <%= f.text_area :body, size: "60x12", value: "@#{@user.username}" %>
-        <%= f.submit "Create" %>
-    <% end %>
-    <div>
-        <h1>New tweets</h1>
-    </div>
-    <% @whiistles.find_each do |w|  %>
-        <div class='d-flex'>
-            <div>
-                <%= show_profile_picture(@user) %>
+        <div style="background-image: url('<%= image_url(@user.cover_image)  %>');", class="cover-image w-100">
+        </div>
+        <div class='center w-100 p-4'>
+            <%= form_with model: @whiistle, class: "p-4 bg-white " do |f| %>
+                <%= f.label "Whiistle to #{@user.fullname}", class:"text-uppercase py-2" %> <br>
+                <%= f.text_area :body, size: "60x4", value: "@#{@user.username}", class: "p-2 w-100" %>
+                <%= f.submit "Create" %>
+            <% end %>
+            <div class="p-4 bg-white mt-4">
+                <div class="pb-4 text-second-color border-bottom">
+                    <h1> <%= pluralize(@whiistles.size, 'Whiistle') %></h1>
+                </div>
+                <div class="mt-3">
+                    <% @whiistles.find_each do |w|  %>
+                        <div class='d-flex my-2'>
+                            <div>
+                                <%= show_profile_picture(@user) %>
+                            </div>
+                            <div class="pl-2">
+                                <div class="text-dark">
+                                    <%= @user.username %>
+                                </div>
+                                <div>
+                                    <%= w.body  %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
             </div>
-            <div>
-                <div>
-                    <%= @user.username %>
+        </div>
+    </div>
+    <div class='sidebar-right border-left flex-shrink-0'>
+        <div class='text-center pt-4 '>
+            <div class="d-flex">
+                <div class="d-flex align-items-center mx-auto">
+                    <%=  %>
+                    <i class="border rounded-circle fas fa-plus p-2 mx-2"></i>
+                    <%= show_profile_picture(@user, 'rounded-circle border') %>
+                    <i class="border rounded-circle fas fa-list p-2 mx-2"></i>
+                </div>
+            </div>
+            <div class="py-2 text-dark">
+                <%= @user.fullname %>
+            </div>
+            <div class="pb-3 ">
+                @<%= @user.username %>
+            </div>
+        </div>
+        <div class="d-flex ">
+            <div class="border border-light-color text-center col-4 py-2 px-0">
+                <div class="text-dark w-100">
+                    <%= @whiistles.size %>
                 </div>
                 <div>
-                    <%= w.body  %>
+                    Tweets
+                </div>
+            </div>
+            <div class="border border-light-color text-center col-4 py-2 px-0">
+                <div class="text-dark w-100">
+                    <%= @user.followings.size %>
+                </div>
+                <div>
+                    Followings
+                </div>
+            </div>
+            <div class="border border-light-color text-center col-4 py-2 px-0">
+                <div class="text-dark w-100">
+                    <%= @user.followers.size %>
+                </div>
+                <div>
+                    Followers
                 </div>
             </div>
         </div>
-    <% end %>
-</div>
-<div class='sidebar-right'>
-    <div class='d-flex'>
-        <div>
-            <%= show_profile_picture(@user) %>
-        </div>
-        <div>
-            <%= @user.fullname %>
-        </div>
-        <div>
-            <%= @user.username %>
-        </div>
+        <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
+        <% @followers.last(3).reverse.each do |user| %>
+            <div class="px-4 py-2 d-flex">
+                <div>
+                    <%= rounded_profile_picture(user) %>
+                </div>
+                <div class="pl-2">
+                    <div class="text-dark">
+                        <%= link_to user.fullname, user_path(user) %>
+                    </div>
+                    <div>
+                        @<%= link_to user.username, user_path(user) %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
     </div>
-    <div class="d-flex">
-        <div> Tweets 
-            <div>
-                <%= @whiistles.size %>
-            </div>
-        </div>
-        <div> Followings 
-            <div>
-                <%= @user.followings.size %>
-            </div>
-        </div>
-        <div> Followers 
-            <div>
-                <%= @user.followers.size %>
-            </div>
-        </div>
-    </div>
-    <h1>Followed by</h1>
-    <% @followers.last(3).reverse.each do |user| %>
-        <div>
-            <%= show_profile_picture(user) %>
-        </div>
-        <div>
-            <%= link_to user.fullname, user_path(user) %>
-        </div>
-        <div>
-            <%= link_to user.username, user_path(user) %>
-        </div>
-    <% end %>
 </div>

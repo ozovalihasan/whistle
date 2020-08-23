@@ -42,6 +42,6 @@ end
 User.all.find_each do |user|
   avatar = open('https://loremflickr.com/300/300/face')
   user.profile_picture.attach(io: avatar, filename: 'foo.jpg')
-  cover = open('https://loremflickr.com/600/200/view')
+  cover = open('https://loremflickr.com/1000/1000/view')
   user.cover_image.attach(io: cover, filename: 'fooo.jpg')
 end

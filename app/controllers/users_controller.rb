@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @whiistle = Whiistle.new
     @whiistles = @user.whiistles
     @followers = @user.followers
   end
