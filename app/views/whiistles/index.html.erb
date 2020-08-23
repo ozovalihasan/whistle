@@ -11,41 +11,27 @@
             <div class="pb-4 text-second-color border-bottom">
                 <h1> <%= pluralize(@whiistles.size, 'Whiistle') %></h1>
             </div >
-            <div class="mt-3">
-                <% @whiistles.each do |w|  %>
-                    <div class='d-flex my-2'>
-                        <div>
-                            <%= show_profile_picture(w.user) %>
-                        </div>
-                        <div class="pl-2">
-                            <div class="text-dark">
-                                <%= w.user.username %>
-                            </div>
-                            <div>
-                                <%= w.body  %>
-                            </div>
-                        </div>
-                    </div>
-                <% end %>
-            </div>
+            <%= render 'whiistles/list_whiistles', whiistles: @whiistles %>
         </div>
     </div>
     <div class='sidebar-right border-left flex-shrink-0'>
         <h1 class="py-4 pl-4 text-third-color border-bottom">Who To Follow</h1>
         <% @suggested_users.last(3).reverse.each do |user| %>
-            <div class="px-4 py-2 d-flex">
-                <div>
-                    <%= rounded_profile_picture(user) %>
-                </div>
-                <div class="pl-2">
-                    <div class="text-dark">
-                        <%= link_to user.fullname, user_path(user) %>
-                    </div>
+            <%= link_to user_path(user), class:"hover-image" do %>
+                <div class="px-4 py-2 d-flex">
                     <div>
-                        @<%= link_to user.username, user_path(user) %>
+                        <%= rounded_profile_picture(user) %>
+                    </div>
+                    <div class="pl-2 d-flex flex-column justify-content-center">
+                        <div class="text-dark">
+                            <%= user.fullname %>
+                        </div>
+                        <div>
+                            @<%= user.username %>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <% end %>
         <% end %>
     </div>
 </div>

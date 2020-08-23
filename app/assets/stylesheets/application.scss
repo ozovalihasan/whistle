@@ -59,14 +59,18 @@ body {
 
 .sidebar-left {
   width: 255px;
-
+  a:hover {
+    color: $sixth-color;
+  }
   .nav-link {
     padding: 1.5em;
   }
-  a {
-    &:hover {
-      color: $fourth-color;
-      background-color: $second-color;
+  .nav {
+    a {
+      &:hover {
+        color: $fourth-color;
+        background-color: $second-color;
+      }
     }
   }
 }
@@ -89,5 +93,22 @@ body {
   background-position: center;
 }
 
-.whiistle-button {
+.hover-image {
+  img:hover {
+    filter: blur(0.5px);
+  }
+}
+
+.bigger-icon {
+  font-size: 1.5em;
+}
+
+input {
+  &:hover {
+    background-color: $sixth-color;
+  }
+}
+
+.click {
+  background-color: #ffd700;
 }

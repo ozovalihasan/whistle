@@ -1,10 +1,14 @@
 <div class="sidebar-left bg-first-color">
     <div class=" d-flex align-items-center p-2 pt-4 ">
         <div class='w-auto pm0 '>
-            <%=  current_user.profile_picture.attached? ? image_tag(current_user.profile_picture, size:"50x50") : image_tag('default_profile_picture.png', size:"50x50") %>
+            <%= link_to user_path(current_user),class: "hover-image" do %>
+                <%=  current_user.profile_picture.attached? ? image_tag(current_user.profile_picture, size:"50x50") : image_tag('default_profile_picture.png', size:"50x50") %>
+            <% end %>
         </div>
         <div class="text-center col ">
-            <%=  current_user.fullname %>
+            <%= link_to user_path(current_user) do %>
+                <%=  current_user.fullname %>
+            <% end %>
         </div>
     </div>
     <div class="d-flex px-0 py-3 w-100">
@@ -12,17 +16,17 @@
             <div class="text-sixth-color">
                 <%=  current_user.followings.size %>
             </div>
-            <div class="">
+            <a href="#">
                 Following
-            </div>
+            </a>
         </div>
         <div class="w-100 d-flex flex-column align-items-center border border-dark-color p-0 py-2">
             <div class="text-sixth-color">
                 <%=  current_user.followers.size %>
             </div>
-            <div class="">
+            <a href="#">
                 Followers
-            </div>
+            </a>
         </div>
     </div>
     <ul class="nav flex-column">
