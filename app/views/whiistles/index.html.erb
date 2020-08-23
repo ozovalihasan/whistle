@@ -1,11 +1,13 @@
 <div class='bg-fourth-color d-flex'>
     <div class='center w-100 p-4'>
-        <%= form_with model: @whiistle, class: "p-4 bg-white " do |f| %>
+        <%= form_with model: @whiistle, class: "p-4 bg-white rounded border" do |f| %>
             <%= f.label "Whiistle something", class: "py-2 text-uppercase" %> <br>
-            <%= f.text_area :body, class: "p-2 w-100", rows: "4", placeholder: 'Write a whiistle'  %>
-            <%= f.submit "Create" %>
+            <%= f.text_area :body, class: "p-2 w-100 border", rows: "4", placeholder: 'Write a whiistle'  %>
+            <div class="d-flex justify-content-end pt-2">
+                <%= f.submit "Whiistle", class: "bg-second-color rounded border-0 text-fourth-color p-2 px-4 " %>
+            </div>
         <% end %>
-        <div class="p-4 bg-white mt-4">
+        <div class="p-4 bg-white mt-4 rounded border">
             <div class="pb-4 text-second-color border-bottom">
                 <h1> <%= pluralize(@whiistles.size, 'Whiistle') %></h1>
             </div >

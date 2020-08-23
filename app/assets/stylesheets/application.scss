@@ -43,22 +43,31 @@ body {
   color: $third-color;
   a {
     color: unset;
+    &:hover {
+      color: $first-color;
+      text-decoration-line: none;
+    }
   }
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
     "Helvetica Neue", sans-serif;
   line-height: 1.3125;
+  font-weight: 700;
+  .rounded {
+    border-radius: 0.5rem !important;
+  }
 }
 
 .sidebar-left {
   width: 255px;
+
+  .nav-link {
+    padding: 1.5em;
+  }
   a {
     &:hover {
       color: $fourth-color;
       background-color: $second-color;
     }
-  }
-  .nav-link {
-    padding: 1.5em;
   }
 }
 
@@ -78,4 +87,7 @@ body {
   height: 200px;
   background-size: cover;
   background-position: center;
+}
+
+.whiistle-button {
 }
