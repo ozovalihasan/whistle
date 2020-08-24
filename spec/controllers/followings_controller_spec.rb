@@ -23,7 +23,7 @@ RSpec.describe FollowingsController, type: :controller do
     end
   end
 
-  context 'when there is a user signed in', authenticated: true do
+  context 'when there is a user signed in' do
     describe 'create action' do
       it 'creates a following ' do
         sign_in User.second

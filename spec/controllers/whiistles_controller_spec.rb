@@ -22,7 +22,7 @@ RSpec.describe WhiistlesController, type: :controller do
     end
   end
 
-  context 'when there is a user signed in', authenticated: true do
+  context 'when there is a user signed in' do
     describe 'index action' do
       it 'returns all whiistles wanted ' do
         sign_in User.first
