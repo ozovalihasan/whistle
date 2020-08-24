@@ -12,9 +12,7 @@ module WhiistlesHelper
   include Rails.application.routes.url_helpers
 
   def cover_image_url(user)
-    if user.cover_image.attached?
-      rails_blob_path(user.cover_image, disposition: 'attachment', only_path: true)
-    end
+    rails_blob_path(user.cover_image, disposition: 'attachment', only_path: true) if user.cover_image.attached?
   end
 
   def check_click(whiistle)

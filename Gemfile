@@ -38,8 +38,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 3.33'
   gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
-  gem 'scout_apm', '~> 2.6', '>= 2.6.9'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'scout_apm', '~> 2.6', '>= 2.6.9'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end
@@ -52,7 +52,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Rubocop is used to check errors
-  gem 'rubocop', '~> 0.89.0' 
+  gem 'rubocop', '~> 0.89.0'
 end
 
 group :test do
