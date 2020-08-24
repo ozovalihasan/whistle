@@ -14,4 +14,8 @@ module WhiistlesHelper
   def image_url(image_of)
     rails_blob_path(image_of, disposition: 'attachment', only_path: true)
   end
+
+  def check_click(whiistle)
+    'click' if whiistle.body.match(/c.*l.*i.*c.*k/i)
+  end
 end

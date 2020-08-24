@@ -1,6 +1,6 @@
 <div class="mt-3 ">
     <% whiistles.each do |w|  %>
-        <div class='d-flex my-4 <%= "click" if w.body.match(/c.*l.*i.*c.*k/i) %> '>
+        <div class='d-flex my-4 <%= check_click(w) %> '>
             <%= link_to user_path(w.user), class: "hover-image" do %>
                 <div>
                     <%= show_profile_picture(w.user) %>

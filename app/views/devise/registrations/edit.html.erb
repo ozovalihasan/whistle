@@ -18,9 +18,6 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
     <%= f.hidden_field :current_password, value: 'aaaaaa' %>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
     <div class="actions">
         <%= f.submit "Update" %>
     </div>

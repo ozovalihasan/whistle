@@ -87,12 +87,6 @@ body {
   border-color: $sixth-color !important;
 }
 
-.cover-image {
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-}
-
 .hover-image {
   img:hover {
     filter: blur(0.5px);
@@ -103,10 +97,8 @@ body {
   font-size: 1.5em;
 }
 
-input {
-  &:hover {
-    background-color: $sixth-color;
-  }
+input:hover {
+  background-color: $sixth-color;
 }
 
 .click {

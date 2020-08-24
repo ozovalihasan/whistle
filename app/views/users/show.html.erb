@@ -22,15 +22,7 @@
         <div class='text-center pt-4 '>
             <div class="d-flex">
                 <div class="d-flex align-items-center mx-auto">
-                    <% if @followers.pluck(:id).include? current_user.id %>
-                        <%= link_to following_path(followed_id: @user),method: :delete do  %>
-                            <i class="border rounded-circle fas fa-times p-2 mx-2"></i>
-                        <% end %>
-                    <% else %>
-                        <%= link_to followings_path(followed_id: @user),method: :post do  %>
-                            <i class="border rounded-circle fas fa-plus p-2 mx-2"></i>
-                        <% end %>
-                    <% end %>
+                    <%= add_delete_following(@followers,@user) %>
                     <%= show_profile_picture(@user, 'rounded-circle border') %>
                     <a href="#">
                         <i class="border rounded-circle fas fa-list p-2 mx-2"></i>
