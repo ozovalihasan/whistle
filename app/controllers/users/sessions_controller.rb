@@ -14,9 +14,12 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    # super
+    sign_out current_user
+    flash[:notice] = 'You signed out'
+    redirect_to user_session_path
+  end
 
   # protected
 

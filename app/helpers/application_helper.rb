@@ -12,4 +12,8 @@ module ApplicationHelper
   def show_leftside
     render 'layouts/left_side' if current_user
   end
+
+  def check_icons
+    render 'layouts/icons' if current_user
+  end
 end

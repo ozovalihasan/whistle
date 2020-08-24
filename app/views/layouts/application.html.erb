@@ -10,12 +10,12 @@
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
     <body>
-        <%= check_notice %>
-        <%= check_alert %>
         <main class='d-flex'>
             <%= show_leftside %>
             <div class='center w-100'>
                 <%= render 'layouts/header' %>
+                <%= check_notice %>
+                <%= check_alert %>
                 <%= yield %>
             </div>
         </main>

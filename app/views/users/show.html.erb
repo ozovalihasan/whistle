@@ -1,6 +1,6 @@
 <div class='bg-fourth-color d-flex'>
     <div class="w-100">
-        <div style="background-image: url('<%= image_url(@user.cover_image)  %>');", class="cover-image w-100">
+        <div style="background-image: url('<%= cover_image_url(@user) %>');", class="cover-image w-100">
         </div>
         <div class='center w-100 p-4'>
             <%= form_with model: @whiistle, class: "p-4 bg-white rounded border" do |f| %>
@@ -43,7 +43,7 @@
                 </div>
                 <a href="#">
                     <div>
-                        Tweets
+                        Whiistles
                     </div>
                 </a>
             </div>

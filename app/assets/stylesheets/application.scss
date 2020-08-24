@@ -104,3 +104,14 @@ input:hover {
 .click {
   background-color: #ffd700;
 }
+
+.notice,
+.alert {
+  color: $fourth-color;
+  text-align: center;
+  background-color: $second-color;
+}
+
+.cover-image {
+  background-color: $third-color;
+}
