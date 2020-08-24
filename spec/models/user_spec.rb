@@ -16,16 +16,12 @@ RSpec.describe User, type: :model do
     it { should have_many(:followers).through(:followed_relations).source(:following) }
   end
 
-  #   before(:all) do
-  #     User.create(name: 'hasan', email: 'ozovalihasan@gmail.com', password: '123456')
-  #     User.create(name: 'hillary', email: 'hillary@gmail.com', password: '123456')
-  #   end
+  it 'is valid with valid attributes' do
+    User.create(username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa')
+    expect(User.first).to be_valid
+  end
 
-  #   it 'is valid with valid attributes' do
-  #     expect(User.first.friendships.new(friend_id: User.second.id)).to be_valid
-  #   end
-
-  #   it 'is invalid when no attribute is defined' do
-  #     expect(User.first.friendships.new).to_not be_valid
-  #   end
+  it 'is invalid when no attribute is defined' do
+    expect(User.create).to_not be_valid
+  end
 end
