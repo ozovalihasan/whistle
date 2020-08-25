@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe FollowingsController, type: :controller do
   before(:all) do
+    Following.destroy_all
+    User.destroy_all
+    Whiistle.destroy_all
     User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@hillary.hillary', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
                  { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@hasan.hasan', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
   end

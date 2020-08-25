@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe WhiistlesController, type: :controller do
   before(:all) do
+    delete_all_tables
     User.create(username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@hillary.hillary', password: 'aaaaaa', password_confirmation: 'aaaaaa')
     User.first.whiistles.create(body: 'This is a test')
   end
@@ -16,7 +17,7 @@ RSpec.describe WhiistlesController, type: :controller do
 
     describe 'create action' do
       it 'is not allowed to access ' do
-        post :create, params: { body: 'This is a test' }
+        post :create, params: { body: 'This is a ttest' }
         expect(Whiistle.all.size).to eq 1
       end
     end

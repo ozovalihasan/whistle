@@ -7,7 +7,7 @@ RSpec.describe 'following', type: :system do
   end
 
   it 'feature provides following any user by using plus button ' do
-    do_login('hasan')
+    do_login(User.second.username)
     find('a', text: '@hillary').click
 
     find('.fa-plus').click
@@ -18,6 +18,7 @@ RSpec.describe 'following', type: :system do
     User.second.following_relations.create(followed_id: User.first.id)
     User.first.whiistles.create(body: 'Hi everyone')
     do_login(User.second.username)
+
     find('a', text: '@hillary').click
     find('.fa-times').click
     expect(page).to have_content "0\nFollowing"

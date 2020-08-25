@@ -7,8 +7,8 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 # Add devise to test method related to devise
 require 'devise'
-# Add additional requires below this line. Rails is not loaded until this point!
 
+# Add additional requires below this line. Rails is not loaded until this point!
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -32,6 +32,7 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -91,7 +92,16 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
   config.include Devise::TestHelpers, type: :controller
 end
 
-Capybara.default_driver = :selenium_chrome
+# Datacleaner doesn't delete  everything how I expected
+# Define customized method to delete all records.
+def delete_all_tables
+  Following.destroy_all
+  User.destroy_all
+  Whiistle.destroy_all
+end
+
+Capybara.default_driver = :headless_chrome
