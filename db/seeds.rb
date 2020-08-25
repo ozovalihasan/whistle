@@ -9,8 +9,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@hillary.hillary', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-             { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@hasan.hasan', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
+User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
+             { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
 
 User.first.whiistles.create(body: 'Etiam ut eleifend nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
 User.second.whiistles.create(body: 'Aliquam consectetur felis a accumsan dignissim. Phasellus sed luctus orci, ut laoreet mi. Sed eu dui gravida, porta massa in, mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam massa, eleifend eget finibus sed, aliquet sed sem. Mauris vitae est metus. Sed velit orci, ullamcorper suscipit feugiat egestas, sollicitudin egestas ex. Nunc accumsan non magna sed egestas. Aenean vel lacinia mi. ')
