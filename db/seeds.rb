@@ -9,23 +9,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
-User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-             { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
+User.create([{ username: 'hasan', fullname: 'Hasan Ozovali', email: 'hillary@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
+             { username: 'anonymous', fullname: 'Anonymous', email: 'hasan@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
+             { username: 'john', fullname: 'John Jones', email: 'john@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
+             { username: 'mary', fullname: 'Mary Smith', email: 'mary@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
 
-User.first.whiistles.create(body: 'Etiam ut eleifend nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
+User.first.whiistles.create(body: 'Etciam ut eleifend nisl. Orci varius natoque penkiatibus et magnis dis parturient montes, nascetur ridiculus mus.')
 User.second.whiistles.create(body: 'Aliquam consectetur felis a accumsan dignissim. Phasellus sed luctus orci, ut laoreet mi. Sed eu dui gravida, porta massa in, mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam massa, eleifend eget finibus sed, aliquet sed sem. Mauris vitae est metus. Sed velit orci, ullamcorper suscipit feugiat egestas, sollicitudin egestas ex. Nunc accumsan non magna sed egestas. Aenean vel lacinia mi. ')
-User.first.whiistles.create(body: 'hi rasheed')
+User.first.whiistles.create(body: ' Cras tempus est et fringilla porta. Etiam quis ornare nunc. Etiam purus sapien, venenatis nec laoreet a, maximus quis libero.')
 User.first.following_relations.create(followed_id: User.second.id)
 
-5.times do
-  user = User.create(
-    username: Faker::Name.name.split(' ').join.downcase,
-    fullname: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: 'aaaaaa',
-    password_confirmation: 'aaaaaa'
-  )
-
+User.all[2..-1].each do |user|
   rand(1...User.all.size).times do
     user.following_relations.create(followed_id: rand(1...User.all.size))
     User.find(rand(1...User.all.size)).following_relations.create(followed_id: user.id)
@@ -35,13 +29,14 @@ end
 30.times do
   user = User.find(rand(1..User.all.size))
   rand(1..2).times do
-    user.whiistles.create(body: Faker::Quote.most_interesting_man_in_the_world)
+    user.whiistles.create(body: Faker::Lorem.paragraph(sentence_count: 2))
   end
 end
 
 User.all.find_each do |user|
-  avatar = open('https://loremflickr.com/300/300/face')
-  user.profile_picture.attach(io: avatar, filename: 'foo.jpg')
-  cover = open('https://loremflickr.com/1000/1000/view')
-  user.cover_image.attach(io: cover, filename: 'fooo.jpg')
+  counter = user.id
+  avatar = open("#{Rails.root}/app/assets/images/avatar#{counter}.jpg")
+  user.profile_picture.attach(io: avatar, filename: "avatar#{counter}.jpg")
+  cover = open("#{Rails.root}/app/assets/images/#{counter}.jpg")
+  user.cover_image.attach(io: cover, filename: "cover#{counter}.jpg")
 end

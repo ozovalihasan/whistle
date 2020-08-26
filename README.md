@@ -46,7 +46,7 @@ Please [check](https://whiistle.herokuapp.com/) to play with demo of the app.
 
 - Follow steps given in Setup part
 - Install Chrome from [main page of Chrome](https://www.google.com/chrome/) or [terminal](https://linuxize.com/post/how-to-install-google-chrome-web-browser-on-ubuntu-18-04/)
-- Run `rails db:test:prepare`
+- Run `rails db:test:prepare` on your terminal
 - Run `rspec`
 
 ## Deploy to Heroku
@@ -86,7 +86,11 @@ Feel free to check the [issues page](https://github.com/ozovalihasan/whistle/iss
 
 ## Acknowledgments
 
-- Thanks to Microverse for its support!
+Thanks to
+
+- [Microverse](http://microverse.org/) for its support.
+- [Gregoire Vella](https://www.behance.net/gregoirevella) for inspiration.
+- [Max Gotts](https://unsplash.com/@maxgotts), [Blake Guidry](https://unsplash.com/@blakeguidry), [Nicolò Canu](https://unsplash.com/@nickkk), [Lisandra Gonzalez](https://unsplash.com/@lisportanova) and [Bella The Brave](https://unsplash.com/@bella_the_brave) for their amazing photos.
 
 ## Show your support
 
