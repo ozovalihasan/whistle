@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe WhiistlesController, type: :controller do
   before(:all) do
     delete_all_tables
-    User.create(username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@hillary.hillary', password: 'aaaaaa', password_confirmation: 'aaaaaa')
+    User.create(username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@hillary.hillary',
+                password: 'aaaaaa', password_confirmation: 'aaaaaa')
     User.first.whiistles.create(body: 'This is a test')
   end
 

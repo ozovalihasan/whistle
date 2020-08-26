@@ -5,8 +5,10 @@ RSpec.describe FollowingsController, type: :controller do
     Following.destroy_all
     User.destroy_all
     Whiistle.destroy_all
-    User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@hillary.hillary', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-                 { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@hasan.hasan', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
+    User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@email.com',
+                   password: 'aaaaaa', password_confirmation: 'aaaaaa' },
+                 { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@email.com',
+                   password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
   end
 
   context 'when there is no any user signed in' do

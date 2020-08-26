@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Following < ApplicationRecord
   validates :user_id, uniqueness: { scope: :followed_id, case_sensitive: false }
 

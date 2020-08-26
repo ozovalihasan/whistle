@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class FollowingsController < ApplicationController
   before_action :authenticate_user!
 

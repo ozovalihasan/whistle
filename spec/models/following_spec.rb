@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe Following, type: :model do
   describe 'validations' do
     it do
-      User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@hillary.hillary', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-                   { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@hasan.hasan', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
+      User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@email.com',
+                     password: 'aaaaaa', password_confirmation: 'aaaaaa' },
+                   { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@email.com',
+                     password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
       subject.user_id = User.first.id
       subject.followed_id = User.second.id
       should validate_uniqueness_of(:user_id).scoped_to(:followed_id)

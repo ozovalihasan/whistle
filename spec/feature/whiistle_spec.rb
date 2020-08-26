@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'whiistle', type: :system do
   before :each do
-    User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@email.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-                 { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@email.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
+    User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@email.com',
+                   password: 'aaaaaa', password_confirmation: 'aaaaaa' },
+                 { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@email.com',
+                   password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
   end
 
   it 'is created by using form on the index page of whiistles' do

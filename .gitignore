@@ -46,5 +46,5 @@ yarn-debug.log*
 .stylelintrc.json
 .stylelintrc.json
 package-lock.json
-
+.rubocop.yml
 

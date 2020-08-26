@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   before(:all) do
-    User.create(username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa')
-    User.create(username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@gmail.com', password: 'aaaaaa', password_confirmation: 'aaaaaa')
+    User.create(username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@gmail.com',
+                password: 'aaaaaa', password_confirmation: 'aaaaaa')
+    User.create(username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@gmail.com',
+                password: 'aaaaaa', password_confirmation: 'aaaaaa')
     User.first.whiistles.create(body: 'This is a test')
     User.second.following_relations.create(followed_id: User.first.id)
   end
