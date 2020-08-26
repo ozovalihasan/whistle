@@ -41,3 +41,10 @@ yarn-debug.log*
 .yarn-integrity
 
 /config/credentials/production.key
+
+/node_modules
+.stylelintrc.json
+.stylelintrc.json
+package-lock.json
+
+

@@ -6,7 +6,9 @@
 
 > This is the capstone project of Microverse Ruby on Rails course
 
-> Facebook-clone!
+> Whistle!
+
+![whistle](./assets/images/screenshot.gif)
 
 ## Description
 
@@ -22,9 +24,9 @@ In this project, following and 'whiistling' like posting a tweet features are im
 
 ## Built with
 
-- Ruby on Rails
+- Ruby v2.7.1
+- Ruby on Rails v6.0.3.2
 - Git
-- PostgreSQL
 - [lucidchart](www.lucidchart.com) for ERD
 - Shields.io
 
