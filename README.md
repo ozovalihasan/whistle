@@ -32,7 +32,7 @@ In this project, following and 'whiistling' like posting a tweet features are im
 
 ## Live demo
 
-Please [check](https://whiistle.herokuapp.com/) to play with demo of the app.
+Please [check](https://whiistle.herokuapp.com/). You may use 'anonymous' as username to sign in
 
 ## Setup
 
@@ -92,7 +92,7 @@ Thanks to
 
 - [Microverse](http://microverse.org/) for its support.
 - [Gregoire Vella](https://www.behance.net/gregoirevella) for inspiration.
-- [Max Gotts](https://unsplash.com/@maxgotts), [Blake Guidry](https://unsplash.com/@blakeguidry), [Nicolò Canu](https://unsplash.com/@nickkk), [Lisandra Gonzalez](https://unsplash.com/@lisportanova) and [Bella The Brave](https://unsplash.com/@bella_the_brave) for their amazing photos.
+- [Max Gotts](https://unsplash.com/@maxgotts), [Blake Guidry](https://unsplash.com/@blakeguidry), [Nicolò Canu](https://unsplash.com/@nickkk), [Lisandra Gonzalez](https://unsplash.com/@lisportanova) and [Alessio Lin](https://unsplash.com/@lin_alessio) for their amazing photos.
 
 ## Show your support
 

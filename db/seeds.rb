@@ -31,13 +31,13 @@ User.first.following_relations.create(followed_id: User.second.id)
 
 User.all[2..-1].each do |user|
   rand(1...User.all.size).times do
-    user.following_relations.create(followed_id: rand(1...User.all.size))
-    User.find(rand(1...User.all.size)).following_relations.create(followed_id: user.id)
+    user.following_relations.create(followed_id: User.all.pluck(:id).sample)
+    User.find(User.all.pluck(:id).sample).following_relations.create(followed_id: user.id)
   end
 end
 
 30.times do
-  user = User.find(rand(1..User.all.size))
+  user = User.find(User.all.pluck(:id).sample)
   rand(1..2).times do
     user.whiistles.create(body: Faker::Lorem.paragraph(sentence_count: 2))
   end
