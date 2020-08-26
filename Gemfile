@@ -16,7 +16,6 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # To use aws, this gem should be added
 gem 'aws-sdk-s3', require: false
 
-
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
