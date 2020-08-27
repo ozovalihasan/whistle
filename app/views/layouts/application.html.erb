@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Whistle</title>
         <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
@@ -12,7 +13,7 @@
     <body>
         <main class='d-flex'>
             <%= show_leftside %>
-            <div class='center w-100'>
+            <div class='center w-100 min-vh-100 d-flex flex-column'>
                 <%= render 'layouts/header' %>
                 <%= check_notice %>
                 <%= check_alert %>
