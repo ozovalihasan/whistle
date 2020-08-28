@@ -15,8 +15,4 @@ class User < ApplicationRecord
   has_many :followings, through: :following_relations, source: :follower
   has_many :followed_relations, dependent: :destroy, class_name: 'Following', foreign_key: 'followed_id'
   has_many :followers, through: :followed_relations, source: :following
-
-  # def will_save_change_to_email?
-  #   false
-  # end
 end

@@ -18,6 +18,7 @@ RSpec.describe 'whiistle', type: :system do
 
   it 'is created by using form on the show page of users' do
     do_login('hasan')
+
     find('a', text: '@hillary').click
     fill_in('whiistle_body', with: 'hi @hillary')
     click_button('Whiistle')

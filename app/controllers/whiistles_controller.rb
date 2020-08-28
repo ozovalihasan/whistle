@@ -3,9 +3,9 @@ class WhiistlesController < ApplicationController
 
   def index
     @whiistle = Whiistle.new
-    followings_and_user = current_user.followings.pluck(:id) << current_user.id
-    @whiistles = Whiistle.all.where(user_id: followings_and_user).order(created_at: :desc).includes(:user)
-    @suggested_users = User.where('id NOT IN (?)', followings_and_user)
+    followings_and_user_ids = current_user.followings.ids << current_user.id
+    @whiistles = Whiistle.created_by(followings_and_user_ids).descending_order.includes(:user)
+    @suggested_users = User.where('id NOT IN (?)', followings_and_user_ids)
   end
 
   def create
