@@ -125,7 +125,7 @@ body {
   font-size: 1.5em;
 }
 
-input:hover {
+input[type="submit"]:hover {
   background-color: $sixth-color;
 }
 
@@ -142,4 +142,14 @@ input:hover {
 
 .cover-image {
   background-color: $third-color;
+}
+
+.custom_button {
+  @extend .bg-second-color;
+  @extend .text-fourth-color;
+  border-radius: 0.5rem;
+  border: 0;
+  padding: 0.5rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }

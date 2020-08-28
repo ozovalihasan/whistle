@@ -1,27 +1,37 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
-        <%= f.label :cover_image %>
-        <%= f.file_field :cover_image %>
+<div class="mx-auto bg-fourth-color mt-3 rounded p-5">
+    <h2 class="text-center h3 my-3 font-weight-normal">Edit <%= resource_name.to_s.humanize %></h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,class: 'text-left' }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field py-2">
+            <%= f.label :cover_image %>
+            <%= f.file_field :cover_image %>
+        </div>
+        <div class="field py-2">
+            <%= f.label :profile_picture %>
+            <%= f.file_field :profile_picture %>
+        </div>
+        <div class="field py-2">
+            <%= f.label :username %><br />
+            <%= f.text_field :username, autofocus: true %>
+        </div>
+        <div class="field py-2">
+            <%= f.label :fullname %><br />
+            <%= f.text_field :fullname, autofocus: true %>
+        </div>
+        <div class="field py-2">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <%= f.hidden_field :current_password, value: 'aaaaaa' %>
+        <div class="actions mb-5 d-flex justify-content-end pt-2 ">
+            <%= f.submit "Update", class: "custom_button" %>
+        </div>
+    <% end %>
+    <div class="d-flex w-100 mb-5">
+        <div class="py-2 mr-auto">Delete my account</div>
+        <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'custom_button' %>
     </div>
-    <div class="field">
-        <%= f.label :profile_picture %>
-        <%= f.file_field :profile_picture %>
+    <div class="pt-2">
+        <%= link_to "Back", :back, class:''  %>
     </div>
-    <div class="field">
-        <%= f.label :username %><br />
-        <%= f.text_field :username, autofocus: true %>
-    </div>
-    <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-    <%= f.hidden_field :current_password, value: 'aaaaaa' %>
-    <div class="actions">
-        <%= f.submit "Update" %>
-    </div>
-<% end %>
-<h3>Cancel my account</h3>
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-<%= link_to "Back", :back %>
+</div>
