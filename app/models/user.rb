@@ -9,10 +9,22 @@ class User < ApplicationRecord
 
   has_one_attached :profile_picture
   has_one_attached :cover_image
-  has_many :whiistles, dependent: :destroy
+  has_many :whiistles, -> { descending_order }, dependent: :destroy
 
   has_many :following_relations, dependent: :destroy, class_name: 'Following', foreign_key: 'user_id'
   has_many :followings, through: :following_relations, source: :follower
-  has_many :followed_relations, dependent: :destroy, class_name: 'Following', foreign_key: 'followed_id'
+  has_many :followed_relations, -> { descending_order }, dependent: :destroy, class_name: 'Following', foreign_key: 'followed_id'
   has_many :followers, through: :followed_relations, source: :following
+
+  def followings_and_user_ids
+    followings.ids << id
+  end
+
+  def whiistles_including_users
+    Whiistle.of_followings_and(self).includes(user: { profile_picture_attachment: :blob, cover_image_attachment: :blob })
+  end
+
+  def suggested_users
+    User.where('id NOT IN (?)', followings_and_user_ids)
+  end
 end

@@ -22,7 +22,7 @@
         <div class='text-center pt-4 '>
             <div class="d-flex">
                 <div class="d-flex align-items-center mx-auto">
-                    <%= add_delete_following(@followers,@user) %>
+                    <%= add_delete_following(@user) %>
                     <%= show_profile_picture(@user, 'rounded-circle border') %>
                     <a href="#">
                         <i class="border rounded-circle fas fa-list p-2 mx-2"></i>
@@ -49,7 +49,7 @@
             </div>
             <div class="border border-light-color text-center col-4 py-2 px-0">
                 <div class="text-dark w-100">
-                    <%= @user.followings.size %>
+                    <%= @followings.size %>
                 </div>
                 <a href="#">
                     <div>
@@ -59,7 +59,7 @@
             </div>
             <div class="border border-light-color text-center col-4 py-2 px-0">
                 <div class="text-dark w-100">
-                    <%= @user.followers.size %>
+                    <%= @followers.size %>
                 </div>
                 <a href="#">
                     <div>
@@ -69,7 +69,7 @@
             </a>
         </div>
         <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
-        <% @followers.last(3).reverse.each do |user| %>
+        <% @followers.each do |user| %>
             <%= link_to user_path(user),class: "hover-image" do %>
                 <div class="px-4 py-2 d-flex">
                     <div>

@@ -3,9 +3,8 @@ class WhiistlesController < ApplicationController
 
   def index
     @whiistle = Whiistle.new
-    followings_and_user_ids = current_user.followings.ids << current_user.id
-    @whiistles = Whiistle.created_by(followings_and_user_ids).descending_order.includes(:user)
-    @suggested_users = User.where('id NOT IN (?)', followings_and_user_ids)
+    @whiistles = current_user.whiistles_including_users
+    @suggested_users = current_user.suggested_users.with_attached_profile_picture.with_attached_cover_image
   end
 
   def create

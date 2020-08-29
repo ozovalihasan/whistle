@@ -48,13 +48,11 @@ html {
   scrollbar-color: $third-color $fourth-color;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
   background: $fourth-color;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: $third-color;
 }
@@ -133,11 +131,9 @@ input[type="submit"]:hover {
   background-color: #ffd700;
 }
 
-.notice,
-.alert {
-  color: $fourth-color;
+.flash {
+  color: $third-color;
   text-align: center;
-  background-color: $second-color;
 }
 
 .cover-image {

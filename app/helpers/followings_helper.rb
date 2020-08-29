@@ -1,6 +1,6 @@
 module FollowingsHelper
-  def add_delete_following(followers, user)
-    if followers.pluck(:id).include? current_user.id
+  def add_delete_following(user)
+    if user.followers.pluck(:id).include? current_user.id
       render 'users/add_following', user: user
 
     else
