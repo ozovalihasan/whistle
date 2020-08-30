@@ -21,7 +21,7 @@ class User < ApplicationRecord
   end
 
   def whiistles_including_users
-    Whiistle.of_followings_and(self).includes(user: { profile_picture_attachment: :blob, cover_image_attachment: :blob })
+    Whiistle.of_followings_and(self).includes(:user)
   end
 
   def suggested_users

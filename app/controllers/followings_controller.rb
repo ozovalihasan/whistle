@@ -15,7 +15,6 @@ class FollowingsController < ApplicationController
 
   def destroy
     following = Following.find_by(user_id: current_user.id, followed_id: params[:followed_id])
-    # find_by(user_id: current_user.id, followed_id: params[:followed_id])
     if following
       following.destroy
       flash[:notice] = "You gave up to follow #{User.find(params[:followed_id]).fullname}"

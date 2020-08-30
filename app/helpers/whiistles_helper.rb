@@ -1,18 +1,6 @@
 module WhiistlesHelper
-  def show_profile_picture(user, classes = '')
-    if user.profile_picture.attached?
-      image_tag(user.profile_picture, size: '50x50', class: classes)
-    else
-      image_tag('default_profile_picture.png', size: '50x50', class: classes)
-    end
-  end
-
-  def rounded_profile_picture(user)
-    if user.profile_picture.attached?
-      image_tag(user.profile_picture, size: '50x50', class: 'rounded-circle')
-    else
-      image_tag('default_profile_picture.png', size: '50x50', class: 'rounded-circle')
-    end
+  def show_profile_picture(profile_picture)
+    profile_picture.attachment || 'default_profile_picture.png'
   end
 
   include Rails.application.routes.url_helpers

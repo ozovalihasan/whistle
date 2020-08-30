@@ -20,7 +20,7 @@
             <%= link_to user_path(user), class:"hover-image" do %>
                 <div class="px-4 py-2 d-flex">
                     <div>
-                        <%= rounded_profile_picture(user) %>
+                        <%= image_tag( show_profile_picture(user.profile_picture), size: '50x50', class: 'rounded-circle') %>
                     </div>
                     <div class="pl-2 d-flex flex-column justify-content-center">
                         <div class="text-dark">

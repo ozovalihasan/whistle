@@ -1,9 +1,9 @@
 <div class="mt-3 ">
-    <% whiistles.each do |w|  %>
+    <% whiistles.includes(user:  [{ profile_picture_attachment: :blob }]).each do |w|  %>
         <div class='d-flex my-4 <%= check_click(w) %> '>
             <%= link_to user_path(w.user), class: "hover-image" do %>
                 <div>
-                    <%= show_profile_picture(w.user) %>
+                    <%= image_tag( show_profile_picture(w.user.profile_picture), size: '50x50') %>
                 </div>
             <% end %>
             <div class="pl-2">

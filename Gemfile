@@ -54,6 +54,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Rubocop is used to check errors
+  gem 'bullet', '~> 6.1'
   gem 'rubocop', '~> 0.89.0'
 end
 
