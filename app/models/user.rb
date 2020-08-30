@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: { case_sensitive: false }, presence: true
   validates :username, uniqueness: true, presence: true
+  validates :fullname, presence: true
 
   has_one_attached :profile_picture
   has_one_attached :cover_image

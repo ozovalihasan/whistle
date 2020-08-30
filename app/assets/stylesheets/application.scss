@@ -148,4 +148,17 @@ input[type="submit"]:hover {
   padding: 0.5rem;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
+  &[value] {
+    font-weight: 700;
+  }
+}
+
+.image-upload > input {
+  display: none;
+}
+.image-upload > label {
+  cursor: pointer;
+  > span:hover {
+    background-color: $sixth-color;
+  }
 }

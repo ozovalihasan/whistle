@@ -2,26 +2,40 @@
     <h2 class="h3 my-3 font-weight-normal">Create your account</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'text-left'}) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="field py-2">
-            <%= f.label :username %> <br>
-            <%= f.text_field :username, autofocus: true %>
+        <div class="py-2">
+            <%= f.label :username %><br />
+            <%= f.text_field :username, autofocus: true, class:"w-100" %>
         </div>
-        <div class="field py-2">
-            <%= f.label :fullname %> <br>
-            <%= f.text_field :fullname, autofocus: true %>
+        <div class="py-2">
+            <%= f.label :fullname %><br />
+            <%= f.text_field :fullname, autofocus: true, class:"w-100" %>
         </div>
-        <div class="field py-2">
+        <div class="py-2">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-100" %>
         </div>
-        <div class="field py-2">
-            <%= f.label :profile_picture %> <br>
-            <%= f.file_field :profile_picture %>
+        <div class="py-2">
+            <div class="image-upload d-flex ">
+                <div class="w-50">Cover Image</div>
+                <label for="cover-image" class="ml-auto">
+                    <span class="custom_button">Choose</span>
+                </label>
+                <input id="cover-image" type="file"/>
+            </div>
+        </div>
+        <div class="py-2">
+            <div class="image-upload d-flex ">
+                <div class="w-50">Profile Picture</div>
+                <label for="profile-picture" class="ml-auto">
+                    <span class="custom_button">Choose</span>
+                </label>
+                <input id="profile-picture" type="file"/>
+            </div>
         </div>
         <%= f.hidden_field :password, value: 'aaaaaa'%>
         <%= f.hidden_field :password_confirmation, value: 'aaaaaa'%>
-        <div class="actions mb-5 d-flex justify-content-end pt-2 ">
-            <%= f.submit "Sign up", name:'submit', class: "custom_button " %>
+        <div class="actions mt-2 mb-5 d-flex justify-content-end pt-2 ">
+            <%= f.submit "Sign up", name:'submit', class: "custom_button w-100" %>
         </div>
         <%= render "devise/shared/links" %>
     <% end %>
