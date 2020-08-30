@@ -1,5 +1,5 @@
 class Whiistle < ApplicationRecord
-  validates :body, length: { minimum: 3 }
+  validates :body, length: { minimum: 3, message: 'of your whiistle cannot be shorter than 3 letters' }
 
   belongs_to :user
 
