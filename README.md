@@ -8,7 +8,7 @@
 
 > Whistle!
 
-![whistle](./assets/images/screenshot.gif)
+![whistle](./assets/images/project.gif)
 
 ## Description
 
