@@ -70,22 +70,6 @@
             </a>
         </div>
         <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
-        <% @followers.each do |user| %>
-            <%= link_to user_path(user),class: "hover-image" do %>
-                <div class="px-4 py-2 d-flex">
-                    <div>
-                        <%= image_tag( show_profile_picture(user.profile_picture), size: '50x50', class: 'rounded-circle') %>
-                    </div>
-                    <div class="pl-2 d-flex flex-column justify-content-center">
-                        <div class="text-dark">
-                            <%= user.fullname %>
-                        </div>
-                        <div>
-                            @<%= user.username %>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-        <% end %>
+        <%= render 'list_users', users: @followers  %>
     </div>
 </div>

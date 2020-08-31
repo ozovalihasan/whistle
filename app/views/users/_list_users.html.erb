@@ -1,0 +1,18 @@
+ <% users.with_attached_profile_picture.each do |user| %>
+    <div class="d-flex">
+        <%= link_to user_path(user), class:"hover-image" do %>
+            <div class="px-4 py-2 d-flex">
+                <%= image_tag( show_profile_picture(user.profile_picture), size: '50x50', class: 'rounded-circle') %>
+                <div class="pl-2 d-flex flex-column justify-content-center">
+                    <div class="text-dark">
+                        <%= user.fullname %>
+                    </div>
+                    <div>
+                        @<%= user.username %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        <%= check_follow(user) %>
+    </div>
+<% end %>

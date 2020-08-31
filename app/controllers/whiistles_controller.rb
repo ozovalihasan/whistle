@@ -4,7 +4,7 @@ class WhiistlesController < ApplicationController
   def index
     @whiistle = Whiistle.new
     @whiistles = current_user.whiistles_including_users
-    @suggested_users = current_user.suggested_users.with_attached_profile_picture
+    @suggested_users = current_user.suggested_users
   end
 
   def create

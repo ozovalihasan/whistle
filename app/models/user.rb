@@ -25,6 +25,6 @@ class User < ApplicationRecord
   end
 
   def suggested_users
-    User.where('id NOT IN (?)', followings_and_user_ids)
+    User.where('id NOT IN (?)', followings_and_user_ids).order('id desc').limit(3)
   end
 end
