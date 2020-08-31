@@ -41,7 +41,6 @@ group :development, :test do
   gem 'capybara', '~> 3.33'
   gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
-  gem 'scout_apm', '~> 2.6', '>= 2.6.9'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end
@@ -51,10 +50,11 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'bullet', '~> 6.1'
+  gem 'scout_apm', '~> 2.6', '>= 2.6.9'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Rubocop is used to check errors
-  gem 'bullet', '~> 6.1'
   gem 'rubocop', '~> 0.89.0'
 end
 

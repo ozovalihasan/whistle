@@ -22,6 +22,6 @@ RSpec.describe 'whiistle', type: :system do
     find('a', text: '@hillary').click
     fill_in('whiistle_body', with: 'hi @hillary')
     click_button('Whiistle')
-    expect(page).to have_content '@hillary'
+    expect(page).to have_content 'You whiistled'
   end
 end

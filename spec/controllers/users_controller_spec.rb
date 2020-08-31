@@ -8,6 +8,7 @@ RSpec.describe UsersController, type: :controller do
                 password: 'aaaaaa', password_confirmation: 'aaaaaa')
     User.first.whiistles.create(body: 'This is a test')
     User.second.following_relations.create(followed_id: User.first.id)
+    User.first.following_relations.create(followed_id: User.second.id)
   end
 
   context 'when there is no any user signed in' do
@@ -24,9 +25,10 @@ RSpec.describe UsersController, type: :controller do
       it 'returns user, whiistles wanted and followers of the user ' do
         sign_in User.first
         get :show, params: { id: User.first.id }
-        expect(@controller.instance_variable_get(:@whiistles).size).to eq 1
         expect(@controller.instance_variable_get(:@user)).to eq User.first
         expect(@controller.instance_variable_get(:@followers)[0]).to eq User.second
+        expect(@controller.instance_variable_get(:@followings)[0]).to eq User.second
+        expect(@controller.instance_variable_get(:@whiistles).size).to eq 1
       end
     end
   end
