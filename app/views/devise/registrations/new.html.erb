@@ -4,15 +4,15 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="py-2">
             <%= f.label :username %><br />
-            <%= f.text_field :username, autofocus: true, class:"w-100" %>
+            <%= f.text_field :username, autofocus: true, required: true, class:"w-100" %>
         </div>
         <div class="py-2">
             <%= f.label :fullname %><br />
-            <%= f.text_field :fullname, autofocus: true, class:"w-100" %>
+            <%= f.text_field :fullname, autofocus: true, required: true,class:"w-100" %>
         </div>
         <div class="py-2">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-100" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, class:"w-100" %>
         </div>
         <div class="py-2">
             <div class="image-upload d-flex ">

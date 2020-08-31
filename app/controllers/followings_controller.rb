@@ -9,8 +9,7 @@ class FollowingsController < ApplicationController
     else
       flash[:alert] = following.errors.full_messages[0]
     end
-
-    redirect_to user_path(params[:followed_id])
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy

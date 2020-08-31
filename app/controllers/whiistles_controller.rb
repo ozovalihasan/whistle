@@ -16,11 +16,7 @@ class WhiistlesController < ApplicationController
       flash[:alert] = whiistle.errors.full_messages[0]
     end
 
-    if params[:whiistle][:page] == 'whiistle_index'
-      redirect_to whiistles_path
-    elsif params[:whiistle][:page] == 'user_show'
-      redirect_to user_path(params[:whiistle][:user_id].to_i)
-    end
+    redirect_back(fallback_location: root_path)
   end
 
   private

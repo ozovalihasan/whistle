@@ -3,7 +3,7 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'text-left'}) do |f| %>
         <div class="field">
             <%= f.label :username %><br />
-            <%= f.text_field :username, autofocus: true %>
+            <%= f.text_field :username, autofocus: true,required: true %>
         </div>
         <%= f.hidden_field :password,value: 'aaaaaa' %>
         <% if devise_mapping.rememberable? %>
