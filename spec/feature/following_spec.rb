@@ -11,7 +11,6 @@ RSpec.describe 'following', type: :system do
   it 'feature provides following any user by using plus button ' do
     do_login(User.second.username)
     find('a', text: '@hillary').click
-
     find('.fa-plus').click
     expect(page).to have_content "1\nFollowing"
   end

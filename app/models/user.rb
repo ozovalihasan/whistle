@@ -12,7 +12,8 @@ class User < ApplicationRecord
 
   has_many :following_relations, dependent: :destroy, class_name: 'Following', foreign_key: 'user_id'
   has_many :followings, through: :following_relations, source: :follower
-  has_many :followed_relations, -> { descending_order }, dependent: :destroy, class_name: 'Following', foreign_key: 'followed_id'
+  has_many :followed_relations, -> { descending_order },
+           dependent: :destroy, class_name: 'Following', foreign_key: 'followed_id'
   has_many :followers, through: :followed_relations, source: :following
 
   def followings_and_user_ids
