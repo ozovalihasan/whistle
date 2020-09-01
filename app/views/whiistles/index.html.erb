@@ -1,0 +1,21 @@
+<div class='bg-fourth-color d-flex flex-grow-1'>
+    <div class='center w-100 p-4'>
+        <%= form_with model: @whiistle, class: "p-4 bg-white rounded border" do |f| %>
+            <%= f.label "Whiistle something", class: "py-2 text-uppercase" %> <br>
+            <%= f.text_area :body, class: "p-2 w-100 border", rows: "4", placeholder: 'Write a whiistle' %>
+            <div class="d-flex justify-content-end pt-2">
+                <%= f.submit "Whiistle", name:'submit', class: "custom_button"  %>
+            </div>
+        <% end %>
+        <div class="p-4 bg-white mt-4 rounded border">
+            <div class="pb-4 text-second-color border-bottom">
+                <h1> <%= pluralize(@whiistles.size, 'Whiistle') %></h1>
+            </div >
+            <%= render 'whiistles/list_whiistles', whiistles: @whiistles %>
+        </div>
+    </div>
+    <div class='sidebar-right border-left flex-shrink-0'>
+        <h1 class="py-4 pl-4 text-third-color border-bottom">Who To Follow</h1>
+        <%= render 'users/list_users', users: @suggested_users %>
+    </div>
+</div>
