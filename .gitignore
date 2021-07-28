@@ -48,3 +48,4 @@ yarn-debug.log*
 package-lock.json
 .rubocop.yml
 
+.env

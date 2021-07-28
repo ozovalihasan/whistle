@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_819_081_840) do # rubocop:todo Metrics/BlockLength
+ActiveRecord::Schema.define(version: 20_210_726_110_622) do
   create_table 'active_storage_attachments', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20_200_819_081_840) do # rubocop:todo Metri
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'username'
     t.string 'fullname'
+    t.string 'provider'
+    t.string 'uid'
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
     t.index ['username'], name: 'index_users_on_username', unique: true

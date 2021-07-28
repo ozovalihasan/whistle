@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem 'bootstrap', '~> 4.6.0'
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'faker', '~> 2.13'
 gem 'hirb', '~> 0.7.3'
@@ -67,4 +68,7 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'dotenv-rails', groups: %i[development test]
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
