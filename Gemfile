@@ -63,8 +63,10 @@ group :test do
   gem 'shoulda-matchers', '~> 4.3'
   # Adds support for Capybara system testing and selenium driver
   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers', '~> 4.4', '>= 4.4.1'
+  unless ENV["DOCKER_ACTIVE"]
+    # Easy installation and use of web drivers to run system tests with browsers
+    gem 'webdrivers', '~> 4.4', '>= 4.4.1'
+  end
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

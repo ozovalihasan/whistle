@@ -62,6 +62,18 @@ Please [check](https://whiistle.herokuapp.com/). You may use 'anonymous' as user
 ```
 
 - If [rootless mode of Docker](https://docs.docker.com/engine/security/rootless/) is used, `sudo` is not necessary.
+
+### Test on Docker
+
+- Run 
+
+``` 
+    sudo docker compose run --rm web rspec
+```
+
+- Please check [the article of Plymouth Software](https://www.plymouthsoftware.com/articles/rails-on-docker-system-specs-in-containers-with-rspec-capybara-chrome-and-selenium)
+
+
 ## Deploy to Heroku
 
 - Sign in [Heroku](https://www.heroku.com/).

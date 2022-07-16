@@ -15,6 +15,11 @@ COPY yarn.lock /myapp/yarn.lock
 RUN bundle install
 RUN yarn install
 
+# Install google-chrome for debian
+# RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# RUN apt install -y ./google-chrome-stable_current_amd64.deb
+
+
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

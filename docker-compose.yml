@@ -15,3 +15,11 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - chrome-server # <-- Link to the chrome container
+    environment:
+      HUB_URL: http://chrome-server:4444
+      DOCKER_ACTIVE: true
+  chrome-server:
+    image: selenium/standalone-chrome:96.0
+    volumes:
+      - /dev/shm:/dev/shm

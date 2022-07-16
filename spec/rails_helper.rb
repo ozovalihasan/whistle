@@ -33,6 +33,22 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+Capybara.register_driver :chrome_headless_docker do |app|_docker
+  chrome_capabilities = ::Selenium::WebDriver::Remote::Capabilities.chrome('goog:chromeOptions' => { 'args': %w[no-sandbox headless disable-gpu window-size=1400,1400] })
+
+  if ENV['HUB_URL']
+    Capybara::Selenium::Driver.new(app,
+                                   browser: :remote,
+                                   url: ENV['HUB_URL'],
+                                   desired_capabilities: chrome_capabilities)
+  else
+    
+    Capybara::Selenium::Driver.new(app,
+                                   browser: :chrome,
+                                   desired_capabilities: chrome_capabilities)
+  end
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -94,6 +110,16 @@ RSpec.configure do |config|
   end
 
   config.include Devise::TestHelpers, type: :controller
+
+  config.before(:each, type: :system) do
+    if ENV['HUB_URL']
+      driven_by :chrome_headless_docker
+      Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:3000"
+      Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
+      Capybara.server_port = 3000
+    end
+  end
+
 end
 
 # Datacleaner doesn't delete  everything how I expected
