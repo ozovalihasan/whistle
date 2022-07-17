@@ -33,20 +33,13 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-Capybara.register_driver :chrome_headless_docker do |app|_docker
+Capybara.register_driver :chrome_headless_docker do |app|
   chrome_capabilities = ::Selenium::WebDriver::Remote::Capabilities.chrome('goog:chromeOptions' => { 'args': %w[no-sandbox headless disable-gpu window-size=1400,1400] })
 
-  if ENV['HUB_URL']
-    Capybara::Selenium::Driver.new(app,
-                                   browser: :remote,
-                                   url: ENV['HUB_URL'],
-                                   desired_capabilities: chrome_capabilities)
-  else
-    
-    Capybara::Selenium::Driver.new(app,
-                                   browser: :chrome,
-                                   desired_capabilities: chrome_capabilities)
-  end
+  Capybara::Selenium::Driver.new(app,
+                                browser: :remote,
+                                url: ENV['HUB_URL'],
+                                desired_capabilities: chrome_capabilities)
 end
 
 RSpec.configure do |config|
@@ -112,11 +105,13 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
 
   config.before(:each, type: :system) do
-    if ENV['HUB_URL']
+    if ENV['DOCKER_ACTIVE']
       driven_by :chrome_headless_docker
-      Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:3000"
+      Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:3001"
       Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
-      Capybara.server_port = 3000
+      Capybara.server_port = 3001
+    else
+      driven_by :selenium_chrome_headless
     end
   end
 
@@ -129,5 +124,3 @@ def delete_all_tables
   User.destroy_all
   Whiistle.destroy_all
 end
-
-Capybara.default_driver = :headless_chrome
