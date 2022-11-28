@@ -5,8 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :email, uniqueness: { case_sensitive: false }, presence: true        
-        
+  validates :username, uniqueness: true, presence: true
+  validates :fullname, presence: true
+
+  has_one_attached :profile_picture
+  has_one_attached :cover_image
+
   has_many :whiistles
+  
   has_many :followed_relations, class_name: "Relation", foreign_key: "followed_id"
   has_many :followings, through: :followed_relations
   has_many :following_relations, class_name: "Relation", foreign_key: "following_id"
