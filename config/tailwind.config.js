@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -8,10 +9,15 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      first: "#15202b",
+      second: "#1da1f2",
+      third: "#657786",
+      fourth: "#f5f8fa",
+      sixth: "#9ab3c7",
+      danger: colors.red,
     },
   },
   plugins: [
