@@ -20,6 +20,11 @@ module.exports = {
       sixth: "#9ab3c7",
       danger: colors.red,
     },
+    extend: {
+      blur: {
+        xs: '2px',
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

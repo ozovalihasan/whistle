@@ -19,57 +19,5 @@
             </div>
         </div>
     </div>
-    <div class='sidebar-right border-left flex-shrink-0'>
-        <div class='text-center pt-4 '>
-            <div class="flex">
-                <div class="flex align-items-center mx-auto">
-                    <%= add_delete_following(@user) %>
-                    <%= image_tag( show_profile_picture(@user.profile_picture), size: '50x50', class: 'rounded-circle border') %>
-                    <a href="#">
-                        <i class="border rounded-circle fas fa-list p-2 mx-2"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="py-2 text-dark">
-                <%= @user.fullname %>
-            </div>
-            <div class="pb-3 ">
-                @<%= @user.username %>
-            </div>
-        </div>
-        <div class="flex ">
-            <div class="border border-light-color text-center col-4 py-2 px-0">
-                <div class="text-dark w-100">
-                    <%= @whiistles.size %>
-                </div>
-                <a href="#">
-                    <div>
-                        Whiistles
-                    </div>
-                </a>
-            </div>
-            <div class="border border-light-color text-center col-4 py-2 px-0">
-                <div class="text-dark w-100">
-                    <%= @followings.size %>
-                </div>
-                <a href="#">
-                    <div>
-                        Followings
-                    </div>
-                </a>
-            </div>
-            <div class="border border-light-color text-center col-4 py-2 px-0">
-                <div class="text-dark w-100">
-                    <%= @followers.size %>
-                </div>
-                <a href="#">
-                    <div>
-                        Followers
-                    </div>
-                </div>
-            </a>
-        </div>
-        <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
-        <%= render 'list_users', users: @followers  %>
-    </div>
+    <%= render "sidebar_right" %>
 </div>
