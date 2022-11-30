@@ -20,6 +20,10 @@ module.exports = {
       sixth: "#9ab3c7",
       danger: colors.red,
     },
+    fontFamily: {
+      'sans': ['Lato', ...defaultTheme.fontFamily.sans],
+
+    },
     extend: {
       blur: {
         xs: '2px',
