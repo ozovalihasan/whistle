@@ -9,6 +9,6 @@ class Relation < ApplicationRecord
   scope :descending_order, -> { order(created_at: :desc) }
 
   def user_and_followed_unique
-    errors.add(:base, 'Users cannot follow themselves') if user_id == followed_id
+    errors.add(:base, 'Users cannot follow themselves') if following_id == followed_id
   end
 end
