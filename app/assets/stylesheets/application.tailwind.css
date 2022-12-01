@@ -11,11 +11,17 @@
   .btn {
     @apply flex justify-center items-center
     rounded-md cursor-pointer
-    border border-solid
+    
   }
   
   .btn-first {
-    @apply btn bg-second hover:bg-second hover:brightness-90 
+    @apply btn bg-second hover:brightness-90 
+    text-first stroke-first 
+    border-first hover:border-first;
+  }
+  
+  .btn-second {
+    @apply btn border border-solid bg-fourth hover:brightness-90 
     text-first stroke-first 
     border-first hover:border-first;
   }
