@@ -1,13 +1,13 @@
  <% users.with_attached_profile_picture.each do |user| %>
-    <div class="flex">
+    <div class="flex w-full">
         <%= link_to user_path(user), class:"hover-image" do %>
-            <div class="px-4 py-2 flex">
+            <div class="px-4 py-2 flex w-full">
                 <%= image_tag( show_profile_picture(user.profile_picture), size: '50x50', class: 'rounded-circle') %>
-                <div class="pl-2 flex flex-column justify-content-center">
-                    <div class="text-dark">
+                <div class="pl-2 flex flex-col self-center">
+                    <div class="text-ellipsis">
                         <%= user.fullname %>
                     </div>
-                    <div>
+                    <div class=" text-ellipsis">
                         @<%= user.username %>
                     </div>
                 </div>
