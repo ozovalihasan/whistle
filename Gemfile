@@ -67,5 +67,15 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem 'rspec-rails', '~> 6.0.0'
+  gem 'database_cleaner-active_record', '~> 2.0', '>= 2.0.1'
+  gem 'shoulda-matchers', '~> 5.2'
+  gem 'capybara'
+  gem 'webdrivers', '~> 5.2'
+end
+
 gem "devise"
 gem "simple_form"
+gem "factory_bot_rails"
+gem "faker"
