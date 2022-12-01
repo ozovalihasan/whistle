@@ -1,0 +1,205 @@
+{
+    "version": "0.4.5",
+    "idCounter": 30,
+    "associationType": "has_many",
+    "nodes": [
+        {
+            "id": "16",
+            "type": "entity",
+            "position": {
+                "x": 435,
+                "y": 285
+            },
+            "data": {
+                "tableId": "14",
+                "name": "following_relation"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 435,
+                "y": 285
+            },
+            "dragging": false
+        },
+        {
+            "id": "17",
+            "type": "entity",
+            "position": {
+                "x": 420,
+                "y": 15
+            },
+            "data": {
+                "tableId": "13",
+                "name": "following"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 420,
+                "y": 15
+            },
+            "dragging": false
+        },
+        {
+            "id": "19",
+            "type": "entity",
+            "position": {
+                "x": 690,
+                "y": 15
+            },
+            "data": {
+                "tableId": "13",
+                "name": "followed"
+            },
+            "selected": true,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 690,
+                "y": 15
+            },
+            "dragging": false
+        },
+        {
+            "id": "21",
+            "type": "entity",
+            "position": {
+                "x": 705,
+                "y": 300
+            },
+            "data": {
+                "tableId": "14",
+                "name": "followed_relation"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 705,
+                "y": 300
+            },
+            "dragging": false
+        },
+        {
+            "id": "23",
+            "type": "entity",
+            "position": {
+                "x": 210,
+                "y": 255
+            },
+            "data": {
+                "tableId": "22",
+                "name": "whiistle"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 210,
+                "y": 255
+            },
+            "dragging": false
+        },
+        {
+            "id": "28",
+            "type": "entity",
+            "position": {
+                "x": 210,
+                "y": 15
+            },
+            "data": {
+                "tableId": "13",
+                "name": "User"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 210,
+                "y": 15
+            },
+            "dragging": false
+        }
+    ],
+    "edges": [
+        {
+            "id": "18",
+            "source": "17",
+            "target": "16",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "25",
+            "source": "17",
+            "target": "19",
+            "sourceHandle": "bottom3",
+            "targetHandle": "top",
+            "label": "through",
+            "type": "through",
+            "data": {
+                "throughNodeId": "16"
+            }
+        },
+        {
+            "id": "26",
+            "source": "19",
+            "target": "17",
+            "sourceHandle": "bottom3",
+            "targetHandle": "top",
+            "label": "through",
+            "type": "through",
+            "data": {
+                "throughNodeId": "21"
+            }
+        },
+        {
+            "id": "27",
+            "source": "19",
+            "target": "21",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "29",
+            "source": "28",
+            "target": "23",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        }
+    ],
+    "tables": {
+        "13": {
+            "name": "User",
+            "attributes": {},
+            "superclassId": ""
+        },
+        "14": {
+            "name": "Relation",
+            "attributes": {},
+            "superclassId": ""
+        },
+        "22": {
+            "name": "whiistle",
+            "attributes": {},
+            "superclassId": ""
+        }
+    },
+    "connectionStartNodeId": "28",
+    "isConnectContinue": false,
+    "isMouseOnNode": false,
+    "isMouseOnEdge": false,
+    "mouseOnNodeId": null,
+    "mouseOnEdgeId": null,
+    "selectedNodeIdForThrough": null,
+    "needFitView": false
+}
