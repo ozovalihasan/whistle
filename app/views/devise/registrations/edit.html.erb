@@ -1,28 +1,31 @@
-<div class="self-center py-12">
+<%= simple_form_for resource, url: registration_path(resource_name) do |f| %>
+  <h2 class="text-center pb-8">Edit <%= resource_name.to_s.humanize %></h2>
+  
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <%= f.input :username, required: true %>
+  <%= f.input :fullname, required: true %>
+  <%= f.input :email, placeholder: 'example@example.com' %>
+  
+  <div class="flex py-2">
+    <%= f.label :cover_image, class: "mr-auto self-center" %>
+    <%= f.input :cover_image, as: :file, label: "Choose", wrapper: :file_wrapper %>
+  </div>
 
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <div class="flex py-2">
+    <%= f.label :profile_picture, class: "mr-auto self-center" %>
+    <%= f.input :profile_picture, as: :file, label: "Choose", wrapper: :file_wrapper %>
+  </div>
 
-  <%= simple_form_for resource, html: { class: "w-96" }, url: registration_path(resource_name) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <%= f.input :current_password, as: :hidden, input_html: {value: 'aaaaaa'} %>
 
-    <%= f.input :username, required: true %>
-    <%= f.input :fullname, required: true %>
-    <%= f.input :email, placeholder: 'example@example.com' %>
-    
-    <div class="flex py-2">
-      <%= f.label :cover_image, class: "mr-auto" %>
-      <%= f.input :cover_image, as: :file, label: "Choose", wrapper: :file_wrapper %>
-    </div>
+  <%= f.button :submit, "Update" %>
 
-    <div class="flex py-2">
-      <%= f.label :profile_picture, class: "mr-auto" %>
-      <%= f.input :profile_picture, as: :file, label: "Choose", wrapper: :file_wrapper %>
-    </div>
-
-    <%= f.submit "Update" %>
-    
+  <%= link_to user_registration_path, class: "btn-first py-2 px-4 mb-8 my-4", data: { "turbo-method": :delete } do %>
+  <div class="w-auto">
+    Delete account
+  </div>
   <% end %>
+<% end %>
 
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { turbo_confirm: "Are you sure?" }, method: :delete %></p>
 
-</div>
