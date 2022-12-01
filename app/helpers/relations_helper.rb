@@ -1,10 +1,11 @@
 module RelationsHelper
-  def add_delete_following(user)
-    if user.followeds.pluck(:id).include? current_user.id
-      render 'users/delete_following', user: user
+  def add_delete_following(user, relation)
+    if relation
+      render 'users/delete_following', relation: relation
+    elsif current_user.id != user.id
+      render 'users/add_following', user_id: user.id
     else
-      render 'users/add_following', user: user
-
+      ""
     end
   end
 end
