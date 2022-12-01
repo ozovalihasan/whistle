@@ -1,26 +1,30 @@
 class RelationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_relation, only: [:destroy]
 
   def create
-    following = Following.new(user_id: current_user.id, followed_id: params[:followed_id])
+    @relation = Relation.new(relation_params.merge following_id: current_user.id)
 
-    if following.save
-      flash[:notice] = "You started to follow #{User.find(params[:followed_id]).fullname}"
+    if @relation.save
+      flash[:notice] = "You started to follow #{User.find(@relation.followed_id).fullname}"
     else
-      flash[:alert] = following.errors.full_messages[0]
+      flash[:alert] = @relation.errors.full_messages[0]
     end
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    following = Following.find_by(user_id: current_user.id, followed_id: params[:followed_id])
-    if following
-      following.destroy
-      flash[:notice] = "You gave up to follow #{User.find(params[:followed_id]).fullname}"
-    else
-      flash[:alert] = "These users aren\'t following each other"
-    end
-    redirect_to user_path(params[:followed_id])
+    @relation.destroy
+    flash[:notice] = "You gave up to follow #{User.find(@relation.followed_id).fullname}"
+  end
+
+  private 
+
+  def set_relation
+    @relation = Relation.find(params[:id])
+  end
+
+  def relation_params
+    params.require(:relation).permit(:followed_id)
   end
 end
   
