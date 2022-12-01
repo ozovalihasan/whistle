@@ -1,0 +1,18 @@
+
+<% if @relation.saved_changes? %>
+    <%= turbo_stream.update "relation_user_#{@relation.followed_id}" do %>
+        ✓ Followed
+    <% end %>
+
+
+    <%= turbo_stream.update "create_delete_relation" do %>
+        <%= render 'users/delete_following', relation: @relation  %>
+    <% end %>
+<% end %>
+
+
+
+<%= turbo_stream.update "flashes" do %>
+    <%= check_notice %>
+    <%= check_alert %>
+<% end %>
