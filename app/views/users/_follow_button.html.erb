@@ -1,4 +1,4 @@
       
-<div class="ml-auto mr-2 my-2 justify-content-center flex">
-    <%= link_to  "Follow", followings_path(followed_id: user.id), method: :post, class:"ml-auto  flex justify-content-center flex-column custom_button my-2" %>
+<div class="ml-auto mr-2 my-2 justify-content-center flex" id=<%= dom_id(user, :relation) %>>
+    <%= button_to "Follow", relations_path(params: {relation: {followed_id: user.id}}) %>
 </div>
