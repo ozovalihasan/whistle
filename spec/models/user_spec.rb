@@ -22,7 +22,6 @@ RSpec.describe User, type: :model do
   end
 
   it 'is valid with valid attributes' do
-    FactoryBot.reload
     FactoryBot.create(:mock_user)
     
     expect(User.first).to be_valid
