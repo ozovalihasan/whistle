@@ -13,7 +13,7 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, tag: 'div', class: "bg-second flex flex-col",
+  config.wrappers :default, tag: 'div', class: "flex flex-col",
     hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
@@ -53,7 +53,8 @@ SimpleForm.setup do |config|
 
     ## Inputs
     # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :label_input
+    b.use :label, class: "py-2"
+    b.use :input, class: "p-1"
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
 
@@ -74,7 +75,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'btn-first py-2 px-4 mb-8 my-4'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -114,7 +115,7 @@ SimpleForm.setup do |config|
 
   # You can define the default class to be used on forms. Can be overriden
   # with `html: { :class }`. Defaulting to none.
-  # config.default_form_class = nil
+  config.default_form_class = "self-center my-8 py-8 px-4 bg-second bg-opacity-5 w-96"
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
@@ -177,7 +178,7 @@ SimpleForm.setup do |config|
   config.wrappers :file_wrapper, tag: 'div', class: "flex flex-col" do |b|
     b.use :html5
 
-    b.use :label, class: "btn btn-first py-2 px-4"
+    b.use :label, class: "btn-second py-2 px-4"
     b.use :input, class: "hidden"
     
   end
