@@ -1,4 +1,4 @@
-<div class="ml-auto text-xl flex self-center gap-4">
+<div class="ml-auto w-1/4 text-xl flex justify-evenly flex-row self-center  text-fourth brightness-90 [&>a:hover]:brightness-75">
     <a href="#">
         <i class="bi bi-pencil-fill"></i>
     </a>
@@ -11,7 +11,7 @@
     <%= link_to edit_user_registration_path do %>
         <i class="bi bi-gear-fill"></i>
     <% end %>
-    <%= link_to destroy_user_session_path, method: :delete do %>
+    <%= button_to destroy_user_session_path, method: :delete do %>
         <i class="bi bi-box-arrow-right"></i>
     <% end %>
 </div>
