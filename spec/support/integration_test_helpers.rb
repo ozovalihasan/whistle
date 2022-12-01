@@ -19,3 +19,7 @@ module IntegrationTestHelpers
     find('.fa-sign-out-alt').click
   end
 end
+
+RSpec.configure do |config|
+  config.include IntegrationTestHelpers, type: :feature
+end
