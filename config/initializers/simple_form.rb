@@ -183,4 +183,12 @@ SimpleForm.setup do |config|
     
   end
 
+  config.wrappers :whiistle_wrapper, tag: 'div', class: "flex flex-col" do |b|
+    b.use :html5
+
+    b.use :label, class: "py-2"
+    b.use :input, class: "rounded-md border border-solid", size: "60x4"
+  end
+
+
 end
