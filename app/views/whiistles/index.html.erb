@@ -1,18 +1,21 @@
+<div class='flex grow'>
+    <div class='p-4 w-2/3'>
         <%= simple_form_for @whiistle, html: { class: "w-full" } do |f| %>
           <%= f.input :body, as: :text, label: "Whiistle something", wrapper: :whiistle_wrapper %>
           <div class="float-right">
             <%= f.button :submit, "Whiistle" %>
           </div>
         <% end %>
-        <div class="p-4 bg-white mt-4 rounded border">
-            <div class="pb-4 text-second-color border-bottom">
+        
+        <div class="p-4 mt-4 ">
+            <div class="pb-4 text-second-color">
                 <h1> <%= pluralize(@whiistles.size, 'Whiistle') %></h1>
             </div >
             <%= render 'whiistles/list_whiistles', whiistles: @whiistles %>
         </div>
     </div>
-    <div class='sidebar-right border-left flex-shrink-0'>
-        <h1 class="py-4 pl-4 text-third-color border-bottom">Who To Follow</h1>
+    <div class='sidebar-right w-1/3'>
+        <h1 class="py-4 pl-4">Who To Follow</h1>
         <%= render 'users/list_users', users: @suggested_users %>
     </div>
 </div>
