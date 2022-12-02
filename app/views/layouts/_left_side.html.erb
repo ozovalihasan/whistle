@@ -15,17 +15,17 @@
     <div class="flex px-0 py-3 w-full self-center mx-auto [&>a:hover]:text-sixth">
             
         <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="#">
-            <div class="font-bold text-sixth" >
-                <%=  current_user.followings.size %>
+            <div id="left-side-followings-counter" class="font-bold text-sixth" >
+                <%=  current_user.followeds.size %>
             </div>
             <div>
-                Following
+                Followings
             </div>
         </a>
             
         <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="#">
-            <div class=" font-bold text-sixth" >
-                <%=  current_user.followeds.size %>
+            <div id="left-side-followers-counter" class=" font-bold text-sixth" >
+                <%=  current_user.followings.size %>
             </div>
             <div>
                 Followers
