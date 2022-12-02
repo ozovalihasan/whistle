@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'whiistle', type: :system do
+RSpec.describe 'whiistle', type: :feature do
   before :each do
     User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@email.com',
                    password: 'aaaaaa', password_confirmation: 'aaaaaa' },
