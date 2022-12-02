@@ -3,6 +3,10 @@
     <%= check_alert %>
 <% end %>
 
+<%= turbo_stream.update "left-side-followings-counter" do %>
+    <%=  current_user.followeds.size %>
+<% end %>
+
 <%= turbo_stream.update "create_delete_relation" do %>
     <%= render 'users/add_following', user_id: @relation.followed_id %>
 <% end %>

@@ -8,6 +8,10 @@
     <%= turbo_stream.update "create_delete_relation" do %>
         <%= render 'users/delete_following', relation: @relation  %>
     <% end %>
+
+    <%= turbo_stream.update "left-side-followings-counter" do %>
+        <%=  current_user.followeds.size %>
+    <% end %>
 <% end %>
 
 
