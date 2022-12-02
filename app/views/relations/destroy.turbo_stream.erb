@@ -7,6 +7,10 @@
     <%=  current_user.followeds.size %>
 <% end %>
 
+<%= turbo_stream.update dom_id(@relation.followed, :followeds)  do %>
+    <%=  @relation.followed.followings.size %>
+<% end %>
+
 <%= turbo_stream.update "create_delete_relation" do %>
     <%= render 'users/add_following', user_id: @relation.followed_id %>
 <% end %>

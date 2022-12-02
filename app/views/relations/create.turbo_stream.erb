@@ -12,6 +12,10 @@
     <%= turbo_stream.update "left-side-followings-counter" do %>
         <%=  current_user.followeds.size %>
     <% end %>
+
+    <%= turbo_stream.update dom_id(@relation.followed, :followeds)  do %>
+        <%=  @relation.followed.followings.size %>
+    <% end %>
 <% end %>
 
 
