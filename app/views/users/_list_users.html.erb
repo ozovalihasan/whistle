@@ -1,4 +1,4 @@
- <% users.with_attached_profile_picture.each do |user| %>
+ <% users.each do |user| %>
     <div class="flex w-full">
         <%= link_to user_path(user), class:"hover-image" do %>
             <div class="px-4 py-2 flex w-full">
