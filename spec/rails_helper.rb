@@ -67,6 +67,7 @@ RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
 
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :feature
 
   Shoulda::Matchers.configure do |conf|
     conf.integrate do |with|
