@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :whiistles, only: %i[index create]
-  resources :users, only: [:show]
+  resources :users, only: [:show] do 
+    resources :followings, only: [:index], controller: "users/followings"
+    
+  end
   resources :relations, only: %i[create destroy]
   root 'whiistles#index'
 

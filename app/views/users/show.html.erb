@@ -31,7 +31,9 @@
                 </div>
 
                 <div class="hidden py-4 px-4 border-l border-b border-r " data-tabs-target="panel">
-                    Tab panel 2
+                    <turbo-frame id=<%=  dom_id(@user, :followings) %> src=<%= user_followings_path(@user) %> loading="lazy">
+                        <div>Mock spinner</div>
+                    </turbo-frame>
                 </div>
             </div>
 

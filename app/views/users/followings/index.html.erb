@@ -1,0 +1,3 @@
+<turbo-frame id=<%=  dom_id(@user, :followings) %> %>
+  <%= render 'users/list_users', users: @followings  %>
+</turbo-frame>
