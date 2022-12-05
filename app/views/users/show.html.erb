@@ -11,6 +11,9 @@
                 <li id="following" class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
                     <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Following</a>
                 </li>
+                <li id="following" class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Followers</a>
+                </li>
                 
             </ul>
 
@@ -32,6 +35,12 @@
 
                 <div class="hidden py-4 px-4 border-l border-b border-r " data-tabs-target="panel">
                     <turbo-frame id=<%=  dom_id(@user, :followings) %> src=<%= user_followings_path(@user) %> loading="lazy">
+                        <div>Mock spinner</div>
+                    </turbo-frame>
+                </div>
+
+                <div class="hidden py-4 px-4 border-l border-b border-r " data-tabs-target="panel">
+                    <turbo-frame id=<%=  dom_id(@user, :followers) %> src=<%= user_followers_path(@user) %> loading="lazy">
                         <div>Mock spinner</div>
                     </turbo-frame>
                 </div>

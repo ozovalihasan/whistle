@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :whiistles, only: %i[index create]
   resources :users, only: [:show] do 
     resources :followings, only: [:index], controller: "users/followings"
+    resources :followers, only: [:index], controller: "users/followers"
     
   end
   resources :relations, only: %i[create destroy]
