@@ -7,10 +7,10 @@ export default class extends Tabs {
     this.activeTabClasses = (this.data.get('activeTab') || 'active').split(' ')
     this.inactiveTabClasses = (this.data.get('inactiveTab') || 'inactive').split(' ')
     if (this.anchor) this.index = this.tabTargets.findIndex((tab) => tab.id === this.anchor)
-    this.showTab()
+    this.showTab(false)
   }
 
-  showTab() {
+  showTab(update_anchor = true) {
     this.tabTargets.forEach((tab, index) => {
       const panel = this.panelTargets[index]
 
@@ -21,7 +21,7 @@ export default class extends Tabs {
 
         // Update URL with the tab ID if it has one
         // This will be automatically selected on page load
-        if (tab.id) {
+        if (tab.id && update_anchor) {
           location.hash = tab.id
         }
       } else {
