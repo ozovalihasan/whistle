@@ -4,7 +4,7 @@ import { application } from "controllers/application"
 
 // Eager load all controllers defined in the import map under controllers/**/*_controller
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
-import Tabs from "./custom_tabs_controller"
+import { Tabs } from "tailwindcss-stimulus-components"
 
 eagerLoadControllersFrom("controllers", application)
 application.register('tabs', Tabs)

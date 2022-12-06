@@ -1,0 +1,89 @@
+<div class='bg-fourth flex grow'>
+    <div class="w-2/3">
+        <div style="background-image: url('<%= cover_image_url(@user) %>');", class="h-60 bg-cover bg-center w-full bg-third">
+        </div>
+
+        <div data-controller="tabs" data-tabs-active-tab="border-b border-solid border-second" data-tabs-index=<%= active_tab %>>
+            <ul class="list-reset flex">
+                <li class="-mb-px mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Whiistles</a>
+                </li>
+                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Following</a>
+                </li>
+                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Followers</a>
+                </li>
+                
+            </ul>
+
+            <div class="py-4 px-4 border-l border-b border-r border-solid" >
+                <div id=<%= dom_id(@user, :followings1) %> class="hidden py-4 px-4 border-l border-b border-r " data-tabs-target="panel">
+                    <% if active_tab == 0 %>
+                        <turbo-frame id=<%= dom_id(@user, :whiistles) %> >
+                            <%= simple_form_for @whiistle, html: { class: "w-full" } do |f| %>
+                                <%= f.input :body, as: :text, label: "Whiistle to #{@user.fullname}", wrapper: :whiistle_wrapper, value: "@#{@user.username} " %>
+                                <div class="float-right">
+                                    <%= f.button :submit, "Whiistle" %>
+                                </div>
+                            <% end %>
+                            <div class="p-4 mt-4">
+                                <div class="pb-4 text-second-color border-bottom">
+                                    <h1> <%= pluralize(@whiistles.size, 'Whiistle') %></h1>
+                                </div>
+                                <%= render 'whiistles/list_whiistles',whiistles: @whiistles %>
+                            </div> 
+                        </turbo-frame>
+                    <% else %>
+                        <turbo-frame id=<%= dom_id(@user, :whiistles) %> src=<%= user_path(@user) %> loading="lazy" >
+                            <div>Mock spinner</div>
+                        </turbo-frame>
+                    <% end %>
+                    
+                </div>
+
+                <div class="hidden py-4 px-4 border-l border-b border-r " data-tabs-target="panel">
+                    <% if active_tab == 1 %>
+                        <turbo-frame id=<%= dom_id(@user, :followings) %> >
+                            <% if @followings.present? %>
+                                <%= render 'users/list_users', users: @followings  %>
+                            <% else %>
+                                <%= @user.fullname %> doesn't follow anyone.
+                            <% end %>
+                        </turbo-frame>
+                    <% else %>
+                        <%= turbo_frame_tag dom_id(@user, :followings), src: user_followings_path(@user), loading: :lazy do %>
+                        
+                            <div>Mock spinner</div>
+
+                        <% end %>
+                    <% end %>
+                </div>
+
+                <div class="hidden py-4 px-4 border-l border-b border-r " data-tabs-target="panel">
+                    <% if active_tab == 2 %>
+                        <turbo-frame id=<%= dom_id(@user, :followers) %> >
+                            <% if @followers.present? %>
+                                <%= render 'users/list_users', users: @followers  %>
+                            <% else %>
+                                <%= @user.fullname %> doesn't have any follower.
+                            <% end %>
+                        </turbo-frame>
+                    <% else %>
+                        <turbo-frame id=<%= dom_id(@user, :followers) %> src=<%= user_followers_path(@user) %> loading="lazy" >
+                            <div>Mock spinner</div>
+                        </turbo-frame>
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        
+    </div>
+    <div class="w-1/3">
+        <%= render "users/sidebar_right" %>
+    </div>
+</div>

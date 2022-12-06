@@ -1,8 +1,1 @@
-<turbo-frame id=<%=  dom_id(@user, :followings) %> %>
-
-  <% if @followings.present? %>
-    <%= render 'users/list_users', users: @followings  %>
-  <% else %>
-    <%= @user.fullname %> doesn't follow anyone.
-  <% end %>
-</turbo-frame>
+<%= render partial: "users/tabs", locals: { active_tab: 1 } %>
