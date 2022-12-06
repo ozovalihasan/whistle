@@ -21,7 +21,7 @@ export default class extends Tabs {
 
         // Update URL with the tab ID if it has one
         // This will be automatically selected on page load
-        if (tab.id && update_anchor) {
+        if (tab.id  && update_anchor) {
           location.hash = tab.id
         }
       } else {
