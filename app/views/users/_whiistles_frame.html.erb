@@ -1,0 +1,14 @@
+<turbo-frame id=<%= dom_id(@user, :whiistles) %> >
+    <%= simple_form_for @whiistle, html: { class: "w-full" } do |f| %>
+        <%= f.input :body, as: :text, label: "Whiistle to #{@user.fullname}", wrapper: :whiistle_wrapper, value: "@#{@user.username} " %>
+        <div class="float-right">
+            <%= f.button :submit, "Whiistle" %>
+        </div>
+    <% end %>
+    <div class="p-4 mt-4">
+        <div class="pb-4 text-second-color border-bottom">
+            <h1> <%= pluralize(@whiistles.size, 'Whiistle') %></h1>
+        </div>
+        <%= render 'whiistles/list_whiistles',whiistles: @whiistles %>
+    </div> 
+</turbo-frame>
