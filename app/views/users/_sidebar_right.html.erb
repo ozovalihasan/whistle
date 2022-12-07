@@ -19,37 +19,31 @@
         </div>
     </div>
     <div class="flex w-full content-evenly">
-        <div class="border border-x-0 text-center col-4 py-2 w-1/3">
+        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_path(@user) %> >
             <div class="text-dark w-full">
                 <%= @whiistles.size %>
             </div>
-            <a href="#">
-                <div>
-                    Whiistles
-                </div>
-            </a>
-        </div>
-        <div class="border text-center col-4 py-2 w-1/3">
+            <div>
+                Whiistles
+            </div>
+        </a>
+        <a class="border text-center col-4 py-2 w-1/3" href=<%=  user_followings_path(@user) %> >
             <div class="text-dark w-full">
                 <%= @followings.size %>
             </div>
-            <a href="#">
-                <div>
-                    Followings
-                </div>
-            </a>
-        </div>
-        <div class="border border-x-0 text-center col-4 py-2 w-1/3">
+            <div>
+                Followings
+            </div>
+        </a>
+        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_followers_path(@user)  %> >
             <div id=<%= dom_id @user, :followeds %> class="text-dark w-full">
                 <%= @followeds.size %>
             </div>
-            <a href="#">
-                <div>
-                    Followers
-                </div>
+            <div>
+                Followers
             </div>
         </a>
     </div>
     <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
-    <%= render 'users/list_users', users: @followeds  %>
+    <%= render 'users/list_users', users: @followeds - [ current_user ]  %>
 </div>
