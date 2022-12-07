@@ -1,6 +1,6 @@
  <% users.each do |user| %>
     <div class="flex w-full">
-        <%= link_to user_path(user), class:"hover-image" do %>
+        <%= link_to user_whiistles_path(user), class:"hover-image" do %>
             <div class="px-4 py-2 flex w-full">
                 <%= image_tag( show_profile_picture(user.profile_picture), size: '50x50', class: 'rounded-circle') %>
                 <div class="pl-2 flex flex-col self-center">

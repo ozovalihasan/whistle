@@ -27,7 +27,7 @@ RSpec.describe 'relation', type: :feature do
     User.first.following_relations.create(followed_id: User.second.id)
     
     sign_in User.first
-    visit user_path(User.second)
+    visit user_whiistles_path(User.second)
     find('.bi-x').click
 
     expect(page).to have_content("0\nFollowings").twice

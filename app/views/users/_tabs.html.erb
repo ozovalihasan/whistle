@@ -22,7 +22,7 @@
                 <% if active_tab == "whiistles" %>
                     <%= render partial: "users/whiistles_frame" %>
                 <% else %>
-                    <turbo-frame id=<%= dom_id(@user, :whiistles) %> src=<%= user_path(@user) %> loading="lazy" >
+                    <turbo-frame id=<%= dom_id(@user, :whiistles) %> src=<%= user_whiistles_path(@user) %> loading="lazy" >
                         <%= render "shared/spinner" %>
                     </turbo-frame>
                 <% end %>
