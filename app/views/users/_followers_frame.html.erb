@@ -1,6 +1,6 @@
 <turbo-frame id=<%= dom_id(@user, :followers) %> >
-    <% if @followers.present? %>
-        <%= render 'users/list_users', users: @followers  %>
+    <% if @followeds.present? %>
+        <%= render 'users/list_users', users: @followeds  %>
     <% else %>
         <%= @user.fullname %> doesn't have any follower.
     <% end %>
