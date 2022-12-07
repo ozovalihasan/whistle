@@ -3,7 +3,9 @@ FactoryBot.define do
     username { Faker::Internet.username }
     fullname { Faker::Name.name }
     email { Faker::Internet.email }
-    password { Faker::Internet.password(min_length: 6) }
+    password { "aaaaaa" }
+    profile_picture { Rack::Test::UploadedFile.new("app/assets/images/mock-#{rand(1..5)}.jpg", 'image/png') }
+    cover_image { Rack::Test::UploadedFile.new("app/assets/images/mock-#{rand(1..5)}.jpg", 'image/png') }
   end
 end
 

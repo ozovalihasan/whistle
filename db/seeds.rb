@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+10.times do
+  begin 
+    FactoryBot.create(:user)
+  rescue ActiveRecord::RecordInvalid
+  end
+end
+
+FactoryBot.create_list(:whiistle, 100)
+
+30.times do
+  begin 
+    FactoryBot.create(:relation)
+  rescue ActiveRecord::RecordInvalid
+  end
+end

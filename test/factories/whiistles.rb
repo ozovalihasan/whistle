@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :whiistle do
     body { Faker::Quote.famous_last_words }
+    user_id { User.ids.sample }
   end
 end
 

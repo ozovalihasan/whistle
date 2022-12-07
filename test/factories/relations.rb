@@ -1,8 +1,8 @@
 FactoryBot.define do
-  selected_followind_id = User.ids.sample
+  selected_followind_id = nil
   
   factory :relation do
-    following_id { selected_followind_id }
+    following_id { selected_followind_id = User.ids.sample}
     followed_id { (User.ids - [selected_followind_id]).sample }
   end
 end
