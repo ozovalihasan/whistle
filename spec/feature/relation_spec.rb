@@ -9,7 +9,7 @@ RSpec.describe 'relation', type: :feature do
     sign_in User.first
     visit root_path
     
-    find(text: "Follow").click
+    find('button', text: /^Follow$/).click
 
     expect(page).to have_content "1\nFollowings"
   end
