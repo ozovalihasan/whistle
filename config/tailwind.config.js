@@ -19,6 +19,7 @@ module.exports = {
       fourth: "#f5f8fa",
       sixth: "#9ab3c7",
       danger: colors.red,
+      white: colors.white,
     },
     fontFamily: {
       'sans': ['Lato', ...defaultTheme.fontFamily.sans],
