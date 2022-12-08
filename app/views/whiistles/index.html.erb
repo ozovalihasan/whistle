@@ -2,6 +2,7 @@
     <div class='p-4 w-2/3'>
         <%= simple_form_for @whiistle, html: { class: "w-full" } do |f| %>
           <%= f.input :body, as: :text, label: "Whiistle something", wrapper: :whiistle_wrapper %>
+          <%= f.input :pictures, input_html: { multiple: true } %>
           <div class="float-right">
             <%= f.button :submit, "Whiistle" %>
           </div>

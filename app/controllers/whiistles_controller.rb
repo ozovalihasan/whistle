@@ -22,6 +22,6 @@ class WhiistlesController < ApplicationController
   private
 
   def whiistle_params
-    params.require(:whiistle).permit(:body)
+    params.require(:whiistle).permit(:body, pictures: [])
   end
 end

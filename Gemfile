@@ -80,3 +80,4 @@ gem "devise"
 gem "simple_form"
 gem "factory_bot_rails"
 gem "faker"
+gem 'image_processing'
