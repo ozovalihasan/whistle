@@ -183,6 +183,13 @@ SimpleForm.setup do |config|
     
   end
 
+  config.wrappers :whiistle_file_wrapper, tag: 'div', class: "flex flex-col" do |b|
+    b.use :html5
+
+    b.use :label, class: "hidden"
+    b.use :input, class: "hidden"
+  end
+
   config.wrappers :whiistle_wrapper, tag: 'div', class: "flex flex-col" do |b|
     b.use :html5
 

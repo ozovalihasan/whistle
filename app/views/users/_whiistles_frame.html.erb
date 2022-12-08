@@ -1,8 +1,13 @@
 <turbo-frame id=<%= dom_id(@user, :whiistles) %> >
     <%= simple_form_for @whiistle, html: { class: "w-full" } do |f| %>
         <%= f.input :body, as: :text, label: "Whiistle to #{@user.fullname}", wrapper: :whiistle_wrapper, value: "@#{@user.username} " %>
-        <div class="float-right">
-            <%= f.button :submit, "Whiistle" %>
+        <div class="w-full flex items-center">
+            <%= f.label :pictures, class: "bi bi-images px-4 py-4 my-4 btn-second" do %>
+            <% end %>
+            <%= f.input :pictures, as: :file, input_html: { multiple: true }, wrapper: :whiistle_file_wrapper  %>
+            <div class="ml-auto ">
+                <%= f.button :submit, "Whiistle" %>
+            </div>
         </div>
     <% end %>
     <div class="p-4 mt-4">
