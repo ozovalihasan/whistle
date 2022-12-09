@@ -5,10 +5,10 @@ class BaseWhiistle < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [100, 100]
   end
   
-  has_many :quoted_whiistles
-  has_many :rewhiistles
-  has_many :likes
-  has_many :replies
+  has_many :quoted_whiistles, dependent: :destroy
+  has_many :rewhiistles, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :replies, dependent: :destroy
   belongs_to :user
 
   scope :descending_order, -> { order(created_at: :desc) }
