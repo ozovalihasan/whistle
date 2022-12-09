@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def show
     @whiistle = Whiistle.new
     @user = User.find(params[:id])
-    @followings = @user.followeds
-    @followeds = @user.followings.with_attached_profile_picture
+    @followings = @user.followings
+    @followeds = @user.followers.with_attached_profile_picture
     @whiistles = @user.whiistles
     @relation = current_user.following_relations.find_by(followed_id: @user.id)
   end

@@ -4,8 +4,8 @@ class Users::MediasController < ApplicationController
 
   def index
     @whiistle = Whiistle.new
-    @followings = @user.followeds
-    @followeds = @user.followings.with_attached_profile_picture
+    @followings = @user.followings
+    @followeds = @user.followers.with_attached_profile_picture
     @whiistles = Whiistle.joins(:pictures_attachments).where(user_id: @user.id).order(created_at: :desc)
     @relation = current_user.following_relations.find_by(followed_id: @user.id)
   end

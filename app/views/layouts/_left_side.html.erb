@@ -16,7 +16,7 @@
             
         <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followings_path(current_user) %> >
             <div id="left-side-followings-counter" class="font-bold text-sixth" >
-                <%=  current_user.followeds.size %>
+                <%=  current_user.followings.size %>
             </div>
             <div>
                 Followings
@@ -25,7 +25,7 @@
             
         <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followers_path(current_user) %> >
             <div id="left-side-followers-counter" class=" font-bold text-sixth" >
-                <%=  current_user.followings.size %>
+                <%=  current_user.followers.size %>
             </div>
             <div>
                 Followers

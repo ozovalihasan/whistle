@@ -15,10 +15,10 @@ RSpec.describe User, type: :model do
 
     it { should have_many(:following_relations).dependent(:destroy) }
     it { should have_many(:following_relations).class_name('Relation').with_foreign_key('following_id') }
-    it { should have_many(:followeds).through(:following_relations) }
+    it { should have_many(:followings).through(:following_relations) }
     it { should have_many(:followed_relations).dependent(:destroy) }
     it { should have_many(:followed_relations).class_name('Relation').with_foreign_key('followed_id') }
-    it { should have_many(:followings).through(:followed_relations) }
+    it { should have_many(:followers).through(:followed_relations) }
   end
 
   it 'is valid with valid attributes' do

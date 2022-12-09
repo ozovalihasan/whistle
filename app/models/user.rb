@@ -18,12 +18,12 @@ class User < ApplicationRecord
   has_many :whiistles, dependent: :destroy
   
   has_many :followed_relations, class_name: "Relation", foreign_key: "followed_id", dependent: :destroy
-  has_many :followings, through: :followed_relations
+  has_many :followers, through: :followed_relations, source: :following
   has_many :following_relations, class_name: "Relation", foreign_key: "following_id", dependent: :destroy
-  has_many :followeds, through: :following_relations
+  has_many :followings, through: :following_relations, source: :followed
 
   def followings_and_user_ids
-    followeds.ids << id
+    followings.ids << id
   end
 
   def whiistles_including_users

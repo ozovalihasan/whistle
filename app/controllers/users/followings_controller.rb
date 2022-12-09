@@ -2,8 +2,8 @@ class Users::FollowingsController < ApplicationController
   before_action :set_user
 
   def index
-    @followings = @user.followeds.with_attached_profile_picture
-    @followeds = @user.followings.with_attached_profile_picture
+    @followings = @user.followings.with_attached_profile_picture
+    @followeds = @user.followers.with_attached_profile_picture
     @whiistles = @user.whiistles
     @relation = current_user.following_relations.find_by(followed_id: @user.id)
   end
