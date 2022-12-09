@@ -5,7 +5,7 @@
     <% end %>
 
 
-    <%= turbo_stream.update "create_delete_relation" do %>
+    <%= turbo_stream.update dom_id(@relation.followed, :create_delete_relation) do %>
         <%= render 'users/delete_following', relation: @relation  %>
     <% end %>
 
