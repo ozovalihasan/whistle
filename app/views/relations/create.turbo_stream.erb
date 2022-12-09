@@ -1,6 +1,6 @@
 
 <% if @relation.saved_changes? %>
-    <%= turbo_stream.update "relation_user_#{@relation.followed_id}" do %>
+    <%= turbo_stream.update_all ".relation_user_#{@relation.followed_id}" do %>
         ✓ Followed
     <% end %>
 
