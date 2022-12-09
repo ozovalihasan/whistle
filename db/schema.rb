@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_09_084015) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_09_121335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,10 +47,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_084015) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.text "body"
-    t.bigint "whiistle_id"
     t.integer "type"
+    t.bigint "base_whiistle_id"
+    t.index ["base_whiistle_id"], name: "index_base_whiistles_on_base_whiistle_id"
     t.index ["user_id"], name: "index_base_whiistles_on_user_id"
-    t.index ["whiistle_id"], name: "index_base_whiistles_on_whiistle_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -97,7 +97,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_09_084015) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "base_whiistles", "base_whiistles", column: "whiistle_id"
+  add_foreign_key "base_whiistles", "base_whiistles"
   add_foreign_key "base_whiistles", "users"
   add_foreign_key "likes", "base_whiistles", column: "whiistle_id"
   add_foreign_key "likes", "users"
