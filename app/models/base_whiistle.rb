@@ -6,9 +6,9 @@ class BaseWhiistle < ApplicationRecord
   end
   
   has_many :quoted_whiistles, dependent: :destroy
-  has_many :rewhiistles, dependent: :destroy
-  has_many :likes, dependent: :destroy
   has_many :replies, dependent: :destroy
+  has_many :rewhiistles, foreign_key: "whiistle_id", dependent: :destroy
+  has_many :likes, foreign_key: "whiistle_id", dependent: :destroy
   belongs_to :user
 
   scope :descending_order, -> { order(created_at: :desc) }
