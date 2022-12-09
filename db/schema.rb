@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_102203) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_09_084015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_102203) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "base_whiistles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.text "body"
+    t.bigint "whiistle_id"
+    t.integer "type"
+    t.index ["user_id"], name: "index_base_whiistles_on_user_id"
+    t.index ["whiistle_id"], name: "index_base_whiistles_on_whiistle_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "whiistle_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["whiistle_id"], name: "index_likes_on_whiistle_id"
+  end
+
   create_table "relations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,6 +69,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_102203) do
     t.bigint "followed_id", null: false
     t.index ["followed_id"], name: "index_relations_on_followed_id"
     t.index ["following_id"], name: "index_relations_on_following_id"
+  end
+
+  create_table "rewhiistles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "whiistle_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_rewhiistles_on_user_id"
+    t.index ["whiistle_id"], name: "index_rewhiistles_on_whiistle_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,17 +95,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_102203) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  create_table "whiistles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.text "body"
-    t.index ["user_id"], name: "index_whiistles_on_user_id"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "base_whiistles", "base_whiistles", column: "whiistle_id"
+  add_foreign_key "base_whiistles", "users"
+  add_foreign_key "likes", "base_whiistles", column: "whiistle_id"
+  add_foreign_key "likes", "users"
   add_foreign_key "relations", "users", column: "followed_id"
   add_foreign_key "relations", "users", column: "following_id"
-  add_foreign_key "whiistles", "users"
+  add_foreign_key "rewhiistles", "base_whiistles", column: "whiistle_id"
+  add_foreign_key "rewhiistles", "users"
 end

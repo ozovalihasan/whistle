@@ -11,6 +11,10 @@ class User < ApplicationRecord
   has_one_attached :profile_picture
   has_one_attached :cover_image
 
+  has_many :quoted_whiistles
+  has_many :likes
+  has_many :replies
+  has_many :rewhiistles
   has_many :whiistles, dependent: :destroy
   
   has_many :followed_relations, class_name: "Relation", foreign_key: "followed_id", dependent: :destroy
