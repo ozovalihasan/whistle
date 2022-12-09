@@ -1,85 +1,65 @@
 {
     "version": "0.4.5",
-    "idCounter": 32,
-    "associationType": "has_many",
+    "idCounter": 55,
+    "associationType": "through",
     "nodes": [
-        {
-            "id": "16",
-            "type": "entity",
-            "position": {
-                "x": 435,
-                "y": 285
-            },
-            "data": {
-                "tableId": "14",
-                "name": "following_relation"
-            },
-            "selected": false,
-            "width": 144,
-            "height": 71,
-            "positionAbsolute": {
-                "x": 435,
-                "y": 285
-            },
-            "dragging": false
-        },
         {
             "id": "17",
             "type": "entity",
             "position": {
-                "x": 420,
-                "y": 15
+                "x": 375,
+                "y": -105
             },
             "data": {
-                "tableId": "13",
-                "name": "following"
+                "tableId": "38",
+                "name": "whiistle"
             },
             "selected": false,
             "width": 144,
             "height": 71,
             "positionAbsolute": {
-                "x": 420,
-                "y": 15
+                "x": 375,
+                "y": -105
             },
             "dragging": false
         },
         {
-            "id": "19",
+            "id": "18",
             "type": "entity",
             "position": {
-                "x": 690,
-                "y": 15
+                "x": 720,
+                "y": 405
             },
             "data": {
-                "tableId": "13",
-                "name": "followed"
-            },
-            "selected": true,
-            "width": 144,
-            "height": 71,
-            "positionAbsolute": {
-                "x": 690,
-                "y": 15
-            },
-            "dragging": false
-        },
-        {
-            "id": "21",
-            "type": "entity",
-            "position": {
-                "x": 705,
-                "y": 300
-            },
-            "data": {
-                "tableId": "14",
-                "name": "followed_relation"
+                "tableId": "36",
+                "name": "reply"
             },
             "selected": false,
             "width": 144,
             "height": 71,
             "positionAbsolute": {
-                "x": 705,
-                "y": 300
+                "x": 720,
+                "y": 405
+            },
+            "dragging": false
+        },
+        {
+            "id": "20",
+            "type": "entity",
+            "position": {
+                "x": 165,
+                "y": 375
+            },
+            "data": {
+                "tableId": "16",
+                "name": "Like"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 165,
+                "y": 375
             },
             "dragging": false
         },
@@ -87,119 +67,311 @@
             "id": "23",
             "type": "entity",
             "position": {
-                "x": 210,
-                "y": 255
+                "x": 420,
+                "y": 375
             },
             "data": {
-                "tableId": "22",
-                "name": "whiistle"
+                "tableId": "35",
+                "name": "rewhiistle"
             },
             "selected": false,
             "width": 144,
             "height": 71,
             "positionAbsolute": {
-                "x": 210,
-                "y": 255
+                "x": 420,
+                "y": 375
             },
             "dragging": false
         },
         {
-            "id": "28",
+            "id": "25",
             "type": "entity",
             "position": {
-                "x": 210,
-                "y": 15
+                "x": 0,
+                "y": -240
             },
             "data": {
-                "tableId": "13",
+                "tableId": "14",
                 "name": "User"
             },
             "selected": false,
             "width": 144,
             "height": 71,
             "positionAbsolute": {
-                "x": 210,
-                "y": 15
+                "x": 0,
+                "y": -240
+            },
+            "dragging": false
+        },
+        {
+            "id": "31",
+            "type": "entity",
+            "position": {
+                "x": -75,
+                "y": 390
+            },
+            "data": {
+                "tableId": "34",
+                "name": "quoted_whiistle"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": -75,
+                "y": 390
+            },
+            "dragging": false
+        },
+        {
+            "id": "47",
+            "type": "entity",
+            "position": {
+                "x": 645,
+                "y": -105
+            },
+            "data": {
+                "tableId": "46",
+                "name": "following_relation"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 645,
+                "y": -105
+            },
+            "dragging": false
+        },
+        {
+            "id": "48",
+            "type": "entity",
+            "position": {
+                "x": 900,
+                "y": -105
+            },
+            "data": {
+                "tableId": "46",
+                "name": "followed_relation"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 900,
+                "y": -105
+            },
+            "dragging": false
+        },
+        {
+            "id": "49",
+            "type": "entity",
+            "position": {
+                "x": 630,
+                "y": -300
+            },
+            "data": {
+                "tableId": "14",
+                "name": "follower"
+            },
+            "selected": false,
+            "width": 144,
+            "height": 71
+        },
+        {
+            "id": "50",
+            "type": "entity",
+            "position": {
+                "x": 915,
+                "y": -300
+            },
+            "data": {
+                "tableId": "14",
+                "name": "following"
+            },
+            "selected": true,
+            "width": 144,
+            "height": 71,
+            "positionAbsolute": {
+                "x": 915,
+                "y": -300
             },
             "dragging": false
         }
     ],
     "edges": [
         {
-            "id": "18",
+            "id": "19",
             "source": "17",
-            "target": "16",
+            "target": "18",
             "sourceHandle": "bottom2",
             "targetHandle": "top",
             "label": "has many",
             "type": "hasMany"
         },
         {
-            "id": "25",
+            "id": "21",
             "source": "17",
-            "target": "19",
-            "sourceHandle": "bottom3",
-            "targetHandle": "top",
-            "label": "through",
-            "type": "through",
-            "data": {
-                "throughNodeId": "16"
-            }
-        },
-        {
-            "id": "26",
-            "source": "19",
-            "target": "17",
-            "sourceHandle": "bottom3",
-            "targetHandle": "top",
-            "label": "through",
-            "type": "through",
-            "data": {
-                "throughNodeId": "21"
-            }
-        },
-        {
-            "id": "27",
-            "source": "19",
-            "target": "21",
+            "target": "20",
             "sourceHandle": "bottom2",
             "targetHandle": "top",
             "label": "has many",
             "type": "hasMany"
         },
         {
-            "id": "29",
-            "source": "28",
+            "id": "24",
+            "source": "17",
             "target": "23",
             "sourceHandle": "bottom2",
             "targetHandle": "top",
             "label": "has many",
             "type": "hasMany"
+        },
+        {
+            "id": "26",
+            "source": "25",
+            "target": "23",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "27",
+            "source": "25",
+            "target": "18",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "28",
+            "source": "25",
+            "target": "20",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "32",
+            "source": "25",
+            "target": "31",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "33",
+            "source": "17",
+            "target": "31",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "45",
+            "source": "25",
+            "target": "17",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "51",
+            "source": "49",
+            "target": "47",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "52",
+            "source": "50",
+            "target": "48",
+            "sourceHandle": "bottom2",
+            "targetHandle": "top",
+            "label": "has many",
+            "type": "hasMany"
+        },
+        {
+            "id": "53",
+            "source": "50",
+            "target": "49",
+            "sourceHandle": "bottom3",
+            "targetHandle": "top",
+            "label": "through",
+            "type": "through",
+            "data": {
+                "throughNodeId": "48"
+            }
+        },
+        {
+            "id": "54",
+            "source": "49",
+            "target": "50",
+            "sourceHandle": "bottom3",
+            "targetHandle": "top",
+            "label": "through",
+            "type": "through",
+            "data": {
+                "throughNodeId": "47"
+            }
         }
     ],
     "tables": {
         "13": {
-            "name": "User",
-            "attributes": {},
-            "superclassId": ""
-        },
-        "14": {
             "name": "Relation",
             "attributes": {},
             "superclassId": ""
         },
-        "22": {
+        "14": {
+            "name": "User",
+            "attributes": {},
+            "superclassId": ""
+        },
+        "15": {
+            "name": "base_whiistle",
+            "attributes": {},
+            "superclassId": ""
+        },
+        "16": {
+            "name": "Like",
+            "attributes": {},
+            "superclassId": ""
+        },
+        "34": {
+            "name": "quoted_whiistle",
+            "attributes": {},
+            "superclassId": "15"
+        },
+        "35": {
+            "name": "rewhiistle",
+            "attributes": {},
+            "superclassId": ""
+        },
+        "36": {
+            "name": "reply",
+            "attributes": {},
+            "superclassId": "15"
+        },
+        "38": {
             "name": "whiistle",
-            "attributes": {
-                "30": {
-                    "name": "Body",
-                    "type": "text"
-                }
-            },
+            "attributes": {},
+            "superclassId": "15"
+        },
+        "46": {
+            "name": "relation",
+            "attributes": {},
             "superclassId": ""
         }
     },
-    "connectionStartNodeId": "28",
+    "connectionStartNodeId": "49",
     "isConnectContinue": false,
     "isMouseOnNode": false,
     "isMouseOnEdge": false,
