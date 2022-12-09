@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :whiistles, only: %i[index create]
+  resources :whiistles, only: %i[index create] do 
+    resources :likes, only: [:create, :destroy], controller: "whiistles/likes"
+  end
   resources :users, only: [] do 
     resources :followings, only: [:index], controller: "users/followings"
     resources :followers, only: [:index], controller: "users/followers"

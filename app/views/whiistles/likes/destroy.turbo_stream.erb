@@ -1,0 +1,10 @@
+<%= turbo_stream.update dom_id(@like.whiistle, :like_button) do %>
+  <%= button_to whiistle_likes_path(@like.whiistle), id: dom_id(@like.whiistle, :like), class: "p-2" do %>
+    <i class="bi bi-heart text-firsy "></i>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update "flashes" do %>
+    <%= check_notice %>
+    <%= check_alert %>
+<% end %>
