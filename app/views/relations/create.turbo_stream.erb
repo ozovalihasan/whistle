@@ -13,7 +13,7 @@
         <%=  current_user.followings.size %>
     <% end %>
 
-    <%= turbo_stream.update dom_id(@relation.followed, :followeds)  do %>
+    <%= turbo_stream.update dom_id(@relation.followed, :followers)  do %>
         <%=  @relation.followed.followers.size %>
     <% end %>
 <% end %>
