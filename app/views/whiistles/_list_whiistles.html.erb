@@ -42,6 +42,9 @@
                         </div>
                     <% end %>
                 </div>
+                <% if w.is_a? QuotedWhiistle %>
+                    <%= render "whiistles/quoted_whiistle", whiistle: w %>
+                <% end %>
                 <div> 
                     <i class="bi bi-chat">Reply</i>
                     <i class="bi bi-repeat">Share</i>

@@ -1,0 +1,19 @@
+<div class="p-2 my-2 border border-solid border-first flex rounded-md" >
+
+    <%= link_to user_whiistles_path(whiistle.user), class: "hover-image" do %>
+        <div>
+            <%= image_tag( show_profile_picture(whiistle.user.profile_picture), size: '25x25') %>
+        </div>
+    <% end %>
+    <div class="">
+        <%= link_to user_whiistles_path(whiistle.user) do %>
+            <span class="text-dark">
+                <%= whiistle.user.fullname %>
+            </span>
+            @<%= whiistle.user.username %>
+        <% end %>
+        <div class="mt-2">
+            <%= whiistle.body  %>
+        </div>
+    </div>
+</div>
