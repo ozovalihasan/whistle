@@ -1,3 +1,3 @@
 class QuotedWhiistle < BaseWhiistle
-  belongs_to :whiistle, optional: true
+  belongs_to :whiistle
 end

@@ -1,3 +1,2 @@
 class Whiistle < BaseWhiistle
-  
 end
