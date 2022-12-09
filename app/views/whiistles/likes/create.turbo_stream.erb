@@ -6,6 +6,10 @@
   <% end %>
 <% end %>
 
+<%= turbo_stream.update dom_id(@like.whiistle, :like_count)  do %>
+  <%= @like.whiistle.likes.count %>
+<% end %>
+
 <%= turbo_stream.update "flashes" do %>
     <%= check_notice %>
     <%= check_alert %>
