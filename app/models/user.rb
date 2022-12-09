@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :replies, dependent: :destroy
   has_many :rewhiistles, dependent: :destroy
-  has_many :whiistles, dependent: :destroy
+  has_many :whiistles, class_name: "BaseWhiistle", dependent: :destroy
   
   has_many :followed_relations, class_name: "Relation", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :followed_relations, source: :following
