@@ -13,8 +13,10 @@ class User < ApplicationRecord
 
   has_many :quoted_whiistles, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_whiistles, through: :likes, source: :whiistle
   has_many :replies, dependent: :destroy
   has_many :rewhiistles, dependent: :destroy
+  has_many :shared_whiistles, through: :rewhiistles, source: :whiistle
   has_many :whiistles, class_name: "BaseWhiistle", dependent: :destroy
   
   has_many :followed_relations, class_name: "Relation", foreign_key: "followed_id", dependent: :destroy
