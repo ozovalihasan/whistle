@@ -23,7 +23,7 @@ class Whiistles::LikesController < ApplicationController
   private 
 
   def set_whiistle
-    @whiistle = Whiistle.find(params[:whiistle_id])
+    @whiistle = BaseWhiistle.find(params[:whiistle_id])
   end
 
   def set_like
