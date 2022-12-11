@@ -29,4 +29,8 @@ class WhiistlesController < ApplicationController
   def set_whiistle
     @whiistle = BaseWhiistle.find(params[:id])
   end
+
+  def whiistle_params
+    params.require(:whiistle).permit(:body, pictures: [])
+  end
 end
