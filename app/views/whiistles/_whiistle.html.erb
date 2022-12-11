@@ -20,7 +20,7 @@
       <%= render "whiistles/pictures", whiistle: whiistle %>
     </div>
     <% if whiistle.is_a? QuotedWhiistle %>
-      <%= render "whiistles/quoted_whiistle", whiistle: whiistle %>
+      <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
     <% end %>
     <div> 
       <i class="bi bi-chat">Reply</i>
