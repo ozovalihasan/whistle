@@ -12,20 +12,20 @@
       </span>
       @<%= whiistle.user.username %>
     <% end %>
-      <div class="mt-2">
-        <%= link_to whiistle_path(whiistle) do %>
-          <%= whiistle.body  %>
-        <% end %>
-        
-        <%= render "whiistles/pictures", whiistle: whiistle %>
-      </div>
-      <% if whiistle.is_a? QuotedWhiistle %>
-        <%= render "whiistles/quoted_whiistle", whiistle: whiistle %>
+    <div class="mt-2">
+      <%= link_to whiistle_path(whiistle) do %>
+        <%= whiistle.body  %>
       <% end %>
-      <div> 
-        <i class="bi bi-chat">Reply</i>
-        <i class="bi bi-repeat">Share</i>
-        <%= render "whiistles/like_button", whiistle: whiistle %>
-      </div>
+      
+      <%= render "whiistles/pictures", whiistle: whiistle %>
+    </div>
+    <% if whiistle.is_a? QuotedWhiistle %>
+      <%= render "whiistles/quoted_whiistle", whiistle: whiistle %>
+    <% end %>
+    <div> 
+      <i class="bi bi-chat">Reply</i>
+      <i class="bi bi-repeat">Share</i>
+      <%= render "whiistles/like_button", whiistle: whiistle %>
+    </div>
   </div>
 </div>
