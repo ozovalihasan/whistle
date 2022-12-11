@@ -1,0 +1,11 @@
+<div class='flex grow'>
+  <div class='p-4 w-2/3'>
+    <%= render "whiistles/whiistle", whiistle: @whiistle %>
+    
+    <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies %>
+
+  </div>
+  <div class='w-1/3'>
+    <%= render "users/sidebar_right" %>
+  </div>
+</div>

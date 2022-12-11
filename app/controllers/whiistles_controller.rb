@@ -1,5 +1,10 @@
 class WhiistlesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_whiistle, only: :show
+
+  def show
+    @user = @whiistle.user
+  end
 
   def index
     @whiistle = Whiistle.new
@@ -16,12 +21,12 @@ class WhiistlesController < ApplicationController
       flash[:alert] = whiistle.errors.full_messages[0]
     end
 
-    redirect_back(fallback_location: root_path)
+  
   end
 
   private
 
-  def whiistle_params
-    params.require(:whiistle).permit(:body, pictures: [])
+  def set_whiistle
+    @whiistle = BaseWhiistle.find(params[:id])
   end
 end
