@@ -1,0 +1,52 @@
+<div class='flex my-4 <%= check_click(whiistle) %> '>
+  <%= link_to user_whiistles_path(whiistle.user), class: "hover-image" do %>
+    <div>
+      <%= image_tag( show_profile_picture(whiistle.user.profile_picture), size: '50x50') %>
+    </div>
+  <% end %>
+  <div class="pl-2">
+    <%= link_to user_whiistles_path(whiistle.user) do %>
+      <span class="text-dark">
+        <%= whiistle.user.fullname %>
+      </span>
+      @<%= whiistle.user.username %>
+    <% end %>
+      <div class="mt-2">
+        <%= whiistle.body  %>
+
+        <% if whiistle.pictures.present? %>
+          <div class="my-4 flex flex-wrap">
+            <% whiistle.pictures.map do |image| %>
+              <div data-controller="modal"  >
+                  <div class="hidden fixed top-0 left-0 w-full h-full">
+                  </div>
+                  <a href="#" data-action="click->modal#open" class="rounded ">
+                      <%= image_tag image.variant(:thumb), class: "w-32 h-32 rounded-lg mx-2 my-2" %>
+                  </a>
+                  <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
+                      <div class="max-h-screen w-full max-w-lg relative">
+                          <div class="m-1 bg-white rounded shadow">
+                              <div class="p-8">
+                                  <%= image_tag image, class: "object-contain w-full rounded-md pb-4", loading: "lazy" %>
+                                  <div class="flex justify-end items-center flex-wrap mt-6">
+                                      <button class="btn-first" data-action="click->modal#close">Close</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <% if whiistle.is_a? QuotedWhiistle %>
+        <%= render "whiistles/quoted_whiistle", whiistle: whiistle %>
+      <% end %>
+      <div> 
+        <i class="bi bi-chat">Reply</i>
+        <i class="bi bi-repeat">Share</i>
+        <%= render "whiistles/like_button", whiistle: whiistle %>
+      </div>
+  </div>
+</div>
