@@ -21,7 +21,7 @@
     <div class="flex w-full content-evenly">
         <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_whiistles_path(@user) %> >
             <div class="text-dark w-full">
-                <%= @whiistles.size %>
+                <%= @user.whiistles.count %>
             </div>
             <div>
                 Whiistles
@@ -29,7 +29,7 @@
         </a>
         <a class="border text-center col-4 py-2 w-1/3" href=<%=  user_followings_path(@user) %> >
             <div class="text-dark w-full">
-                <%= @followings.size %>
+                <%= @user.followings.count %>
             </div>
             <div>
                 Following
@@ -37,7 +37,7 @@
         </a>
         <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_followers_path(@user)  %> >
             <div id=<%= dom_id @user, :followers %> class="text-dark w-full">
-                <%= @followers.size %>
+                <%= @user.followers.count %>
             </div>
             <div>
                 Followers
@@ -45,5 +45,5 @@
         </a>
     </div>
     <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
-    <%= render 'users/list_users', users: @followers.limit(5).order("RANDOM()") - [ current_user ]  %>
+    <%= render 'users/list_users', users: @user.followers.limit(5).order("RANDOM()") - [ current_user ]  %>
 </div>
