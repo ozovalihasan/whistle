@@ -1,6 +1,6 @@
 
 <div class='flex my-4 <%= check_click(whiistle) %> '>
-  <%= link_to user_whiistles_path(whiistle.user), class: "hover-image" do %>
+  <%= link_to user_whiistles_path(whiistle.user), class: "hover-image shrink-0" do %>
     <div>
       <%= image_tag( show_profile_picture(whiistle.user.profile_picture), size: '50x50') %>
     </div>
