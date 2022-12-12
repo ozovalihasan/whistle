@@ -1,0 +1,10 @@
+<% if @rewhiistle.saved_changes? %>
+  <%= turbo_stream.update whiistle_rewhiistle_button_target(@rewhiistle.whiistle) do %>
+    <%= render "whiistles/destroy_rewhiistle_button", rewhiistle: @rewhiistle %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update "flashes" do %>
+    <%= check_notice %>
+    <%= check_alert %>
+<% end %>
