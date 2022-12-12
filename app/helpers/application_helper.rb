@@ -27,4 +27,8 @@ module ApplicationHelper
     dom_id(whiistle, :rewhiistle_button)
   end
 
+  def whiistle_like_button_target(whiistle)
+    dom_id(whiistle, :like_button)
+  end
+
 end

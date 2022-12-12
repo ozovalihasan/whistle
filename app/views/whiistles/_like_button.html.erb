@@ -1,18 +1,20 @@
-<div id=<%= dom_id(whiistle, :like) %> class="flex items-center">
+<div class="flex items-center">
     
-    <div id=<%= dom_id(whiistle, :like_button) %>>
+    <div id=<%= whiistle_like_button_target(whiistle) %>>
         <% if Like.find_by(whiistle_id: whiistle.id, user_id: current_user.id) %>
             <%= button_to whiistle_like_path(whiistle, Like.find_by(whiistle_id: whiistle.id, user_id: current_user.id)), method: :delete, class: "p-2" do %>
-                <i class="bi bi-heart-fill text-second "></i>
+                <i class="bi bi-heart-fill text-second ">
+                    <span><%= whiistle.likes.count %></span> 
+                </i>
             <% end %>
         <% else %>
-            <%= button_to whiistle_likes_path(whiistle), id: dom_id(whiistle, :like), class: "p-2" do %>
-                <i class="bi bi-heart "></i>
+            <%= button_to whiistle_likes_path(whiistle), class: "p-2" do %>
+                <i class="bi bi-heart ">
+                    <span><%= whiistle.likes.count %></span> 
+                </i>
             <% end %>
         <% end %>
     </div>
 
-    <div id=<%= dom_id whiistle, :like_count %>>
-        <%= whiistle.likes.count %>
-    </div>
+    
 </div>
