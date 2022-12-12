@@ -1,7 +1,3 @@
 <%= link_to new_whiistle_quoted_whiistle_path(whiistle), class: "p-2", data: {turbo_frame: whiistle_quoted_whiistle_form_target(whiistle)} do %>
-  <i class="bi bi-chat " > quoted
-    <span class="px-1" id=<%= whiistle_quoted_whiistle_counter_target(whiistle) %>>
-      <%= whiistle.quoted_whiistles.count %> 
-    </span>
-  </i>
+  <i class="bi bi-chat-left-quote" >Quoted Whiistle</i>
 <% end %>

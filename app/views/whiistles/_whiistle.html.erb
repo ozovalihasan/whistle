@@ -22,10 +22,23 @@
     <% if whiistle.is_a? QuotedWhiistle %>
       <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
     <% end %>
-    <div> 
+    <div class="flex"> 
       <%= render "whiistles/reply_button", whiistle: whiistle %>
-      <%= render "whiistles/quoted_whiistle_button", whiistle: whiistle %>
-      <%= render "whiistles/toggle_rewhiistle_button", whiistle: whiistle %>
+      <div class="relative p-2" data-controller="dropdown">
+        <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+          <i class="bi bi-repeat">
+            <span class="px-2">
+              <%= whiistle.rewhiistles.count %>  
+            </span>
+          </i>
+        </div>
+        <div data-dropdown-target="menu" class="absolute left-0 top-full mt-2 hidden z-10 w-auto">
+          <div class="bg-white shadow rounded overflow-hidden p-2 border border-solid" data-action="click->dropdown#toggle">
+            <%= render "whiistles/toggle_rewhiistle_button", whiistle: whiistle %>
+            <%= render "whiistles/quoted_whiistle_button", whiistle: whiistle %>
+          </div>
+        </div>
+      </div>
       <%= render "whiistles/like_button", whiistle: whiistle %>
     </div>
 
