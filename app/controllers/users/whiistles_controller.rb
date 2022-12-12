@@ -6,7 +6,7 @@ class Users::WhiistlesController < ApplicationController
     @whiistle = Whiistle.new
     @followings = @user.followings
     @followers = @user.followers.with_attached_profile_picture
-    @whiistles = @user.whiistles.order(created_at: :desc)
+    @whiistles = @user.whiistles.or( BaseWhiistle.where(id: @user.shared_whiistle_ids) ).order(created_at: :desc) 
     @relation = current_user.following_relations.find_by(followed_id: @user.id)
   end
 
