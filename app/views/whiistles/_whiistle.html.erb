@@ -24,11 +24,14 @@
     <% end %>
     <div> 
       <%= render "whiistles/reply_button", whiistle: whiistle %>
+      <%= render "whiistles/quoted_whiistle_button", whiistle: whiistle %>
       <%= render "whiistles/toggle_rewhiistle_button", whiistle: whiistle %>
       <%= render "whiistles/like_button", whiistle: whiistle %>
     </div>
 
     <turbo-frame id=<%= whiistle_reply_form_target(whiistle) %> >
+    </turbo-frame>
+    <turbo-frame id=<%= whiistle_quoted_whiistle_form_target(whiistle) %> >
     </turbo-frame>
 
   </div>

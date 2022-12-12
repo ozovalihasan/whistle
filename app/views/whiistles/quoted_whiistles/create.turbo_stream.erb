@@ -1,0 +1,22 @@
+<% if @quoted_whiistle.saved_changes? %>
+  <%= turbo_stream.update whiistle_quoted_whiistle_form_target(@whiistle) do %>
+    <turbo-frame id=<%= whiistle_quoted_whiistle_form_target(@whiistle) %> >
+    </turbo-frame>  
+  <% end %>
+  
+  <%= turbo_stream.update whiistle_quoted_whiistle_counter_target(@whiistle) do %>
+    <%= @whiistle.replies.count %>
+  <% end %>
+  
+  <%= turbo_stream.after whiistle_quoted_whiistle_form_target(@whiistle) do %>
+    <%= render "whiistles/whiistle", whiistle: @quoted_whiistle %>
+  <% end %>
+
+
+
+<% end %>
+
+<%= turbo_stream.update "flashes" do %>
+    <%= check_notice %>
+    <%= check_alert %>
+<% end %>
