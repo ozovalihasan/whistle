@@ -1,5 +1,5 @@
 <%= turbo_stream.update whiistle_rewhiistle_button_target(@rewhiistle.whiistle) do %>
-  <%= render "whiistles/rewhiistle_button", whiistle: @rewhiistle.whiistle %>
+  <%= render "whiistles/create_rewhiistle_button", whiistle: @rewhiistle.whiistle %>
 <% end %>
 
 <%= turbo_stream.update "flashes" do %>
