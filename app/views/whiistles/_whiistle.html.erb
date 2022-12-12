@@ -23,9 +23,13 @@
       <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
     <% end %>
     <div> 
-      <i class="bi bi-chat">Reply</i>
+      <%= render "whiistles/reply_button", whiistle: whiistle %>
       <i class="bi bi-repeat">Share</i>
       <%= render "whiistles/like_button", whiistle: whiistle %>
     </div>
+
+    <turbo-frame id=<%= whiistle_reply_target(whiistle) %> >
+    </turbo-frame>
+    
   </div>
 </div>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :whiistles, only: %i[show index create] do 
     resources :likes, only: [:create, :destroy], controller: "whiistles/likes"
+    resources :reply, only: [:new, :create], controller: "whiistles/replies"
   end
   resources :users, only: [] do 
     resources :followings, only: [:index], controller: "users/followings"

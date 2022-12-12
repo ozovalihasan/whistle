@@ -14,4 +14,8 @@ module ApplicationHelper
   def check_icons
     render 'layouts/icons' if current_user
   end
+
+  def whiistle_reply_target(whiistle)
+    dom_id(whiistle, :reply)
+  end
 end

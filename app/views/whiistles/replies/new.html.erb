@@ -1,0 +1,16 @@
+<turbo-frame id=<%= whiistle_reply_target(@whiistle) %> >
+
+  <%= simple_form_for [@whiistle, @reply], url: whiistle_reply_index_path(@whiistle), html: { class: "w-full" } do |f| %>
+    <%= f.input :body, as: :text, label: "Reply something", wrapper: :whiistle_wrapper %>
+    
+    <div class="w-full flex">
+      <%= f.label :pictures, class: "bi bi-images py-2 px-4 my-4 btn-second" do %>
+      <% end %>
+      <%= f.input :pictures, as: :file, input_html: { multiple: true }, wrapper: :whiistle_file_wrapper  %>
+      <div class="ml-auto ">
+        <%= f.button :submit, "Whiistle" %>
+      </div>
+    </div>
+    
+  <% end %>
+</turbo-frame>

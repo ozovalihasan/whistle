@@ -1,0 +1,16 @@
+<% if @reply.saved_changes? %>
+  <%= turbo_stream.update whiistle_reply_target(@whiistle) do %>
+    <turbo-frame id=<%= whiistle_reply_target(@whiistle) %> >
+    </turbo-frame>  
+  <% end %>
+  
+  <%= turbo_stream.after whiistle_reply_target(@whiistle) do %>
+    <%= render "whiistles/whiistle", whiistle: @reply %>
+  <% end %>
+
+<% end %>
+
+<%= turbo_stream.update "flashes" do %>
+    <%= check_notice %>
+    <%= check_alert %>
+<% end %>
