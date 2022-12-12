@@ -2,7 +2,11 @@
   <div class='p-4 w-2/3'>
     <%= render "whiistles/whiistle", whiistle: @whiistle %>
     
-    <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies %>
+    <% if @whiistle.replies.present? %>
+      <div class="pl-8">
+        <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies %>
+      </div>
+    <% end %>
 
   </div>
   <div class='w-1/3'>
