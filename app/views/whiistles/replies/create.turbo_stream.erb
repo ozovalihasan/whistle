@@ -4,9 +4,16 @@
     </turbo-frame>  
   <% end %>
   
+  <%= turbo_stream.update whiistle_reply_counter_target(@whiistle) do %>
+    <%= @whiistle.replies.count %>
+    
+  <% end %>
+  
   <%= turbo_stream.after whiistle_reply_form_target(@whiistle) do %>
     <%= render "whiistles/whiistle", whiistle: @reply %>
   <% end %>
+
+
 
 <% end %>
 

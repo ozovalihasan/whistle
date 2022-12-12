@@ -18,4 +18,8 @@ module ApplicationHelper
   def whiistle_reply_form_target(whiistle)
     dom_id(whiistle, :reply)
   end
+
+  def whiistle_reply_counter_target(whiistle)
+    dom_id(whiistle, :reply_counter)
+  end
 end
