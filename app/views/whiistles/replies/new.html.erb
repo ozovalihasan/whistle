@@ -1,4 +1,4 @@
-<turbo-frame id=<%= whiistle_reply_target(@whiistle) %> >
+<turbo-frame id=<%= whiistle_reply_form_target(@whiistle) %> >
 
   <%= simple_form_for [@whiistle, @reply], url: whiistle_reply_index_path(@whiistle), html: { class: "w-full" } do |f| %>
     <%= f.input :body, as: :text, label: "Reply something", wrapper: :whiistle_wrapper %>

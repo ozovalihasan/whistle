@@ -1,10 +1,10 @@
 <% if @reply.saved_changes? %>
-  <%= turbo_stream.update whiistle_reply_target(@whiistle) do %>
-    <turbo-frame id=<%= whiistle_reply_target(@whiistle) %> >
+  <%= turbo_stream.update whiistle_reply_form_target(@whiistle) do %>
+    <turbo-frame id=<%= whiistle_reply_form_target(@whiistle) %> >
     </turbo-frame>  
   <% end %>
   
-  <%= turbo_stream.after whiistle_reply_target(@whiistle) do %>
+  <%= turbo_stream.after whiistle_reply_form_target(@whiistle) do %>
     <%= render "whiistles/whiistle", whiistle: @reply %>
   <% end %>
 

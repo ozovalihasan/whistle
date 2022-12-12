@@ -15,7 +15,7 @@ module ApplicationHelper
     render 'layouts/icons' if current_user
   end
 
-  def whiistle_reply_target(whiistle)
+  def whiistle_reply_form_target(whiistle)
     dom_id(whiistle, :reply)
   end
 end
