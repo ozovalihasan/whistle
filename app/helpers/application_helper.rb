@@ -30,6 +30,10 @@ module ApplicationHelper
   def whiistle_rewhiistle_button_target(whiistle)
     dom_id(whiistle, :rewhiistle_button)
   end
+  
+  def whiistle_rewhiistle_or_quote_button_target(whiistle)
+    dom_id(whiistle, :rewhiistle_or_quote_button)
+  end
 
   def whiistle_like_button_target(whiistle)
     dom_id(whiistle, :like_button)
