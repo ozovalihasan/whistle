@@ -9,7 +9,7 @@ class BaseWhiistle < ApplicationRecord
   has_many :replies, dependent: :destroy
   has_many :rewhiistles, foreign_key: "whiistle_id", dependent: :destroy
   has_many :likes, foreign_key: "whiistle_id", dependent: :destroy
-  belongs_to :user
+  belongs_to :user, counter_cache: :whiistles_count
 
   scope :descending_order, -> { order(created_at: :desc) }
   scope :created_by, ->(users_ids) { where('user_id IN (?)', users_ids) }
