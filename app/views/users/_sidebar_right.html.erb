@@ -29,7 +29,7 @@
         </a>
         <a class="border text-center col-4 py-2 w-1/3" href=<%=  user_followings_path(@user) %> >
             <div class="text-dark w-full">
-                <%= @user.followings.count %>
+                <%= @user.followings_count %>
             </div>
             <div>
                 Following
@@ -37,7 +37,7 @@
         </a>
         <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_followers_path(@user)  %> >
             <div id=<%= dom_id @user, :followers_count %> class="text-dark w-full">
-                <%= @user.followers.size %>
+                <%= @user.followers_count %>
             </div>
             <div>
                 Followers

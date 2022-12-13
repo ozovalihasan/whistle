@@ -3,7 +3,7 @@ class Relation < ApplicationRecord
   validate :user_and_followed_unique
 
   
-  belongs_to :following, class_name: "User"
+  belongs_to :following, class_name: "User", counter_cache: :followings_count
   belongs_to :followed, class_name: "User", counter_cache: :followers_count
 
   scope :descending_order, -> { order(created_at: :desc) }
