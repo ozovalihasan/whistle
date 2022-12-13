@@ -1,9 +1,17 @@
-<div id=<%= whiistle_rewhiistle_or_quote_button_target(whiistle) %>>
-    <% if Rewhiistle.find_by(whiistle_id: whiistle.id, user_id: current_user.id) %>
+<div class="relative p-2" data-controller="dropdown">
+  <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+    <div id=<%= whiistle_rewhiistle_or_quote_button_target(whiistle) %> >
+      <% if Rewhiistle.find_by(whiistle_id: whiistle.id, user_id: current_user.id) %>
         <%= render "whiistles/destroy_rewhiistle_or_quote_button", whiistle: whiistle %>
-    <% else %>
+      <% else %>
         <%= render "whiistles/create_rewhiistle_or_quote_button", whiistle: whiistle %>
-    <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div data-dropdown-target="menu" class="absolute left-0 top-full mt-2 hidden z-10 w-auto">
+    <div class="bg-white shadow rounded overflow-hidden p-2 border border-solid" data-action="click->dropdown#toggle">
+      <%= render "whiistles/toggle_rewhiistle_button", whiistle: whiistle %>
+      <%= render "whiistles/quoted_whiistle_button", whiistle: whiistle %>
+    </div>
+  </div>
 </div>
-
-
