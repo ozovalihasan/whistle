@@ -4,7 +4,7 @@ class Relation < ApplicationRecord
 
   
   belongs_to :following, class_name: "User"
-  belongs_to :followed, class_name: "User"
+  belongs_to :followed, class_name: "User", counter_cache: :followers_count
 
   scope :descending_order, -> { order(created_at: :desc) }
 

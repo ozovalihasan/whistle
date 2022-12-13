@@ -36,8 +36,8 @@
             </div>
         </a>
         <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_followers_path(@user)  %> >
-            <div id=<%= dom_id @user, :followers %> class="text-dark w-full">
-                <%= @user.followers.count %>
+            <div id=<%= dom_id @user, :followers_count %> class="text-dark w-full">
+                <%= @user.followers.size %>
             </div>
             <div>
                 Followers
