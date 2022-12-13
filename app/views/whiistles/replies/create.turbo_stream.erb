@@ -5,8 +5,7 @@
   <% end %>
   
   <%= turbo_stream.update whiistle_reply_counter_target(@whiistle) do %>
-    <%= @whiistle.replies.size %>
-    
+    <%= @reply.whiistle.replies.size %>
   <% end %>
   
   <%= turbo_stream.after whiistle_reply_form_target(@whiistle) do %>
