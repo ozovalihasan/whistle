@@ -19,7 +19,11 @@
       </span>
       @<%= whiistle.user.username %>
     <% end %>
-
+    
+    <%= link_to whiistle_path(whiistle) do %>
+      - <%= distance_of_time_in_words(Time.now, whiistle.created_at, compact: true, highest_measure_only: true) %>    
+    <% end %>
+    
     <% if whiistle.is_a? Reply %>
       <div class="text-sm">
         Replying to 
