@@ -24,6 +24,10 @@ class User < ApplicationRecord
   has_many :following_relations, class_name: "Relation", foreign_key: "following_id", dependent: :destroy
   has_many :followings, through: :following_relations, source: :followed
 
+  def main_page_whiistles
+    BaseWhiistle.own_and_rewhiistled_whiistles_without_replies(self)
+  end
+  
   def followings_and_user_ids
     followings.ids << id
   end

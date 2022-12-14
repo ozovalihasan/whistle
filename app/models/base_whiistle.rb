@@ -14,7 +14,9 @@ class BaseWhiistle < ApplicationRecord
   scope :descending_order, -> { order(created_at: :desc) }
   scope :created_by, ->(users_ids) { where('user_id IN (?)', users_ids) }
   scope :of_followings_and, ->(user) { created_by(user.followings_and_user_ids).descending_order }
-  
+  scope :own_and_rewhiistled_whiistles, ->(user) { joins(:rewhiistles).where("base_whiistles.user_id= ? OR rewhiistles.user_id = ?", user.id, user.id)}
+  scope :own_and_rewhiistled_whiistles_without_replies, -> (user) { own_and_rewhiistled_whiistles(user) }
+
   enum type: {
     'Whiistle' => 0,
     'Reply' => 1,
