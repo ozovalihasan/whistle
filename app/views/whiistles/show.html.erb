@@ -4,7 +4,7 @@
     
     <% if @whiistle.replies.present? %>
       <div class="pl-8">
-        <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies %>
+        <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies, hide_parent_whiistles_of_replies: true %>
       </div>
     <% end %>
 

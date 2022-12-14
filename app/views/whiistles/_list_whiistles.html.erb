@@ -1,5 +1,8 @@
+<% hide_parent_whiistles_of_replies = local_assigns.fetch(:hide_parent_whiistles_of_replies, false) %>
 <div class="mt-3 ">
-    <% whiistles.includes(user:  [{ profile_picture_attachment: :blob }]).each do |whiistle|  %>
-        <%= render "whiistles/whiistle", whiistle: whiistle %>
-    <% end %>
+  <% whiistles.includes(user:  [{ profile_picture_attachment: :blob }]).each do |whiistle|  %>
+    <div class=" border-b border-solid">
+      <%= render "whiistles/whiistle", whiistle: whiistle, hide_parent_whiistles_of_replies: hide_parent_whiistles_of_replies %>
+    </div>
+  <% end %>
 </div>

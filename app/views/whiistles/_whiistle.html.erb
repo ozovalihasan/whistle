@@ -1,4 +1,8 @@
+<% hide_parent_whiistles_of_replies = local_assigns.fetch(:hide_parent_whiistles_of_replies, false) %>
 
+<% if !hide_parent_whiistles_of_replies && whiistle.is_a?(Reply) %>
+  <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
+<% end %>
 <div class='flex my-4 <%= check_click(whiistle) %> '>
   <%= link_to user_whiistles_path(whiistle.user), class: "hover-image shrink-0" do %>
     <div>
@@ -12,6 +16,15 @@
       </span>
       @<%= whiistle.user.username %>
     <% end %>
+    <% if whiistle.is_a? Reply %>
+      <div class="text-sm">
+        Replying to 
+        <%= link_to user_whiistles_path(whiistle.whiistle.user) do %>
+          @<%= whiistle.whiistle.user.username %>
+        <% end %>
+      </div>
+    <% end %>
+    
     <div class="mt-2">
       <%= link_to whiistle_path(whiistle) do %>
         <%= whiistle.body  %>
