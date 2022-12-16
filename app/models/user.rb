@@ -25,22 +25,12 @@ class User < ApplicationRecord
   has_many :followings, through: :following_relations, source: :followed
 
   def main_page_whiistles
-    sql1 = <<~QUERY
-      SELECT base_whiistles.*, rewhiistles.created_at AS primary_created_at 
-      FROM rewhiistles INNER JOIN base_whiistles ON base_whiistles.id = rewhiistles.whiistle_id 
-      WHERE rewhiistles.user_id = :user_id
-    QUERY
-
-    sql2 = <<~QUERY
-      SELECT base_whiistles.*, base_whiistles.created_at AS primary_created_at  
-      FROM base_whiistles 
-      WHERE base_whiistles.user_id = :user_id
-    QUERY
-
-    sql3 = "#{sql1} UNION ALL #{sql2}"
-    sql4 = "#{sql3} ORDER BY primary_created_at DESC"
+    whiistles_shared_by_user = self.shared_whiistles.select("base_whiistles.*, rewhiistles.created_at AS primary_created_at").to_sql
+    user_whiistles = self.whiistles.select("base_whiistles.*, base_whiistles.created_at as primary_created_at").to_sql
+    all_whiistles = "#{whiistles_shared_by_user} UNION ALL #{user_whiistles}"
+    ordered_whiistles = "#{all_whiistles} ORDER BY primary_created_at DESC"
     
-    BaseWhiistle.find_by_sql([sql3, user_id: self.id])
+    BaseWhiistle.find_by_sql(ordered_whiistles)
   end
   
   def followings_and_user_ids
