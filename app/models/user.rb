@@ -26,9 +26,10 @@ class User < ApplicationRecord
 
   def main_page_whiistles
     whiistles_shared_by_user = self.shared_whiistles.select("base_whiistles.*, rewhiistles.created_at AS primary_created_at, 'shared_whiistle' as label").to_sql
-    user_whiistles = self.whiistles.select("base_whiistles.*, base_whiistles.created_at as primary_created_at, 'primary_whiistle' as label").to_sql
+    user_whiistles = self.whiistles.select("base_whiistles.*, base_whiistles.created_at as primary_created_at, 'primary_whiistle' AS label").to_sql
     all_whiistles = "(#{whiistles_shared_by_user}) UNION ALL (#{user_whiistles})"
-    ordered_whiistles = "#{all_whiistles} ORDER BY primary_created_at DESC"
+    all_whiistles_without_replies = "SELECT * FROM (#{all_whiistles}) AS all_whiistles WHERE all_whiistles.type != 1"
+    ordered_whiistles = "#{all_whiistles_without_replies} ORDER BY primary_created_at DESC"
     
     BaseWhiistle.find_by_sql(ordered_whiistles)
   end
