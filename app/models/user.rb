@@ -40,7 +40,7 @@ class User < ApplicationRecord
     sql3 = "#{sql1} UNION ALL #{sql2}"
     sql4 = "#{sql3} ORDER BY primary_created_at DESC"
     
-    BaseWhiistle.find_by_sql([sql3, user_id: user.id])
+    BaseWhiistle.find_by_sql([sql3, user_id: self.id])
   end
   
   def followings_and_user_ids
