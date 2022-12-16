@@ -25,7 +25,22 @@ class User < ApplicationRecord
   has_many :followings, through: :following_relations, source: :followed
 
   def main_page_whiistles
-    BaseWhiistle.own_and_rewhiistled_whiistles_without_replies(self)
+    sql1 = <<~QUERY
+      SELECT base_whiistles.*, base_whiistles.created_at AS whiistle_created_at, rewhiistles.created_at AS rewhiistle_created_at 
+      FROM rewhiistles INNER JOIN base_whiistles ON base_whiistles.id = rewhiistles.whiistle_id 
+      WHERE rewhiistles.user_id = :user_id
+    QUERY
+
+    sql2 = <<~QUERY
+      SELECT base_whiistles.*, base_whiistles.created_at AS whiistle_created_at, base_whiistles.created_at AS rewhiistle_created_at  
+      FROM base_whiistles 
+      WHERE base_whiistles.user_id = :user_id
+    QUERY
+
+    sql3 = "#{sql1} UNION ALL #{sql2}"
+    sql4 = "#{sql3} ORDER BY rewhiistle_created_at DESC"
+    
+    BaseWhiistle.find_by_sql([sql3, user_id: user.id])
   end
   
   def followings_and_user_ids
