@@ -1,0 +1,15 @@
+<% if @whiistle.saved_changes? %>
+  <%= turbo_stream.prepend "whiistles" do %>
+    <%= render "whiistles/whiistle", whiistle: @whiistle %> 
+  <% end %>
+
+  <%= turbo_stream.replace "whiistles_counter" do %>
+      <%= render "whiistles/whiistles_counter", whiistles: @whiistles %>
+  <% end %>
+  
+<% end %>
+
+<%= turbo_stream.update "flashes" do %>
+    <%= check_notice %>
+    <%= check_alert %>
+<% end %>

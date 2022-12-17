@@ -13,14 +13,14 @@ class WhiistlesController < ApplicationController
   end
 
   def create
-    whiistle = current_user.whiistles.new(whiistle_params)
+    @whiistle = current_user.whiistles.new(whiistle_params.merge(type: BaseWhiistle.types["Whiistle"]))
 
-    if whiistle.save
+    if @whiistle.save
       flash[:notice] = 'You whiistled'
+      @whiistles = current_user.whiistles_including_users
     else
-      flash[:alert] = whiistle.errors.full_messages[0]
+      flash[:alert] = @whiistle.errors.full_messages[0]
     end
-
   
   end
 
