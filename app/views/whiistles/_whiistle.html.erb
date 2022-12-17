@@ -1,60 +1,22 @@
 <% hide_parent_whiistles_of_replies = local_assigns.fetch(:hide_parent_whiistles_of_replies, false) %>
 
-<% if !hide_parent_whiistles_of_replies && whiistle.is_a?(Reply) %>
-  <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
-<% end %>
+<% if whiistle.is_a? Reply %>
 
-<div class='flex my-4 <%= check_click(whiistle) %> '>
-  
-  <%= link_to user_whiistles_path(whiistle.user), class: "hover-image shrink-0" do %>
-    <div>
-      <%= image_tag( show_profile_picture(whiistle.user.profile_picture), size: '50x50') %>
+  <% content_for dom_id(whiistle, :reply_info) do %>
+    <div class="text-sm">
+      Replying to 
+      <%= link_to user_whiistles_path(whiistle.whiistle.user) do %>
+        @<%= whiistle.whiistle.user.username %>
+      <% end %>
     </div>
   <% end %>
   
-  <div class="pl-2">
-    <%= link_to user_whiistles_path(whiistle.user) do %>
-      <span class="text-dark">
-        <%= whiistle.user.fullname %>
-      </span>
-      @<%= whiistle.user.username %>
-    <% end %>
-    
-    <%= link_to whiistle_path(whiistle) do %>
-      - <%= distance_of_time_in_words(Time.now, whiistle.created_at, compact: true, highest_measure_only: true) %>    
-    <% end %>
-    
-    <% if whiistle.is_a? Reply %>
-      <div class="text-sm">
-        Replying to 
-        <%= link_to user_whiistles_path(whiistle.whiistle.user) do %>
-          @<%= whiistle.whiistle.user.username %>
-        <% end %>
-      </div>
-    <% end %>
-    
-    <div class="mt-2">
-      <%= link_to whiistle_path(whiistle) do %>
-        <%= whiistle.body  %>
-      <% end %>
-      
-      <%= render "whiistles/pictures", whiistle: whiistle %>
-    </div>
-    
-    <% if whiistle.is_a? QuotedWhiistle %>
-      <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
-    <% end %>
-    
-    <div class="flex"> 
-      <%= render "whiistles/reply_button", whiistle: whiistle %>
-      <%= render "whiistles/toggle_rewhiistle_or_quote_button", whiistle: whiistle %>
-      <%= render "whiistles/like_button", whiistle: whiistle %>
-    </div>
+<% elsif whiistle.respond_to?(:label) && whiistle.label == "shared_whiistle" %>
 
-    <turbo-frame id=<%= whiistle_reply_form_target(whiistle) %> >
-    </turbo-frame>
-    <turbo-frame id=<%= whiistle_quoted_whiistle_form_target(whiistle) %> >
-    </turbo-frame>
+  <% content_for dom_id(whiistle, :rewhiistle_info) do %>
+    <%= @user.fullname %> Rewhiistled
+  <% end %>
 
-  </div>
-</div>
+<% end %>
+
+<%= render "whiistles/whiistle_details", whiistle: whiistle, hide_parent_whiistles_of_replies: hide_parent_whiistles_of_replies %> 
