@@ -15,9 +15,7 @@
         <% end %>
         
         <div class="p-4 mt-4 ">
-            <div class="pb-4 text-second-color">
-                <h1> <%= pluralize(@whiistles.size, 'Whiistle') %></h1>
-            </div >
+            <%= render "whiistles/whiistles_counter", whiistles: @whiistles %>
             <%= render 'whiistles/list_whiistles', whiistles: @whiistles %>
         </div>
     </div>
