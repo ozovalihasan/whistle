@@ -39,10 +39,8 @@ class User < ApplicationRecord
                            'primary_whiistle' AS label
                          ").to_sql
                          
-    all_whiistles = "(#{whiistles_shared_by_user}) UNION ALL (#{user_whiistles})"
-    all_whiistles_without_replies = "(#{all_whiistles}) AS all_whiistles WHERE all_whiistles.type != 1"
-    
-    BaseWhiistle.select("*").from(all_whiistles_without_replies).order(primary_created_at: :desc).includes(user:  [{ profile_picture_attachment: :blob }])
+    all_whiistles = BaseWhiistle.select("*").from("((#{whiistles_shared_by_user}) UNION ALL (#{user_whiistles})) AS all_whiistles")
+    all_whiistles.without_replies.order(primary_created_at: :desc)
   end
   
   def followings_and_user_ids
