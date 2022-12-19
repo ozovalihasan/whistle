@@ -6,7 +6,7 @@ class Users::WhiistlesController < ApplicationController
     @whiistle = Whiistle.new
     @followings = @user.followings
     @followers = @user.followers.with_attached_profile_picture
-    @whiistles = @user.main_page_whiistles
+    @whiistles = @user.whiistles_without_replies
     @relation = current_user.following_relations.find_by(followed_id: @user.id)
   end
 
