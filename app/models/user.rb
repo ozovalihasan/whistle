@@ -24,7 +24,7 @@ class User < ApplicationRecord
   has_many :following_relations, class_name: "Relation", foreign_key: "following_id", dependent: :destroy
   has_many :followings, through: :following_relations, source: :followed
 
-  def whiistles_without_replies
+  def whiistles_of_whiistles_index_page
     whiistles_shared_by_user = self.shared_whiistles
                                    .select("
                                      base_whiistles.*, 
