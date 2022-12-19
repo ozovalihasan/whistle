@@ -37,10 +37,10 @@ class User < ApplicationRecord
                            base_whiistles.*, 
                            base_whiistles.created_at AS primary_created_at, 
                            'primary_whiistle' AS label
-                         ").to_sql
+                         ").without_replies.to_sql
                          
     all_whiistles = BaseWhiistle.select("*").from("((#{whiistles_shared_by_user}) UNION ALL (#{user_whiistles})) AS all_whiistles")
-    all_whiistles.without_replies.order(primary_created_at: :desc)
+    all_whiistles.order(primary_created_at: :desc)
   end
   
   def followings_and_user_ids
