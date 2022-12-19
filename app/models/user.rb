@@ -24,22 +24,26 @@ class User < ApplicationRecord
   has_many :following_relations, class_name: "Relation", foreign_key: "following_id", dependent: :destroy
   has_many :followings, through: :following_relations, source: :followed
 
-  def whiistles_of_whiistles_index_page
+  def whiistles_of_whiistles_index_page(remove_replies = true)
     whiistles_shared_by_user = self.shared_whiistles
                                    .select("
                                      base_whiistles.*, 
                                      rewhiistles.created_at AS primary_created_at, 
                                      'shared_whiistle' AS label
-                                   ").to_sql
-
+                                   ")
+    
     user_whiistles = self.whiistles
-                         .select("
-                           base_whiistles.*, 
-                           base_whiistles.created_at AS primary_created_at, 
-                           'primary_whiistle' AS label
-                         ").without_replies.to_sql
-                         
-    all_whiistles = BaseWhiistle.select("*").from("((#{whiistles_shared_by_user}) UNION ALL (#{user_whiistles})) AS all_whiistles")
+                       .select("
+                         base_whiistles.*, 
+                         base_whiistles.created_at AS primary_created_at, 
+                         'primary_whiistle' AS label
+                       ")
+
+    if remove_replies
+      user_whiistles = user_whiistles.without_replies
+    end                   
+
+    all_whiistles = BaseWhiistle.select("*").from("((#{whiistles_shared_by_user.to_sql}) UNION ALL (#{user_whiistles.to_sql})) AS all_whiistles")
     all_whiistles.order(primary_created_at: :desc)
   end
   
