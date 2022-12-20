@@ -46,6 +46,10 @@ class User < ApplicationRecord
     all_whiistles = BaseWhiistle.select("*").from("((#{whiistles_shared_by_user.to_sql}) UNION ALL (#{user_whiistles.to_sql})) AS all_whiistles")
     all_whiistles.order(primary_created_at: :desc)
   end
+
+  def whiistles_of_whiistles_and_replies_index_page
+    whiistles_of_whiistles_index_page(false)
+  end
   
   def followings_and_user_ids
     followings.ids << id
