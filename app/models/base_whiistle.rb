@@ -20,5 +20,6 @@ class BaseWhiistle < ApplicationRecord
     'Whiistle' => 0,
     'Reply' => 1,
     'QuotedWhiistle' => 2,
+    'Flood' => 3,
   }
 end
