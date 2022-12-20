@@ -9,6 +9,9 @@
                     <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Whiistles</a>
                 </li>
                 <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Whiistles & Replies</a>
+                </li>
+                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
                     <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Media</a>
                 </li>
                 <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
@@ -28,6 +31,17 @@
                     <%= render partial: "users/whiistles_frame" %>
                 <% else %>
                     <turbo-frame id=<%= dom_id(@user, :whiistles) %> src=<%= user_whiistles_path(@user) %> loading="lazy" >
+                        <%= render "shared/spinner" %>
+                    </turbo-frame>
+                <% end %>
+                
+            </div>
+
+            <div class="hidden py-4 px-4" data-tabs-target="panel">
+                <% if active_tab == "whiistles_with_replies" %>
+                    <%= render partial: "users/whiistles_with_replies_frame" %>
+                <% else %>
+                    <turbo-frame id=<%= dom_id(@user, :whiistles_with_replies) %> src=<%= user_whiistles_with_replies_path(@user) %> loading="lazy" >
                         <%= render "shared/spinner" %>
                     </turbo-frame>
                 <% end %>
