@@ -1,0 +1,6 @@
+<turbo-frame id=<%= dom_id(@user, :liked_whiistles) %> >
+    <div class="p-4 mt-4">
+        <%= render 'whiistles/whiistles_counter',whiistles: @liked_whiistles %>
+        <%= render 'whiistles/list_whiistles',whiistles: @liked_whiistles, hide_parent_whiistles_of_replies: true %>
+    </div> 
+</turbo-frame>
