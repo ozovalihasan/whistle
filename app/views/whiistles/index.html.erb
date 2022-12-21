@@ -7,9 +7,23 @@
             <%= f.label :pictures, class: "bi bi-images py-2 px-4 my-4 btn-second" do %>
             <% end %>
             <%= f.input :pictures, as: :file, input_html: { multiple: true }, wrapper: :whiistle_file_wrapper  %>
+
             <div class="ml-auto ">
               <%= f.button :submit, "Whiistle" %>
             </div>
+          </div>
+
+          <div data-controller="flood">
+            <template data-flood-target='template'>
+              <%= f.simple_fields_for :floods, Flood.new, index: 'TEMPLATE_RECORD' do |flood| %>
+                <%= render 'flood_whiistle_form', form: flood %>
+              <% end %>
+            </template>
+
+            <div data-flood-target="add_item">
+              <%= link_to "Add Flood", "#", data: { action: "click->flood#add_association" } %>
+            </div>
+            
           </div>
           
         <% end %>
