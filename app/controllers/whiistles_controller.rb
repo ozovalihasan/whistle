@@ -15,18 +15,13 @@ class WhiistlesController < ApplicationController
   def create
     @whiistle = current_user.whiistles.new(whiistle_params.merge(type: BaseWhiistle.types["Whiistle"]))
 
-    if @whiistle.save
-      parent_whiistle = @whiistle
-      floods_params[:floods].to_h.to_a.sort_by(&:first).each do |_, flood_params|
-        parent_whiistle = parent_whiistle.create_flood( flood_params.merge( base_whiistle_id: parent_whiistle.id, user_id: current_user.id ) )  
-      end
-      
-      flash[:notice] = 'You whiistled'
+    result = FloodCreator.call(floods_params, @whiistle, current_user)
+    if result.success?
+      flash[:notice] = result.message
       @whiistles = current_user.whiistles_including_users
     else
-      flash[:alert] = @whiistle.errors.full_messages[0]
+      flash[:alert] = result.message
     end
-  
   end
 
   private
@@ -43,3 +38,4 @@ class WhiistlesController < ApplicationController
     params.require(:whiistle).permit(floods: [:body, pictures: []])
   end
 end
+
