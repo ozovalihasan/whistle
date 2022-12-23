@@ -29,13 +29,10 @@
         <% end %>
         
         <div class="p-4 mt-4 ">
-            <%= render "whiistles/whiistles_counter", whiistles: @all_whiistles %>
-
             <%= 
               render "shared/infinite_scroll", 
-                      rendered_partial: (
-                        render 'whiistles/list_whiistles', whiistles: @paginated_whiistles
-                      ),
+                      all_whiistles: @all_whiistles,
+                      paginated_whiistles: @paginated_whiistles,
                       container_id: "whiistles",
                       url: whiistles_url,
                       last_page: @last_page,
