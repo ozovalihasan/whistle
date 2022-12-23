@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def check_notice
     render 'layouts/notice' if notice
   end

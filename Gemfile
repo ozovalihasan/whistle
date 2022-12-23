@@ -83,3 +83,4 @@ gem "faker"
 gem 'image_processing'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'dotiw', '~> 5.3', '>= 5.3.3'
+gem 'pagy'

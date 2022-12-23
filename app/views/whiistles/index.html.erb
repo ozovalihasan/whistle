@@ -29,9 +29,25 @@
         <% end %>
         
         <div class="p-4 mt-4 ">
-            <%= render "whiistles/whiistles_counter", whiistles: @whiistles %>
-            <div id="whiistles">
-              <%= render 'whiistles/list_whiistles', whiistles: @whiistles %>
+            <%= render "whiistles/whiistles_counter", whiistles: @all_whiistles %>
+
+            <div 
+              data-controller="pagination"
+              data-pagination-url-value="<%= whiistles_url %> "
+              data-pagination-current-page-value="<%= @page %>"
+              data-pagination-max-page-value="<%= @last_page %>"
+              data-pagination-request-value="false"
+            >
+              <div id="whiistles">
+                <%= render 'whiistles/list_whiistles', whiistles: @paginated_whiistles %>
+              </div>
+
+              <div
+                class="w-full h-32 mt-32 flex justify-center"
+                data-pagination-target="loading"
+              >
+                <%= render "shared/spinner" %>
+              </div>
             </div>
         </div>
     </div>
