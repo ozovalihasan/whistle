@@ -1,0 +1,3 @@
+<%= turbo_stream.append "whiistles_with_replies_frame" do %>
+  <%= render 'whiistles/list_whiistles', whiistles: @paginated_whiistles %>
+<% end %>

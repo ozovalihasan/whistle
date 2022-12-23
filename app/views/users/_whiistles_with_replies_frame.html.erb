@@ -11,7 +11,14 @@
         </div>
     <% end %>
     <div class="p-4 mt-4">
-        <%= render 'whiistles/whiistles_counter',whiistles: @whiistles_with_replies %>
-        <%= render 'whiistles/list_whiistles',whiistles: @whiistles_with_replies %>
+      <%= 
+        render "shared/infinite_scroll", 
+                all_whiistles: @all_whiistles,
+                paginated_whiistles: @paginated_whiistles,
+                container_id: "whiistles_with_replies_frame",
+                url: user_whiistles_url(@user),
+                last_page: @last_page,
+                page: @page
+      %>
     </div> 
 </turbo-frame>

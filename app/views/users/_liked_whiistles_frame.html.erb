@@ -1,6 +1,13 @@
 <turbo-frame id=<%= dom_id(@user, :liked_whiistles) %> >
-    <div class="p-4 mt-4">
-        <%= render 'whiistles/whiistles_counter',whiistles: @liked_whiistles %>
-        <%= render 'whiistles/list_whiistles',whiistles: @liked_whiistles, hide_parent_whiistles_of_replies: true %>
-    </div> 
+  <div class="p-4 mt-4">
+    <%= 
+      render "shared/infinite_scroll", 
+              all_whiistles: @all_whiistles,
+              paginated_whiistles: @paginated_whiistles,
+              container_id: "liked_whiistles_frame",
+              url: user_whiistles_url(@user),
+              last_page: @last_page,
+              page: @page
+    %>
+  </div> 
 </turbo-frame>
