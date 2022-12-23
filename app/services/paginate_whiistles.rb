@@ -4,8 +4,7 @@ class PaginateWhiistles < ApplicationService
   
   def initialize(whiistles, page)
     @whiistles = whiistles
-    @page = page
-    
+    @page = page ? page : 1
   end
 
   def call
@@ -16,6 +15,6 @@ class PaginateWhiistles < ApplicationService
     pagy, limited_whiistles = pagy(whiistles, page: page)
     last_page = pagy.last
 
-    return [ limited_whiistles, last_page ]
+    return [ limited_whiistles, last_page, page ]
   end
 end
