@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_13_152432) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_23_160523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,10 +49,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_152432) do
     t.text "body"
     t.integer "type"
     t.bigint "base_whiistle_id"
-    t.integer "likes_count"
-    t.integer "rewhiistles_count"
-    t.integer "replies_count"
-    t.integer "quoted_whiistles_count"
+    t.integer "likes_count", default: 0
+    t.integer "rewhiistles_count", default: 0
+    t.integer "replies_count", default: 0
+    t.integer "quoted_whiistles_count", default: 0
     t.index ["base_whiistle_id"], name: "index_base_whiistles_on_base_whiistle_id"
     t.index ["user_id"], name: "index_base_whiistles_on_user_id"
   end
@@ -94,10 +94,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_152432) do
     t.datetime "updated_at", null: false
     t.string "username", null: false
     t.string "fullname", null: false
-    t.integer "whiistles_count"
-    t.integer "followers_count"
-    t.integer "followings_count"
-    t.integer "rewhiistles_count"
+    t.integer "whiistles_count", default: 0
+    t.integer "followers_count", default: 0
+    t.integer "followings_count", default: 0
+    t.integer "rewhiistles_count", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
