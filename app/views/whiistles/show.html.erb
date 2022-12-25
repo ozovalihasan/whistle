@@ -2,15 +2,14 @@
   <div class='p-4 w-2/3'>
     <%= render "whiistles/whiistle", whiistle: @whiistle %>
     
-    <% if @whiistle.is_a?(Whiistle) && @whiistle.flood.present? %>
-      <%= render "whiistles/whiistle", whiistle: @whiistle.flood, hide_parent_whiistles_of_replies: true %>
-    <% end %>
-    
-    <% if @whiistle.replies.present? %>
-      <div class="pl-8">
+    <div class="pl-8">
+      <% if (@whiistle.is_a?(Whiistle) || @whiistle.is_a?(Flood)) && @whiistle.flood.present? %>
+        <%= render "whiistles/all_children_floods", whiistle: @whiistle.flood %>
+      <% end %>
+      <% if @whiistle.replies.present? %>
         <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies, hide_parent_whiistles_of_replies: true %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
   </div>
   <div class='w-1/3'>

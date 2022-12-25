@@ -1,0 +1,7 @@
+<div class="border-l border-solid border-second pl-2 pt-1">
+  <%= render "whiistles/whiistle", whiistle: whiistle, hide_parent_whiistles_of_replies: true %>
+</div>
+
+<% if whiistle.flood.present? %>
+  <%= render "whiistles/all_children_floods", whiistle: whiistle.flood %>
+<% end %>
