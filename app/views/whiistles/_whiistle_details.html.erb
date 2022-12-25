@@ -1,6 +1,6 @@
 <% hide_parent_whiistles_of_replies = local_assigns.fetch(:hide_parent_whiistles_of_replies, false) %>
 
-<% if !hide_parent_whiistles_of_replies && whiistle.is_a?(Reply) %>
+<% if !hide_parent_whiistles_of_replies && (whiistle.is_a?(Reply) || whiistle.is_a?(Flood) ) %>
   <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
 <% end %>
 
