@@ -2,100 +2,23 @@
     <div class="w-2/3">
         <div style="background-image: url('<%= cover_image_url(@user) %>');", class="h-60 bg-cover bg-center w-full bg-third">
         </div>
+        <turbo-frame id="user_tabs" data-turbo-action="advance" >
 
-        <div data-controller="tabs" data-tabs-active-tab="border-b border-solid border-second" data-tabs-index=<%= tab_index(active_tab) %>>
-            <ul class="list-reset flex">
-                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Whiistles</a>
-                </li>
-                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Whiistles & Replies</a>
-                </li>
-                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Media</a>
-                </li>
-                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Likes</a>
-                </li>
-                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Following</a>
-                </li>
-                <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-                    <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline" href="#">Followers</a>
-                </li>
-                
-            </ul>
+            <div >
+                <ul class="flex">
+                    <%= render "users/tabs_button", url: user_whiistles_path(@user), text: "Whiistles", active_tab: selected_tab == "whiistles" %>
+                    <%= render "users/tabs_button", url: user_whiistles_with_replies_path(@user), text: "Whiistles & Replies", active_tab: selected_tab == "whiistles_with_replies" %>
+                    <%= render "users/tabs_button", url: user_medias_path(@user), text: "Media", active_tab: selected_tab == "medias" %>
+                    <%= render "users/tabs_button", url: user_liked_whiistles_path(@user), text: "Likes", active_tab: selected_tab == "liked_whiistles" %>
+                    <%= render "users/tabs_button", url: user_followings_path(@user), text: "Followings", active_tab: selected_tab == "followings" %>
+                    <%= render "users/tabs_button", url: user_followers_path(@user), text: "Followers", active_tab: selected_tab == "followers" %>
+                </ul>
 
-            <div class="hidden py-4 px-4" data-tabs-target="panel">
-                <% if active_tab == "whiistles" %>
-                    <%= render partial: "users/whiistles_frame" %>
-                <% else %>
-                    <turbo-frame id=<%= dom_id(@user, :whiistles) %> src=<%= user_whiistles_path(@user) %> loading="lazy" >
-                        <%= render "shared/spinner" %>
-                    </turbo-frame>
-                <% end %>
-                
+                <%= yield :tabs %>
+
             </div>
-
-            <div class="hidden py-4 px-4" data-tabs-target="panel">
-                <% if active_tab == "whiistles_with_replies" %>
-                    <%= render partial: "users/whiistles_with_replies_frame" %>
-                <% else %>
-                    <turbo-frame id=<%= dom_id(@user, :whiistles_with_replies) %> src=<%= user_whiistles_with_replies_path(@user) %> loading="lazy" >
-                        <%= render "shared/spinner" %>
-                    </turbo-frame>
-                <% end %>
-                
-            </div>
-
-            <div class="hidden py-4 px-4" data-tabs-target="panel">
-                <% if active_tab == "medias" %>
-                    <%= render partial: "users/medias_frame" %>
-                <% else %>
-                    <turbo-frame id=<%= dom_id(@user, :medias) %> src=<%= user_medias_path(@user) %> loading="lazy" >
-                        <%= render "shared/spinner" %>
-                    </turbo-frame>
-                <% end %>
-                
-            </div>
-
-            <div class="hidden py-4 px-4" data-tabs-target="panel">
-                <% if active_tab == "liked_whiistles" %>
-                    <%= render partial: "users/liked_whiistles_frame" %>
-                <% else %>
-                    <turbo-frame id=<%= dom_id(@user, :liked_whiistles) %> src=<%= user_liked_whiistles_path(@user) %> loading="lazy" >
-                        <%= render "shared/spinner" %>
-                    </turbo-frame>
-                <% end %>
-                
-            </div>
-
-            <div class="hidden py-4 px-4" data-tabs-target="panel">
-                <% if active_tab == "followings" %>
-                    <%= render "users/followings_frame" %>
-                <% else %>
-                    <turbo-frame id=<%= dom_id(@user, :followings) %> src=<%= user_followings_path(@user) %> loading="lazy" >
-                        <%= render "shared/spinner" %>
-                    </turbo-frame>
-
-                <% end %>
-            </div>
-
-            <div class="hidden py-4 px-4" data-tabs-target="panel">
-                <% if active_tab == "followers" %>
-                    <%= render partial: "users/followers_frame" %>
-                <% else %>
-                    <turbo-frame id=<%= dom_id(@user, :followers) %> src=<%= user_followers_path(@user) %> loading="lazy" >
-                        <%= render "shared/spinner" %>
-                    </turbo-frame>
-                <% end %>
-            </div>
-
-        </div>
-
-
-
-        
+            
+        </turbo-frame>
     </div>
     <div class="w-1/3">
         <%= render "users/sidebar_right" %>

@@ -1,1 +1,5 @@
-<%= render partial: "users/tabs", locals: { active_tab: "liked_whiistles" } %>
+<% content_for :tabs do %>
+  <%= render partial: "users/liked_whiistles_frame" %>
+<% end %>
+
+<%= render partial: "users/tabs", locals: { selected_tab: "liked_whiistles" } %>
