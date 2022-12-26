@@ -10,13 +10,8 @@
       <% end %>
     </div>
   <% end %>
-  
-<% elsif whiistle.respond_to?(:label) && whiistle.label == "shared_whiistle" %>
-
-  <% content_for dom_id(whiistle, :rewhiistle_info) do %>
-    <%= @user.fullname %> Rewhiistled
-  <% end %>
 
 <% end %>
+
 
 <%= render "whiistles/whiistle_details", whiistle: whiistle, hide_parent_whiistles_of_replies: hide_parent_whiistles_of_replies %> 
