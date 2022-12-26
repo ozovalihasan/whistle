@@ -28,9 +28,7 @@
         - <%= distance_of_time_in_words(Time.now, whiistle.created_at, compact: true, highest_measure_only: true) %>    
       <% end %>
 
-      <div>
-        <%= yield dom_id(whiistle, :reply_info) %>
-      </div>
+      <%= render "whiistles/reply_info", whiistle: whiistle %>
       
       <div class="mt-2">
         <%= link_to whiistle_path(whiistle) do %>

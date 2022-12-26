@@ -1,17 +1,5 @@
 <% hide_parent_whiistles_of_replies = local_assigns.fetch(:hide_parent_whiistles_of_replies, false) %>
 
-<% if whiistle.is_a? Reply %>
-
-  <% content_for dom_id(whiistle, :reply_info) do %>
-    <div class="text-sm">
-      Replying to 
-      <%= link_to user_whiistles_path(whiistle.whiistle.user) do %>
-        @<%= whiistle.whiistle.user.username %>
-      <% end %>
-    </div>
-  <% end %>
-
-<% end %>
 
 
 <%= render "whiistles/whiistle_details", whiistle: whiistle, hide_parent_whiistles_of_replies: hide_parent_whiistles_of_replies %> 
