@@ -1,0 +1,3 @@
+<% if (whiistle.is_a? Whiistle) && whiistle.respond_to?(:flood) && whiistle.flood.present? %>
+  <%= link_to "Show this thread", whiistle_path(whiistle) %>
+<% end %>
