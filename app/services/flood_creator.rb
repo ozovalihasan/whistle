@@ -26,6 +26,7 @@ class FloodCreator < ApplicationService
           parent_whiistle.save!
         end
         
+        whiistle.create_whiistle_root_flood_leaf_pair!(flood: parent_whiistle) unless parent_whiistle == whiistle
       end
 
       status = Status.new(true, "You whiistled")
