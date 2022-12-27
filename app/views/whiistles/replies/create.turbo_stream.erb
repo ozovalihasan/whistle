@@ -9,7 +9,7 @@
   <% end %>
   
   <%= turbo_stream.after whiistle_reply_form_target(@whiistle) do %>
-    <%= render "whiistles/whiistle", whiistle: @reply, show_parent: false %>
+    <%= render "whiistles/whiistle", whiistle: @reply %>
   <% end %>
 
 

@@ -1,8 +1,7 @@
-<% show_parent = local_assigns.fetch(:show_parent, true) %>
 <div class="mt-3 ">
   <% whiistles.each do |whiistle|  %>
     <div class=" border-b border-solid">
-      <%= render "whiistles/whiistle", whiistle: whiistle, show_parent: show_parent %>
+      <%= render "whiistles/whiistle", whiistle: whiistle %>
     </div>
   <% end %>
 </div>

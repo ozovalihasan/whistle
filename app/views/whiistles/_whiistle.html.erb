@@ -1,9 +1,3 @@
-<% show_parent = local_assigns.fetch(:show_parent, true) %>
-
-<% if show_parent && (whiistle.is_a?(Reply) || whiistle.is_a?(Flood) ) %>
-  <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
-<% end %>
-
 <div class="my-4">
 
   <%= render "whiistles/rewhiistle_info", whiistle: whiistle %>

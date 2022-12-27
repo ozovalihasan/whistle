@@ -1,13 +1,19 @@
 <div class='flex grow'>
   <div class='p-4 w-2/3'>
+    
+    <% if @whiistle.is_a?(Reply) || @whiistle.is_a?(Flood)  %>
+      <%= render "whiistles/parent_whiistle_with_parents", whiistle: @whiistle.whiistle %>
+    <% end %>
+
     <%= render "whiistles/whiistle", whiistle: @whiistle %>
     
     <div class="pl-8">
       <% if (@whiistle.is_a?(Whiistle) || @whiistle.is_a?(Flood)) && @whiistle.flood.present? %>
         <%= render "whiistles/all_children_floods", whiistle: @whiistle.flood %>
       <% end %>
+      
       <% if @whiistle.replies.present? %>
-        <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies, show_parent: false %>
+        <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies %>
       <% end %>
     </div>
 
