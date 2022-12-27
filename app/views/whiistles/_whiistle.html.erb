@@ -25,10 +25,6 @@
         <%= render "whiistles/body_and_pictures", whiistle: whiistle %>
       </div>
       
-      <% if whiistle.is_a? QuotedWhiistle %>
-        <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
-      <% end %>
-      
       <%= render "whiistles/buttons", whiistle: whiistle %>
       
       <%= render "whiistles/flood_info", whiistle: whiistle %>

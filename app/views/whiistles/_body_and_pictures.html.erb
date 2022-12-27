@@ -3,3 +3,7 @@
 <% end %>
 
 <%= render "whiistles/pictures", whiistle: whiistle %>
+
+<% if whiistle.is_a? QuotedWhiistle %>
+  <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
+<% end %>
