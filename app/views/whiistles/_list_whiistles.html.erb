@@ -1,8 +1,8 @@
-<% hide_parent_whiistles_of_replies = local_assigns.fetch(:hide_parent_whiistles_of_replies, false) %>
+<% hide_parent = local_assigns.fetch(:hide_parent, false) %>
 <div class="mt-3 ">
   <% whiistles.each do |whiistle|  %>
     <div class=" border-b border-solid">
-      <%= render "whiistles/whiistle", whiistle: whiistle, hide_parent_whiistles_of_replies: hide_parent_whiistles_of_replies %>
+      <%= render "whiistles/whiistle", whiistle: whiistle, hide_parent: hide_parent %>
     </div>
   <% end %>
 </div>
