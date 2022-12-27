@@ -1,6 +1,6 @@
-<% hide_parent = local_assigns.fetch(:hide_parent, false) %>
+<% show_parent = local_assigns.fetch(:show_parent, true) %>
 
-<% if !hide_parent && (whiistle.is_a?(Reply) || whiistle.is_a?(Flood) ) %>
+<% if show_parent && (whiistle.is_a?(Reply) || whiistle.is_a?(Flood) ) %>
   <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
 <% end %>
 

@@ -7,7 +7,7 @@
         <%= render "whiistles/all_children_floods", whiistle: @whiistle.flood %>
       <% end %>
       <% if @whiistle.replies.present? %>
-        <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies, hide_parent: true %>
+        <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies, show_parent: false %>
       <% end %>
     </div>
 
