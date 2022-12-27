@@ -7,15 +7,17 @@
 
     <%= render "whiistles/whiistle", whiistle: @whiistle %>
     
-    <div class="pl-8">
-      <% if (@whiistle.is_a?(Whiistle) || @whiistle.is_a?(Flood)) && @whiistle.flood.present? %>
+    <% if (@whiistle.is_a?(Whiistle) || @whiistle.is_a?(Flood)) && @whiistle.flood.present? %>
+      <div class="pl-2 ml-6 border-solid border-l border-l-second border-b ">
         <%= render "whiistles/all_children_floods", whiistle: @whiistle.flood %>
-      <% end %>
+      </div>
+    <% end %>
       
-      <% if @whiistle.replies.present? %>
+    <% if @whiistle.replies.present? %>
+      <div class="pl-8">
         <%= render "whiistles/list_whiistles", whiistles: @whiistle.replies %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
   </div>
   <div class='w-1/3'>
