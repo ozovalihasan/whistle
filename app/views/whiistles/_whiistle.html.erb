@@ -26,11 +26,7 @@
       <%= render "whiistles/reply_info", whiistle: whiistle %>
       
       <div class="mt-2">
-        <%= link_to whiistle_path(whiistle) do %>
-          <%= whiistle.body  %>
-        <% end %>
-        
-        <%= render "whiistles/pictures", whiistle: whiistle %>
+        <%= render "whiistles/body_and_pictures", whiistle: whiistle %>
       </div>
       
       <% if whiistle.is_a? QuotedWhiistle %>
