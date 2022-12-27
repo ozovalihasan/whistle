@@ -43,11 +43,6 @@
       <% end %>
       
       <%= render "whiistles/buttons", whiistle: whiistle %>
-
-      <turbo-frame id=<%= whiistle_reply_form_target(whiistle) %> >
-      </turbo-frame>
-      <turbo-frame id=<%= whiistle_quoted_whiistle_form_target(whiistle) %> >
-      </turbo-frame>
       
       <%= render "whiistles/flood_info", whiistle: whiistle %>
 
