@@ -1,3 +1,3 @@
 <%= link_to user_whiistles_path(user), class: "hover-image shrink-0" do %>
-  <%= image_tag show_profile_picture(user.profile_picture), size: '50x50' %>
+  <%= image_tag show_profile_picture(user.profile_picture), size: size == :normal ? '50x50' : '25x25' %>
 <% end %>
