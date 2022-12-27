@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :flood do
     body { Faker::Quote.famous_last_words }
     user_id { User.ids.sample }
-    base_whiistle_id { Whiistle.ids.sample }
+    base_whiistle_id { [Whiistle.ids.sample, Flood.ids.sample].sample }
   end
 end
 
