@@ -1,0 +1,29 @@
+<div class="my-4">
+
+  <div class='flex  <%= check_click(whiistle) %> '>
+    
+    <div class="">
+      <div class="flex">
+        <div class="mr-2">
+          <%= render "whiistles/profile_image", user: whiistle.user %>
+        </div>
+        <%= render "whiistles/user_names_vertical", user: whiistle.user %>
+      </div>
+      
+      <div class="mt-4">
+        <%= render "whiistles/reply_info", whiistle: whiistle %>
+      </div>
+      
+      <div class="mt-2 ">
+        <div class="text-2xl my-4">
+          <%= render "whiistles/body_and_pictures", whiistle: whiistle %>
+        </div>
+        <div>
+          <%= whiistle.created_at %>
+        </div>
+      </div>
+      
+      <%= render "whiistles/buttons", whiistle: whiistle %>
+    </div>
+  </div>
+</div>

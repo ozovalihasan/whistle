@@ -5,7 +5,7 @@
       <%= render "whiistles/parent_whiistle_with_parents", whiistle: @whiistle.whiistle %>
     <% end %>
 
-    <%= render "whiistles/whiistle", whiistle: @whiistle %>
+    <%= render "whiistles/main_whiistle", whiistle: @whiistle %>
     
     <% if (@whiistle.is_a?(Whiistle) || @whiistle.is_a?(Flood)) && @whiistle.flood.present? %>
       <div class="pl-2 ml-6 border-solid border-l border-l-second border-b ">
