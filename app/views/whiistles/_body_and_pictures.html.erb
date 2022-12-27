@@ -1,9 +1,11 @@
-<%= link_to whiistle_path(whiistle) do %>
-  <%= whiistle.body  %>
-<% end %>
-
-<%= render "whiistles/pictures", whiistle: whiistle %>
-
-<% if whiistle.is_a? QuotedWhiistle %>
-  <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
-<% end %>
+<div>
+  <%= link_to whiistle_path(whiistle) do %>
+    <%= whiistle.body  %>
+  <% end %>
+  
+  <%= render "whiistles/pictures", whiistle: whiistle %>
+  
+  <% if whiistle.is_a? QuotedWhiistle %>
+    <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
+  <% end %>
+</div>
