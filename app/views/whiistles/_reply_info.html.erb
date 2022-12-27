@@ -1,5 +1,5 @@
 <% if whiistle.is_a? Reply %>
-  <div class="text-sm">
+  <div>
     Replying to 
     <%= link_to user_whiistles_path(whiistle.whiistle.user) do %>
       @<%= whiistle.whiistle.user.username %>
