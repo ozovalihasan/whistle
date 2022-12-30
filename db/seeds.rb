@@ -18,6 +18,7 @@ FactoryBot.create_list(:quoted_whiistle, 100)
 FactoryBot.create_list(:reply, 100)
 FactoryBot.create_list(:like, 100)
 FactoryBot.create_list(:rewhiistle, 100)
+FactoryBot.create_list(:flood, 100)
 
 30.times do
   begin 
