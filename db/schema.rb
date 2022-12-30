@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_26_133028) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_30_120725) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,15 +103,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_133028) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  create_table "whiistle_root_flood_leaf_pairs", force: :cascade do |t|
-    t.bigint "whiistle_id", null: false
-    t.bigint "flood_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["flood_id"], name: "index_whiistle_root_flood_leaf_pairs_on_flood_id"
-    t.index ["whiistle_id"], name: "index_whiistle_root_flood_leaf_pairs_on_whiistle_id"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "base_whiistles", "base_whiistles"
@@ -122,6 +113,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_133028) do
   add_foreign_key "relations", "users", column: "following_id"
   add_foreign_key "rewhiistles", "base_whiistles", column: "whiistle_id"
   add_foreign_key "rewhiistles", "users"
-  add_foreign_key "whiistle_root_flood_leaf_pairs", "base_whiistles", column: "flood_id"
-  add_foreign_key "whiistle_root_flood_leaf_pairs", "base_whiistles", column: "whiistle_id"
 end
