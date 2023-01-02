@@ -1,9 +1,13 @@
 class BaseWhiistle < ApplicationRecord
+  before_validation :set_parent_id
+  
   validates :body, length: { minimum: 3, message: 'of your whiistle cannot be shorter than 3 letters' }
   
   has_many_attached :pictures do |attachable|
     attachable.variant :thumb, resize_to_limit: [100, 100]
   end
+  
+  has_ancestry
   
   has_many :quoted_whiistles, dependent: :destroy
   has_many :replies, dependent: :destroy
@@ -22,4 +26,10 @@ class BaseWhiistle < ApplicationRecord
     'QuotedWhiistle' => 2,
     'Flood' => 3,
   }
+
+  private 
+
+  def set_parent_id
+    self.parent_id = base_whiistle_id if base_whiistle_id
+  end
 end
