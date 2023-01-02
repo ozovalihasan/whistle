@@ -6,7 +6,11 @@ class Whiistles::RepliesController < ApplicationController
   end
   
   def create
-    @reply = current_user.replies.new(reply_params.merge base_whiistle_id: params[:whiistle_id])
+    @reply = current_user.replies.new(
+               reply_params.merge(
+                 base_whiistle_id: params[:whiistle_id]
+               )
+             )
 
     if @reply.save
       flash[:notice] = 'You replied'

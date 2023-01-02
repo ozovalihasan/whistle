@@ -6,7 +6,11 @@ class Whiistles::QuotedWhiistlesController < ApplicationController
   end
   
   def create
-    @quoted_whiistle = current_user.quoted_whiistles.new(quoted_whiistles_params.merge base_whiistle_id: params[:whiistle_id])
+    @quoted_whiistle = current_user.quoted_whiistles.new(
+                         quoted_whiistles_params.merge(
+                          base_whiistle_id: params[:whiistle_id]
+                         )
+                       )
 
     if @quoted_whiistle.save
       flash[:notice] = "You quoted the whiistle of #{ @whiistle.user.fullname }"
