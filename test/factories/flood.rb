@@ -2,8 +2,15 @@ FactoryBot.define do
   selected_parent_id = nil
   factory :flood do
     body { Faker::Quote.famous_last_words }
-    base_whiistle_id { selected_parent_id = (Whiistle.ids + Flood.ids).sample }
+    base_whiistle_id { selected_parent_id = suitable_parent_of_flood }
     user_id { BaseWhiistle.find(selected_parent_id).user.id }
+  end
+end
+
+def suitable_parent_of_flood
+  loop do
+    parent_id = (Whiistle.ids + Flood.ids).sample
+    return parent_id if BaseWhiistle.find(parent_id).flood.nil?
   end
 end
 
