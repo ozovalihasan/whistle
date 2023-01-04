@@ -2,7 +2,7 @@
   <div class="p-2 w-2/3">
     <% if @whiistle.is_a?(Reply) || @whiistle.is_a?(Flood)  %>
       <div class="border-solid border-second border-l p-2 ">
-        <%= render "whiistles/parent_whiistle_with_parents", whiistle: @whiistle.whiistle %>
+        <%= render "whiistles/all_parents_until_root", whiistle: @whiistle.whiistle %>
       </div>
     <% end %>
 
