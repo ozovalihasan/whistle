@@ -37,7 +37,7 @@ class User < ApplicationRecord
                          base_whiistles.*, 
                          base_whiistles.created_at AS primary_created_at, 
                          'primary_whiistle' AS label
-                       ")
+                       ").without_floods
 
     if remove_replies
       user_whiistles = user_whiistles.without_replies
