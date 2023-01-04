@@ -5,8 +5,8 @@
     
       <% if whiistle.is_a? Reply %>
         
-        <% unless whiistle.subroot == whiistle.whiistle %>
-          <%= render "whiistles/whiistle", whiistle: whiistle.subroot %>
+        <% if whiistle.path.count > 2 %>
+          <%= render "whiistles/whiistle", whiistle: whiistle.root %>
         <% end %>
 
         <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>

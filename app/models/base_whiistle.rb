@@ -28,13 +28,13 @@ class BaseWhiistle < ApplicationRecord
     'Flood' => 3,
   }
 
-  def subroot
-    ancestors.where( type: [BaseWhiistle.types["Whiistle" ], BaseWhiistle.types["QuotedWhiistle"]] ).last
-  end
-  
   private 
 
   def set_parent_id
-    self.parent_id = base_whiistle_id if base_whiistle_id
+    if base_whiistle_id && ( [Reply, Flood].include? self.class )
+      self.parent_id = base_whiistle_id 
+    else
+      self.parent_id = nil
+    end
   end
 end
