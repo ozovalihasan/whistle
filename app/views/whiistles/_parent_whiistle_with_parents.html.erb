@@ -1,5 +1,3 @@
-<% if whiistle.is_a?(Reply) || whiistle.is_a?(Flood)  %>
-  <%= render "whiistles/parent_whiistle_with_parents", whiistle: whiistle.whiistle %>
+<% whiistle.path.each do |parent| %>
+  <%= render "whiistles/whiistle", whiistle: parent, hide_flood_info: true %>
 <% end %>
-
-<%= render "whiistles/whiistle", whiistle: whiistle, hide_flood_info: true %>
