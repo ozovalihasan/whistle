@@ -40,6 +40,7 @@ class User < ApplicationRecord
                        ").without_floods
 
     if remove_replies
+      whiistles_shared_by_user = whiistles_shared_by_user.without_replies
       user_whiistles = user_whiistles.without_replies
     end                   
 
