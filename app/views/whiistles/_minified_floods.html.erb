@@ -1,0 +1,9 @@
+<% if whiistle.count_floods > 2 %>
+  <%= link_to "Show this thread", whiistle_path(whiistle) %>
+<% end %>
+
+<% if whiistle.count_floods > 1 %>
+  <%= render "whiistles/whiistle", whiistle: whiistle.leaf_flood.parent %>
+<% end %>
+
+<%= render "whiistles/whiistle", whiistle: whiistle.leaf_flood %>

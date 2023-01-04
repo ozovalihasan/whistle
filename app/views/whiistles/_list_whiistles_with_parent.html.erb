@@ -1,0 +1,38 @@
+<div class="mt-3 ">
+  <% whiistles.each do |whiistle|  %>
+
+    <% if whiistle.label == "primary_whiistle" %>
+    
+      <% if whiistle.is_a? Reply %>
+        
+        <% unless whiistle.subroot == whiistle.whiistle %>
+          <%= render "whiistles/whiistle", whiistle: whiistle.subroot %>
+        <% end %>
+
+        <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
+
+      <% end %>
+
+      <div class=" border p-2 border-solid">
+        
+        <%= render "whiistles/whiistle", whiistle: whiistle, hide_flood_info: true %>
+
+        <% if (whiistle.is_a? Whiistle) && whiistle.flood.present? %>
+          <%= render "whiistles/minified_floods", whiistle: whiistle %>
+        <% end %>  
+
+      </div>
+    
+    <% elsif whiistle.label == "shared_whiistle" %>
+
+      <div class=" border p-2 border-solid">
+        <%= render "whiistles/whiistle", whiistle: whiistle, hide_flood_info: true %>
+        <% if ((whiistle.is_a? Whiistle) && whiistle.flood.present?) || (whiistle.is_a? Flood)  %>
+          <%= link_to "Show this thread", whiistle_path(whiistle) %>
+        <% end %>
+      </div>
+
+    <% end %>
+    
+  <% end %>
+</div>

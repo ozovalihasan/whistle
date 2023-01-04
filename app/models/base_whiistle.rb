@@ -28,6 +28,10 @@ class BaseWhiistle < ApplicationRecord
     'Flood' => 3,
   }
 
+  def subroot
+    ancestors.where( type: [BaseWhiistle.types["Whiistle" ], BaseWhiistle.types["QuotedWhiistle"]] ).last
+  end
+  
   private 
 
   def set_parent_id
