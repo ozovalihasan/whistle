@@ -8,17 +8,17 @@
         <% if whiistle.is_a? Reply %>
         
           <% if whiistle.path.count >= 3 %>
-            <%= render "whiistles/whiistle", whiistle: whiistle.root, hide_flood_info: true %>
+            <%= render "whiistles/whiistle", whiistle: whiistle.root %>
             <% if whiistle.path.count >= 4 %>
               <%= link_to "Show more replies", whiistle_path(whiistle) %>
             <% end %>
           <% end %>
           
-          <%= render "whiistles/whiistle", whiistle: whiistle.whiistle, hide_flood_info: true %>
+          <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
 
         <% end %>
         
-        <%= render "whiistles/whiistle", whiistle: whiistle, hide_flood_info: true %>
+        <%= render "whiistles/whiistle", whiistle: whiistle %>
 
         <% if (whiistle.is_a? Whiistle) && whiistle.flood.present? %>
           <%= render "whiistles/minified_floods", whiistle: whiistle %>
@@ -29,7 +29,7 @@
     <% elsif whiistle.label == "shared_whiistle" %>
 
       <div class=" border p-2 border-solid">
-        <%= render "whiistles/whiistle", whiistle: whiistle, hide_flood_info: true %>
+        <%= render "whiistles/whiistle", whiistle: whiistle %>
         <% if ((whiistle.is_a? Whiistle) && whiistle.flood.present?) || (whiistle.is_a? Flood)  %>
           <%= link_to "Show this thread", whiistle_path(whiistle) %>
         <% end %>

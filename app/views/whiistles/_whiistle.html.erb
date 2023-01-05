@@ -14,7 +14,7 @@
       </div>
       <%= render "whiistles/buttons", whiistle: whiistle %>
 
-      <% if local_assigns[:hide_flood_info].nil? %>
+      <% if local_assigns[:show_flood_info] %>
         <%= render "whiistles/flood_info", whiistle: whiistle %>  
       <% end %>
 

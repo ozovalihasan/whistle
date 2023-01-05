@@ -5,7 +5,7 @@
   <% end %>
   
   <%= turbo_stream.after whiistle_quoted_whiistle_form_target(@whiistle) do %>
-    <%= render "whiistles/whiistle", whiistle: @quoted_whiistle %>
+    <%= render "whiistles/whiistle", whiistle: @quoted_whiistle, show_flood_info: true %>
   <% end %>
 
 
