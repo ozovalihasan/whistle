@@ -3,7 +3,6 @@ class Users::MediasController < ApplicationController
   before_action :set_user
 
   def index
-    @whiistle = Whiistle.new
     @followings = @user.followings
     @followers = @user.followers.with_attached_profile_picture
     @all_whiistles = Whiistle.joins(:pictures_attachments).where(user_id: @user.id).order(created_at: :desc)
