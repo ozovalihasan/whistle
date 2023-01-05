@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   has_many :quoted_whiistles, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :liked_whiistles, through: :likes, source: :whiistle
+  has_many :liked_whiistles, -> { order("likes.created_at DESC") }, through: :likes, source: :whiistle
   has_many :replies, dependent: :destroy
   has_many :rewhiistles, dependent: :destroy
   has_many :shared_whiistles, through: :rewhiistles, source: :whiistle
