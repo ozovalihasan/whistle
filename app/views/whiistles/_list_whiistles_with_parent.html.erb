@@ -3,17 +3,20 @@
 
     <% if whiistle.label == "primary_whiistle" %>
     
-      <% if whiistle.is_a? Reply %>
-        
-        <% if whiistle.path.count > 2 %>
-          <%= render "whiistles/whiistle", whiistle: whiistle.root %>
-        <% end %>
-
-        <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
-
-      <% end %>
-
       <div class=" border p-2 border-solid">
+
+        <% if whiistle.is_a? Reply %>
+        
+          <% if whiistle.path.count >= 3 %>
+            <%= render "whiistles/whiistle", whiistle: whiistle.root, hide_flood_info: true %>
+            <% if whiistle.path.count >= 4 %>
+              <%= link_to "Show more replies", whiistle_path(whiistle) %>
+            <% end %>
+          <% end %>
+          
+          <%= render "whiistles/whiistle", whiistle: whiistle.whiistle, hide_flood_info: true %>
+
+        <% end %>
         
         <%= render "whiistles/whiistle", whiistle: whiistle, hide_flood_info: true %>
 
