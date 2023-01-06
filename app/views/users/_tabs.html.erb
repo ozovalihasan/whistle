@@ -4,7 +4,7 @@
         </div>
         <turbo-frame id="user_tabs" data-turbo-action="advance" >
 
-            <div >
+            <div class="p-4">
                 <ul class="flex">
                     <%= render "users/tabs_button", url: user_whiistles_path(@user), text: "Whiistles", active_tab: selected_tab == "whiistles" %>
                     <%= render "users/tabs_button", url: user_whiistles_with_replies_path(@user), text: "Whiistles & Replies", active_tab: selected_tab == "whiistles_with_replies" %>
