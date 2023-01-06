@@ -24,4 +24,8 @@ module WhiistlesHelper
   def render_profile_image_standard(user)
     render "whiistles/profile_image", user: user, size: :standard
   end
+
+  def render_whiistle_with_flood_info(whiistle)
+    render "whiistles/whiistle", whiistle: whiistle, show_flood_info: true
+  end
 end

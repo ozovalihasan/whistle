@@ -1,7 +1,7 @@
 <div class="mt-3 ">
   <% whiistles.each do |whiistle|  %>
     <div class=" border-b border-solid">
-      <%= render "whiistles/whiistle", whiistle: whiistle, show_flood_info: true %>
+      <%= render_whiistle_with_flood_info(whiistle) %>
     </div>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 <% if @whiistle.saved_changes? %>
   <%= turbo_stream.prepend "whiistles" do %>
-    <%= render "whiistles/whiistle", whiistle: @whiistle, show_flood_info: true %> 
+    <%= render_whiistle_with_flood_info(@whiistle) %>
   <% end %>
 
   <%= turbo_stream.replace "whiistles_counter" do %>
