@@ -53,6 +53,60 @@ class User < ApplicationRecord
     all_whiistles.order(primary_created_at: :desc)
   end
 
+  def main_page_whiistles
+    followings_ids = self.followings.select("relations.followed_id")
+
+    whiistles_shared_by_followings = BaseWhiistle.joins(rewhiistles: :user)
+                                                 .select("
+                                                   base_whiistles.*, 
+                                                   rewhiistles.created_at AS primary_created_at, 
+                                                   'shared_whiistle' AS label,
+                                                   users.username AS parent_user
+                                                 ")
+                                                 .where(
+                                                   "rewhiistles.user_id IN (?)", 
+                                                   followings_ids
+                                                 )
+                                                 .without_replies
+                                                 .without_floods
+                                           
+    whiistles_liked_by_followings = BaseWhiistle.joins(likes: :user)
+                                                .select("
+                                                  base_whiistles.*, 
+                                                  likes.created_at AS primary_created_at, 
+                                                  'liked_whiistle' AS label,
+                                                  users.username AS parent_user
+                                                ")
+                                                .where(
+                                                  "likes.user_id IN (?)", 
+                                                  followings_ids
+                                                )
+                                                .without_replies
+                                                .without_floods
+                                           
+    whiistles_of_followings = BaseWhiistle.select("
+                                             base_whiistles.*, 
+                                             base_whiistles.created_at AS primary_created_at, 
+                                             'primary_whiistle' AS label,
+                                             '' AS parent_user
+                                           ")
+                                           .where(
+                                             "base_whiistles.user_id IN (?)", 
+                                             followings_ids
+                                           )
+                                           .without_floods
+
+    all_whiistles = BaseWhiistle.select("*").from(
+                                               "(
+                                                 ( #{ whiistles_shared_by_followings.to_sql } ) UNION ALL 
+                                                 ( #{ whiistles_liked_by_followings.to_sql } ) UNION ALL 
+                                                 ( #{ whiistles_of_followings.to_sql } )
+                                               ) AS all_whiistles"
+                                             )
+
+    all_whiistles.order(primary_created_at: :desc).includes(:user)
+  end
+
   def whiistles_of_whiistles_and_replies_index_page
     whiistles_of_whiistles_index_page(false)
   end
