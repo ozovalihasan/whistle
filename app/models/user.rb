@@ -33,18 +33,23 @@ class User < ApplicationRecord
                                    ")
     
     user_whiistles = self.whiistles
-                       .select("
-                         base_whiistles.*, 
-                         base_whiistles.created_at AS primary_created_at, 
-                         'primary_whiistle' AS label
-                       ").without_floods
+                         .select("
+                           base_whiistles.*, 
+                           base_whiistles.created_at AS primary_created_at, 
+                           'primary_whiistle' AS label
+                         ").without_floods
 
     if remove_replies
       whiistles_shared_by_user = whiistles_shared_by_user.without_replies
       user_whiistles = user_whiistles.without_replies
     end                   
 
-    all_whiistles = BaseWhiistle.select("*").from("((#{whiistles_shared_by_user.to_sql}) UNION ALL (#{user_whiistles.to_sql})) AS all_whiistles")
+    all_whiistles = BaseWhiistle.select("*").from(
+                                               "(
+                                                 (#{whiistles_shared_by_user.to_sql}) UNION ALL 
+                                                 (#{user_whiistles.to_sql})
+                                               ) AS all_whiistles"
+                                             )
     all_whiistles.order(primary_created_at: :desc)
   end
 
