@@ -95,12 +95,34 @@ class User < ApplicationRecord
                                              followings_ids
                                            )
                                            .without_floods
+                                           .without_replies
+    
+    replies_of_followings = Reply.joins(:whiistle).select("
+                                             base_whiistles.*, 
+                                             base_whiistles.created_at AS primary_created_at, 
+                                             'primary_whiistle' AS label,
+                                             '' AS parent_user
+                                           ")
+                                           .where(
+                                             "base_whiistles.user_id IN (?)", 
+                                             followings_ids
+                                           )
+                                           .where(
+                                             "whiistles_base_whiistles.type IN (?)",
+                                             [ 
+                                               BaseWhiistle.types["Whiistle"], 
+                                               BaseWhiistle.types["QuotedWhiistle"]
+                                             ]
+                                           )
+
+
 
     all_whiistles = BaseWhiistle.select("*").from(
                                                "(
                                                  ( #{ whiistles_shared_by_followings.to_sql } ) UNION ALL 
                                                  ( #{ whiistles_liked_by_followings.to_sql } ) UNION ALL 
-                                                 ( #{ whiistles_of_followings.to_sql } )
+                                                 ( #{ whiistles_of_followings.to_sql } ) UNION ALL 
+                                                 ( #{ replies_of_followings.to_sql } )
                                                ) AS all_whiistles"
                                              )
 
