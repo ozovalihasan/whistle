@@ -8,7 +8,7 @@ class WhiistlesController < ApplicationController
 
   def index
     @whiistle = Whiistle.new
-    @all_whiistles = current_user.whiistles_including_users
+    @all_whiistles = current_user.main_page_whiistles
     @paginated_whiistles, @last_page, @page = PaginateWhiistles.call(@all_whiistles, params[:page])
     @suggested_users = current_user.suggested_users.with_attached_profile_picture
   end
