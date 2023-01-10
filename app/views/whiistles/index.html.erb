@@ -1,31 +1,13 @@
 <div class='flex grow'>
     <div class='p-4 w-2/3'>
-        <%= simple_form_for @whiistle, html: { class: "w-full" } do |f| %>
-          <%= f.input :body, as: :text, label: "Whiistle something", wrapper: :whiistle_wrapper %>
-          
-          <div class="w-full flex">
-            <%= f.label :pictures, class: "bi bi-images py-2 px-4 my-4 btn-second" %>
-            <%= f.input :pictures, as: :file, input_html: { multiple: true }, wrapper: :whiistle_file_wrapper  %>
-
-            <div class="ml-auto ">
-              <%= f.button :submit, "Whiistle" %>
-            </div>
-          </div>
-
-          <div data-controller="flood">
-            <template data-flood-target='template'>
-              <%= f.simple_fields_for :floods, Flood.new, index: 'TEMPLATE_RECORD' do |flood| %>
-                <%= render 'flood_whiistle_form', form: flood %>
-              <% end %>
-            </template>
-
-            <div data-flood-target="add_item">
-              <%= link_to "Add Flood", "#", data: { action: "click->flood#add_association" }, class: "btn-second w-24 p-2" %>
-            </div>
-            
-          </div>
-          
-        <% end %>
+        
+        <%= render "whiistles/form", 
+                    form_url: whiistles_url, 
+                    whiistle: @whiistle,
+                    label: "Whiistle something",
+                    enable_quoting_whiistle: true,
+                    enable_adding_floods: true
+        %>
         
         <div class="p-4 mt-4 ">
             <%= 

@@ -1,0 +1,35 @@
+<%= simple_form_for whiistle, url: form_url, html: { class: "w-full" } do |f| %>
+  <%= f.input :body, as: :text, label: label, wrapper: :whiistle_wrapper %>
+
+  <% if local_assigns[:quoted_whiistle] %>
+    <%= f.input :quoted_whiistle_url, as: :hidden, input_html: {value: whiistle_url(quoted_whiistle)} %>
+  <% end %>
+
+  <% if local_assigns[:enable_quoting_whiistle] %>
+    <%= f.input :quoted_whiistle_url, as: :string, placeholder: "Copy paste the link of a whiistle to quote" %>
+  <% end %>
+
+  <div class="w-full flex">
+    <%= render "whiistles/form_pictures_button", form: f %>
+    <div class="ml-auto ">
+      <%= f.button :submit, "Whiistle" %>
+    </div>
+  </div>
+  
+  <% if local_assigns[:enable_adding_floods] %>
+
+    <div data-controller="flood">
+      <template data-flood-target='template'>
+        <%= f.simple_fields_for :floods, Flood.new, index: 'TEMPLATE_RECORD' do |flood| %>
+          <%= render 'flood_whiistle_form', form: flood %>
+        <% end %>
+      </template>
+
+      <div data-flood-target="add_item">
+        <%= link_to "Add Flood", "#", data: { action: "click->flood#add_association" }, class: "btn-second w-24 p-2" %>
+      </div>
+      
+    </div>
+  
+  <% end %>
+<% end %>
