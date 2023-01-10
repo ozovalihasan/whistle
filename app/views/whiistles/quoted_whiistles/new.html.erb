@@ -1,7 +1,9 @@
-<turbo-frame id=<%= whiistle_quoted_whiistle_form_target(@whiistle) %> >
+<turbo-frame id=<%= whiistle_quoting_whiistle_form_target(@quoted_whiistle) %> >
 
-  <%= simple_form_for [@whiistle, @quoted_whiistle], url: whiistle_quoted_whiistle_index_path(@whiistle), html: { class: "w-full" } do |f| %>
+  <%= simple_form_for [@quoted_whiistle, @quoting_whiistle], url: whiistles_path, html: { class: "w-full" } do |f| %>
     <%= f.input :body, as: :text, label: "Whiistle something by quoting the whiistle", wrapper: :whiistle_wrapper %>
+
+    <%= f.input :quoted_whiistle_url, as: :hidden, input_html: {value: whiistle_url(@quoted_whiistle)} %>
     
     <div class="w-full flex">
       <%= f.label :pictures, class: "bi bi-images py-2 px-4 my-4 btn-second" do %>

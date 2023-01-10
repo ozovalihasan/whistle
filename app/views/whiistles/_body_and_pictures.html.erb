@@ -5,7 +5,7 @@
   
   <%= render "whiistles/pictures", whiistle: whiistle %>
   
-  <% if (whiistle.is_a? QuotedWhiistle) && (local_assigns[:hide_quoted_whiistle].nil?) %>
-    <%= render "whiistles/quoted_whiistle", whiistle: whiistle.whiistle %>
+  <% if (whiistle.quoted_whiistle) && (local_assigns[:hide_quoted_whiistle].nil?) %>
+    <%= render "whiistles/quoted_whiistle", whiistle: whiistle.quoted_whiistle %>
   <% end %>
 </div>

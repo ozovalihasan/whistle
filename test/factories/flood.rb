@@ -15,6 +15,16 @@ def suitable_parent_of_flood
 end
 
 FactoryBot.define do
+  selected_parent_id = nil
+  factory :quoting_flood, class: "Flood" do
+    body { Faker::Quote.famous_last_words }
+    base_whiistle_id { selected_parent_id = suitable_parent_of_flood }
+    user_id { BaseWhiistle.find(selected_parent_id).user.id }
+    quoted_whiistle_id { BaseWhiistle.ids.sample }
+  end
+end
+
+FactoryBot.define do
   factory :mock_flood, class: "Flood" do
     sequence(:body) { |n| "mock_body_#{n}" }
     sequence(:user_id) { |n| n }

@@ -4,8 +4,7 @@
           <%= f.input :body, as: :text, label: "Whiistle something", wrapper: :whiistle_wrapper %>
           
           <div class="w-full flex">
-            <%= f.label :pictures, class: "bi bi-images py-2 px-4 my-4 btn-second" do %>
-            <% end %>
+            <%= f.label :pictures, class: "bi bi-images py-2 px-4 my-4 btn-second" %>
             <%= f.input :pictures, as: :file, input_html: { multiple: true }, wrapper: :whiistle_file_wrapper  %>
 
             <div class="ml-auto ">

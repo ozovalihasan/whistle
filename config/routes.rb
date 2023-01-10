@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy], controller: "whiistles/likes"
     resources :reply, only: [:new, :create], controller: "whiistles/replies"
     resources :rewhiistle, only: [:create, :destroy], controller: "whiistles/rewhiistles"
-    resources :quoted_whiistle, only: [:new, :create], controller: "whiistles/quoted_whiistles"
+    resources :quoted_whiistle, only: [:new], controller: "whiistles/quoted_whiistles"
   end
   resources :users, only: [] do 
     resources :followings, only: [:index], controller: "users/followings"

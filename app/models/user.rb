@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_one_attached :profile_picture
   has_one_attached :cover_image
 
-  has_many :quoted_whiistles, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_whiistles, -> { order("likes.created_at DESC") }, through: :likes, source: :whiistle
   has_many :replies, dependent: :destroy
@@ -110,8 +109,7 @@ class User < ApplicationRecord
                                            .where(
                                              "whiistles_base_whiistles.type IN (?)",
                                              [ 
-                                               BaseWhiistle.types["Whiistle"], 
-                                               BaseWhiistle.types["QuotedWhiistle"]
+                                               BaseWhiistle.types["Whiistle"]
                                              ]
                                            )
 

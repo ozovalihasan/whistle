@@ -25,8 +25,8 @@ module ApplicationHelper
     dom_id(whiistle, :reply_counter)
   end
   
-  def whiistle_quoted_whiistle_form_target(whiistle)
-    dom_id(whiistle, :quoted_whiistle)
+  def whiistle_quoting_whiistle_form_target(whiistle)
+    dom_id(whiistle, :quoting_whiistle)
   end
 
   def whiistle_rewhiistle_button_target(whiistle)

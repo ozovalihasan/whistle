@@ -14,11 +14,13 @@
 end
 
 FactoryBot.create_list(:whiistle, 100)
-FactoryBot.create_list(:quoted_whiistle, 100)
+FactoryBot.create_list(:quoting_whiistle, 30)
 FactoryBot.create_list(:reply, 100)
+FactoryBot.create_list(:quoting_reply, 30)
 FactoryBot.create_list(:like, 100)
 FactoryBot.create_list(:rewhiistle, 100)
 FactoryBot.create_list(:flood, 100)
+FactoryBot.create_list(:quoting_flood, 30)
 
 30.times do
   begin 

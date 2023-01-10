@@ -32,11 +32,11 @@ class WhiistlesController < ApplicationController
   end
 
   def whiistle_params
-    params.require(:whiistle).permit(:body, pictures: [])
+    params.require(:whiistle).permit(:body, :quoted_whiistle_url, pictures: [])
   end
 
   def floods_params
-    params.require(:whiistle).permit(floods: [:body, pictures: []])
+    params.require(:whiistle).permit(floods: [:body, :quoted_whiistle_url, pictures: []])
   end
 end
 

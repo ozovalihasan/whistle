@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_112545) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_09_135253) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,8 +54,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_112545) do
     t.integer "replies_count", default: 0
     t.integer "quoted_whiistles_count", default: 0
     t.text "ancestry"
+    t.bigint "quoted_whiistle_id"
     t.index ["ancestry"], name: "index_base_whiistles_on_ancestry"
     t.index ["base_whiistle_id"], name: "index_base_whiistles_on_base_whiistle_id"
+    t.index ["quoted_whiistle_id"], name: "index_base_whiistles_on_quoted_whiistle_id"
     t.index ["user_id"], name: "index_base_whiistles_on_user_id"
   end
 
@@ -108,6 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_112545) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "base_whiistles", "base_whiistles"
+  add_foreign_key "base_whiistles", "base_whiistles", column: "quoted_whiistle_id"
   add_foreign_key "base_whiistles", "users"
   add_foreign_key "likes", "base_whiistles", column: "whiistle_id"
   add_foreign_key "likes", "users"
