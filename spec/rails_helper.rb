@@ -69,13 +69,6 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :feature
 
-  Shoulda::Matchers.configure do |conf|
-    conf.integrate do |with|
-      with.test_framework :rspec
-      with.library :rails
-    end
-  end
-
 end
 
 Capybara.default_driver = :selenium_chrome_headless
