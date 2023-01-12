@@ -11,23 +11,120 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do
-    it { should have_many(:whiistles).dependent(:destroy) }
+    it { should have_one_attached(:profile_picture) }
+    it { should have_one_attached(:cover_image) }
+    it { should have_many(:likes).dependent(:destroy) }
+    it { should have_many(:liked_whiistles).order('likes.created_at DESC').through(:likes).source(:whiistle) }
+    it { should have_many(:replies).dependent(:destroy) }
+    it { should have_many(:rewhiistles).dependent(:destroy) }
+    it { should have_many(:shared_whiistles).through(:rewhiistles).source(:whiistle) }
+    it { should have_many(:whiistles).class_name("BaseWhiistle").dependent(:destroy) }
 
-    it { should have_many(:following_relations).dependent(:destroy) }
-    it { should have_many(:following_relations).class_name('Relation').with_foreign_key('following_id') }
-    it { should have_many(:followings).through(:following_relations) }
-    it { should have_many(:followed_relations).dependent(:destroy) }
-    it { should have_many(:followed_relations).class_name('Relation').with_foreign_key('followed_id') }
-    it { should have_many(:followers).through(:followed_relations) }
+    it { should have_many(:followed_relations).class_name("Relation").with_foreign_key("followed_id").dependent(:destroy) }
+    it { should have_many(:followers).through(:followed_relations).source(:following) }
+    it { should have_many(:following_relations).class_name("Relation").with_foreign_key("following_id").dependent(:destroy) }
+    it { should have_many(:followings).through(:following_relations).source(:followed) }
   end
 
-  it 'is valid with valid attributes' do
-    FactoryBot.create(:mock_user)
-    
-    expect(User.first).to be_valid
+  describe "#whiistles_of_whiistles_index_page" do
+    it "selects necessary whiistles of the user in a correct order" do  
+      user = FactoryBot.create(:mock_user)
+      result = []
+      whiistle = FactoryBot.create(:mock_whiistle, user: user)
+      result << whiistle
+      flood = FactoryBot.create(:mock_flood, user: user, whiistle: whiistle)
+      reply = FactoryBot.create(:mock_reply, user: user, whiistle: whiistle)
+
+      FactoryBot.create(:mock_rewhiistle, user: user, whiistle: whiistle)
+      result << whiistle
+      FactoryBot.create(:mock_rewhiistle, user: user, whiistle: flood)
+      result << flood
+      FactoryBot.create(:mock_rewhiistle, user: user, whiistle: reply)
+      result << reply
+
+      whiistles = user.whiistles_of_whiistles_index_page
+      expect(whiistles.size).to eq 4
+      expect(whiistles).to eq result.reverse
+
+    end
   end
 
-  it 'is invalid when no attribute is defined' do
-    expect(User.create).to_not be_valid
+  describe "#whiistles_of_whiistles_and_replies_index_page" do
+    it "selects necessary whiistles of the user in a correct order" do  
+      user = FactoryBot.create(:mock_user)
+      result = []
+      whiistle = FactoryBot.create(:mock_whiistle, user: user)
+      result << whiistle
+      flood = FactoryBot.create(:mock_flood, user: user, whiistle: whiistle)
+      reply = FactoryBot.create(:mock_reply, user: user, whiistle: whiistle)
+      result << reply
+
+      FactoryBot.create(:mock_rewhiistle, user: user, whiistle: whiistle)
+      result << whiistle
+      FactoryBot.create(:mock_rewhiistle, user: user, whiistle: flood)
+      result << flood
+      FactoryBot.create(:mock_rewhiistle, user: user, whiistle: reply)
+      result << reply
+
+      whiistles = user.whiistles_of_whiistles_and_replies_index_page
+      expect(whiistles.size).to eq 5
+      expect(whiistles).to eq result.reverse
+
+    end
+  end
+
+  describe "#main_page_whiistles" do
+    it "selects necessary whiistles of followings in a correct order" do  
+      user = FactoryBot.create(:mock_user)
+      user2 = FactoryBot.create(:mock_user)
+      user.followings << user2
+
+      result = []
+      whiistle = FactoryBot.create(:mock_whiistle, user: user2)
+      result << whiistle
+      flood = FactoryBot.create(:mock_flood, user: user2, whiistle: whiistle)
+
+      reply = FactoryBot.create(:mock_reply, user: user2, whiistle: whiistle)
+      result << reply
+      FactoryBot.create(:mock_reply, user: user2, whiistle: flood)
+      FactoryBot.create(:mock_reply, user: user2, whiistle: reply)
+
+      FactoryBot.create(:mock_rewhiistle, user: user2, whiistle: whiistle)
+      result << whiistle
+      FactoryBot.create(:mock_rewhiistle, user: user2, whiistle: flood)
+      FactoryBot.create(:mock_rewhiistle, user: user2, whiistle: reply)
+
+      FactoryBot.create(:mock_like, user: user2, whiistle: whiistle)
+      result << whiistle
+      FactoryBot.create(:mock_like, user: user2, whiistle: flood)
+      FactoryBot.create(:mock_like, user: user2, whiistle: reply)
+
+      whiistles = user.main_page_whiistles
+      expect(whiistles.size).to eq 4
+      expect(whiistles).to eq result.reverse
+
+    end
+  end
+
+  describe "#followings_and_user_ids" do 
+    it "returns ids of the user's followings and the user" do
+      user = FactoryBot.create(:mock_user)
+      user2 = FactoryBot.create(:mock_user)
+      user.followings << user2
+
+      expect(user.followings_and_user_ids).to eq [user2.id, user.id]
+    end
+  end
+
+  describe "#suggested_users" do 
+    it "returns 3 suggested users who are not followed by the user" do
+      user = FactoryBot.create(:mock_user)
+      user2 = FactoryBot.create(:mock_user)
+      user.followings << user2
+
+      FactoryBot.create_list(:mock_user, 4)
+
+      expect(user.suggested_users.ids).to eq((User.ids - [user.id, user2.id]).last(3).reverse)
+    end
   end
 end
