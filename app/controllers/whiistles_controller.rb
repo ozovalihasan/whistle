@@ -19,7 +19,7 @@ class WhiistlesController < ApplicationController
     result = FloodCreator.call(floods_params, @whiistle, current_user)
     if result.success?
       flash[:notice] = result.message
-      @whiistles = current_user.whiistles_including_users
+      @whiistles = current_user.main_page_whiistles
     else
       flash[:alert] = result.message
     end

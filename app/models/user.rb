@@ -135,10 +135,6 @@ class User < ApplicationRecord
     followings.ids << id
   end
 
-  def whiistles_including_users
-    Whiistle.of_followings_and(self).includes(:user)
-  end
-
   def suggested_users
     User.where('id NOT IN (?)', followings_and_user_ids).order('id desc').limit(3)
   end
