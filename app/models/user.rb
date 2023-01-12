@@ -52,6 +52,10 @@ class User < ApplicationRecord
     all_whiistles.order(primary_created_at: :desc)
   end
 
+  def whiistles_of_whiistles_and_replies_index_page
+    whiistles_of_whiistles_index_page(false)
+  end
+
   def main_page_whiistles
     followings_ids = self.followings.select("relations.followed_id")
 
@@ -125,10 +129,6 @@ class User < ApplicationRecord
                                              )
 
     all_whiistles.order(primary_created_at: :desc).includes(:user)
-  end
-
-  def whiistles_of_whiistles_and_replies_index_page
-    whiistles_of_whiistles_index_page(false)
   end
   
   def followings_and_user_ids
