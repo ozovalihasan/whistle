@@ -20,7 +20,6 @@ class BaseWhiistle < ApplicationRecord
   belongs_to :quoted_whiistle, class_name: "BaseWhiistle", optional: true, counter_cache: :quoted_whiistles_count
 
   scope :descending_order, -> { order(created_at: :desc) }
-  scope :created_by, ->(users_ids) { where('user_id IN (?)', users_ids) }
   scope :without_replies, -> { where.not(type: types["Reply"]) }
   scope :without_floods, -> { where.not(type: types["Flood"]) }
 
