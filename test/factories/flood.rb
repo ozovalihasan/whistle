@@ -32,3 +32,10 @@ FactoryBot.define do
   end
 end
 
+FactoryBot.define do
+  factory :mock_flood_of_same_user, class: "Flood" do
+    sequence(:body) { |n| "mock_body_#{n}" }
+    user { User.first }
+    sequence(:base_whiistle_id) { |n| n }
+  end
+end
