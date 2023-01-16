@@ -64,22 +64,7 @@
                 </ul>
 
                   <turbo-frame id=followers_user_16 >
-            <div class="flex w-full">
-        <a class="hover-image" href="/users/15/whiistles">
-            <div class="px-4 py-2 flex w-full">
-                <img class="rounded-circle" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
-                <div class="pl-2 flex flex-col self-center">
-                    <div class="text-ellipsis">
-                        mock_fullname_3
-                    </div>
-                    <div class=" text-ellipsis">
-                        @mock_username_3
-                    </div>
-                </div>
-            </div>
-</a>        
-    </div>
-
+        mock_fullname_4 doesn't have any follower.
 </turbo-frame>
 
 
@@ -93,9 +78,9 @@
         <div class="flex ">
             <div class="flex items-center gap-4 align-items-center mx-auto text-xl">
                 <div id=create_delete_relation_user_16>
-                    <form class="button_to" method="post" action="/relations/8"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button type="submit">
-    <i class="bi bi-x"></i>
-</button></form>
+                    <form class="button_to" method="post" action="/relations"><button type="submit">
+    <i class="bi bi-plus-circle"></i>
+</button><input type="hidden" name="relation[followed_id]" value="16" autocomplete="off" /></form>
                 </div>
                 <img class="rounded-full" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
                 <a href="#">
@@ -129,7 +114,7 @@
         </a>
         <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=/users/16/followers >
             <div id=followers_count_user_16 class="text-dark w-full">
-                1
+                0
             </div>
             <div>
                 Followers
