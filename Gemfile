@@ -74,6 +74,7 @@ group :test do
   gem 'shoulda-matchers', '~> 5.2'
   gem 'capybara'
   gem 'webdrivers', '~> 5.2'
+  gem 'rspec-snapshot'
 end
 
 gem "devise"
