@@ -9,7 +9,7 @@ end
 
 FactoryBot.define do
   factory :mock_relation, class: "Relation" do
-    sequence(:following_id) { |n| n }
-    sequence(:followed_id) { |n| n + 1 }
+    sequence(:following_id) { |n| User.first.id + n }
+    sequence(:followed_id) { |n| User.first.id + n + 1 }
   end
 end
