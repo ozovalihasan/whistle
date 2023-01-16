@@ -1,0 +1,143 @@
+
+<div class='bg-fourth flex grow'>
+    <div class="w-2/3">
+        <div style="background-image: url('');", class="h-60 bg-cover bg-center w-full bg-third">
+        </div>
+        <turbo-frame id="user_tabs" data-turbo-action="advance" >
+
+            <div class="p-4">
+                <ul class="flex">
+                    <li class="mr-1">
+  <a 
+      class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline "
+    href=/users/16/whiistles
+    data-turbo-frame="user_tabs"
+  >
+    Whiistles
+  </a>
+</li>
+                    <li class="mr-1">
+  <a 
+      class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline "
+    href=/users/16/whiistles_with_replies
+    data-turbo-frame="user_tabs"
+  >
+    Whiistles &amp; Replies
+  </a>
+</li>
+                    <li class="mr-1">
+  <a 
+      class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline "
+    href=/users/16/medias
+    data-turbo-frame="user_tabs"
+  >
+    Media
+  </a>
+</li>
+                    <li class="mr-1">
+  <a 
+      class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline "
+    href=/users/16/liked_whiistles
+    data-turbo-frame="user_tabs"
+  >
+    Likes
+  </a>
+</li>
+                    <li class="mr-1">
+  <a 
+      class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline "
+    href=/users/16/followings
+    data-turbo-frame="user_tabs"
+  >
+    Followings
+  </a>
+</li>
+                    <li class="mr-1">
+  <a 
+      class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline border-b border-solid border-second" 
+    href=/users/16/followers
+    data-turbo-frame="user_tabs"
+  >
+    Followers
+  </a>
+</li>
+                </ul>
+
+                  <turbo-frame id=followers_user_16 >
+            <div class="flex w-full">
+        <a class="hover-image" href="/users/15/whiistles">
+            <div class="px-4 py-2 flex w-full">
+                <img class="rounded-circle" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
+                <div class="pl-2 flex flex-col self-center">
+                    <div class="text-ellipsis">
+                        mock_fullname_3
+                    </div>
+                    <div class=" text-ellipsis">
+                        @mock_username_3
+                    </div>
+                </div>
+            </div>
+</a>        
+    </div>
+
+</turbo-frame>
+
+
+            </div>
+            
+        </turbo-frame>
+    </div>
+    <div class="w-1/3">
+        <div class='sidebar-right border-left flex-shrink-0 text-third'>
+    <div class='text-center pt-4 '>
+        <div class="flex ">
+            <div class="flex items-center gap-4 align-items-center mx-auto text-xl">
+                <div id=create_delete_relation_user_16>
+                    <form class="button_to" method="post" action="/relations/8"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button type="submit">
+    <i class="bi bi-x"></i>
+</button></form>
+                </div>
+                <img class="rounded-full" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
+                <a href="#">
+                    <i class="bi bi-list-ul"></i>
+                </a>
+            </div>
+        </div>
+        <div class="py-2">
+            mock_fullname_4
+        </div>
+        <div class="pb-3 ">
+            @mock_username_4
+        </div>
+    </div>
+    <div class="flex w-full content-evenly">
+        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=/users/16/whiistles >
+            <div class="text-dark w-full">
+                0
+            </div>
+            <div>
+                Whiistles
+            </div>
+        </a>
+        <a class="border text-center col-4 py-2 w-1/3" href=/users/16/followings >
+            <div class="text-dark w-full">
+                0
+            </div>
+            <div>
+                Following
+            </div>
+        </a>
+        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=/users/16/followers >
+            <div id=followers_count_user_16 class="text-dark w-full">
+                1
+            </div>
+            <div>
+                Followers
+            </div>
+        </a>
+    </div>
+    <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
+    
+</div>
+    </div>
+</div>
