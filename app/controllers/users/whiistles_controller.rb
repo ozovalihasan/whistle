@@ -4,7 +4,7 @@ class Users::WhiistlesController < Users::TabsController
     
     @whiistle = Whiistle.new
     
-    @all_whiistles = @user.whiistles_of_whiistles_index_page.includes(user:  [{ profile_picture_attachment: :blob }])
-    @paginated_whiistles, @last_page, @page = PaginateWhiistles.call(@all_whiistles, params[:page])
+    all_whiistles = @user.whiistles_of_whiistles_index_page.includes(user:  [{ profile_picture_attachment: :blob }])
+    @paginated_whiistles = PaginateRecords.new(all_whiistles, params[:page], user_whiistles_url(@user))
   end
 end

@@ -8,12 +8,7 @@
 
     <div class="p-4 mt-4">
       <%= 
-        render "shared/infinite_scroll_with_related_whiistles", 
-                all_whiistles: @all_whiistles,
-                paginated_whiistles: @paginated_whiistles,
-                url: user_whiistles_with_replies_url(@user),
-                last_page: @last_page,
-                page: @page
+        render "shared/infinite_scroll_with_related_whiistles", paginated_whiistles: @paginated_whiistles
       %>
     </div> 
 </turbo-frame>

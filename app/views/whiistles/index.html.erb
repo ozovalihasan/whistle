@@ -11,12 +11,7 @@
         
         <div class="p-4 mt-4 ">
             <%= 
-              render "shared/infinite_scroll_for_whiistles_index_page", 
-                      all_whiistles: @all_whiistles,
-                      paginated_whiistles: @paginated_whiistles,
-                      url: whiistles_url,
-                      last_page: @last_page,
-                      page: @page
+              render "shared/infinite_scroll_for_whiistles_index_page", paginated_whiistles: @paginated_whiistles
             %>
             
         </div>

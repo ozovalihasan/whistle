@@ -1,13 +1,13 @@
-<%= render "whiistles/whiistles_counter", whiistles: all_whiistles %>
+<%= render "whiistles/whiistles_counter", whiistles: paginated_whiistles.original_records %>
 <div 
     data-controller="pagination"
-    data-pagination-url-value=<%= url %>
-    data-pagination-current-page-value=<%= page %>
-    data-pagination-max-page-value=<%= last_page %>
+    data-pagination-url-value=<%= paginated_whiistles.url %>
+    data-pagination-current-page-value=<%= paginated_whiistles.page %>
+    data-pagination-max-page-value=<%= paginated_whiistles.last_page %>
     data-pagination-request-value="false"
 >
   <div id="pagination-body">
-    <%= render 'whiistles/list_whiistles_for_whiistles_index_page', whiistles: paginated_whiistles %>
+    <%= render 'whiistles/list_whiistles_for_whiistles_index_page', whiistles: paginated_whiistles.records %>
   </div>
 
   <div
