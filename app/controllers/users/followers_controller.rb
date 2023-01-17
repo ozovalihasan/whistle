@@ -1,16 +1,9 @@
-class Users::FollowersController < ApplicationController
-  before_action :set_user
+class Users::FollowersController < Users::TabsController
 
   def index
-    @followings = @user.followings
+    super
+
     @followers = @user.followers.with_attached_profile_picture
-    @whiistles = @user.whiistles
-    @relation = current_user.following_relations.find_by(followed_id: @user.id)
   end
 
-  private 
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 end
