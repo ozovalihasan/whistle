@@ -11,6 +11,6 @@
     <%=  @relation.followed.followers_count %>
 <% end %>
 
-<%= turbo_stream.update dom_id(@relation.followed, :create_delete_relation) do %>
+<%= turbo_stream.update user_create_delete_relation_target(@relation.followed) do %>
     <%= render 'users/add_following', user_id: @relation.followed_id %>
 <% end %>

@@ -2,7 +2,7 @@
     <div class='text-center pt-4 '>
         <div class="flex ">
             <div class="flex items-center gap-4 align-items-center mx-auto text-xl">
-                <div id=<%= dom_id @user, :create_delete_relation %>>
+                <div id=<%= user_create_delete_relation_target(@user) %>>
                     <%= add_delete_following(@user, @relation) %>
                 </div>
                 <%= image_tag( show_profile_picture(@user.profile_picture), size: '50x50', class: 'rounded-full') %>

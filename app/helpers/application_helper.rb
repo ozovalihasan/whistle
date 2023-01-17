@@ -21,6 +21,10 @@ module ApplicationHelper
     dom_id(user, :followers_count)
   end
 
+  def user_create_delete_relation_target(user)
+    dom_id(user, :create_delete_relation)
+  end
+
   def whiistle_reply_form_target(whiistle)
     dom_id(whiistle, :reply)
   end
