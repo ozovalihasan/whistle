@@ -5,7 +5,7 @@
       </i>
 </button></form></template></turbo-stream>
 <turbo-stream action="update" target="flashes"><template>
-    <p class="flash alert-success" >Mock notice</p>
+    <p class="flash alert-success" >The like is saved</p>
 
     
 </template></turbo-stream>

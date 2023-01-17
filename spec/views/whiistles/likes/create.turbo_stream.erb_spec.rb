@@ -9,21 +9,23 @@ RSpec.describe "whiistles/likes/create", type: :view do
   end
   
   describe "renders the create turbo stream view of Whiistles::LikesController" do
-    it "renders turbo_streams corretly if the like is saved" do
-      like = FactoryBot.create(:mock_like)
+    it "renders turbo_streams correctly if the like is saved" do
+      like = FactoryBot.build(:mock_like)
+      flash[:notice] = "The like is saved" if like.save
       assign(:like, like)
-      flash[:notice] = "Mock notice"
 
       render 
+
       expect(rendered).to match_snapshot('create/successful')  
     end
 
     it "renders turbo_streams correctly if the like is not saved" do
       like = FactoryBot.build(:mock_like, whiistle_id: Whiistle.first.id + 1)
+      flash[:alert] = "The like is not saved" unless like.save
       assign(:like, like)
-      flash[:alert] = "Mock alert"
 
       render 
+      
       expect(rendered).to match_snapshot('create/fail')  
     end
   end

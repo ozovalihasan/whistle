@@ -1,6 +1,6 @@
 
 <turbo-stream action="update" target="flashes"><template>
     
-    <p class="flash alert-warning">Mock alert</p>
+    <p class="flash alert-warning">The like is not saved</p>
 
 </template></turbo-stream>
