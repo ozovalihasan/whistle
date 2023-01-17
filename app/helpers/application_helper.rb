@@ -17,6 +17,10 @@ module ApplicationHelper
     render 'layouts/icons' if current_user
   end
 
+  def user_followers_count_target(user)
+    dom_id(user, :followers_count)
+  end
+
   def whiistle_reply_form_target(whiistle)
     dom_id(whiistle, :reply)
   end
