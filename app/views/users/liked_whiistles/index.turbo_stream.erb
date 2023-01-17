@@ -1,3 +1,3 @@
-<%= turbo_stream.append "liked_whiistles_frame" do %>
-  <%= render 'whiistles/list_whiistles', whiistles: @paginated_whiistles %>
+<%= turbo_stream.append "pagination-body" do %>
+  <%= render 'whiistles/list_whiistles', whiistles: @paginated_whiistles.records %>
 <% end %>
