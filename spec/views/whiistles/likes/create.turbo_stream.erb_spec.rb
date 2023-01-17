@@ -5,7 +5,6 @@ RSpec.describe "whiistles/likes/create", type: :view do
   before(:each) do
     FactoryBot.create(:mock_user)
     FactoryBot.create(:mock_whiistle)
-    sign_in User.first
   end
   
   describe "renders the create turbo stream view of Whiistles::LikesController" do
