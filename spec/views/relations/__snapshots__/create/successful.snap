@@ -1,0 +1,23 @@
+
+    <turbo-stream action="update" targets=".relation_user_2"><template>
+        ✓ Followed
+</template></turbo-stream>
+
+    <turbo-stream action="update" target="create_delete_relation_user_2"><template>
+        <form class="button_to" method="post" action="/relations/1"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button type="submit">
+    <i class="bi bi-x"></i>
+</button></form>
+</template></turbo-stream>
+    <turbo-stream action="update" target="left-side-followings-counter"><template>
+        1
+</template></turbo-stream>
+    <turbo-stream action="update" target="followers_count_user_2"><template>
+        1
+</template></turbo-stream>
+
+
+<turbo-stream action="update" target="flashes"><template>
+    <p class="flash alert-success" >The relation saved</p>
+
+    
+</template></turbo-stream>
