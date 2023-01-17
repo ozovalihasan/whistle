@@ -21,6 +21,10 @@ module ApplicationHelper
     dom_id(user, :followers_count)
   end
 
+  def user_left_side_followings_count_target(user)
+    dom_id(user, :left_side_followings_count)
+  end
+
   def user_create_delete_relation_target(user)
     dom_id(user, :create_delete_relation)
   end
