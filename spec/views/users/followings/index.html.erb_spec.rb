@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "users/followings/index", type: :view do
   
-  describe "renders the index view of User::FollowingsController" do
+  describe "renders the index view of Users::FollowingsController" do
     def create_users_and_relations
       FactoryBot.reload
       @user1 = FactoryBot.create(:mock_user)

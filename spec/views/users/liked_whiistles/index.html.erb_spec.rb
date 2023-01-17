@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "users/liked_whiistles/index", type: :view do
   
-  describe "renders the index(html) view of User::LikedWhiistlesController" do
+  describe "renders the index(html) view of Users::LikedWhiistlesController" do
 
     it "renders correctly" do
       FactoryBot.reload

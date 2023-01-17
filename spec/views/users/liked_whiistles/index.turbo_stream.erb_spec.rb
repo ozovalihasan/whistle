@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "users/liked_whiistles/index.turbo_stream", type: :view do
   
-  describe "renders the index(turbo_stream) view of User::LikedWhiistlesController" do
+  describe "renders the index(turbo_stream) view of Users::LikedWhiistlesController" do
 
     it "renders correctly" do
       FactoryBot.reload
