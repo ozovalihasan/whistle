@@ -3,7 +3,7 @@ class Users::FollowingsController < ApplicationController
 
   def index
     @followings = @user.followings.with_attached_profile_picture
-    @followers = @user.followers.with_attached_profile_picture
+    @followers = @user.followers
     @whiistles = @user.whiistles
     @relation = current_user.following_relations.find_by(followed_id: @user.id)
   end
