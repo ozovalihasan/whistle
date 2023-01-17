@@ -8,7 +8,7 @@
     <i class="bi bi-x"></i>
 </button></form>
 </template></turbo-stream>
-    <turbo-stream action="update" target="left-side-followings-counter"><template>
+    <turbo-stream action="update" target="left_side_followings_count_user_1"><template>
         1
 </template></turbo-stream>
     <turbo-stream action="update" target="followers_count_user_2"><template>
@@ -17,7 +17,7 @@
 
 
 <turbo-stream action="update" target="flashes"><template>
-    <p class="flash alert-success" >The relation saved</p>
+    <p class="flash alert-success" >The relation is saved</p>
 
     
 </template></turbo-stream>
