@@ -2,7 +2,8 @@
     <%= render "whiistles/form", 
                form_url: whiistles_url, 
                whiistle: @whiistle,
-               label: "Whiistle to #{@user.fullname}", wrapper: :whiistle_wrapper, value: "@#{@user.username} "
+               label: "Whiistle to #{@user.fullname}", 
+               value: "@#{@user.username} "
     %>
 
     <div class="p-4 mt-4">
