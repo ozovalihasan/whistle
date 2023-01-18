@@ -6,7 +6,6 @@ class PaginateRecords < ApplicationService
     @original_records = original_records
     @page = page ? page : 1
     @url = url
-    
     pagy_records
   end
 
