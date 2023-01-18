@@ -6,12 +6,12 @@
 
             <div class="p-4">
                 <ul class="flex">
-                    <%= render "users/tabs_button", url: user_whiistles_path(@user), text: "Whiistles", active_tab: selected_tab == "whiistles" %>
-                    <%= render "users/tabs_button", url: user_whiistles_with_replies_path(@user), text: "Whiistles & Replies", active_tab: selected_tab == "whiistles_with_replies" %>
-                    <%= render "users/tabs_button", url: user_medias_path(@user), text: "Media", active_tab: selected_tab == "medias" %>
-                    <%= render "users/tabs_button", url: user_liked_whiistles_path(@user), text: "Likes", active_tab: selected_tab == "liked_whiistles" %>
-                    <%= render "users/tabs_button", url: user_followings_path(@user), text: "Followings", active_tab: selected_tab == "followings" %>
-                    <%= render "users/tabs_button", url: user_followers_path(@user), text: "Followers", active_tab: selected_tab == "followers" %>
+                    <%= render "users/tabs_button", url: user_whiistles_path(@user), text: "Whiistles", active_tab: selected_tab == :whiistles %>
+                    <%= render "users/tabs_button", url: user_whiistles_with_replies_path(@user), text: "Whiistles & Replies", active_tab: selected_tab == :whiistles_with_replies %>
+                    <%= render "users/tabs_button", url: user_medias_path(@user), text: "Media", active_tab: selected_tab == :medias %>
+                    <%= render "users/tabs_button", url: user_liked_whiistles_path(@user), text: "Likes", active_tab: selected_tab == :liked_whiistles %>
+                    <%= render "users/tabs_button", url: user_followings_path(@user), text: "Followings", active_tab: selected_tab == :followings %>
+                    <%= render "users/tabs_button", url: user_followers_path(@user), text: "Followers", active_tab: selected_tab == :followers %>
                 </ul>
 
                 <%= yield :tabs %>
