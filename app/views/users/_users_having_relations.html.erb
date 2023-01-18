@@ -1,0 +1,11 @@
+<turbo-frame id=<%= dom_id(user, :users_having_relation) %> >
+    <% if users.present? %>
+        <%= render 'users/list_users', users: users  %>
+    <% else %>
+        <% if relation_name == :followings %>
+            <%= user.fullname %> doesn't follow anyone.
+        <% elsif relation_name == :followers %>
+            <%= @user.fullname %> doesn't have any follower.
+        <% end %>
+    <% end %>
+</turbo-frame>

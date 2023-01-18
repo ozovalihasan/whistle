@@ -1,5 +1,5 @@
 <% content_for :tabs do %>
-  <%= render partial: "users/followings_frame" %>
+  <%= render 'users/users_having_relations', relation_name: :followers, users: @followings, user: @user %>
 <% end %>
 
 <%= render partial: "users/tabs", locals: { selected_tab: :followings } %>
