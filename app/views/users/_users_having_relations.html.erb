@@ -1,9 +1,6 @@
 <turbo-frame id=<%= dom_id(@user, :users_having_relation) %> >
     <% if @paginated_users.records.present? %>
-        <% content_for :pagination_body do %>
-            <%= render 'users/list_users', users: @paginated_users.records  %>
-        <% end %>
-        <%= render "shared/infinite_scroll", paginated_records: @paginated_users %>
+        <%= render "users/paginated_users", paginated_users: @paginated_users %>
     <% else %>
         <% if relation_name == :followings %>
             <%= @user.fullname %> doesn't follow anyone.
