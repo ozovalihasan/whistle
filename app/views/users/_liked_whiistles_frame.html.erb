@@ -1,9 +1,9 @@
-<turbo-frame id=<%= dom_id(@user, :liked_whiistles) %> >
+<turbo-frame id=<%= dom_id(user, :liked_whiistles) %> >
   <div class="p-4 mt-4">
-    <%= render "whiistles/whiistles_counter", whiistles: @paginated_whiistles.original_records %>
+    <%= render "whiistles/whiistles_counter", whiistles: paginated_whiistles.original_records %>
     <%= 
       render "users/paginated_whiistles", 
-              paginated_whiistles: @paginated_whiistles,
+              paginated_whiistles: paginated_whiistles,
               partial_name: "whiistles/list_whiistles"
 
     %>

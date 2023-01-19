@@ -1,11 +1,11 @@
-<turbo-frame id=<%= dom_id(@user, :users_having_relation) %> >
-    <% if @paginated_users.records.present? %>
-        <%= render "users/paginated_users", paginated_users: @paginated_users %>
+<turbo-frame id=<%= dom_id(user, :users_having_relation) %> >
+    <% if paginated_users.records.present? %>
+        <%= render "users/paginated_users", paginated_users: paginated_users %>
     <% else %>
         <% if relation_name == :followings %>
-            <%= @user.fullname %> doesn't follow anyone.
+            <%= user.fullname %> doesn't follow anyone.
         <% elsif relation_name == :followers %>
-            <%= @user.fullname %> doesn't have any follower.
+            <%= user.fullname %> doesn't have any follower.
         <% end %>
     <% end %>
 </turbo-frame>

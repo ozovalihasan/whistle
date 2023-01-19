@@ -1,5 +1,5 @@
 <% content_for :tabs do %>
-  <%= render partial: "users/medias_frame" %>
+  <%= render "users/medias_frame", user: @user, paginated_whiistles: @paginated_whiistles %>
 <% end %>
 
-<%= render partial: "users/tabs", locals: { selected_tab: :medias } %>
+<%= render partial: "users/tabs", locals: { selected_tab: :medias, user: @user, relation: @relation } %>

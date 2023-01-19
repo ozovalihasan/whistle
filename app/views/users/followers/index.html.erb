@@ -1,5 +1,5 @@
 <% content_for :tabs do %>
-  <%= render 'users/users_having_relations', relation_name: :followers %>
+  <%= render 'users/users_having_relations', relation_name: :followers, user: @user, paginated_users: @paginated_users %>
 <% end %>
 
-<%= render partial: "users/tabs", locals: { selected_tab: :followers } %>
+<%= render partial: "users/tabs", locals: { selected_tab: :followers, user: @user, relation: @relation } %>

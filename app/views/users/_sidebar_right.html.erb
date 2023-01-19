@@ -2,42 +2,42 @@
     <div class='text-center pt-4 '>
         <div class="flex ">
             <div class="flex items-center gap-4 align-items-center mx-auto text-xl">
-                <div id=<%= user_create_delete_relation_target(@user) %>>
-                    <%= add_delete_following(@user, @relation) %>
+                <div id=<%= user_create_delete_relation_target(user) %>>
+                    <%= add_delete_following(user, relation) %>
                 </div>
-                <%= image_tag( show_profile_picture(@user.profile_picture), size: '50x50', class: 'rounded-full') %>
+                <%= image_tag( show_profile_picture(user.profile_picture), size: '50x50', class: 'rounded-full') %>
                 <a href="#">
                     <i class="bi bi-list-ul"></i>
                 </a>
             </div>
         </div>
         <div class="py-2">
-            <%= @user.fullname %>
+            <%= user.fullname %>
         </div>
         <div class="pb-3 ">
-            @<%= @user.username %>
+            @<%= user.username %>
         </div>
     </div>
     <div class="flex w-full content-evenly">
-        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_whiistles_path(@user) %> >
+        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_whiistles_path(user) %> >
             <div class="text-dark w-full">
-                <%= @user.whiistles.size %>
+                <%= user.whiistles.size %>
             </div>
             <div>
                 Whiistles
             </div>
         </a>
-        <a class="border text-center col-4 py-2 w-1/3" href=<%=  user_followings_path(@user) %> >
+        <a class="border text-center col-4 py-2 w-1/3" href=<%=  user_followings_path(user) %> >
             <div class="text-dark w-full">
-                <%= @user.followings_count %>
+                <%= user.followings_count %>
             </div>
             <div>
                 Following
             </div>
         </a>
-        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_followers_path(@user)  %> >
-            <div id=<%= user_followers_count_target(@user) %> class="text-dark w-full">
-                <%= @user.followers_count %>
+        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href=<%= user_followers_path(user)  %> >
+            <div id=<%= user_followers_count_target(user) %> class="text-dark w-full">
+                <%= user.followers_count %>
             </div>
             <div>
                 Followers
@@ -45,5 +45,5 @@
         </a>
     </div>
     <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
-    <%= render 'users/list_users', users: @user.followers.limit(5).order("RANDOM()") - [ current_user ]  %>
+    <%= render 'users/list_users', users: user.followers.limit(5).order("RANDOM()") - [ current_user ]  %>
 </div>
