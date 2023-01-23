@@ -1,0 +1,633 @@
+<div class='flex grow'>
+    <div class='p-4 w-2/3'>
+        
+        <form class="simple_form w-full" id="new_whiistle" enctype="multipart/form-data" action="http://test.host/whiistles" accept-charset="UTF-8" method="post">
+  <div class="flex flex-col text optional whiistle_body"><label class="py-2 text optional" for="whiistle_body">Whiistle something</label><textarea class="rounded-md border border-solid text optional" name="whiistle[body]" id="whiistle_body" cols="60" rows="4">
+</textarea></div>
+
+
+    <div class="flex flex-col string optional whiistle_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[quoted_whiistle_url]" id="whiistle_quoted_whiistle_url" /></div>
+
+  <div class="w-full flex">
+    <label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_pictures">
+</label><div class="flex flex-col file optional whiistle_pictures"><label class="hidden file optional" for="whiistle_pictures">Pictures</label><input name="whiistle[pictures][]" type="hidden" value="" autocomplete="off" /><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[pictures][]" id="whiistle_pictures" /></div>
+    <div class="ml-auto ">
+      <input type="submit" name="commit" value="Whiistle" class="btn-first py-2 px-4 my-4" data-disable-with="Whiistle" />
+    </div>
+  </div>
+  
+
+    <div data-controller="flood">
+      <template data-flood-target='template'>
+        
+          <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_TEMPLATE_RECORD_body">Flood</label><textarea class="rounded-md border border-solid text optional" name="whiistle[floods][TEMPLATE_RECORD][body]" id="whiistle_floods_TEMPLATE_RECORD_body" cols="60" rows="4">
+</textarea></div>
+
+<div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_TEMPLATE_RECORD_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][TEMPLATE_RECORD][quoted_whiistle_url]" id="whiistle_floods_TEMPLATE_RECORD_quoted_whiistle_url" /></div>
+
+<div class="w-full flex">
+  <label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_TEMPLATE_RECORD_pictures">
+</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_TEMPLATE_RECORD_pictures">Pictures</label><input name="whiistle[floods][TEMPLATE_RECORD][pictures][]" type="hidden" value="" autocomplete="off" /><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][TEMPLATE_RECORD][pictures][]" id="whiistle_floods_TEMPLATE_RECORD_pictures" /></div>
+</div>
+      </template>
+
+      <div data-flood-target="add_item">
+        <a data-action="click-&gt;flood#add_association" class="btn-second w-24 p-2" href="#">Add Flood</a>
+      </div>
+      
+    </div>
+  
+</form>
+        
+        <div class="p-4 mt-4 ">
+            <div id="whiistles_counter" class="pb-4 text-second-color">
+  <h1> 4 Whiistles</h1>
+</div >
+
+            <div 
+    data-controller="pagination"
+    data-pagination-url-value=http://test.host/whiistles
+    data-pagination-current-page-value=1
+    data-pagination-max-page-value=1
+    data-pagination-request-value="false"
+>
+  <div id="pagination-body">
+                    <div class="mt-3 ">
+
+    <div class=" border p-2 border-solid">
+      
+      <div class="my-4">
+
+    <div class="my-1">
+    <i class="bi bi-repeat">
+      mock_username_2 Rewhiistled    
+    </i>
+  </div>    
+
+  
+
+  <div class='flex   '>
+    
+    <a class="hover-image shrink-0" href="/users/2/whiistles">
+  <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="25" height="25" />
+</a>
+    
+    <div class="pl-2">
+      <a href="/users/2/whiistles">
+  <span class="text-dark">
+    mock_fullname_2
+  </span>
+  @mock_username_2
+</a>- 
+<a href="/whiistles/1">
+  1y    
+</a>
+      
+      <div class="mt-2">
+        <div>
+  <a href="/whiistles/1">
+    mock_body_1
+</a>  
+  
+  
+</div>
+      </div>
+      <div class="flex"> 
+  <a class="p-2" data-turbo-frame="reply_whiistle_1" href="/whiistles/1/reply/new">
+  <i class="bi bi-chat " > 
+    <span class="px-1" id=reply_counter_whiistle_1>
+      2 
+    </span>
+  </i>
+</a>
+  <div class="relative p-2" data-controller="dropdown">
+  <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+    <div id=rewhiistle_or_quote_button_whiistle_1 >
+        <i class="bi bi-repeat">
+  <span class="px-2">
+    1  
+  </span>
+</i>
+    </div>
+  </div>
+  <div data-dropdown-target="menu" class="absolute left-0 top-full mt-2 hidden z-10 w-auto">
+    <div class="bg-white shadow rounded overflow-hidden p-2 border border-solid" data-action="click->dropdown#toggle">
+      <div class="flex items-center">
+    
+    <div id=rewhiistle_button_whiistle_1>
+            <form class="button_to" method="post" action="/whiistles/1/rewhiistle"><button type="submit">
+  <i class="bi bi-repeat">Rewhiistle</i>
+</button></form>
+    </div>
+    
+</div>
+
+
+      <a class="p-2" data-turbo-frame="quoting_whiistle_whiistle_1" href="/whiistles/1/quoted_whiistle/new">
+  <i class="bi bi-chat-left-quote" >Quoted Whiistle</i>
+</a>
+    </div>
+  </div>
+</div>
+  <div class="flex items-center">
+    
+    <div id=like_button_whiistle_1>
+            <form class="button_to" method="post" action="/whiistles/1/likes"><button class="p-2" type="submit">
+                <i class="bi bi-heart ">
+                    <span>1</span> 
+                </i>
+</button></form>    </div>
+
+    
+</div>
+</div>
+
+<turbo-frame id=reply_whiistle_1 >
+</turbo-frame>
+<turbo-frame id=quoting_whiistle_whiistle_1 >
+</turbo-frame>
+
+          <a href="/whiistles/1">Show this thread</a>
+  
+
+    </div>
+  </div>
+</div>
+    </div>
+    
+
+    <div class=" border p-2 border-solid">
+      
+      <div class="my-4">
+
+  
+    <div class="my-1">
+    <i class="bi bi-heart-fill">
+      mock_username_2 liked
+    </i>
+  </div>    
+
+
+  <div class='flex   '>
+    
+    <a class="hover-image shrink-0" href="/users/2/whiistles">
+  <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="25" height="25" />
+</a>
+    
+    <div class="pl-2">
+      <a href="/users/2/whiistles">
+  <span class="text-dark">
+    mock_fullname_2
+  </span>
+  @mock_username_2
+</a>- 
+<a href="/whiistles/1">
+  1y    
+</a>
+      
+      <div class="mt-2">
+        <div>
+  <a href="/whiistles/1">
+    mock_body_1
+</a>  
+  
+  
+</div>
+      </div>
+      <div class="flex"> 
+  <a class="p-2" data-turbo-frame="reply_whiistle_1" href="/whiistles/1/reply/new">
+  <i class="bi bi-chat " > 
+    <span class="px-1" id=reply_counter_whiistle_1>
+      2 
+    </span>
+  </i>
+</a>
+  <div class="relative p-2" data-controller="dropdown">
+  <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+    <div id=rewhiistle_or_quote_button_whiistle_1 >
+        <i class="bi bi-repeat">
+  <span class="px-2">
+    1  
+  </span>
+</i>
+    </div>
+  </div>
+  <div data-dropdown-target="menu" class="absolute left-0 top-full mt-2 hidden z-10 w-auto">
+    <div class="bg-white shadow rounded overflow-hidden p-2 border border-solid" data-action="click->dropdown#toggle">
+      <div class="flex items-center">
+    
+    <div id=rewhiistle_button_whiistle_1>
+            <form class="button_to" method="post" action="/whiistles/1/rewhiistle"><button type="submit">
+  <i class="bi bi-repeat">Rewhiistle</i>
+</button></form>
+    </div>
+    
+</div>
+
+
+      <a class="p-2" data-turbo-frame="quoting_whiistle_whiistle_1" href="/whiistles/1/quoted_whiistle/new">
+  <i class="bi bi-chat-left-quote" >Quoted Whiistle</i>
+</a>
+    </div>
+  </div>
+</div>
+  <div class="flex items-center">
+    
+    <div id=like_button_whiistle_1>
+            <form class="button_to" method="post" action="/whiistles/1/likes"><button class="p-2" type="submit">
+                <i class="bi bi-heart ">
+                    <span>1</span> 
+                </i>
+</button></form>    </div>
+
+    
+</div>
+</div>
+
+<turbo-frame id=reply_whiistle_1 >
+</turbo-frame>
+<turbo-frame id=quoting_whiistle_whiistle_1 >
+</turbo-frame>
+
+          <a href="/whiistles/1">Show this thread</a>
+  
+
+    </div>
+  </div>
+</div>
+    </div>
+    
+
+    <div class=" border p-2 border-solid">
+      
+      <div class="my-4">
+
+  
+  
+
+  <div class='flex   '>
+    
+    <a class="hover-image shrink-0" href="/users/2/whiistles">
+  <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="25" height="25" />
+</a>
+    
+    <div class="pl-2">
+      <a href="/users/2/whiistles">
+  <span class="text-dark">
+    mock_fullname_2
+  </span>
+  @mock_username_2
+</a>- 
+<a href="/whiistles/1">
+  1y    
+</a>
+      
+      <div class="mt-2">
+        <div>
+  <a href="/whiistles/1">
+    mock_body_1
+</a>  
+  
+  
+</div>
+      </div>
+      <div class="flex"> 
+  <a class="p-2" data-turbo-frame="reply_whiistle_1" href="/whiistles/1/reply/new">
+  <i class="bi bi-chat " > 
+    <span class="px-1" id=reply_counter_whiistle_1>
+      2 
+    </span>
+  </i>
+</a>
+  <div class="relative p-2" data-controller="dropdown">
+  <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+    <div id=rewhiistle_or_quote_button_whiistle_1 >
+        <i class="bi bi-repeat">
+  <span class="px-2">
+    1  
+  </span>
+</i>
+    </div>
+  </div>
+  <div data-dropdown-target="menu" class="absolute left-0 top-full mt-2 hidden z-10 w-auto">
+    <div class="bg-white shadow rounded overflow-hidden p-2 border border-solid" data-action="click->dropdown#toggle">
+      <div class="flex items-center">
+    
+    <div id=rewhiistle_button_whiistle_1>
+            <form class="button_to" method="post" action="/whiistles/1/rewhiistle"><button type="submit">
+  <i class="bi bi-repeat">Rewhiistle</i>
+</button></form>
+    </div>
+    
+</div>
+
+
+      <a class="p-2" data-turbo-frame="quoting_whiistle_whiistle_1" href="/whiistles/1/quoted_whiistle/new">
+  <i class="bi bi-chat-left-quote" >Quoted Whiistle</i>
+</a>
+    </div>
+  </div>
+</div>
+  <div class="flex items-center">
+    
+    <div id=like_button_whiistle_1>
+            <form class="button_to" method="post" action="/whiistles/1/likes"><button class="p-2" type="submit">
+                <i class="bi bi-heart ">
+                    <span>1</span> 
+                </i>
+</button></form>    </div>
+
+    
+</div>
+</div>
+
+<turbo-frame id=reply_whiistle_1 >
+</turbo-frame>
+<turbo-frame id=quoting_whiistle_whiistle_1 >
+</turbo-frame>
+
+          <a href="/whiistles/1">Show this thread</a>
+  
+
+    </div>
+  </div>
+</div>
+    </div>
+    
+
+    <div class=" border p-2 border-solid">
+        <div class="my-4">
+
+  
+  
+
+  <div class='flex   '>
+    
+    <a class="hover-image shrink-0" href="/users/2/whiistles">
+  <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="25" height="25" />
+</a>
+    
+    <div class="pl-2">
+      <a href="/users/2/whiistles">
+  <span class="text-dark">
+    mock_fullname_2
+  </span>
+  @mock_username_2
+</a>- 
+<a href="/whiistles/1">
+  1y    
+</a>
+      
+      <div class="mt-2">
+        <div>
+  <a href="/whiistles/1">
+    mock_body_1
+</a>  
+  
+  
+</div>
+      </div>
+      <div class="flex"> 
+  <a class="p-2" data-turbo-frame="reply_whiistle_1" href="/whiistles/1/reply/new">
+  <i class="bi bi-chat " > 
+    <span class="px-1" id=reply_counter_whiistle_1>
+      2 
+    </span>
+  </i>
+</a>
+  <div class="relative p-2" data-controller="dropdown">
+  <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+    <div id=rewhiistle_or_quote_button_whiistle_1 >
+        <i class="bi bi-repeat">
+  <span class="px-2">
+    1  
+  </span>
+</i>
+    </div>
+  </div>
+  <div data-dropdown-target="menu" class="absolute left-0 top-full mt-2 hidden z-10 w-auto">
+    <div class="bg-white shadow rounded overflow-hidden p-2 border border-solid" data-action="click->dropdown#toggle">
+      <div class="flex items-center">
+    
+    <div id=rewhiistle_button_whiistle_1>
+            <form class="button_to" method="post" action="/whiistles/1/rewhiistle"><button type="submit">
+  <i class="bi bi-repeat">Rewhiistle</i>
+</button></form>
+    </div>
+    
+</div>
+
+
+      <a class="p-2" data-turbo-frame="quoting_whiistle_whiistle_1" href="/whiistles/1/quoted_whiistle/new">
+  <i class="bi bi-chat-left-quote" >Quoted Whiistle</i>
+</a>
+    </div>
+  </div>
+</div>
+  <div class="flex items-center">
+    
+    <div id=like_button_whiistle_1>
+            <form class="button_to" method="post" action="/whiistles/1/likes"><button class="p-2" type="submit">
+                <i class="bi bi-heart ">
+                    <span>1</span> 
+                </i>
+</button></form>    </div>
+
+    
+</div>
+</div>
+
+<turbo-frame id=reply_whiistle_1 >
+</turbo-frame>
+<turbo-frame id=quoting_whiistle_whiistle_1 >
+</turbo-frame>
+
+
+    </div>
+  </div>
+</div>  
+      
+      <div class="my-4">
+
+  
+  
+
+  <div class='flex   '>
+    
+    <a class="hover-image shrink-0" href="/users/2/whiistles">
+  <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="25" height="25" />
+</a>
+    
+    <div class="pl-2">
+      <a href="/users/2/whiistles">
+  <span class="text-dark">
+    mock_fullname_2
+  </span>
+  @mock_username_2
+</a>- 
+<a href="/whiistles/2">
+  1y    
+</a>
+        <div>
+    Replying to 
+    <a href="/users/2/whiistles">
+      @mock_username_2
+</a>  </div>
+
+      <div class="mt-2">
+        <div>
+  <a href="/whiistles/2">
+    mock_body_1
+</a>  
+  
+  
+</div>
+      </div>
+      <div class="flex"> 
+  <a class="p-2" data-turbo-frame="reply_reply_2" href="/whiistles/2/reply/new">
+  <i class="bi bi-chat " > 
+    <span class="px-1" id=reply_counter_reply_2>
+      0 
+    </span>
+  </i>
+</a>
+  <div class="relative p-2" data-controller="dropdown">
+  <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button" data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+    <div id=rewhiistle_or_quote_button_reply_2 >
+        <i class="bi bi-repeat">
+  <span class="px-2">
+    0  
+  </span>
+</i>
+    </div>
+  </div>
+  <div data-dropdown-target="menu" class="absolute left-0 top-full mt-2 hidden z-10 w-auto">
+    <div class="bg-white shadow rounded overflow-hidden p-2 border border-solid" data-action="click->dropdown#toggle">
+      <div class="flex items-center">
+    
+    <div id=rewhiistle_button_reply_2>
+            <form class="button_to" method="post" action="/whiistles/2/rewhiistle"><button type="submit">
+  <i class="bi bi-repeat">Rewhiistle</i>
+</button></form>
+    </div>
+    
+</div>
+
+
+      <a class="p-2" data-turbo-frame="quoting_whiistle_reply_2" href="/whiistles/2/quoted_whiistle/new">
+  <i class="bi bi-chat-left-quote" >Quoted Whiistle</i>
+</a>
+    </div>
+  </div>
+</div>
+  <div class="flex items-center">
+    
+    <div id=like_button_reply_2>
+            <form class="button_to" method="post" action="/whiistles/2/likes"><button class="p-2" type="submit">
+                <i class="bi bi-heart ">
+                    <span>0</span> 
+                </i>
+</button></form>    </div>
+
+    
+</div>
+</div>
+
+<turbo-frame id=reply_reply_2 >
+</turbo-frame>
+<turbo-frame id=quoting_whiistle_reply_2 >
+</turbo-frame>
+
+          
+
+    </div>
+  </div>
+</div>
+    </div>
+    
+</div>
+
+
+  </div>
+
+  <div
+    class="w-full h-32 mt-32 flex justify-center"
+    data-pagination-target="loading"
+  >
+    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-second " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+</svg>
+  </div>
+</div>
+            
+        </div>
+    </div>
+    <div class='w-1/3'>
+        <h1 class="py-4 pl-4">Who To Follow</h1>
+            <div class="flex w-full">
+        <a class="hover-image" href="/users/6/whiistles">
+            <div class="px-4 py-2 flex w-full">
+                <img class="rounded-circle" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
+                <div class="pl-2 flex flex-col self-center">
+                    <div class="text-ellipsis">
+                        mock_fullname_6
+                    </div>
+                    <div class=" text-ellipsis">
+                        @mock_username_6
+                    </div>
+                </div>
+            </div>
+</a>              
+<div class="ml-auto mr-2 my-2 justify-content-center flex" >
+    <div class=relation_user_6>
+        <form class="button_to" method="post" action="/relations?relation%5Bfollowed_id%5D=6"><button type="submit">Follow</button></form>
+    </div>
+</div>
+
+    </div>
+    <div class="flex w-full">
+        <a class="hover-image" href="/users/5/whiistles">
+            <div class="px-4 py-2 flex w-full">
+                <img class="rounded-circle" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
+                <div class="pl-2 flex flex-col self-center">
+                    <div class="text-ellipsis">
+                        mock_fullname_5
+                    </div>
+                    <div class=" text-ellipsis">
+                        @mock_username_5
+                    </div>
+                </div>
+            </div>
+</a>              
+<div class="ml-auto mr-2 my-2 justify-content-center flex" >
+    <div class=relation_user_5>
+        <form class="button_to" method="post" action="/relations?relation%5Bfollowed_id%5D=5"><button type="submit">Follow</button></form>
+    </div>
+</div>
+
+    </div>
+    <div class="flex w-full">
+        <a class="hover-image" href="/users/4/whiistles">
+            <div class="px-4 py-2 flex w-full">
+                <img class="rounded-circle" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
+                <div class="pl-2 flex flex-col self-center">
+                    <div class="text-ellipsis">
+                        mock_fullname_4
+                    </div>
+                    <div class=" text-ellipsis">
+                        @mock_username_4
+                    </div>
+                </div>
+            </div>
+</a>              
+<div class="ml-auto mr-2 my-2 justify-content-center flex" >
+    <div class=relation_user_4>
+        <form class="button_to" method="post" action="/relations?relation%5Bfollowed_id%5D=4"><button type="submit">Follow</button></form>
+    </div>
+</div>
+
+    </div>
+
+    </div>
+</div>
