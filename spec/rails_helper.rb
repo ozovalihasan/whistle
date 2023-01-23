@@ -65,6 +65,7 @@ RSpec.configure do |config|
 
   # Make the rails routes available in all specs
   config.include Rails.application.routes.url_helpers
+  config.include ActiveSupport::Testing::TimeHelpers
 end
 
 Capybara.default_driver = :selenium_chrome_headless
