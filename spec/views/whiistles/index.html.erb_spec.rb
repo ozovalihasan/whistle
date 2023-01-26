@@ -14,6 +14,10 @@ RSpec.describe "whiistles/index", type: :view do
       travel_to(Time.new(2000, 1, 1, 1, 1, 1)) do
         main_whiistle = FactoryBot.create(:mock_whiistle, user: user2)
         FactoryBot.create(:mock_flood, user: user2, whiistle: main_whiistle)
+
+        user3 = User.last
+        main_whiistle = FactoryBot.create(:mock_whiistle, user: user3)
+        FactoryBot.create(:mock_flood, user: user3, whiistle: main_whiistle)
         
         FactoryBot.create(:mock_reply, user: user2, whiistle: main_whiistle)
         FactoryBot.create(:mock_rewhiistle, user: user2, whiistle: main_whiistle)
@@ -21,7 +25,8 @@ RSpec.describe "whiistles/index", type: :view do
       end
 
       all_whiistles = user.main_page_whiistles
-      paginated_whiistles = PaginateRecords.new(all_whiistles, params[:page], whiistles_url)
+      paginated_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], whiistles_url)
+      paginated_whiistles.set_for_whiistles_index_page
       assign(:paginated_whiistles, paginated_whiistles)
 
       whiistle = Whiistle.new
@@ -37,6 +42,10 @@ RSpec.describe "whiistles/index", type: :view do
       end
 
       expect(rendered).to match_snapshot('index_html')
+      expect(rendered).to include('mock_body_whiistle_1').exactly(1).times
+      expect(rendered).to include('mock_body_whiistle_2').exactly(3).times
+      expect(rendered).to include('Show this thread').exactly(3).times
+
     end
   end
 
