@@ -1,4 +1,4 @@
 <% content_for :pagination_body do %>
-    <%= render partial: 'users/list_users', locals: {users: paginated_users.records}  %>
+    <%= render paginated_users.partial_name, users: paginated_users.records  %>
 <% end %>
 <%= render "shared/infinite_scroll", paginated_records: paginated_users %>
