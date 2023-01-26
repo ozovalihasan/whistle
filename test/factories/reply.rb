@@ -17,7 +17,7 @@ end
 
 FactoryBot.define do
   factory :mock_reply, class: "Reply" do
-    sequence(:body) { |n| "mock_body_#{n}" }
+    sequence(:body) { |n| "mock_body_reply_#{n}" }
     sequence(:user_id) { |n| n }
     sequence(:base_whiistle_id) { |n| n }
   end
