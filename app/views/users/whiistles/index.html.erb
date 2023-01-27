@@ -2,4 +2,4 @@
   <%= render "users/whiistles_frame", user: @user, paginated_whiistles: @paginated_whiistles, whiistle: @whiistle %>
 <% end %>
 
-<%= render partial: "users/tabs", locals: { selected_tab: :whiistles, user: @user, relation: @relation } %>
+<%= render partial: "users/tabs", locals: { selected_tab: :whiistles, user: @user } %>
