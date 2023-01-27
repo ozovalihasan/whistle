@@ -6,49 +6,33 @@ RSpec.describe "users/liked_whiistles/index.turbo_stream", type: :view do
 
     it "renders correctly" do
       FactoryBot.reload
-      FactoryBot.create_pair(:mock_user)
-
+      FactoryBot.create(:mock_user)
       user = User.first
-
-      FactoryBot.create(:mock_relation)
-      FactoryBot.create_list(:mock_whiistle, 3, user: user)
-      FactoryBot.create_list(:mock_like, 2, user: user)
-
       assign(:user, user)
+      user2 = User.last
 
-      followings = user.followings
-      assign(:followings, followings)
-      
-      followers = user.followers
-      assign(:followers, followers)
-      
-      whiistles = user.whiistles
-      assign(:whiistles, whiistles)
+      travel_to(Time.new(2000, 1, 1, 1, 1, 1)) do
+        FactoryBot.create_list(:mock_whiistle, 2, user: user)
+        FactoryBot.create_list(:mock_like, 2, user: user)
+      end
 
-      last_page = 2
-      assign(:last_page, last_page)
-
-      page = 2
-      assign(:page, page)
-
-      all_whiistles = user.liked_whiistles
-      assign(:all_whiistles, all_whiistles)
-
-      paginated_whiistles = all_whiistles.last(1)
+      all_whiistles = BaseWhiistle.all
+      paginated_whiistles = PaginateWhiistles.new(all_whiistles, 1, user_liked_whiistles_url(user))
+      paginated_whiistles.set_basic
       assign(:paginated_whiistles, paginated_whiistles)
 
-      relation = Relation.first
+      relation = nil
       assign(:relation, relation)
 
-      sign_in User.last      
+      sign_in user2      
+      
+      travel_to(Time.new(2001, 1, 1, 1, 1, 1)) do
+        render
+      end
 
-      render
-
-      expect(rendered).to match_snapshot('index_turbo_stream')  
-      expect(rendered).to match('2 Whiistles')
-      expect(rendered).to match('mock_body_1')  
-      expect(rendered).not_to match('mock_body_2')
-      expect(rendered).not_to match('mock_body_3')
+      expect(rendered).to match_snapshot('index_turbo_stream')
+      expect(rendered).to match('mock_body_whiistle_1')  
+      expect(rendered).to match('mock_body_whiistle_2') 
     end
   end
 end
