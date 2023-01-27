@@ -1,0 +1,13 @@
+<% if @whiistles_tab_presenter.show_form? %>
+  <% user = @whiistles_tab_presenter.user %>
+
+  <%= 
+    render "whiistles/form", 
+            form_url: whiistles_url, 
+            whiistle: @whiistles_tab_presenter.new_whiistle,
+            label: "Whiistle to #{user.fullname}", 
+            value: "@#{user.username} "
+  %>
+<% end %>
+
+<%= render "users/paginated_whiistles" %>

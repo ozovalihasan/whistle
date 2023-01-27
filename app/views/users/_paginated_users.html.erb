@@ -1,4 +1,11 @@
-<% content_for :pagination_body do %>
+<% paginated_users = @users_tab_presenter.paginated_users %>
+
+<div class="p-4 mt-4">
+
+  <% content_for :pagination_body do %>
     <%= render paginated_users.partial_name, users: paginated_users.records  %>
-<% end %>
-<%= render "shared/infinite_scroll", paginated_records: paginated_users %>
+  <% end %>
+
+  <%= render "shared/infinite_scroll", paginated_records: paginated_users %>
+
+</div>

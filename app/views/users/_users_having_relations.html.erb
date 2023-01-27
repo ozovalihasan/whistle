@@ -1,9 +1,5 @@
-<% if paginated_users.records.present? %>
-  <%= render "users/paginated_users", paginated_users: paginated_users %>
+<% if @users_tab_presenter.user_exist? %>
+  <%= render "users/paginated_users" %>
 <% else %>
-  <% if relation_name == :followings %>
-    <%= user.fullname %> doesn't follow anyone.
-  <% elsif relation_name == :followers %>
-    <%= user.fullname %> doesn't have any follower.
-  <% end %>
+  <%= @users_tab_presenter.no_user_info %>
 <% end %>
