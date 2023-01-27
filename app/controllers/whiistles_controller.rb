@@ -3,7 +3,7 @@ class WhiistlesController < ApplicationController
   before_action :set_whiistle, only: :show
 
   def show
-    @user = @whiistle.user
+    @sidebar_right_presenter = SidebarRightPresenter.new(@whiistle.user, current_user)
   end
 
   def index

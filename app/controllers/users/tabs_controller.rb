@@ -3,7 +3,7 @@ class Users::TabsController < ApplicationController
   before_action :set_user
 
   def index
-    @relation = current_user.following_relations.find_by(followed_id: @user.id)
+    @sidebar_right_presenter = SidebarRightPresenter.new(@user, current_user)
   end
 
   private 

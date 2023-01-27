@@ -1,3 +1,7 @@
+<% user = @sidebar_right_presenter.user %>
+<% relation = @sidebar_right_presenter.relation %>
+<% random_followings = @sidebar_right_presenter.random_followings %>
+
 <div class='sidebar-right border-left flex-shrink-0 text-third'>
     <div class='text-center pt-4 '>
         <div class="flex ">
@@ -45,5 +49,5 @@
         </a>
     </div>
     <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
-    <%= render 'users/list_users', users: user.followers.limit(5).order("RANDOM()") - [ current_user ]  %>
+    <%= render 'users/list_users', users: random_followings  %>
 </div>
