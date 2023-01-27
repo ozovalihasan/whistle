@@ -1,16 +1,14 @@
-<turbo-frame id=<%= dom_id(user, :whiistles) %> >
-    <%= 
-        render "whiistles/form", 
-               form_url: whiistles_url, 
-               whiistle: whiistle,
-               label: "Whiistle to #{user.fullname}", 
-               value: "@#{user.username} "
-    %>
+<%= 
+  render "whiistles/form", 
+          form_url: whiistles_url, 
+          whiistle: whiistle,
+          label: "Whiistle to #{user.fullname}", 
+          value: "@#{user.username} "
+%>
 
-    <div class="p-4 mt-4">
-        <%= 
-            render "users/paginated_whiistles", 
-                    paginated_whiistles: paginated_whiistles
-        %>
-    </div> 
-</turbo-frame>
+<div class="p-4 mt-4">
+  <%= 
+      render "users/paginated_whiistles", 
+              paginated_whiistles: paginated_whiistles
+  %>
+</div> 
