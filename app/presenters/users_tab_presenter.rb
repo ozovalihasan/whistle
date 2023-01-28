@@ -1,16 +1,18 @@
 class UsersTabPresenter
-  attr_reader :new_whiistle, :paginated_users, :user
+  attr_reader :user, :paginated_users, :name, :relation_name
   
-  def initialize(paginated_users, relation_name)
+  def initialize(user, paginated_users, name, relation_name)
+    @user = user
     @paginated_users = paginated_users
+    @name = name
     @relation_name = relation_name
   end
 
   def no_user_info
     if relation_name == :following
-      user.fullname.concat "doesn't follow anyone."
+      user.fullname + " doesn't follow anyone."
     elsif relation_name == :follower
-      user.fullname.concat "doesn't have any follower."
+      user.fullname + " doesn't have any follower."
     end
   end
 

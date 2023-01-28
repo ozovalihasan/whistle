@@ -1,5 +1,5 @@
-<% if @users_tab_presenter.user_exist? %>
+<% if @tab_presenter.user_exist? %>
   <%= render "users/paginated_users" %>
 <% else %>
-  <%= @users_tab_presenter.no_user_info %>
+  <%= @tab_presenter.no_user_info %>
 <% end %>

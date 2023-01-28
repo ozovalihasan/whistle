@@ -1,5 +1,3 @@
-<% content_for :tabs do %>
-  <%= render "users/whiistles_tab" %>
-<% end %>
+<% @tab_presenter = WhiistlesTabPresenter.new(@user, @paginated_whiistles, :liked_whiistles, false) %>
 
-<%= render partial: "users/tabs", locals: { selected_tab: :liked_whiistles, user: @user} %>
+<%= render "users/tabs" %>

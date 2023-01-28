@@ -4,7 +4,7 @@
   <% end %>
 
   <%= turbo_stream.replace "whiistles_counter" do %>
-      <%= render "whiistles/whiistles_counter", whiistles: @whiistles %>
+      <%= render "whiistles/whiistles_counter", whiistles_count: @whiistles.size %>
   <% end %>
   
 <% end %>

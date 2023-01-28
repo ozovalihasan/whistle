@@ -1,13 +1,17 @@
-<% if @whiistles_tab_presenter.show_form? %>
-  <% user = @whiistles_tab_presenter.user %>
+<% if @tab_presenter.show_form? %>
+  <% user = @tab_presenter.user %>
 
   <%= 
     render "whiistles/form", 
             form_url: whiistles_url, 
-            whiistle: @whiistles_tab_presenter.new_whiistle,
+            whiistle: @tab_presenter.new_whiistle,
             label: "Whiistle to #{user.fullname}", 
             value: "@#{user.username} "
   %>
 <% end %>
 
-<%= render "users/paginated_whiistles" %>
+<% if @tab_presenter.whiistle_exist? %>
+  <%= render "users/paginated_whiistles" %>
+<% else %>
+  <%= @tab_presenter.no_whiistle_info %>
+<% end %>

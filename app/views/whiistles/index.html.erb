@@ -10,7 +10,7 @@
         %>
         
         <div class="p-4 mt-4 ">
-            <%= render "whiistles/whiistles_counter", whiistles: @paginated_whiistles.original_records %>
+            <%= render "whiistles/whiistles_counter", whiistles_count: @paginated_whiistles.count %>
 
             <% content_for :pagination_body do %>
                 <%= render @paginated_whiistles.partial_name, whiistles: @paginated_whiistles.records %>
