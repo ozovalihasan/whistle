@@ -1,9 +1,8 @@
 class WhiistlesTabPresenter
-  attr_reader :new_whiistle, :paginated_whiistles, :user, :name, :show_form
+  attr_reader :new_whiistle, :user, :name, :show_form
   
-  def initialize(user, paginated_whiistles, name, show_form, new_whiistle = nil)
+  def initialize(user, name, show_form, new_whiistle = nil)
     @user = user
-    @paginated_whiistles = paginated_whiistles
     @name = name
     @show_form = show_form
     @new_whiistle = new_whiistle
@@ -17,7 +16,4 @@ class WhiistlesTabPresenter
     user.fullname + " doesn't have any whiistle to show."
   end
 
-  def whiistle_exist?
-    paginated_whiistles.records.present?
-  end
 end

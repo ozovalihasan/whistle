@@ -10,7 +10,7 @@
   %>
 <% end %>
 
-<% if @tab_presenter.whiistle_exist? %>
+<% if @paginated_whiistles.record_exist? %>
   <%= render "users/paginated_whiistles" %>
 <% else %>
   <%= @tab_presenter.no_whiistle_info %>

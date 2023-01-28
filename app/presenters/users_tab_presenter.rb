@@ -1,9 +1,8 @@
 class UsersTabPresenter
-  attr_reader :user, :paginated_users, :name, :relation_name
+  attr_reader :user, :name, :relation_name
   
-  def initialize(user, paginated_users, name, relation_name)
+  def initialize(user, name, relation_name)
     @user = user
-    @paginated_users = paginated_users
     @name = name
     @relation_name = relation_name
   end
@@ -14,9 +13,5 @@ class UsersTabPresenter
     elsif relation_name == :follower
       user.fullname + " doesn't have any follower."
     end
-  end
-
-  def user_exist?
-    paginated_users.records.present?
   end
 end

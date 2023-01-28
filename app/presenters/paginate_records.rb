@@ -10,6 +10,10 @@ class PaginateRecords
     pagy_records
   end
 
+  def record_exist?
+    records.present?
+  end
+  
   private 
   
   def pagy_records
