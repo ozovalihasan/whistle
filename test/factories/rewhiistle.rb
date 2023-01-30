@@ -7,8 +7,8 @@ end
 
 FactoryBot.define do
   factory :mock_rewhiistle, class: "Rewhiistle" do
-    sequence(:user_id) { |n| n }
-    sequence(:whiistle_id) { |n| n }
+    sequence(:user_id) { |n| User.first.id + n - 1 }
+    sequence(:whiistle_id) { |n| BaseWhiistle.first.id + n - 1 }
   end
 end
 
