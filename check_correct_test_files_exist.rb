@@ -17,6 +17,8 @@ def correct_test_files_exist?
     test_files.include? (file + "_spec.rb")
   end
 
+  p '================='
+  p "The following files doesn't have a test suite"
   files.each {|file| p file }
 end
 
@@ -39,6 +41,8 @@ def correct_files_exist?
     files.include?( test_file.delete_suffix("_spec.rb") )
   end
 
+  p '================='
+  p "The following test doesn't test an used file"
   test_files.each {|file| p file }
 end
 
@@ -57,18 +61,18 @@ def test_files_has_correct_describe_block?
     
   end
 
+  p '================='
+  p "The following test files describe isn't correct"
   files.each do |(file_name)|
     p file_name
   end
 end
 
-p "The following files doesn't have a test suite"
+
 correct_test_files_exist?
 
-p '================='
-p "The following test doesn't test an used file"
+
 correct_files_exist?
 
-p '================='
-p "The following test files describe isn't correct"
+
 test_files_has_correct_describe_block?
