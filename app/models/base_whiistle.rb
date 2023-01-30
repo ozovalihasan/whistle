@@ -17,7 +17,7 @@ class BaseWhiistle < ApplicationRecord
   has_many :rewhiistles, foreign_key: "whiistle_id", dependent: :destroy
   has_many :likes, foreign_key: "whiistle_id", dependent: :destroy
   belongs_to :user, counter_cache: :whiistles_count
-  belongs_to :quoted_whiistle, class_name: "BaseWhiistle", optional: true, counter_cache: :quoted_whiistles_count
+  belongs_to :quoted_whiistle, class_name: "BaseWhiistle", optional: true, counter_cache: :quoting_whiistles_count
 
   scope :descending_order, -> { order(created_at: :desc) }
   scope :without_replies, -> { where.not(type: types["Reply"]) }

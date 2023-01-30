@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_135253) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_30_140143) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_135253) do
     t.integer "likes_count", default: 0
     t.integer "rewhiistles_count", default: 0
     t.integer "replies_count", default: 0
-    t.integer "quoted_whiistles_count", default: 0
+    t.integer "quoting_whiistles_count", default: 0
     t.text "ancestry"
     t.bigint "quoted_whiistle_id"
     t.index ["ancestry"], name: "index_base_whiistles_on_ancestry"

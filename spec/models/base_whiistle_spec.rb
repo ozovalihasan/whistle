@@ -44,7 +44,7 @@ RSpec.describe BaseWhiistle, type: :model do
     it { should have_many(:likes).with_foreign_key("whiistle_id").dependent(:destroy) }
 
     it { should belong_to(:user).counter_cache(:whiistles_count) }
-    it { should belong_to(:quoted_whiistle).class_name("BaseWhiistle").optional(true).counter_cache(:quoted_whiistles_count) }
+    it { should belong_to(:quoted_whiistle).class_name("BaseWhiistle").optional(true).counter_cache(:quoting_whiistles_count) }
 
   end
 
