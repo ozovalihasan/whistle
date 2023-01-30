@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "whiistles/likes/create", type: :view do
+RSpec.describe "whiistles/likes/create.turbo_stream", type: :view do
   
   before(:each) do
     FactoryBot.create(:mock_user)

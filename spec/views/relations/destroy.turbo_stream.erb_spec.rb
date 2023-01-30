@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "relations/destroy", type: :view do
+RSpec.describe "relations/destroy.turbo_stream", type: :view do
   
   before(:each) do
     FactoryBot.create_pair(:mock_user)
