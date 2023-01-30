@@ -1,9 +1,9 @@
-class UsersTabPresenter
-  attr_reader :user, :name, :relation_name
+class UsersTabPresenter < TabPresenter
+  attr_reader :relation_name
   
   def initialize(user, name, relation_name)
-    @user = user
-    @name = name
+    super(user, name)
+
     @relation_name = relation_name
   end
 
