@@ -4,7 +4,7 @@
       <% if Rewhiistle.find_by(whiistle_id: whiistle.id, user_id: current_user.id) %>
         <%= render "whiistles/destroy_rewhiistle_or_quote_button", whiistle: whiistle %>
       <% else %>
-        <%= render "whiistles/create_rewhiistle_or_quote_button", whiistle: whiistle %>
+        <%= render Whiistles::CreateRewhiistleOrQuoteButtonComponent.new whiistle: whiistle %>
       <% end %>
     </div>
   </div>

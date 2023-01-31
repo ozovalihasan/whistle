@@ -3,7 +3,7 @@
 <% end %>
 
 <%= turbo_stream.update whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle) do %>
-    <%= render "whiistles/create_rewhiistle_or_quote_button", whiistle: @rewhiistle.whiistle %>
+    <%= render Whiistles::CreateRewhiistleOrQuoteButtonComponent.new whiistle: @rewhiistle.whiistle %>
   <% end %>
 
 <%= turbo_stream.update "flashes" do %>
