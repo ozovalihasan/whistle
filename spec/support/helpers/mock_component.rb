@@ -9,7 +9,7 @@ module Helpers
       end
     
       def call
-        @name + "(((" + @params.map {|param_key, param_value| param_key.to_s + ": " + param_value.class.name}.join(" ") + ")))"
+        @name + "(" + @params.map {|param_key, param_value| param_key.to_s + ": " + param_value.class.name}.join(" ") + ")"
       end
     end
     
