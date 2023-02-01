@@ -2,7 +2,7 @@ require "rspec/mocks/standalone"
 
 module Helpers
   module ComponentsTest
-    class MockComponent < ViewComponent::Base
+    class MockComponent < ApplicationComponent
       def initialize(component, params)
         @name = component.name
         @params= params

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Whiistles::CreateRewhiistleOrQuoteButtonComponent < ViewComponent::Base
+class Whiistles::CreateRewhiistleOrQuoteButtonComponent < ApplicationComponent
   def initialize(whiistle:)
     @whiistle = whiistle
   end
