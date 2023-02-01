@@ -21,8 +21,3 @@ module Helpers
     end
   end
 end
-
-RSpec.configure do |config|
-  config.include Helpers::ComponentsTest, type: :component
-  config.include Helpers::ComponentsTest, type: :view
-end
