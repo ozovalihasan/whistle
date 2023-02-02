@@ -1,12 +1,8 @@
-<div class="p-4 mt-4">
+<% content_for :pagination_body do %>
 
-  <% content_for :pagination_body do %>
+  <%= render "whiistles/whiistles_counter", whiistles_count: @paginated_whiistles.count %>
+  <%= render @paginated_whiistles.partial_name, whiistles: @paginated_whiistles.records %>
 
-    <%= render "whiistles/whiistles_counter", whiistles_count: @paginated_whiistles.count %>
-    <%= render @paginated_whiistles.partial_name, whiistles: @paginated_whiistles.records %>
-  
-  <% end %>
+<% end %>
 
-  <%= render "shared/infinite_scroll", paginated_records: @paginated_whiistles %>
-
-</div>
+<%= render "shared/infinite_scroll", paginated_records: @paginated_whiistles %>

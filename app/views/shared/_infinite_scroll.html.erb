@@ -1,9 +1,10 @@
 <div 
-    data-controller="pagination"
-    data-pagination-url-value=<%= paginated_records.url %>
-    data-pagination-current-page-value=<%= paginated_records.page %>
-    data-pagination-max-page-value=<%= paginated_records.last_page %>
-    data-pagination-request-value="false"
+  data-controller="pagination"
+  data-pagination-url-value=<%= paginated_records.url %>
+  data-pagination-current-page-value=<%= paginated_records.page %>
+  data-pagination-max-page-value=<%= paginated_records.last_page %>
+  data-pagination-request-value="false"
+  class="p-4 mt-4">
 >
   <div id="pagination-body">
     <%= yield :pagination_body %>
