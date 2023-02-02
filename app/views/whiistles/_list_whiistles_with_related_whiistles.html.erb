@@ -1,38 +1,36 @@
-<div class="mt-3 ">
-  <% whiistles.each do |whiistle|  %>
+<% whiistles.each do |whiistle|  %>
 
-    <% if whiistle.label == "primary_whiistle" %>
-    
-      <div class=" border p-2 border-solid">
+  <% if whiistle.label == "primary_whiistle" %>
+  
+    <div class=" border p-2 border-solid">
 
-        <% if whiistle.is_a? Reply %>
-        
-          <% if whiistle.path.count >= 3 %>
-            <%= render "whiistles/whiistle", whiistle: whiistle.root %>
-            <% if whiistle.path.count >= 4 %>
-              <%= link_to "Show more replies", whiistle_path(whiistle) %>
-            <% end %>
+      <% if whiistle.is_a? Reply %>
+      
+        <% if whiistle.path.count >= 3 %>
+          <%= render "whiistles/whiistle", whiistle: whiistle.root %>
+          <% if whiistle.path.count >= 4 %>
+            <%= link_to "Show more replies", whiistle_path(whiistle) %>
           <% end %>
-          
-          <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
-
         <% end %>
         
-        <%= render "whiistles/whiistle", whiistle: whiistle %>
+        <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>
 
-        <% if (whiistle.is_a? Whiistle) && whiistle.flood.present? %>
-          <%= render "whiistles/minified_floods", whiistle: whiistle %>
-        <% end %>  
+      <% end %>
+      
+      <%= render "whiistles/whiistle", whiistle: whiistle %>
 
-      </div>
-    
-    <% elsif whiistle.label == "shared_whiistle" %>
+      <% if (whiistle.is_a? Whiistle) && whiistle.flood.present? %>
+        <%= render "whiistles/minified_floods", whiistle: whiistle %>
+      <% end %>  
 
-      <div class=" border p-2 border-solid">
-        <%= render "whiistles/whiistle", whiistle: whiistle, show_flood_info: true %>
-      </div>
+    </div>
+  
+  <% elsif whiistle.label == "shared_whiistle" %>
 
-    <% end %>
-    
+    <div class=" border p-2 border-solid">
+      <%= render "whiistles/whiistle", whiistle: whiistle, show_flood_info: true %>
+    </div>
+
   <% end %>
-</div>
+  
+<% end %>
