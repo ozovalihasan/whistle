@@ -1,55 +1,49 @@
-def correct_test_files_exist?
-  files = Dir.glob("app/views/**/*").grep(/.*\/[^_\/]*\.(turbo_stream|html).erb$/)
-  files.reject! {|file| file.include?("/devise/") || (file.include? "/layouts/")}
-  files.map! do |file| 
-    file[...4] = "" if file[...4] == "app/"
-    file
-  end
+require 'active_support/inflector'
 
-  test_files = Dir.glob("spec/views/**/*").grep(/.*\/[^_\/]*\.(turbo_stream|html).erb_spec.rb$/)
+def correct_test_component_files_exist?
+  files = Dir.glob("app/components/**/*_component.rb")
   
-  test_files.map! do |file| 
-    file[...5] = "" if file[...5] == "spec/"
-    file
-  end
+  remove_suffix_and_prefix_from_file_names(files, "app/", ".rb")
+
+  test_files = Dir.glob("spec/components/**/*_component_spec.rb")
+  
+  remove_suffix_and_prefix_from_file_names(test_files, "spec/", "_spec.rb")
 
   files.reject! do |file|
-    test_files.include? (file + "_spec.rb")
+    test_files.include? file
   end
 
   p '================='
-  p "The following files doesn't have a test suite"
+  p "The following component files doesn't have a test suite"
   files.each {|file| p file }
 end
 
-def correct_files_exist?
-  files = Dir.glob("app/views/**/*").grep(/.*\/[^_\/]*\.(turbo_stream|html).erb$/)
+def correct_test_files_exist?
+  files = Dir.glob("app/views/**/[!_]*.{turbo_stream,html}.erb")
   files.reject! {|file| file.include?("/devise/") || (file.include? "/layouts/")}
-  files.map! do |file| 
-    file[...4] = "" if file[...4] == "app/"
-    file
-  end
-
-  test_files = Dir.glob("spec/views/**/*").grep(/.*\/[^_\/]*\.(turbo_stream|html).erb_spec.rb$/)
-
-  test_files.map! do |file| 
-    file[...5] = "" if file[...5] == "spec/"
-    file
-  end
-
-  test_files.reject! do |test_file|
-    files.include?( test_file.delete_suffix("_spec.rb") )
-  end
+  
+  remove_suffix_and_prefix_from_file_names(files, "app/", "")
+  
+  test_files = Dir.glob("spec/views/**/*.{turbo_stream,html}.erb_spec.rb")
+  remove_suffix_and_prefix_from_file_names(test_files, "spec/", "_spec.rb")
 
   p '================='
-  p "The following test doesn't test an used file"
-  test_files.each {|file| p file }
+  p "The following files doesn't have a test suite"
+  
+  files.reject do |file|
+    test_files.include?( file )
+  end.each {|file| p file }
+
+  p '================='
+  p "The following test doesn't test a used file"
+  test_files.reject do |test_file|
+    files.include?( test_file )
+  end.each {|test_file| p test_file }
 end
 
 def test_files_has_correct_describe_block?
   files = {}
-  test_files = Dir.glob("spec/views/**/*").grep(/.*\/[^_\/]*\.(turbo_stream|html).erb_spec.rb$/)
-
+  test_files = Dir.glob("spec/views/**/*.{turbo_stream,html}.erb_spec.rb")
   test_files.map! {|test_file| files[test_file] = File.open(test_file).read}
 
   files.reject! do |file_name, file_texts|
@@ -63,16 +57,20 @@ def test_files_has_correct_describe_block?
 
   p '================='
   p "The following test files describe isn't correct"
-  files.each do |(file_name)|
+  files.keys do |file_name|
     p file_name
   end
 end
 
+def remove_suffix_and_prefix_from_file_names(files, prefix, suffix)
+  files.each do |file| 
+    file.delete_prefix! prefix  if file.start_with? prefix
+    file.delete_suffix! suffix  if file.end_with? suffix 
+  end
+end
 
 correct_test_files_exist?
 
-
-correct_files_exist?
-
-
 test_files_has_correct_describe_block?
+
+correct_test_component_files_exist?
