@@ -12,7 +12,7 @@
       </div>
     </div>
   <% end %>
-  
+
   <% unless @cur_user.followings_and_user_ids.include? @user.id %>
     <%= render Users::FollowButtonComponent.new(user: @user) %>
   <% end %>
