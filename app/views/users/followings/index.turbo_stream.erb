@@ -1,3 +1,3 @@
 <%= turbo_stream.append "pagination-body" do %>
-  <%= render @paginated_users.partial_name, users: @paginated_users.records %>
+  <%= render @paginated_users.component %>
 <% end %>

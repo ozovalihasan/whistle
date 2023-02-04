@@ -1,9 +1,10 @@
 class SidebarRightPresenter
-  attr_reader :user, :relation, :random_followings
+  attr_reader :user, :cur_user, :relation, :random_followings
   
-  def initialize(user, user2)
+  def initialize(user, cur_user)
     @user = user
-    @relation = user2.following_relations.find_by(followed_id: user.id)
-    @random_followings = user.followings.limit(5).order("RANDOM()") - [ user2 ]
+    @cur_user = cur_user
+    @relation = cur_user.following_relations.find_by(followed_id: user.id)
+    @random_followings = user.followings.limit(5).order("RANDOM()") - [ cur_user ]
   end
 end

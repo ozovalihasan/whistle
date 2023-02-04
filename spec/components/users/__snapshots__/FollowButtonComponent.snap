@@ -1,0 +1,6 @@
+<div class="ml-auto mr-2 my-2 justify-content-center flex" >
+  <div class=relation_user_1>
+    <form class="button_to" method="post" action="/relations?relation%5Bfollowed_id%5D=1"><button type="submit">Follow</button></form>
+  </div>
+</div>
+

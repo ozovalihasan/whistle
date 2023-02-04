@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::CreateRewhiistleOrQuoteButtonComponent, type: :component do
-  it "renders something useful" do
+  it "renders correctly" do
 
     FactoryBot.create(:mock_user)
     whiistle = FactoryBot.create(:mock_whiistle)

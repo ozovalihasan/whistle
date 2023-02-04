@@ -11,7 +11,7 @@ RSpec.describe "users/followers/index.turbo_stream", type: :view do
       create_list(:mock_relation, 2, followed: user3)
       
       followers = user3.followers
-      paginated_users = PaginateUsers.new(followers, 1, user_followers_url(user3))
+      paginated_users = PaginateUsers.new(followers, 1, user_followers_url(user3), user)
       assign(:paginated_users, paginated_users)
 
       sign_in user      

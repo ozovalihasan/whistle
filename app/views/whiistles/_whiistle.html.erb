@@ -5,7 +5,7 @@
 
   <div class='flex  <%= check_click(whiistle) %> '>
     
-    <%= render_profile_image_standard(whiistle.user) %>
+    <%= render Users::ProfileImageButtonComponent.new(user: whiistle.user) %>
     
     <div class="pl-2">
       <%= render "whiistles/user_names_with_timestamp", whiistle: whiistle %>

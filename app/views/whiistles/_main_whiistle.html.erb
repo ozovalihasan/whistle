@@ -5,7 +5,7 @@
     <div class="">
       <div class="flex">
         <div class="mr-2">
-          <%= render_profile_image_standard(whiistle.user) %>
+          <%= render Users::ProfileImageButtonComponent.new(user: whiistle.user) %>
         </div>
         <%= render "whiistles/user_names_vertical", user: whiistle.user %>
       </div>

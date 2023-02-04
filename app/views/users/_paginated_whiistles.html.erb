@@ -1,8 +1,4 @@
-<% content_for :pagination_body do %>
-
+<%= render Shared::InfiniteScrollComponent.new(paginated_records: @paginated_whiistles) do %>
   <%= render "whiistles/whiistles_counter", whiistles_count: @paginated_whiistles.count %>
   <%= render @paginated_whiistles.partial_name, whiistles: @paginated_whiistles.records %>
-
 <% end %>
-
-<%= render "shared/infinite_scroll", paginated_records: @paginated_whiistles %>
