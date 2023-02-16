@@ -1,6 +1,6 @@
 <%= turbo_stream.update whiistle_like_button_target(@like.whiistle) do %>
   <%= button_to whiistle_likes_path(@like.whiistle), id: dom_id(@like.whiistle, :like), class: "p-2" do %>
-    <i class="bi bi-heart text-firsy ">
+    <i class="bi bi-heart text-first ">
       <span><%= @like.whiistle.likes.size %></span> 
     </i>
   <% end %>
