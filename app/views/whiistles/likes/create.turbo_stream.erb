@@ -1,10 +1,6 @@
 <% if @like.saved_changes? %>
-  <%= turbo_stream.update whiistle_like_button_target(@like.whiistle) do %>
-    <%= button_to whiistle_like_path(@like.whiistle, @like), method: :delete, class: "p-2" do %>
-      <i class="bi bi-heart-fill text-second ">
-        <span><%= @like.whiistle.likes.size %></span> 
-      </i>
-    <% end %>
+  <%= turbo_stream.update_all classes_including whiistle_like_button_target(@like.whiistle) do %>
+    <%= render Whiistles::DestroyLikeButtonComponent.new(like: @like) %>
   <% end %>
 <% end %>
 

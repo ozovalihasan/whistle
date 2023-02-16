@@ -41,4 +41,7 @@ module ApplicationHelper
     dom_id(whiistle, :like_button)
   end
 
+  def classes_including(class_name)
+    "." + class_name
+  end
 end
