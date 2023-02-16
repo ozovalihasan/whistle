@@ -6,7 +6,4 @@
     <%= render Whiistles::CreateRewhiistleOrQuoteButtonComponent.new whiistle: @rewhiistle.whiistle %>
   <% end %>
 
-<%= turbo_stream.update "flashes" do %>
-    <%= check_notice %>
-    <%= check_alert %>
-<% end %>
+<%= render Streams::UpdateFlashesComponent.new(notice: notice, alert: alert) %>

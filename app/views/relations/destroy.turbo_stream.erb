@@ -1,7 +1,4 @@
-<%= turbo_stream.update "flashes" do %>
-    <%= check_notice %>
-    <%= check_alert %>
-<% end %>
+<%= render Streams::UpdateFlashesComponent.new(notice: notice, alert: alert) %>
 
 <%= turbo_stream.update user_left_side_followings_count_target(@relation.following) do %>
     <%=  @relation.following.followings_count %>

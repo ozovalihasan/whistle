@@ -1,14 +1,6 @@
 module ApplicationHelper
   include Pagy::Frontend
 
-  def check_notice
-    render 'layouts/notice' if notice
-  end
-
-  def check_alert
-    render 'layouts/alert' if alert
-  end
-
   def check_icons
     render 'layouts/icons' if current_user
   end

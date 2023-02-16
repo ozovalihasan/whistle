@@ -18,8 +18,8 @@
       <div class='center w-full flex flex-col'>
         <%= render 'layouts/header' %>
         <div id="flashes">
-          <%= check_notice %>
-          <%= check_alert %>
+          <%= render Layout::NoticeComponent.new(notice: notice) %>
+          <%= render Layout::AlertComponent.new(alert: alert) %>
         </div>
         <%= yield %>
       </div>

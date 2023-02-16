@@ -6,7 +6,4 @@
   <% end %>
 <% end %>
 
-<%= turbo_stream.update "flashes" do %>
-    <%= check_notice %>
-    <%= check_alert %>
-<% end %>
+<%= render Streams::UpdateFlashesComponent.new(notice: notice, alert: alert) %>
