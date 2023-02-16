@@ -16,7 +16,7 @@
 
 
             <%= render Shared::InfiniteScrollComponent.new(paginated_records: @paginated_whiistles) do %>
-                <%= render @paginated_whiistles.partial_name.new whiistles: @paginated_whiistles.records, current_user_presenter: @current_user_presenter %>
+                <%= render @paginated_whiistles.component_class.new whiistles: @paginated_whiistles.records, current_user_presenter: @current_user_presenter %>
             <% end %>
         </div>
     </div>
