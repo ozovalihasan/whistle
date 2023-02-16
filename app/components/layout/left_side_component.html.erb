@@ -2,30 +2,30 @@
     <div class="flex p-4 items-center ">
         <div class='mr-4'>
         
-            <%= link_to user_whiistles_path(current_user), class: "hover:blur-xs" do %>
-                <%=  current_user.profile_picture.attached? ? image_tag(current_user.profile_picture, size:"50x50") : image_tag('default_profile_picture.png', size:"50x50") %>
+            <%= link_to user_whiistles_path(@current_user), class: "hover:blur-xs" do %>
+                <%=  @current_user.profile_picture.attached? ? image_tag(@current_user.profile_picture, size:"50x50") : image_tag('default_profile_picture.png', size:"50x50") %>
             <% end %>
         </div>
         <div class="text-center ">
-            <%= link_to user_whiistles_path(current_user), class: "hover:text-sixth" do %>
-                <%=  current_user.fullname %>
+            <%= link_to user_whiistles_path(@current_user), class: "hover:text-sixth" do %>
+                <%=  @current_user.fullname %>
             <% end %>
         </div>
     </div>
     <div class="flex px-0 py-3 w-full self-center mx-auto [&>a:hover]:text-sixth">
             
-        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followings_path(current_user) %> >
-            <div id=<%= user_left_side_followings_count_target(current_user) %> class="font-bold text-sixth" >
-                <%=  current_user.followings_count %>
+        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followings_path(@current_user) %> >
+            <div id=<%= user_left_side_followings_count_target(@current_user) %> class="font-bold text-sixth" >
+                <%=  @current_user.followings_count %>
             </div>
             <div>
                 Followings
             </div>
         </a>
             
-        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followers_path(current_user) %> >
+        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followers_path(@current_user) %> >
             <div id="left-side-followers-counter" class=" font-bold text-sixth" >
-                <%=  current_user.followers_count %>
+                <%=  @current_user.followers_count %>
             </div>
             <div>
                 Followers
@@ -53,7 +53,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <%= link_to user_whiistles_path(current_user) , class: " nav-link " do %>
+            <%= link_to user_whiistles_path(@current_user) , class: " nav-link " do %>
                 <i class="bi bi-person-fill"></i>
                 PROFILE
             <% end %>

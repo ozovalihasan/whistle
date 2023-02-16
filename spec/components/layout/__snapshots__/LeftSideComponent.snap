@@ -1,0 +1,64 @@
+<div class="w-1/4 bg-first min-h-screen text-third">
+    <div class="flex p-4 items-center ">
+        <div class='mr-4'>
+        
+            <a class="hover:blur-xs" href="/users/1/whiistles">
+                <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
+</a>        </div>
+        <div class="text-center ">
+            <a class="hover:text-sixth" href="/users/1/whiistles">
+                mock_fullname_1
+</a>        </div>
+    </div>
+    <div class="flex px-0 py-3 w-full self-center mx-auto [&>a:hover]:text-sixth">
+            
+        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=/users/1/followings >
+            <div id=left_side_followings_count_user_1 class="font-bold text-sixth" >
+                0
+            </div>
+            <div>
+                Followings
+            </div>
+        </a>
+            
+        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=/users/1/followers >
+            <div id="left-side-followers-counter" class=" font-bold text-sixth" >
+                0
+            </div>
+            <div>
+                Followers
+            </div>
+        </a>
+        
+    </div>
+    <ul class="flex flex-col [&_a]:p-6 [&_a]:py-4 [&>*:hover]:bg-second [&>*:hover]:text-fourth [&_i]:text-2xl [&_i]:m-2 [&_a]:flex [&_a]:items-center  ">
+        <li class="nav-item">
+            <a class="nav-link" href="/">
+                <i class="bi bi-house-door-fill"></i>
+                HOME            
+</a>        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="bi bi-at"></i>
+                CONNECT
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="bi bi-hash"></i>
+                DISCOVER
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class=" nav-link " href="/users/1/whiistles">
+                <i class="bi bi-person-fill"></i>
+                PROFILE
+</a>        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="bi bi-pie-chart-fill"></i>
+                STATISTICS
+            </a>
+        </li>
+    </ul>
+</div>

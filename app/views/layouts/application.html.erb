@@ -14,7 +14,7 @@
 
   <body>
     <main class='flex font-bold'>
-      <%= show_leftside %>
+      <%= render Layout::LeftSideComponent.new(current_user: current_user) %>
       <div class='center w-full flex flex-col'>
         <%= render 'layouts/header' %>
         <div id="flashes">
