@@ -1,19 +1,22 @@
 <div class='flex grow'>
     <div class='p-4 w-2/3'>
         
-        <%= render "whiistles/form", 
-                    form_url: whiistles_url, 
-                    whiistle: @whiistle,
-                    label: "Whiistle something",
-                    enable_quoting_whiistle: true,
-                    enable_adding_floods: true
+        <%= 
+            render Whiistles::FormComponent.new(
+                form_url: whiistles_url, 
+                whiistle: @whiistle,
+                label: "Whiistle something",
+                enable_quoting_whiistle: true,
+                enable_adding_floods: true
+            )
         %>
         
         <div class="p-4 mt-4 ">
-            <%= render "whiistles/whiistles_counter", whiistles_count: @paginated_whiistles.count %>
+            <%= render Whiistles::WhiistlesCounterComponent.new(whiistles_count: @paginated_whiistles.count) %>
+
 
             <%= render Shared::InfiniteScrollComponent.new(paginated_records: @paginated_whiistles) do %>
-                <%= render @paginated_whiistles.partial_name, whiistles: @paginated_whiistles.records %>
+                <%= render @paginated_whiistles.partial_name.new whiistles: @paginated_whiistles.records, current_user_presenter: @current_user_presenter %>
             <% end %>
         </div>
     </div>

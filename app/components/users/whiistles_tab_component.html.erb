@@ -1,0 +1,18 @@
+<% if @tab_presenter.show_form? %>
+  <% user = @tab_presenter.user %>
+
+  <%= 
+    render Whiistles::FormComponent.new(
+      form_url: whiistles_url, 
+      whiistle: @tab_presenter.new_whiistle,
+      label: "Whiistle to #{user.fullname}", 
+      value: "@#{user.username} "
+    ) 
+  %>
+<% end %>
+
+<% if @paginated_whiistles.record_exist? %>
+  <%= render Users::PaginatedWhiistlesComponent.new(paginated_whiistles: @paginated_whiistles, current_user_presenter: @current_user_presenter) %>
+<% else %>
+  <%= @tab_presenter.no_whiistle_info %>
+<% end %>

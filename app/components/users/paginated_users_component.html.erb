@@ -1,0 +1,3 @@
+<%= render Shared::InfiniteScrollComponent.new(paginated_records: @paginated_users) do %>
+  <%= render Shared::InfiniteScrollUsersComponent.new(paginated_users: @paginated_users) %>
+<% end %>

@@ -6,6 +6,7 @@ class Users::MediasController < Users::TabsController
     all_whiistles = @user.whiistles.joins(:pictures_attachments).distinct.descending_order
     @paginated_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], user_medias_url(@user))
     @paginated_whiistles.set_basic
+    @current_user_presenter = CurrentUserPresenter.new(current_user)
   end
   
 end

@@ -6,7 +6,7 @@
 
 
     <%= turbo_stream.update user_create_delete_relation_target(@relation.followed) do %>
-        <%= render 'users/delete_following', relation: @relation  %>
+        <%= render Users::DeleteFollowingComponent.new(relation: @relation) %>
     <% end %>
 
     <%= turbo_stream.update user_left_side_followings_count_target(@relation.following) do %>

@@ -1,9 +1,10 @@
 <turbo-frame id=<%= whiistle_reply_form_target(@whiistle) %> >
-
-  <%= render "whiistles/form", 
-              form_url: whiistle_reply_index_url(@whiistle), 
-              whiistle: @reply,
-              label: "Reply something",
-              enable_quoting_whiistle: true
+  <%= 
+    render Whiistles::FormComponent.new(
+      form_url: whiistle_reply_index_url(@whiistle), 
+      whiistle: @reply,
+      label: "Reply something",
+      enable_quoting_whiistle: true
+    ) 
   %>
 </turbo-frame>

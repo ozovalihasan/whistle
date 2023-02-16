@@ -33,5 +33,6 @@ module Whistle
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators.test_framework = 'rspec'
   end
 end

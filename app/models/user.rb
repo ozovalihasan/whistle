@@ -28,14 +28,16 @@ class User < ApplicationRecord
                                    .select("
                                      base_whiistles.*, 
                                      rewhiistles.created_at AS primary_created_at, 
-                                     'shared_whiistle' AS label
+                                     'shared_whiistle' AS label,
+                                     '#{ self.fullname }' AS parent_user
                                    ")
     
     user_whiistles = self.whiistles
                          .select("
                            base_whiistles.*, 
                            base_whiistles.created_at AS primary_created_at, 
-                           'primary_whiistle' AS label
+                           'primary_whiistle' AS label,
+                           '' AS parent_user
                          ").without_floods
 
     if remove_replies
@@ -63,7 +65,7 @@ class User < ApplicationRecord
                                                    base_whiistles.*, 
                                                    rewhiistles.created_at AS primary_created_at, 
                                                    'shared_whiistle' AS label,
-                                                   users.username AS parent_user
+                                                   users.fullname AS parent_user
                                                  ")
                                                  .where(
                                                    "rewhiistles.user_id IN (?)", 
@@ -77,7 +79,7 @@ class User < ApplicationRecord
                                                   base_whiistles.*, 
                                                   likes.created_at AS primary_created_at, 
                                                   'liked_whiistle' AS label,
-                                                  users.username AS parent_user
+                                                  users.fullname AS parent_user
                                                 ")
                                                 .where(
                                                   "likes.user_id IN (?)", 
@@ -129,7 +131,7 @@ class User < ApplicationRecord
 
     all_whiistles.order(primary_created_at: :desc).includes(:user)
   end
-  
+
   def followings_and_user_ids
     followings.ids << id
   end

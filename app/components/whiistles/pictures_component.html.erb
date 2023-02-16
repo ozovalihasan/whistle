@@ -1,0 +1,25 @@
+<% if @whiistle.pictures.present? %>
+  <div class="my-4 flex flex-wrap">
+    <% @whiistle.pictures.map do |image| %>
+      <div data-controller="modal"  >
+        <div class="hidden fixed top-0 left-0 w-full h-full">
+        </div>
+        <a href="#" data-action="click->modal#open" class="rounded ">
+          <%= image_tag image.variant(:thumb), class: "w-32 h-32 rounded-lg mx-2 my-2" %>
+        </a>
+        <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
+            <div class="max-h-screen w-full max-w-lg relative">
+                <div class="m-1 bg-white rounded shadow">
+                    <div class="p-8">
+                        <%= image_tag image, class: "object-contain w-full rounded-md pb-4", loading: "lazy" %>
+                        <div class="flex justify-end items-center flex-wrap mt-6">
+                            <button class="btn-first" data-action="click->modal#close">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

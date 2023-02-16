@@ -1,0 +1,5 @@
+<% @whiistles.each do |whiistle|  %>
+  <div class=" border-b border-solid">
+    <%= render Whiistles::WhiistleWithFloodInfoComponent.new(whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
+  </div>
+<% end %>

@@ -1,3 +1,10 @@
 <% @tab_presenter = WhiistlesTabPresenter.new(@user, :whiistles_with_replies, true, @whiistle) %>
 
-<%= render "users/tabs" %>
+<%= 
+    render Users::TabsComponent.new(
+        tab_presenter: @tab_presenter, 
+        sidebar_right_presenter: @sidebar_right_presenter, 
+        paginated_records: @paginated_whiistles,
+        current_user_presenter: @current_user_presenter
+    ) 
+%>

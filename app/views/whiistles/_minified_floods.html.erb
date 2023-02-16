@@ -1,9 +1,0 @@
-<% if whiistle.count_floods > 2 %>
-  <%= render "whiistles/flood_info", whiistle: whiistle %>
-<% end %>
-
-<% if whiistle.count_floods > 1 %>
-  <%= render "whiistles/whiistle", whiistle: whiistle.leaf_flood.parent %>
-<% end %>
-
-<%= render "whiistles/whiistle", whiistle: whiistle.leaf_flood %>

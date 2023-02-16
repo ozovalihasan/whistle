@@ -13,7 +13,4 @@ module WhiistlesHelper
     'click' if whiistle.body.match(/c.*l.*i.*c.*k/i)
   end
 
-  def render_whiistle_with_flood_info(whiistle)
-    render "whiistles/whiistle", whiistle: whiistle, show_flood_info: true
-  end
 end

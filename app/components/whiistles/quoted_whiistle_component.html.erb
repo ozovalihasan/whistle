@@ -1,0 +1,9 @@
+<div class="p-2 my-2 border border-solid border-first flex rounded-md" >
+
+  <%= render Users::ProfileImageButtonSmallComponent.new(user: @whiistle.user) %>
+  <div class="pl-2 text-base">
+    <%= render Whiistles::UserNamesWithTimestampComponent.new(whiistle: @whiistle) %>
+    <%= render Whiistles::BodyAndPicturesComponent.new(whiistle: @whiistle, show_quoted_whiistle: false) %>
+    <%= render Whiistles::FloodInfoComponent.new(whiistle: @whiistle) %>
+  </div>
+</div>

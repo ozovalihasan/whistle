@@ -1,0 +1,10 @@
+<div class="flex"> 
+  <%= render Whiistles::ReplyButtonComponent.new(whiistle: @whiistle) %>
+  <%= render Whiistles::ToggleRewhiistleOrQuoteButtonComponent.new(whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+  <%= render Whiistles::LikeButtonComponent.new(whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+</div>
+
+<turbo-frame id=<%= whiistle_reply_form_target(@whiistle) %> >
+</turbo-frame>
+<turbo-frame id=<%= whiistle_quoting_whiistle_form_target(@whiistle) %> >
+</turbo-frame>

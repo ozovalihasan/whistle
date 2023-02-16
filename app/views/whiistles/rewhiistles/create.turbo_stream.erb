@@ -1,10 +1,10 @@
 <% if @rewhiistle.saved_changes? %>
   <%= turbo_stream.update whiistle_rewhiistle_button_target(@rewhiistle.whiistle) do %>
-    <%= render "whiistles/destroy_rewhiistle_button", rewhiistle: @rewhiistle %>
+    <%= render Whiistles::DestroyRewhiistleButtonComponent.new(whiistle: @rewhiistle.whiistle, rewhiistle: @rewhiistle) %>
   <% end %>
 
   <%= turbo_stream.update whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle) do %>
-    <%= render "whiistles/destroy_rewhiistle_or_quote_button", whiistle: @rewhiistle.whiistle %>
+    <%= render Whiistles::DestroyRewhiistleOrQuoteButtonComponent.new(whiistle: @rewhiistle.whiistle) %>
   <% end %>
 <% end %>
 

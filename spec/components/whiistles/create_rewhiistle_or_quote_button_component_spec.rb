@@ -9,7 +9,7 @@ RSpec.describe Whiistles::CreateRewhiistleOrQuoteButtonComponent, type: :compone
     whiistle = FactoryBot.create(:mock_whiistle)
     whiistle.update(rewhiistles_count: 111, quoting_whiistles_count: 222)
     
-    render_inline(described_class.new(whiistle: whiistle))
+    render_inline(described_class.new(whiistle: whiistle).with_variant(:phone))
 
     expect(rendered_content).to match_snapshot('CreateRewhiistleOrQuoteButtonComponent')  
     expect(rendered_content).to include "333"

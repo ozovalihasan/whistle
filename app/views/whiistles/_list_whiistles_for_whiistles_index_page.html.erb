@@ -9,13 +9,12 @@
         </i>
       </div>    
     
-      <%= render "whiistles/whiistle", whiistle: whiistle.whiistle %>  
-      <%= render "whiistles/whiistle", whiistle: whiistle %>  
+      <%= render Whiistles::WhiistleComponent.new(whiistle: whiistle.whiistle, current_user_presenter: current_user_presenter) %>
+      <%= render Whiistles::WhiistleComponent.new(whiistle: whiistle, current_user_presenter: current_user_presenter) %>
 
     <% else %>
 
-      <%= render_whiistle_with_flood_info(whiistle) %>
-    
+      <%= render Whiistles::WhiistleWithFloodInfoComponent.new(whiistle: whiistle, current_user_presenter: current_user_presenter) %>
     <% end %>
   </div>
   

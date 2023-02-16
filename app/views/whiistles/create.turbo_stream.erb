@@ -1,10 +1,11 @@
 <% if @whiistle.saved_changes? %>
   <%= turbo_stream.prepend "whiistles" do %>
-    <%= render_whiistle_with_flood_info(@whiistle) %>
+    <%= render Whiistles::WhiistleWithFloodInfoComponent.new(whiistle: @whiistle) %>
   <% end %>
 
   <%= turbo_stream.replace "whiistles_counter" do %>
-      <%= render "whiistles/whiistles_counter", whiistles_count: @whiistles.size %>
+    <%= render Whiistles::WhiistlesCounterComponent.new(whiistles_count: @whiistles.size) %>
+
   <% end %>
   
 <% end %>

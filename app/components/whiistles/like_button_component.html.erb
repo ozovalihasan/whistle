@@ -1,0 +1,20 @@
+<div class="flex items-center">
+    
+    <div id=<%= whiistle_like_button_target(@whiistle) %>>
+        <% if @current_user_presenter.liked? @whiistle %>
+            <%= button_to whiistle_like_path(@whiistle, @current_user_presenter.like_of(@whiistle)), method: :delete, class: "p-2" do %>
+                <i class="bi bi-heart-fill text-second ">
+                    <span><%= @whiistle.likes.size %></span> 
+                </i>
+            <% end %>
+        <% else %>
+            <%= button_to whiistle_likes_path(@whiistle), class: "p-2" do %>
+                <i class="bi bi-heart ">
+                    <span><%= @whiistle.likes.size %></span> 
+                </i>
+            <% end %>
+        <% end %>
+    </div>
+
+    
+</div>

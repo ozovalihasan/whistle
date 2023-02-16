@@ -1,9 +1,0 @@
-<div class="p-2 my-2 border border-solid border-first flex rounded-md" >
-
-  <%= render Users::ProfileImageButtonSmallComponent.new(user: whiistle.user) %>
-  <div class="pl-2 text-base">
-    <%= render "whiistles/user_names_with_timestamp", whiistle: whiistle %>
-    <%= render "whiistles/body_and_pictures", whiistle: whiistle, hide_quoted_whiistle: true %>
-    <%= render "whiistles/flood_info", whiistle: whiistle %>
-  </div>
-</div>

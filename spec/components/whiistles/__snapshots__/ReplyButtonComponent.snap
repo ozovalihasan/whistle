@@ -1,0 +1,7 @@
+<a class="p-2" data-turbo-frame="reply_whiistle_1" href="/whiistles/1/reply/new">
+  <i class="bi bi-chat " > 
+    <span class="px-1" id=reply_counter_whiistle_1>
+      0 
+    </span>
+  </i>
+</a>
