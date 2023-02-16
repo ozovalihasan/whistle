@@ -1,5 +1,0 @@
-<% if @type == :simple %>
-  <%= render Whiistles::WhiistleComponent.with_collection @whiistles, user: @user, current_user_presenter: @current_user_presenter %>
-<% elsif @type == :for_main_page %>
-  <%= render Whiistles::WhiistleForWhiistlesIndexPageComponent.with_colleciton @whiistles %>
-<% end %>
