@@ -1,11 +1,7 @@
 <div class="flex items-center">
     
     <div id=<%= whiistle_rewhiistle_button_target(@whiistle) %>>
-        <% if @current_user_presenter.rewhiistled? @whiistle %>
-            <%= render Whiistles::DestroyRewhiistleButtonComponent.new(whiistle: @whiistle, rewhiistle: @current_user_presenter.rewhiistle_of(@whiistle)) %>
-        <% else %>
-            <%= render Whiistles::CreateRewhiistleButtonComponent.new(whiistle: @whiistle) %>
-        <% end %>
+        <%= render active_button %>
     </div>
     
 </div>

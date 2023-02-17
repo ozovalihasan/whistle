@@ -5,4 +5,8 @@ class Whiistles::ReplyInfoComponent < ApplicationComponent
     @whiistle = whiistle
   end
 
+  def render?
+    @whiistle.is_a? Reply
+  end
+
 end
