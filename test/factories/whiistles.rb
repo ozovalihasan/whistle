@@ -20,3 +20,10 @@ FactoryBot.define do
   end
 end
 
+FactoryBot.define do
+  factory :mock_quoting_whiistle, class: "Whiistle" do
+    sequence(:body) { |n| "mock_body_whiistle_#{n}" }
+    sequence(:user_id) { |n| User.first.id + n - 1 }
+    sequence(:quoted_whiistle_id) { |n| BaseWhiistle.first.id + n - 1 }
+  end
+end
