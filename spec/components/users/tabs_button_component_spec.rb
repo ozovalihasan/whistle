@@ -3,13 +3,23 @@
 require "rails_helper"
 
 RSpec.describe Users::TabsButtonComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "if the tab is active tab" do
+    it "renders correctly" do
+      render_inline(described_class.new(url: "mock_url", text: "mock_text", active_tab: true))
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+      expect(rendered_content).to match_snapshot('TabsButtonComponent_active_tab')  
+      expect(rendered_content).to match "block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline border-b border-solid border-second"
+      expect(rendered_content).to match "mock_text"
+    end
+  end
+
+  context "if the tab is not active tab" do
+    it "renders correctly" do
+      render_inline(described_class.new(url: "mock_url", text: "mock_text", active_tab: false))
+
+      expect(rendered_content).to match_snapshot('TabsButtonComponent_inactive_tab')  
+      expect(rendered_content).to match "block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline"
+      expect(rendered_content).to match "mock_text"
+    end
+  end
 end

@@ -3,13 +3,20 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::WhiistleWithFloodInfoComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    mock_components([
+      Whiistles::WhiistleComponent
+    ])
+    
+    user = FactoryBot.create(:mock_user)
+    whiistle = FactoryBot.create(:mock_whiistle)
+    
+    current_user_presenter = CurrentUserPresenter.new(user)
+
+    render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
+
+    expect(rendered_content).to match_snapshot('WhiistleWithFloodInfoComponent')  
+    expect(rendered_content).to include "Whiistles::WhiistleComponent"
+  end
 end

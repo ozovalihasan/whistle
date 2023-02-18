@@ -3,13 +3,11 @@
 require "rails_helper"
 
 RSpec.describe Layout::NoticeComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    render_inline( described_class.new(notice: "mock_notice") )
+
+    expect(rendered_content).to match_snapshot('NoticeComponent')  
+    expect(rendered_content).to match(/mock_notice/)
+  end
 end

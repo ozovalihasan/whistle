@@ -3,13 +3,19 @@
 require "rails_helper"
 
 RSpec.describe Streams::UpdateFlashesComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
+    mock_components([
+      Layout::NoticeComponent,
+      Layout::AlertComponent
+    ])
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    render_inline( described_class.new(alert: "mock_alert", notice: "mock_notice") )
+
+    expect(rendered_content).to match_snapshot('UpdateFlashesComponent')  
+    expect(rendered_content).to match(/Layout::NoticeComponent/)
+    expect(rendered_content).to match(/Layout::AlertComponent/)
+    expect(rendered_content).to match(/turbo-stream/)
+    expect(rendered_content).to match(/action="update"/)
+    
+  end
 end

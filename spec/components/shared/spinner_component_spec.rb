@@ -3,13 +3,9 @@
 require "rails_helper"
 
 RSpec.describe Shared::SpinnerComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
+    render_inline(described_class.new())
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    expect(rendered_content).to match_snapshot('SpinnerComponent')  
+  end
 end

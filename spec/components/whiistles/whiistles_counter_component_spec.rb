@@ -3,13 +3,25 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::WhiistlesCounterComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "if the count of whiistles is 1" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    it "renders correctly" do
+      render_inline(described_class.new(whiistles_count: 1))
+
+      expect(rendered_content).to match_snapshot('WhiistlesCounterComponent_count_greater_than_one')  
+      expect(rendered_content).to match "1 Whiistle"
+    end
+    
+  end
+
+  context "if the count of whiistles is greater than 1" do
+
+    it "renders correctly" do
+      render_inline(described_class.new(whiistles_count: 111))
+
+      expect(rendered_content).to match_snapshot('WhiistlesCounterComponent_count_greater_than_one')  
+      expect(rendered_content).to match "111 Whiistles"
+    end
+    
+  end
 end

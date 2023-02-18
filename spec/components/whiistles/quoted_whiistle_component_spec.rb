@@ -3,13 +3,26 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::QuotedWhiistleComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    mock_components([
+      Users::ProfileImageButtonSmallComponent, 
+      Whiistles::UserNamesWithTimestampComponent, 
+      Whiistles::BodyAndPicturesComponent, 
+      Whiistles::FloodInfoComponent
+    ])
+    
+    FactoryBot.create(:mock_user)
+    FactoryBot.create(:mock_whiistle)
+    quoting_whiistle = FactoryBot.create(:mock_quoting_whiistle)
+    
+    render_inline(described_class.new(whiistle: quoting_whiistle))
+
+    expect(rendered_content).to match_snapshot('QuotedWhiistleComponent')  
+    expect(rendered_content).to match "Users::ProfileImageButtonSmallComponent"
+    expect(rendered_content).to match "Whiistles::UserNamesWithTimestampComponent"
+    expect(rendered_content).to match "Whiistles::BodyAndPicturesComponent"
+    expect(rendered_content).to match "Whiistles::FloodInfoComponent"
+    
+  end
 end

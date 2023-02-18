@@ -3,13 +3,16 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::QuotedWhiistleButtonComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    FactoryBot.create(:mock_user)
+    FactoryBot.create(:mock_whiistle)
+    
+    render_inline(described_class.new(whiistle: Whiistle.first))
+
+    expect(rendered_content).to match_snapshot('QuotedWhiistleButtonComponent')
+    expect(rendered_content).to match "Quoted Whiistle"
+    expect(rendered_content).to match /data-turbo-frame="quoting_whiistle_whiistle_\d+/
+    expect(rendered_content).to match /href="\/whiistles\/\d+\/quoted_whiistle\/new"/
+  end
 end

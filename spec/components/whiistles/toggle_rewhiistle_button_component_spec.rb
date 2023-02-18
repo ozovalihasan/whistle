@@ -3,13 +3,46 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::ToggleRewhiistleButtonComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) {
+    FactoryBot.reload
+  }
+  
+  context "if the whiistle is rewhiistled" do
+    it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+      mock_components([
+        Whiistles::DestroyRewhiistleButtonComponent
+      ])
+      
+      user = FactoryBot.create(:mock_user)
+      whiistle = FactoryBot.create(:mock_whiistle)
+      FactoryBot.create(:mock_rewhiistle)
+      
+      current_user_presenter = CurrentUserPresenter.new(user)
+      
+      render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('ToggleRewhiistleButtonComponent_rewhiistled')  
+      expect(rendered_content).to match "Whiistles::DestroyRewhiistleButtonComponent"
+    end
+  end
+
+  context "if the whiistle is not rewhiistled" do
+    it "renders correctly" do
+
+      mock_components([
+        Whiistles::CreateRewhiistleButtonComponent
+      ])
+      
+      user = FactoryBot.create(:mock_user)
+      whiistle = FactoryBot.create(:mock_whiistle)
+      
+      current_user_presenter = CurrentUserPresenter.new(user)
+      
+      render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('ToggleRewhiistleButtonComponent_not_rewhiistled')  
+      expect(rendered_content).to match "Whiistles::CreateRewhiistleButtonComponent"
+    end
+  end
 end

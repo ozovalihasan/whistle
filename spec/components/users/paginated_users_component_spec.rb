@@ -3,13 +3,25 @@
 require "rails_helper"
 
 RSpec.describe Users::PaginatedUsersComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    mock_components([
+      Shared::InfiniteScrollComponent,
+      Shared::InfiniteScrollUsersComponent
+    ])
+
+    FactoryBot.create_list(:mock_user, 3)
+
+    cur_user = User.last
+    page = 1
+    url = "mock_url"
+    original_records = User.all.limit(2)
+    paginated_users = PaginateUsers.new(original_records, page, url, cur_user)
+      
+    render_inline(described_class.new(paginated_users: User.all.limit(1)))
+
+    expect(rendered_content).to match_snapshot('PaginatedUsersComponent')  
+    expect(rendered_content).to match "Shared::InfiniteScrollComponent"
+    expect(rendered_content).to match "Shared::InfiniteScrollUsersComponent"
+  end
 end

@@ -3,13 +3,14 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::UserNamesVerticalComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    user = FactoryBot.create(:mock_user)
+    
+    render_inline(described_class.new(user: user))
+
+    expect(rendered_content).to match_snapshot('UserNamesVerticalComponent')  
+    expect(rendered_content).to match "mock_fullname_1"
+    expect(rendered_content).to match "mock_username_1"
+  end
 end

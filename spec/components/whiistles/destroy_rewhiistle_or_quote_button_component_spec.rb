@@ -3,13 +3,15 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::DestroyRewhiistleOrQuoteButtonComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    FactoryBot.create(:mock_user)
+    whiistle = FactoryBot.create(:mock_whiistle)
+    whiistle.update(rewhiistles_count: 111, quoting_whiistles_count: 222)
+    
+    render_inline(described_class.new(whiistle: whiistle).with_variant(:phone))
+
+    expect(rendered_content).to match_snapshot('DestroyRewhiistleOrQuoteButtonComponent')  
+    expect(rendered_content).to match "333"
+  end
 end
