@@ -14,6 +14,7 @@ class Whiistles::RepliesController < ApplicationController
 
     if @reply.save
       flash[:notice] = 'You replied'
+      @current_user_presenter = CurrentUserPresenter.new(current_user)
     else
       flash[:alert] = @reply.errors.full_messages[0]
     end

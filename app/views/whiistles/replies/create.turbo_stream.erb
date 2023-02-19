@@ -9,7 +9,7 @@
   <% end %>
   
   <%= turbo_stream.after whiistle_reply_form_target(@whiistle) do %>
-    <%= render Whiistles::WhiistleWithFloodInfoComponent.new(whiistle: @reply) %>
+    <%= render Whiistles::WhiistleWithFloodInfoComponent.new(whiistle: @reply, current_user_presenter: @current_user_presenter ) %>
   <% end %>
 
 
