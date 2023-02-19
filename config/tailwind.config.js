@@ -29,6 +29,9 @@ module.exports = {
     extend: {
       blur: {
         xs: '2px',
+      },
+      animation: {
+        'one-time-ping': 'pulse 2s cubic-bezier(0.05, 0.05, 0.5, 0.95) 1'
       }
     },
   },
