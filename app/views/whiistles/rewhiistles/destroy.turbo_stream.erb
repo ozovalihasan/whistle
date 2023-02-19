@@ -1,8 +1,8 @@
-<%= turbo_stream.update whiistle_rewhiistle_button_target(@rewhiistle.whiistle) do %>
+<%= turbo_stream.update_all classes_including whiistle_rewhiistle_button_target(@rewhiistle.whiistle) do %>
   <%= render Whiistles::CreateRewhiistleButtonComponent.new(whiistle: @rewhiistle.whiistle) %>
 <% end %>
 
-<%= turbo_stream.update whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle) do %>
+<%= turbo_stream.update_all classes_including whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle) do %>
     <%= render Whiistles::CreateRewhiistleOrQuoteButtonComponent.new whiistle: @rewhiistle.whiistle %>
   <% end %>
 

@@ -1,5 +1,7 @@
-<i class="bi bi-repeat">
-  <span class="px-2">
-    <%= @whiistle.rewhiistles.size + @whiistle.quoting_whiistles.size %>  
-  </span>
-</i>
+<%= render Streams::EnterLeaveAnimationComponent.new do %>
+  <i class="bi bi-repeat">
+    <span class="px-2">
+      <%= @whiistle.rewhiistles.size + @whiistle.quoting_whiistles.size %>  
+    </span>
+  </i>
+<% end %>
