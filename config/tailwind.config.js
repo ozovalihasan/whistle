@@ -10,6 +10,13 @@ module.exports = {
     './app/components/**/*.{erb,haml,html,slim}',
     "./config/initializers/simple_form.rb"
   ],
+  safelist: [
+    "fixed",
+    "top-0",
+    "left-0",
+    "w-full",
+    "h-full"
+  ],
   theme: {
     colors: {
       transparent: 'transparent',

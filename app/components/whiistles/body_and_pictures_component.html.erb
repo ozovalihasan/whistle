@@ -3,7 +3,9 @@
     <%= @whiistle.body  %>
   <% end %>
   
-  <%= render Whiistles::PicturesComponent.new(whiistle: @whiistle) %>
+  <% if @show_pictures %>
+    <%= render Whiistles::PicturesComponent.new(whiistle: @whiistle) %>
+  <% end %>
   
   <% if @whiistle.quoted_whiistle && @show_quoted_whiistle %>
     <%= render Whiistles::QuotedWhiistleComponent.new(whiistle: @whiistle.quoted_whiistle) %>
