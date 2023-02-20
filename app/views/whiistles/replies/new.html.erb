@@ -1,4 +1,4 @@
-<turbo-frame id="modal-body" >
+<turbo-frame id=<%= modal_body_target %> >
   <div class='flex  <%= check_click(@whiistle) %> '>
     <%= render Users::ProfileImageButtonComponent.new(user: @whiistle.user) %>
     

@@ -12,7 +12,9 @@
     <%= render Whiistles::WhiistleWithFloodInfoComponent.new(whiistle: @reply, current_user_presenter: @current_user_presenter ) %>
   <% end %>
 
-
+  <%= turbo_stream.update modal_body_target do %>
+    <%= notice %>
+  <% end %>
 
 <% end %>
 

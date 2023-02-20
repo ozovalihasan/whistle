@@ -1,7 +1,7 @@
 <% if @whiistle.pictures.present? %>
   <div class="my-4 flex flex-wrap">
     <% @whiistle.pictures.map.with_index do |picture, index| %>
-      <%= link_to whiistle_pictures_path(@whiistle, index: index), class: "hover:blur-xs", data: { action: "click->modal#open", turbo_frame: "modal-body" } do %>
+      <%= link_to whiistle_pictures_path(@whiistle, index: index), class: "hover:blur-xs", data: { action: "click->modal#open", turbo_frame: modal_body_target } do %>
         <%= image_tag picture, class: "w-32 h-32 rounded-lg mx-2 my-2" %>
       <% end %>
     <% end %>
