@@ -1,0 +1,20 @@
+<div data-controller="modal" data-modal-allow-background-close="true" data-modal-prevent-default-action-opening="false" >
+
+  <%= content %>
+
+  <div data-modal-target="container" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard" class="hidden animated fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
+    <div class="max-h-screen w-full max-w-lg relative">
+      <div class="m-1 bg-white rounded shadow">
+        <div class="flex justify-start items-center flex-wrap p-4 ">
+          <button class="btn-second rounded-full " data-action="click->modal#close">
+            <i class="bi bi-x-lg p-1"></i>
+          </button>
+        </div>
+        <div class="p-4">
+          <turbo-frame id="modal-body" >
+          </turbo-frame>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
