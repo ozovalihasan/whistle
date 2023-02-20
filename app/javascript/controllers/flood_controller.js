@@ -6,6 +6,6 @@ export default class extends Controller {
   add_association(event) {
     event.preventDefault()
     var content = this.templateTarget.innerHTML.replace(/TEMPLATE_RECORD/g, new Date().getTime().toString())
-    this.add_itemTarget.insertAdjacentHTML('beforebegin', content)
+    this.add_itemTarget.insertAdjacentHTML('beforeend', content)
   }
 }
