@@ -1,0 +1,10 @@
+<%= turbo_frame_tag modal_body_target do %>
+  <%= 
+    render Whiistles::FormComponent.new(
+      form_url: whiistles_url, 
+      whiistle: @whiistle,
+      label: "Whiistle to #{@user.fullname}", 
+      value: "@#{@user.username} "
+    ) 
+  %>
+<% end %>

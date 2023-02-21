@@ -12,7 +12,7 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body>
+  <body class="w-full">
     <main class='flex font-bold'>
       <%= render Layout::LeftSideComponent.new(current_user: current_user) %>
       <div class='center w-full flex flex-col'>

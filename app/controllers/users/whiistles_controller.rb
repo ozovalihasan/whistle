@@ -9,4 +9,8 @@ class Users::WhiistlesController < Users::TabsController
     @paginated_whiistles.set_connected
     @current_user_presenter = CurrentUserPresenter.new(current_user)
   end
+
+  def new
+    @whiistle = Whiistle.new
+  end
 end

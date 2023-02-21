@@ -1,14 +1,7 @@
 <% if @tab_presenter.show_form? %>
   <% user = @tab_presenter.user %>
 
-  <%= 
-    render Whiistles::FormComponent.new(
-      form_url: whiistles_url, 
-      whiistle: @tab_presenter.new_whiistle,
-      label: "Whiistle to #{user.fullname}", 
-      value: "@#{user.username} "
-    ) 
-  %>
+  <%= render Whiistles::FormOpeningModalComponent.new(label: "Whiistle to #{user.fullname}", value: "@#{user.username} ", whiistle: @tab_presenter.new_whiistle, path: new_user_whiistle_path) %>
 <% end %>
 
 <% if @paginated_whiistles.record_exist? %>
