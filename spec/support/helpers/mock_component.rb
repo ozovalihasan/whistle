@@ -9,11 +9,13 @@ module Helpers
       end
     
       def call
-        @name + "(" + params_to_s + ")" + (content ? content : "")
+        @name + params_to_s + (content ? content : "")
       end
 
       def params_to_s
-        @params.map {|param_key, param_value| param_key.to_s + ": " + param_value.class.name}.join(", ")
+        return "" if @params.nil?
+
+        "(" + @params.map {|param_key, param_value| param_key.to_s + ": " + param_value.class.name}.join(", ")  + ")"
       end
     end
     
