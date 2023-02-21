@@ -2,7 +2,7 @@
   <div data-controller="tabs" data-tabs-active-tab="-mb-px border-l border-t border-r rounded-t">
     <ul class="list-reset border-b" data-flood-target="add_item">
       <li class="-mb-px mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-        <%= f.input :body, as: :text, label: @label, wrapper: :whiistle_wrapper, input_html: {value: @value || ""} %>
+        <%= render Whiistles::FormBodyComponent.new(form: f, label: @label, value: @value) %>
       </li>
       <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
         
@@ -14,21 +14,25 @@
           <%= f.input :quoted_whiistle_url, as: :string, placeholder: "Copy paste the link of a whiistle to quote" %>
         <% end %>
 
-        <div class="w-full flex">
-          <%= render Whiistles::FormPicturesButtonComponent.new(form: f) %>
-          <div class="ml-auto flex">
-            <% if @enable_adding_floods %>
-              <template data-flood-target='template'>
-                <%= f.simple_fields_for :floods, Flood.new, index: 'TEMPLATE_RECORD' do |flood_form| %>
-                  <%= render Whiistles::FloodWhiistleFormComponent.new(flood_form: flood_form, main_form: f) %>
-                <% end %>
-              </template>
-            
-              <%= link_to "Add Flood", "#", data: { action: "click->flood#add_association" }, class: "btn-second w-24 p-2  m-4" %>
-            <% end %>
-            <%= f.button :submit, "Whiistle" %>        
+        <% unless @open_modal %>
+          <div class="w-full flex">
+            <%= render Whiistles::FormPicturesButtonComponent.new(form: f) %>
+            <div class="ml-auto flex">
+              <% if @enable_adding_floods %>
+                <template data-flood-target='template'>
+                  <%= f.simple_fields_for :floods, Flood.new, index: 'TEMPLATE_RECORD' do |flood_form| %>
+                    <%= render Whiistles::FloodWhiistleFormComponent.new(flood_form: flood_form, main_form: f) %>
+                  <% end %>
+                </template>
+              
+                <%= link_to "Add Flood", "#", data: { action: "click->flood#add_association" }, class: "btn-second w-24 p-2  m-4" %>
+              <% end %>
+              <%= f.button :submit, "Whiistle" %>        
+              
+            </div>
           </div>
-        </div>
+        <% end %>
+
       </div>
       
       <div >

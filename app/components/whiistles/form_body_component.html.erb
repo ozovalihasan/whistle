@@ -1,0 +1,10 @@
+<%= @form.input :body, as: :text, 
+                       label: @label, 
+                       wrapper: :whiistle_wrapper, 
+                       input_html: {
+                         value: @value || "", 
+                         data: { 
+                           action: @open_modal ? "click->modal#sendRequest" : "" 
+                         }
+                       } 
+%>

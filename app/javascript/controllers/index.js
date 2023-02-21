@@ -4,9 +4,10 @@ import { application } from "controllers/application"
 
 // Eager load all controllers defined in the import map under controllers/**/*_controller
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
-import { Modal, Dropdown } from "tailwindcss-stimulus-components"
+import { Dropdown } from "tailwindcss-stimulus-components"
 import Flood from "./flood_controller"
 import Tabs from "./custom_tabs_controller"
+import Modal from "./custom_modal_controller"
 import PaginationController from "./pagination_controller"
 
 eagerLoadControllersFrom("controllers", application)

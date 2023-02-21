@@ -2,6 +2,10 @@ class WhiistlesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_whiistle, only: :show
 
+  def new
+    @whiistle = Whiistle.new
+  end
+  
   def show
     @sidebar_right_presenter = SidebarRightPresenter.new(@whiistle.user, current_user)
     @current_user_presenter = CurrentUserPresenter.new(current_user)

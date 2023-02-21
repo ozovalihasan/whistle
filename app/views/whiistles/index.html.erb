@@ -1,15 +1,7 @@
 <div class='flex grow'>
     <div class='p-4 w-2/3'>
-        
-        <%= 
-            render Whiistles::FormComponent.new(
-                form_url: whiistles_url, 
-                whiistle: @whiistle,
-                label: "Whiistle something",
-                enable_quoting_whiistle: true,
-                enable_adding_floods: true
-            )
-        %>
+
+        <%= render Whiistles::FormOpeningModalComponent.new(label: "Whiistle something", whiistle: @whiistle, path: new_whiistle_path) %>
         
         <div class="p-4 mt-4 ">
             <%= render Whiistles::WhiistlesCounterComponent.new(whiistles_count: @paginated_whiistles.count) %>
