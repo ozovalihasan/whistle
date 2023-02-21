@@ -52,8 +52,9 @@ export default class extends Controller {
     
 
   get scrollReachedEnd() {
-      const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
-      const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
-      return distanceFromBottom < 50;
+      const { clientHeight } = document.documentElement;
+      const loadingY = this.loadingTarget.getBoundingClientRect().y
+
+      return loadingY < clientHeight ;
   }
 }
