@@ -9,7 +9,7 @@ module Helpers
       end
     
       def call
-        @name + params_to_s + (content ? content : "")
+        raw(@name + params_to_s + (content ? content : ""))
       end
 
       def params_to_s
