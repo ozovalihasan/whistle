@@ -1,7 +1,7 @@
 <% if @whiistle.respond_to?(:label) && @whiistle.label == "liked_whiistle" %>
   <div class="my-1">
     <i class="bi bi-heart-fill">
-      <%= @whiistle.respond_to?(:parent_user) && @whiistle.parent_user %> liked
+      <%= @whiistle.parent_user %> liked
     </i>
   </div>    
 <% end %>
