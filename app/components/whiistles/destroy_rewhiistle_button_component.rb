@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Whiistles::DestroyRewhiistleButtonComponent < ApplicationComponent
-  def initialize(whiistle:, rewhiistle:)
-    @whiistle = whiistle
+  def initialize(rewhiistle:)
     @rewhiistle = rewhiistle
   end
 

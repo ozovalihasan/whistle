@@ -10,7 +10,7 @@ class Whiistles::ToggleRewhiistleButtonComponent < ApplicationComponent
 
   def active_button
     if @current_user_presenter.rewhiistled? @whiistle
-        Whiistles::DestroyRewhiistleButtonComponent.new(whiistle: @whiistle, rewhiistle: @current_user_presenter.rewhiistle_of(@whiistle))
+        Whiistles::DestroyRewhiistleButtonComponent.new(rewhiistle: @current_user_presenter.rewhiistle_of(@whiistle))
     else
         Whiistles::CreateRewhiistleButtonComponent.new(whiistle: @whiistle)
     end

@@ -1,6 +1,6 @@
 <% if @rewhiistle.saved_changes? %>
   <%= turbo_stream.update_all classes_including whiistle_rewhiistle_button_target(@rewhiistle.whiistle) do %>
-    <%= render Whiistles::DestroyRewhiistleButtonComponent.new(whiistle: @rewhiistle.whiistle, rewhiistle: @rewhiistle) %>
+    <%= render Whiistles::DestroyRewhiistleButtonComponent.new(rewhiistle: @rewhiistle) %>
   <% end %>
 
   <%= turbo_stream.update_all classes_including whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle) do %>
