@@ -2,6 +2,7 @@
 
 class Whiistles::ButtonsComponent < ApplicationComponent
   include ApplicationHelper
+  include Turbo::FramesHelper
   
   def initialize(whiistle:, current_user_presenter:)
     @whiistle = whiistle
