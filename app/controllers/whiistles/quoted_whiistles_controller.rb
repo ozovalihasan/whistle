@@ -1,5 +1,5 @@
 class Whiistles::QuotedWhiistlesController < ApplicationController
-  before_action :set_quoted_whiistle, only: [:new, :create]
+  before_action :set_quoted_whiistle, only: [:new]
 
   def new
     @quoting_whiistle = Whiistle.new()
