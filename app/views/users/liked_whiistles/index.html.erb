@@ -1,4 +1,4 @@
-<% @tab_presenter = WhiistlesTabPresenter.new(@user, :liked_whiistles, false) %>
+<% @tab_presenter = WhiistlesTabPresenter.new(@user, :liked_whiistles) %>
 
 <%= render Users::TabsComponent.new(
         tab_presenter: @tab_presenter, 

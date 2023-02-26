@@ -1,7 +1,7 @@
 class WhiistlesTabPresenter < TabPresenter
-  attr_reader :show_form, :new_whiistle
+  attr_reader :new_whiistle
   
-  def initialize(user, name, show_form, new_whiistle = nil)
+  def initialize(user, name, new_whiistle = nil)
     super(user, name)
 
     @show_form = show_form
@@ -9,7 +9,7 @@ class WhiistlesTabPresenter < TabPresenter
   end
 
   def show_form?
-    show_form
+    new_whiistle.present?
   end
 
   def no_whiistle_info
