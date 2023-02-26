@@ -1,4 +1,6 @@
 class ApplicationComponent < ViewComponent::Base
+  def initialize; end
+  
   private
 
   def filter_attribute(value, allowed_values, default: nil)
