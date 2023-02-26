@@ -1,33 +1,31 @@
-<%= simple_form_for @whiistle, url: @form_url, html: { class: "w-full", data: { controller: "flood" } } do |f| %>
+<%= simple_form_for @whiistle, url: @form_url, html: { data: { controller: "flood" } } do |form| %>
   <div data-controller="tabs" data-tabs-active-tab="-mb-px border-l border-t border-r rounded-t">
     <ul class="list-reset border-b" data-flood-target="add_item">
       <li class="-mb-px mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-        <%= render Whiistles::FormBodyComponent.new(form: f, label: @label, value: @value) %>
+        <%= render Whiistles::FormBodyComponent.new(form: form, label: @label, value: @value) %>
       </li>
       <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
         
         <% if @quoted_whiistle %>
-          <%= f.input :quoted_whiistle_url, as: :hidden, input_html: {value: whiistle_url(@quoted_whiistle)} %>
+          <%= form.input :quoted_whiistle_url, as: :hidden, input_html: {value: whiistle_url(@quoted_whiistle)} %>
         <% end %>
 
         <% if @enable_quoting_whiistle %>
-          <%= f.input :quoted_whiistle_url, as: :string, placeholder: "Copy paste the link of a whiistle to quote" %>
+          <%= form.input :quoted_whiistle_url, as: :string, placeholder: "Copy paste the link of a whiistle to quote" %>
         <% end %>
 
         <% unless @open_modal %>
           <div class="w-full flex">
-            <%= render Whiistles::FormPicturesButtonComponent.new(form: f) %>
+            <%= render Whiistles::FormPicturesButtonComponent.new(form: form) %>
             <div class="ml-auto flex">
               <% if @enable_adding_floods %>
                 <template data-flood-target='template'>
-                  <%= f.simple_fields_for :floods, Flood.new, index: 'TEMPLATE_RECORD' do |flood_form| %>
-                    <%= render Whiistles::FloodWhiistleFormComponent.new(flood_form: flood_form, main_form: f) %>
-                  <% end %>
+                  <%= render Whiistles::FloodWhiistleFormComponent.new(main_form: form) %>
                 </template>
               
                 <%= link_to "Add Flood", "#", data: { action: "click->flood#add_association" }, class: "btn-second w-24 p-2  m-4" %>
               <% end %>
-              <%= f.button :submit, "Whiistle" %>        
+              <%= form.button :submit, "Whiistle" %>        
               
             </div>
           </div>
