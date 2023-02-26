@@ -3,13 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::FormPicturesButtonComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
+    render_inline(MockComponents::SimpleFormComponent.new(component_class: described_class, form_key: :form))
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    expect(rendered_content).to match_snapshot('FormPicturesButtonComponent')  
+    expect(rendered_content).to include "whiistle_pictures"
+    expect(rendered_content).to include 'multiple="multiple" type="file" name="whiistle[pictures][]"'
+    expect(rendered_content).to include 'id="whiistle_pictures"'
+
+  end
 end

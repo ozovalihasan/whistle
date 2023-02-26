@@ -3,13 +3,15 @@
 require "rails_helper"
 
 RSpec.describe Shared::ModalComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    render_inline(described_class.new) { "mock_content" }
+
+    expect(rendered_content).to match_snapshot('ModalComponent')  
+    expect(rendered_content).to include "mock_content"
+    expect(rendered_content).to include 'data-controller="modal"'
+    expect(rendered_content).to include '<turbo-frame id=modal_body >'
+    expect(rendered_content).to include 'data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard"'
+    expect(rendered_content).to include 'data-modal-allow-background-close="true"'
+  end
 end

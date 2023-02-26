@@ -1,0 +1,3 @@
+<form class="button_to" method="post" action="/whiistles/1/rewhiistle/1"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button type="submit">
+  <i class="bi bi-repeat text-second ">Cancel rewhiistle</i>
+</button></form>

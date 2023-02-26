@@ -1,1 +1,1 @@
-    Users::AddFollowingComponent(user: User)   
+    Users::AddFollowingComponent(user_id: Integer)   

@@ -1,6 +1,6 @@
 <div class="flex items-center">
     
-    <div id=rewhiistle_button_whiistle_2>
+    <div class="rewhiistle_button_whiistle_45">
         Whiistles::CreateRewhiistleButtonComponent(whiistle: Whiistle)
     </div>
     

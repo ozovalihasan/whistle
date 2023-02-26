@@ -3,13 +3,23 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::UserNamesWithTimestampComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    FactoryBot.create(:mock_user)
+    whiistle = nil
+
+    travel_to(Time.new(2000, 1, 1, 1, 1, 1)) do
+      whiistle = FactoryBot.create(:mock_whiistle)
+    end
+    
+    travel_to(Time.new(2001, 1, 1, 1, 1, 1)) do
+      render_inline(described_class.new(whiistle: whiistle))
+    end
+
+    expect(rendered_content).to match_snapshot('UserNamesWithTimestampComponent')  
+    expect(rendered_content).to include "mock_fullname_1"
+    expect(rendered_content).to include "@mock_username_1"
+    expect(rendered_content).to match /a.*href.*"\/whiistles\/\d+"/
+    expect(rendered_content).to include "1y"
+  end
 end

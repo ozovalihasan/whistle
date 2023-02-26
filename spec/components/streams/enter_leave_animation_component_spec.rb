@@ -3,13 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Streams::EnterLeaveAnimationComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    render_inline(described_class.new) { "mock_content"}
+
+    expect(rendered_content).to match_snapshot('EnterLeaveAnimationComponent')
+    expect(rendered_content).to include "mock_content"
+    expect(rendered_content).to include "data-stream-enter-class"
+    expect(rendered_content).to include "data-stream-exit-class"
+  end
 end

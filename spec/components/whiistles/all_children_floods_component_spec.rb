@@ -3,13 +3,45 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::AllChildrenFloodsComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "if the flood doesn't have another flood" do
+    it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+      mock_components([
+        Whiistles::WhiistleComponent
+      ])
+
+      user = FactoryBot.create(:mock_user)
+      cur_user = FactoryBot.create(:mock_user)
+      current_user_presenter = CurrentUserPresenter.new(cur_user)
+      whiistle = FactoryBot.create(:mock_whiistle)
+      flood = FactoryBot.create(:mock_flood, whiistle: whiistle)
+      
+      render_inline(described_class.new(flood: flood, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('AllChildrenFloodsComponent_without_children_floods')  
+      expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Flood, current_user_presenter: CurrentUserPresenter)"
+    end
+  end
+
+  context "if the flood doesn't have another flood" do
+    it "renders correctly" do
+
+      mock_components([
+        Whiistles::WhiistleComponent
+      ])
+
+      user = FactoryBot.create(:mock_user)
+      cur_user = FactoryBot.create(:mock_user)
+      current_user_presenter = CurrentUserPresenter.new(cur_user)
+
+      whiistle = FactoryBot.create(:mock_whiistle)
+      flood = FactoryBot.create(:mock_flood, whiistle: whiistle)
+      flood2 = FactoryBot.create(:mock_flood, whiistle: flood, user: user)
+      
+      render_inline(described_class.new(flood: flood, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('AllChildrenFloodsComponent_with_children_floods')  
+      expect(rendered_content).to include("Whiistles::WhiistleComponent(whiistle: Flood, current_user_presenter: CurrentUserPresenter)").exactly(2).times
+    end
+  end
 end

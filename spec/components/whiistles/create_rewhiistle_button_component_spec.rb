@@ -3,13 +3,17 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::CreateRewhiistleButtonComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    FactoryBot.create(:mock_user)
+    whiistle = FactoryBot.create(:mock_whiistle)
+    
+    render_inline(described_class.new(whiistle: whiistle))
+
+    expect(rendered_content).to match_snapshot('CreateRewhiistleButtonComponent')  
+    expect(rendered_content).to include "button"
+    expect(rendered_content).to include "bi-repeat"
+    expect(rendered_content).to include "Rewhiistle"
+    expect(rendered_content).to match /action="\/whiistles\/\d+\/rewhiistle"/
+  end
 end

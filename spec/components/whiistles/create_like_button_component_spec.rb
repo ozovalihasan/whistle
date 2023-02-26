@@ -3,13 +3,23 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::CreateLikeButtonComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    mock_components([
+      Streams::EnterLeaveAnimationComponent
+    ])
+
+    FactoryBot.create_list(:mock_user, 3)
+    whiistle = FactoryBot.create(:mock_whiistle)
+    FactoryBot.create_list(:mock_like, 2, whiistle: whiistle)
+    
+    render_inline(described_class.new(whiistle: whiistle))
+
+    expect(rendered_content).to match_snapshot('CreateLikeButtonComponent')  
+    expect(rendered_content).to include "Streams::EnterLeaveAnimationComponent"
+    expect(rendered_content).to match /form.*method="post".*action="\/whiistles\/\d+\/likes"/
+    expect(rendered_content).to include "bi-heart"
+    expect(rendered_content).to include "<span>2</span>"
+    
+  end
 end

@@ -3,13 +3,35 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::FormOpeningModalComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "if value is given" do
+    it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+      mock_components([
+        Whiistles::FormBodyComponent
+      ])
+
+      render_inline(described_class.new(label: "mock_label", whiistle: Whiistle.new, path: "mock_path", value: "mock_value"))
+
+      expect(rendered_content).to match_snapshot('FormOpeningModalComponent_with_value')  
+      expect(rendered_content).to include "Whiistles::FormBodyComponent(form: SimpleForm::FormBuilder, label: String, open_modal: TrueClass, value: String)"
+      expect(rendered_content).to include "mock_path"
+      expect(rendered_content).to include 'data-modal-target="defaultAnchor"'
+      expect(rendered_content).to include 'data-turbo-frame="modal_body"'
+    end
+  end
+
+  context "if value is given" do
+    it "renders correctly" do
+
+      mock_components([
+        Whiistles::FormBodyComponent
+      ])
+
+      render_inline(described_class.new(label: "mock_label", whiistle: Whiistle.new, path: "mock_path"))
+
+      expect(rendered_content).to match_snapshot('FormOpeningModalComponent_without_value')  
+      expect(rendered_content).to include "Whiistles::FormBodyComponent(form: SimpleForm::FormBuilder, label: String, open_modal: TrueClass, value: NilClass)"
+    end
+  end
+
 end

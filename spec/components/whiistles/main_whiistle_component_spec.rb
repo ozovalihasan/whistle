@@ -3,13 +3,32 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::MainWhiistleComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    mock_components([
+      Users::ProfileImageButtonComponent,
+      Whiistles::UserNamesVerticalComponent,
+      Whiistles::ReplyInfoComponent,
+      Whiistles::BodyAndPicturesComponent,
+      Whiistles::ButtonsComponent
+    ])
+
+    user = FactoryBot.create(:mock_user)
+    cur_user = FactoryBot.create(:mock_user)
+    current_user_presenter = CurrentUserPresenter.new(user)
+
+    whiistle = nil
+    travel_to(Time.utc(2001, 1, 1, 1, 1, 1)) do
+      whiistle = FactoryBot.create(:mock_whiistle)
+    end
+    
+    render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
+
+    expect(rendered_content).to match_snapshot('MainWhiistleComponent')
+    expect(rendered_content).to include "Users::ProfileImageButtonComponent"
+    expect(rendered_content).to include "Whiistles::UserNamesVerticalComponent"
+    expect(rendered_content).to include "Whiistles::ReplyInfoComponent"
+    expect(rendered_content).to include "Whiistles::BodyAndPicturesComponent"
+    expect(rendered_content).to include "Whiistles::ButtonsComponent"
+  end
 end

@@ -3,13 +3,22 @@
 require "rails_helper"
 
 RSpec.describe ApplicationComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a method 'filter_attribute' to filter a given argument" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    VARIANT_VALUES = {
+      default: "default",
+      non_default: "non_default"
+    }.freeze
+    
+    application_component = ApplicationComponent.new
+
+    expect(application_component.send(:filter_attribute, nil, VARIANT_VALUES.keys)).to eq(nil)
+    expect(application_component.send(:filter_attribute, :default, VARIANT_VALUES.keys, default: :default)).to eq(:default)
+    expect(application_component.send(:filter_attribute, :non_existing_key, VARIANT_VALUES.keys, default: :default)).to eq(:default)
+    expect(application_component.send(:filter_attribute, :non_default, VARIANT_VALUES.keys, default: :default)).to eq(:non_default)
+  end
+  
+  it "doesn't render anything" do
+    expect { render_inline(described_class.new) }.to raise_error ViewComponent::TemplateError
+  end
 end

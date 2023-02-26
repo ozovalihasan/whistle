@@ -3,13 +3,17 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::FloodWhiistleFormComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
+    
+    render_inline(MockComponents::SimpleFormComponent.new(component_class: described_class, form_key: :main_form))
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    expect(rendered_content).to match_snapshot('FloodWhiistleFormComponent')  
+    expect(rendered_content).to include 'whiistle_floods_TEMPLATE_RECORD_body'
+    expect(rendered_content).to include 'whiistle_floods_TEMPLATE_RECORD_pictures'
+    expect(rendered_content).to include 'whiistle_floods_TEMPLATE_RECORD_quoted_whiistle_url'
+    expect(rendered_content).to include 'Quoted whiistle url'
+    expect(rendered_content).to include 'Add Flood'
+    expect(rendered_content).to include 'type="submit"'
+
+  end
 end

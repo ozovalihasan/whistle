@@ -3,13 +3,19 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::DestroyRewhiistleButtonComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders correctly" do
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    FactoryBot.create(:mock_user)
+    FactoryBot.create(:mock_whiistle)
+    rewhiistle = FactoryBot.create(:mock_rewhiistle)
+    
+    render_inline(described_class.new(rewhiistle: rewhiistle))
+
+    expect(rendered_content).to match_snapshot('DestroyRewhiistleButtonComponent')
+    expect(rendered_content).to include 'method="post"'
+    expect(rendered_content).to match /action="\/whiistles\/\d+\/rewhiistle\/\d+"/
+    expect(rendered_content).to include 'value="delete"'
+    expect(rendered_content).to include 'Cancel rewhiistle'
+    
+  end
 end

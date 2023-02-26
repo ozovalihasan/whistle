@@ -1,0 +1,3 @@
+<form class="button_to" method="post" action="/whiistles/1/rewhiistle"><button type="submit">
+  <i class="bi bi-repeat">Rewhiistle</i>
+</button></form>
