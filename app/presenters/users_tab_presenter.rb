@@ -1,10 +1,7 @@
 class UsersTabPresenter < TabPresenter
-  attr_reader :relation_name
   
-  def initialize(user, name, paginated_records, relation_name)
+  def initialize(user, name, paginated_records)
     super(user, name, paginated_records)
-
-    @relation_name = relation_name
   end
 
   def no_user_info
