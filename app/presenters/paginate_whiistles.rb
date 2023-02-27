@@ -2,13 +2,9 @@ class PaginateWhiistles < PaginateRecords
   attr_reader :type
   attr_accessor :component_class
   
-  def initialize(original_records, page, url, type = nil)
+  def initialize(original_records, page, url)
     super(original_records, page, url)
-
-    @type = type
   end
-  
-  
   
   def set_for_whiistles_index_page
     self.component_class = Whiistles::ListWhiistlesForWhiistlesIndexPageComponent

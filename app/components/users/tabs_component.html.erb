@@ -1,30 +1,61 @@
 <div class='bg-fourth flex grow'>
-    <div class="w-2/3">
-        <div style="background-image: url('<%= cover_image_url(@user) %>');", class="h-60 bg-cover bg-center w-full bg-third">
-        </div>
-        <turbo-frame id="user_tabs" data-turbo-action="advance" >
-
-            <div class="p-4">
-                <ul class="flex">
-                    <%= render Users::TabsButtonComponent.new(url: user_whiistles_path(@user), text: "Whiistles", active_tab: @selected_tab == :whiistles_without_replies) %>
-                    <%= render Users::TabsButtonComponent.new(url: user_whiistles_with_replies_path(@user), text: "Whiistles & Replies", active_tab: @selected_tab == :whiistles_with_replies) %>
-                    <%= render Users::TabsButtonComponent.new(url: user_medias_path(@user), text: "Media", active_tab: @selected_tab == :medias) %>
-                    <%= render Users::TabsButtonComponent.new(url: user_liked_whiistles_path(@user), text: "Likes", active_tab: @selected_tab == :liked_whiistles) %>
-                    <%= render Users::TabsButtonComponent.new(url: user_followings_path(@user), text: "Followings", active_tab: @selected_tab == :followings) %>
-                    <%= render Users::TabsButtonComponent.new(url: user_followers_path(@user), text: "Followers", active_tab: @selected_tab == :followers) %>
-                </ul>
-
-                <% if @paginated_records.class == PaginateWhiistles %>
-                    <%= render Users::WhiistlesTabComponent.new(tab_presenter: @tab_presenter, current_user_presenter: @current_user_presenter, paginated_whiistles: @paginated_records) %>
-                <% elsif @paginated_records.class == PaginateUsers %>
-                    <%= render Users::UsersHavingRelationsComponent.new(paginated_users: @paginated_records, tab_presenter: @tab_presenter) %>
-                <% end %>
-
-            </div>
-            
-        </turbo-frame>
+  <div class="w-2/3">
+    <div style="background-image: url('<%= cover_image_url(@user) %>');", class="h-60 bg-cover bg-center w-full bg-third">
     </div>
-    <div class="w-1/3">
-        <%= render Users::SidebarRightComponent.new(sidebar_right_presenter: @sidebar_right_presenter) %>
-    </div>
+    <%= turbo_frame_tag "user_tabs", data: { turbo_action: "advance" } do %>
+
+      <div class="p-4">
+        <ul class="flex">
+          <%= 
+            render Users::TabsButtonComponent.new(
+              url: user_whiistles_path(@user), 
+              text: "Whiistles",
+              active_tab: @selected_tab == :whiistles_without_replies
+            ) 
+          %>
+          <%= 
+            render Users::TabsButtonComponent.new(
+              url: user_whiistles_with_replies_path(@user), 
+              text: "Whiistles & Replies",
+              active_tab: @selected_tab == :whiistles_with_replies
+            ) 
+          %>
+          <%= 
+            render Users::TabsButtonComponent.new(
+              url: user_medias_path(@user), 
+              text: "Media",
+              active_tab: @selected_tab == :medias
+            ) 
+          %>
+          <%= 
+            render Users::TabsButtonComponent.new(
+              url: user_liked_whiistles_path(@user), 
+              text: "Likes",
+              active_tab: @selected_tab == :liked_whiistles
+            ) 
+          %>
+          <%= 
+            render Users::TabsButtonComponent.new(
+              url: user_followings_path(@user), 
+              text: "Followings",
+              active_tab: @selected_tab == :followings
+            ) 
+          %>
+          <%= 
+            render Users::TabsButtonComponent.new(
+              url: user_followers_path(@user), 
+              text: "Followers",
+              active_tab: @selected_tab == :followers
+            ) 
+          %>
+        </ul>
+
+        <%= render tab_body %>
+      </div>
+      
+    <% end %>
+  </div>
+  <div class="w-1/3">
+    <%= render Users::SidebarRightComponent.new(sidebar_right_presenter: @sidebar_right_presenter) %>
+  </div>
 </div>

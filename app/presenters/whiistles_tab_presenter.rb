@@ -1,10 +1,9 @@
 class WhiistlesTabPresenter < TabPresenter
   attr_reader :new_whiistle
   
-  def initialize(user, name, new_whiistle = nil)
-    super(user, name)
+  def initialize(user, name, paginated_records, new_whiistle = nil)
+    super(user, name, paginated_records)
 
-    @show_form = show_form
     @new_whiistle = new_whiistle
   end
 

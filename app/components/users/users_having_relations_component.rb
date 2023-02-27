@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Users::UsersHavingRelationsComponent < ApplicationComponent
-  def initialize(paginated_users:, tab_presenter:)
-    @paginated_users = paginated_users
+  def initialize(tab_presenter:)
     @tab_presenter = tab_presenter
+    @paginated_users = tab_presenter.paginated_records
   end
 
 end
