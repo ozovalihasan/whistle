@@ -7,4 +7,7 @@ class Whiistles::PicturesComponent < ApplicationComponent
     @whiistle = whiistle
   end
 
+  def render?
+    @whiistle.pictures.present?
+  end
 end
