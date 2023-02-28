@@ -3,13 +3,50 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::PicturesComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    FactoryBot.reload
+    
+    mock_components([
+      Whiistles::WhiistleComponent
+    ])
+  end
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  let(:user) do
+    FactoryBot.create(:mock_user)
+  end
+
+  let(:whiistle) do
+    FactoryBot.create(:mock_whiistle, user: user)
+  end
+
+  context "if the whiistle doesn't have any picture" do
+    it "doesn't render anything" do
+      
+      render_inline(described_class.new(whiistle: whiistle))
+
+      expect(rendered_content).to be_empty
+    end
+  end
+
+  context "if the whiistle has pictures" do
+    it "renders correctly" do
+      
+      whiistle
+      whiistle.pictures.attach(
+        [
+          io: File.open(Rails.root.join('app', 'assets', 'images', 'mock-1.jpg')), 
+          filename: 'mock-1.jpg', 
+          content_type: 'image/jpeg'
+        ]
+      )
+      
+      render_inline(described_class.new(whiistle: whiistle))
+
+      expect(rendered_content).to match_snapshot('PicturesComponent')
+      expect(rendered_content).to include "modal#open"
+      expect(rendered_content).to include 'data-turbo-frame="modal_body"'
+      expect(rendered_content).to match /img.*src.*jpg/
+    end
+  end
+
 end

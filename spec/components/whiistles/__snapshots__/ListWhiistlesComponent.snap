@@ -1,0 +1,9 @@
+  <div class=" border-b border-solid">
+    Whiistles::WhiistleWithFloodInfoComponent(whiistle: Flood, current_user_presenter: CurrentUserPresenter)
+  </div>
+  <div class=" border-b border-solid">
+    Whiistles::WhiistleWithFloodInfoComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)
+  </div>
+  <div class=" border-b border-solid">
+    Whiistles::WhiistleWithFloodInfoComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+  </div>

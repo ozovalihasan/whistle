@@ -1,0 +1,26 @@
+<div class='bg-fourth flex grow'>
+  <div class="w-2/3">
+    <div style="background-image: url('');", class="h-60 bg-cover bg-center w-full bg-third">
+    </div>
+    <turbo-frame data-turbo-action="advance" id="user_tabs">
+
+      <div class="p-4">
+        <ul class="flex">
+          Users::TabsButtonComponent(url: String, text: String, active_tab: FalseClass)
+          Users::TabsButtonComponent(url: String, text: String, active_tab: FalseClass)
+          Users::TabsButtonComponent(url: String, text: String, active_tab: FalseClass)
+          Users::TabsButtonComponent(url: String, text: String, active_tab: FalseClass)
+          Users::TabsButtonComponent(url: String, text: String, active_tab: FalseClass)
+          Users::TabsButtonComponent(url: String, text: String, active_tab: TrueClass)
+        </ul>
+
+        Users::UsersHavingRelationsComponent(tab_presenter: UsersTabPresenter)
+      </div>
+      
+</turbo-frame>
+  </div>
+  
+  <div class="w-1/3">
+    Users::SidebarRightComponent(sidebar_right_presenter: SidebarRightPresenter)
+  </div>
+</div>

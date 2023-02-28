@@ -3,13 +3,129 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistlesComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    FactoryBot.reload
+    
+    mock_components([
+      Whiistles::MinifiedFloodsComponent,
+      Whiistles::WhiistleComponent
+    ])
+  end
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  let(:user) do
+    FactoryBot.create(:mock_user)
+  end
+
+  let(:create_whiistle) do
+    FactoryBot.create(:mock_whiistle, user: user)
+  end
+
+  let(:current_user_presenter) do
+    cur_user = FactoryBot.create(:mock_user)
+    CurrentUserPresenter.new(user)
+  end
+  
+  context "if the whiistle has a label 'shared_whiistle' " do 
+    it "renders correctly" do
+      
+      create_whiistle
+
+      all_whiistles = BaseWhiistle.select(" *, 'shared_whiistle' AS label ")
+      
+      render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('ListWhiistlesWithRelatedWhiistlesComponent_with_shared_whiistle')
+      expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter, show_flood_info: TrueClass)"
+      
+    end
+  end
+  
+  context "if the whiistle is a Whiistle and has a label 'primary_whiistle' " do 
+    it "renders correctly" do
+      
+      create_whiistle
+
+      all_whiistles = Whiistle.select(" *, 'primary_whiistle' AS label ")
+      
+      render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('ListWhiistlesWithRelatedWhiistlesComponent_with_primary_whiistle_and_is_a_whiistle')
+      expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+      
+    end
+  end
+
+  context "if the whiistle is a Whiistle and has a label 'primary_whiistle' and a flood" do 
+    it "renders correctly" do
+      
+      create_whiistle
+      FactoryBot.create(:mock_flood, user: user)
+
+      all_whiistles = Whiistle.select(" *, 'primary_whiistle' AS label ")
+      
+      render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('ListWhiistlesWithRelatedWhiistlesComponent_with_primary_whiistle_and_flood_and_is_a_whiistle')
+      expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+      expect(rendered_content).to include "Whiistles::MinifiedFloodsComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+      
+    end
+  end
+
+  context "if the whiistle is a Reply and has a label 'primary_whiistle' and its path is 2 or more" do 
+    it "renders correctly" do
+      
+      create_whiistle
+      reply = FactoryBot.create(:mock_reply, user: user)
+
+      all_whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
+      
+      render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('ListWhiistlesWithRelatedWhiistlesComponent_with_primary_whiistle_and_2_or_more_and_is_a_reply')
+      expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+      expect(rendered_content).to include("Whiistles::WhiistleComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)").exactly(1).times
+      
+    end
+  end
+  
+  context "if the whiistle is a Reply and has a label 'primary_whiistle' and its path is 3 or more" do 
+    it "renders correctly" do
+      
+      create_whiistle
+      FactoryBot.create(:mock_reply, user: user)
+      reply = FactoryBot.create(:mock_reply, user: user)
+
+      all_whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
+      
+      render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('ListWhiistlesWithRelatedWhiistlesComponent_with_primary_whiistle_and_3_or_more_and_is_a_reply')
+      expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+      expect(rendered_content).to include("Whiistles::WhiistleComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)").exactly(2).times
+      
+    end
+  end
+  
+  context "if the whiistle is a Reply and has a label 'primary_whiistle' and its path is 4 or more" do 
+    it "renders correctly" do
+      
+      create_whiistle
+      FactoryBot.create(:mock_reply, user: user)
+      FactoryBot.create(:mock_reply, user: user)
+      reply = FactoryBot.create(:mock_reply, user: user)
+
+      all_whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
+      
+      render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
+
+      expect(rendered_content).to match_snapshot('ListWhiistlesWithRelatedWhiistlesComponent_with_primary_whiistle_and_4_or_more_and_is_a_reply')
+      expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+      expect(rendered_content).to include("Whiistles::WhiistleComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)").exactly(2).times
+      expect(rendered_content).to include("Show more replies")
+      expect(rendered_content).to match(/\/whiistles\/#{Whiistle.first.id}/)
+      
+    end
+  end
+  
 end

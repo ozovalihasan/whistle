@@ -3,13 +3,34 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::ListWhiistlesComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    FactoryBot.reload
+    
+    mock_components([
+      Whiistles::WhiistleWithFloodInfoComponent
+    ])
+  end
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  let(:user) do
+    FactoryBot.create(:mock_user)
+  end
+
+  let(:current_user_presenter) do
+    cur_user = FactoryBot.create(:mock_user)
+    CurrentUserPresenter.new(user)
+  end
+  
+  it "renders correctly" do
+    
+    FactoryBot.create(:mock_whiistle, user: user)
+    FactoryBot.create(:mock_flood, user: user)
+    FactoryBot.create(:mock_reply, user: user)
+    
+    render_inline(described_class.new(whiistles: BaseWhiistle.all, current_user_presenter: current_user_presenter))
+
+    expect(rendered_content).to match_snapshot('ListWhiistlesComponent')
+    expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfoComponent(whiistle: Flood, current_user_presenter: CurrentUserPresenter)"
+    expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfoComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)"
+    expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfoComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+  end
 end
