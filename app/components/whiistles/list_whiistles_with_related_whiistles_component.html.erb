@@ -9,7 +9,7 @@
         <% if whiistle.path.count >= 3 %>
           <%= render Whiistles::WhiistleComponent.new(whiistle: whiistle.root, current_user_presenter: @current_user_presenter) %>
           <% if whiistle.path.count >= 4 %>
-            <%= link_to "Show more replies", whiistle_path(whiistle) %>
+            <%= link_to "Show more replies", whiistle_path(whiistle.root) %>
           <% end %>
         <% end %>
         
