@@ -8,7 +8,7 @@ RSpec.describe Whiistles::WhiistlesCounterComponent, type: :component do
     it "renders correctly" do
       render_inline(described_class.new(whiistles_count: 1))
 
-      expect(rendered_content).to match_snapshot('WhiistlesCounterComponent_count_greater_than_one')  
+      expect(rendered_content).to match_custom_snapshot('count_equal_one')  
       expect(rendered_content).to match "1 Whiistle"
     end
     
@@ -19,7 +19,7 @@ RSpec.describe Whiistles::WhiistlesCounterComponent, type: :component do
     it "renders correctly" do
       render_inline(described_class.new(whiistles_count: 111))
 
-      expect(rendered_content).to match_snapshot('WhiistlesCounterComponent_count_greater_than_one')  
+      expect(rendered_content).to match_custom_snapshot('count_greater_than_one')  
       expect(rendered_content).to match "111 Whiistles"
     end
     
