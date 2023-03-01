@@ -1,7 +1,7 @@
 require "rspec/mocks/standalone"
 
 module Helpers
-  module ComponentsTest
+  module Components
     def mock_components(components)
       components.each do |mocked_class|
         allow(mocked_class).to receive(:new) {|params| MockComponents::BaseComponent.new( mocked_class, params ) }
@@ -10,4 +10,5 @@ module Helpers
     end
   end
 end
+
 
