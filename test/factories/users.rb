@@ -11,6 +11,7 @@ end
 
 FactoryBot.define do
   factory :mock_user, class: "User" do
+    sequence(:id) { |n| n }
     sequence(:username) { |n| "mock_username_#{n}" }
     sequence(:fullname) { |n| "mock_fullname_#{n}" }
     sequence(:email) { |n| "mock_user_#{n}@email.com" }
