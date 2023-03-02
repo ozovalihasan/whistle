@@ -9,7 +9,7 @@ RSpec.describe Users::FollowButtonComponent, type: :component do
     
     render_inline(described_class.new(user: user))
 
-    expect(rendered_content).to match_snapshot('FollowButtonComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to match(/form(.|\n)*Follow(.|\n)*form/)
 
   end

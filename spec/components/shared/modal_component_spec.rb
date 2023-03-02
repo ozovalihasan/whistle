@@ -7,7 +7,7 @@ RSpec.describe Shared::ModalComponent, type: :component do
 
     render_inline(described_class.new) { "mock_content" }
 
-    expect(rendered_content).to match_snapshot('ModalComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to include "mock_content"
     expect(rendered_content).to include 'data-controller="modal"'
     expect(rendered_content).to include '<turbo-frame id=modal_body >'

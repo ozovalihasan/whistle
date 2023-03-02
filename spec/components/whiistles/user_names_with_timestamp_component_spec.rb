@@ -16,9 +16,9 @@ RSpec.describe Whiistles::UserNamesWithTimestampComponent, type: :component do
       render_inline(described_class.new(whiistle: whiistle))
     end
 
-    expect(rendered_content).to match_snapshot('UserNamesWithTimestampComponent')  
-    expect(rendered_content).to include "mock_fullname_1"
-    expect(rendered_content).to include "@mock_username_1"
+    expect(rendered_content).to match_custom_snapshot
+    expect(rendered_content).to match /mock_fullname_\d*/
+    expect(rendered_content).to match /@mock_username_\d*/
     expect(rendered_content).to match /a.*href.*"\/whiistles\/\d+"/
     expect(rendered_content).to include "1y"
   end

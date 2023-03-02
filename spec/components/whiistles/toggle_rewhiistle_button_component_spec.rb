@@ -22,7 +22,7 @@ RSpec.describe Whiistles::ToggleRewhiistleButtonComponent, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_snapshot('ToggleRewhiistleButtonComponent_rewhiistled')  
+      expect(rendered_content).to match_custom_snapshot('rewhiistled')  
       expect(rendered_content).to match "Whiistles::DestroyRewhiistleButtonComponent"
     end
   end
@@ -41,7 +41,7 @@ RSpec.describe Whiistles::ToggleRewhiistleButtonComponent, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_snapshot('ToggleRewhiistleButtonComponent_not_rewhiistled')  
+      expect(rendered_content).to match_custom_snapshot('not_rewhiistled')  
       expect(rendered_content).to match "Whiistles::CreateRewhiistleButtonComponent"
     end
   end

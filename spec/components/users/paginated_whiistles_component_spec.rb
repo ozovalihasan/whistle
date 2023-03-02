@@ -22,7 +22,7 @@ RSpec.describe Users::PaginatedWhiistlesComponent, type: :component do
     
     render_inline(described_class.new(paginated_whiistles: paginated_whiistles, current_user_presenter: current_user_presenter))
 
-    expect(rendered_content).to match_snapshot('PaginatedWhiistlesComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to include "Shared::InfiniteScrollComponent(paginated_records: PaginateWhiistles)"
     expect(rendered_content).to include "Whiistles::WhiistlesCounterComponent(whiistles_count: Integer)"
     expect(rendered_content).to include "Whiistles::ListWhiistlesComponent(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)"

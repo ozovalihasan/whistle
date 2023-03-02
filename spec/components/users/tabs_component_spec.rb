@@ -45,7 +45,7 @@ RSpec.describe Users::TabsComponent, type: :component do
         sidebar_right_presenter: sidebar_right_presenter
       ))
 
-      expect(rendered_content).to match_snapshot('TabsComponent_with_whiistles')
+      expect(rendered_content).to match_custom_snapshot("with_whiistles")
       expect_mandatory_elements
       expect(rendered_content).to include("Users::WhiistlesTabComponent(tab_presenter: WhiistlesTabPresenter)")
     end
@@ -66,7 +66,7 @@ RSpec.describe Users::TabsComponent, type: :component do
         sidebar_right_presenter: sidebar_right_presenter
       ))
 
-      expect(rendered_content).to match_snapshot('TabsComponent_with_users')
+      expect(rendered_content).to match_custom_snapshot("with_users")
       expect_mandatory_elements
       expect(rendered_content).to include("Users::UsersHavingRelationsComponent(tab_presenter: UsersTabPresenter)")
     end

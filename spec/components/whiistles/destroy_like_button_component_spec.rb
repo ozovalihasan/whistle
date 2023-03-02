@@ -16,7 +16,7 @@ RSpec.describe Whiistles::DestroyLikeButtonComponent, type: :component do
     
     render_inline(described_class.new(like: Like.first))
 
-    expect(rendered_content).to match_snapshot('DestroyLikeButtonComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to include "Streams::EnterLeaveAnimationComponent"
     expect(rendered_content).to match /action="\/whiistles\/\d+\/likes\/\d+"/
     expect(rendered_content).to include 'value="delete"'

@@ -28,7 +28,7 @@ RSpec.describe Whiistles::ButtonsComponent, type: :component do
     
     render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-    expect(rendered_content).to match_snapshot('ButtonsComponent')
+    expect(rendered_content).to match_custom_snapshot
     expect(rendered_content).to include "Whiistles::ReplyButtonComponent"
     expect(rendered_content).to include "Whiistles::ToggleRewhiistleOrQuoteButtonComponent"
     expect(rendered_content).to include "Whiistles::LikeButtonComponent"

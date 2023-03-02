@@ -32,7 +32,7 @@ RSpec.describe Whiistles::FormComponent, type: :component do
           label: "mock_label"
         ))
 
-      expect(rendered_content).to match_snapshot('FormComponent_default_arguments')
+      expect(rendered_content).to match_custom_snapshot("default_arguments")
       expect(rendered_content).to include 'for="whiistle_body"'
       expect(rendered_content).to include "mock_label"
       expect(rendered_content).to include "Whiistles::FormPicturesButtonComponent(form: SimpleForm::FormBuilder)"
@@ -53,7 +53,7 @@ RSpec.describe Whiistles::FormComponent, type: :component do
           value: "mock_value"
         ))
 
-      expect(rendered_content).to match_snapshot('FormComponent_with_value')
+      expect(rendered_content).to match_custom_snapshot("with_value")
       expect(rendered_content).to match /textarea(.|\n)*mock_value(.|\n)*textarea/
 
     end
@@ -72,7 +72,7 @@ RSpec.describe Whiistles::FormComponent, type: :component do
           quoted_whiistle: quoted_whiistle
         ))
 
-      expect(rendered_content).to match_snapshot('FormComponent_with_quoted_whiistle')
+      expect(rendered_content).to match_custom_snapshot("with_quoted_whiistle")
       expect(rendered_content).to match /input class=".*hidden" value="http:\/\/test.host\/whiistles\/\d+"/
     end
   end
@@ -90,7 +90,7 @@ RSpec.describe Whiistles::FormComponent, type: :component do
           enable_quoting_whiistle: true
         ))
 
-      expect(rendered_content).to match_snapshot('FormComponent_with_enable_quoting_whiistle-true')
+      expect(rendered_content).to match_custom_snapshot("with_enable_quoting_whiistle-true")
       expect(rendered_content).to match /input.*id="whiistle_quoted_whiistle_url"/
     end
   end
@@ -108,7 +108,7 @@ RSpec.describe Whiistles::FormComponent, type: :component do
           open_modal: true
         ))
 
-      expect(rendered_content).to match_snapshot('FormComponent_with_open_modal-true')
+      expect(rendered_content).to match_custom_snapshot("with_open_modal-true")
       expect(rendered_content).not_to include "Whiistles::FormPicturesButtonComponent(form: SimpleForm::FormBuilder)"
     end
   end
@@ -126,7 +126,7 @@ RSpec.describe Whiistles::FormComponent, type: :component do
           enable_adding_floods: true
         ))
 
-      expect(rendered_content).to match_snapshot('FormComponent_with_enable_adding_floods-true')
+      expect(rendered_content).to match_custom_snapshot("with_enable_adding_floods-true")
       expect(rendered_content).to include "Whiistles::FloodWhiistleFormComponent(main_form: SimpleForm::FormBuilder)"
       expect(rendered_content).to include "Add Flood"
     end

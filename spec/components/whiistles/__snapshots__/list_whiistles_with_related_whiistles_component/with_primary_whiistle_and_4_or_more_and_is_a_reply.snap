@@ -1,0 +1,17 @@
+
+  
+    <div class=" border p-2 border-solid">
+
+      
+          Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+            <a href="/whiistles/1">Show more replies</a>
+        
+        Whiistles::WhiistleComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)
+
+      
+      Whiistles::WhiistleComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)
+
+
+    </div>
+  
+  

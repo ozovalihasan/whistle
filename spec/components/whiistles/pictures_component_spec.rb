@@ -42,7 +42,7 @@ RSpec.describe Whiistles::PicturesComponent, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle))
 
-      expect(rendered_content).to match_snapshot('PicturesComponent')
+      expect(rendered_content).to match_custom_snapshot
       expect(rendered_content).to include "modal#open"
       expect(rendered_content).to include 'data-turbo-frame="modal_body"'
       expect(rendered_content).to match /img.*src.*jpg/

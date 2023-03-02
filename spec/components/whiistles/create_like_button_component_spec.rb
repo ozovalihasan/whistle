@@ -15,7 +15,7 @@ RSpec.describe Whiistles::CreateLikeButtonComponent, type: :component do
     
     render_inline(described_class.new(whiistle: whiistle))
 
-    expect(rendered_content).to match_snapshot('CreateLikeButtonComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to include "Streams::EnterLeaveAnimationComponent"
     expect(rendered_content).to match /form.*method="post".*action="\/whiistles\/\d+\/likes"/
     expect(rendered_content).to include "bi-heart"

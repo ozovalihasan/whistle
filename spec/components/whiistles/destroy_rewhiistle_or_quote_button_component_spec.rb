@@ -11,7 +11,7 @@ RSpec.describe Whiistles::DestroyRewhiistleOrQuoteButtonComponent, type: :compon
     
     render_inline(described_class.new(whiistle: whiistle).with_variant(:phone))
 
-    expect(rendered_content).to match_snapshot('DestroyRewhiistleOrQuoteButtonComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to match "333"
   end
 end

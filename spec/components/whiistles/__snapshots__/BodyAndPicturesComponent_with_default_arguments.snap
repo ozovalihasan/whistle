@@ -1,8 +1,0 @@
-<div>
-  <a href="/whiistles/15">
-    mock_body_whiistle_2
-</a>  
-    Whiistles::PicturesComponent(whiistle: Whiistle)
-  
-    Whiistles::QuotedWhiistleComponent(whiistle: Whiistle)
-</div>

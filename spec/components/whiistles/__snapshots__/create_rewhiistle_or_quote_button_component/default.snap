@@ -1,0 +1,9 @@
+<div data-stream-enter-class="animate-cart-in" data-stream-exit-class="animate-cart-out">
+  
+  <i class="bi bi-repeat">
+    <span class="px-2">
+      333  
+    </span>
+  </i>
+
+</div>

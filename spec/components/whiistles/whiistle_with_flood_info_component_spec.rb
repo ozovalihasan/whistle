@@ -3,6 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::WhiistleWithFloodInfoComponent, type: :component do
+  
   it "renders correctly" do
 
     mock_components([
@@ -16,7 +17,7 @@ RSpec.describe Whiistles::WhiistleWithFloodInfoComponent, type: :component do
 
     render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-    expect(rendered_content).to match_snapshot('WhiistleWithFloodInfoComponent')  
+    expect(rendered_content).to match_custom_snapshot
     expect(rendered_content).to include "Whiistles::WhiistleComponent"
   end
 end

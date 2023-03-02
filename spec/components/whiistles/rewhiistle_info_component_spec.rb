@@ -21,7 +21,7 @@ RSpec.describe Whiistles::RewhiistleInfoComponent, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle))
 
-      expect(rendered_content).to match_snapshot('RewhiistleInfoComponent_with_the_correct_label')  
+      expect(rendered_content).to match_custom_snapshot("with_the_correct_label")  
       expect(rendered_content).to match "mock_fullname_1"
     end
   end
@@ -40,7 +40,7 @@ RSpec.describe Whiistles::RewhiistleInfoComponent, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle))
 
-      expect(rendered_content).to match_snapshot('RewhiistleInfoComponent_without_the_correct_label')  
+      expect(rendered_content).to match_custom_snapshot("without_the_correct_label")  
       expect(rendered_content).not_to match "mock_fullname_1"
     end
   end

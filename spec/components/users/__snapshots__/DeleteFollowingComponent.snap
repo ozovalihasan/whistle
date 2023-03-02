@@ -1,3 +1,0 @@
-<form class="button_to" method="post" action="/relations/2"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button type="submit">
-    <i class="bi bi-x"></i>
-</button></form>

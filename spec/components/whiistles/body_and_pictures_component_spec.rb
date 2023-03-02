@@ -20,7 +20,7 @@ RSpec.describe Whiistles::BodyAndPicturesComponent, type: :component do
 
       render_inline(described_class.new(whiistle: quoting_whiistle))
 
-      expect(rendered_content).to match_snapshot('BodyAndPicturesComponent_with_default_arguments')  
+      expect(rendered_content).to match_custom_snapshot('with_default_arguments')  
       expect(rendered_content).to include "mock_body_whiistle"
       expect(rendered_content).to include "Whiistles::PicturesComponent"
       expect(rendered_content).to include "Whiistles::QuotedWhiistleComponent"
@@ -41,7 +41,7 @@ RSpec.describe Whiistles::BodyAndPicturesComponent, type: :component do
 
       render_inline(described_class.new(whiistle: quoting_whiistle, show_quoted_whiistle: false))
 
-      expect(rendered_content).to match_snapshot('BodyAndPicturesComponent_with_show_quoted_whiistle-false')  
+      expect(rendered_content).to match_custom_snapshot('with_show_quoted_whiistle-false')  
       expect(rendered_content).not_to include "Whiistles::QuotedWhiistleComponent"
     end
     
@@ -56,7 +56,7 @@ RSpec.describe Whiistles::BodyAndPicturesComponent, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle))
 
-      expect(rendered_content).to match_snapshot('BodyAndPicturesComponent_without_quoting_any_whiistle')  
+      expect(rendered_content).to match_custom_snapshot('without_quoting_any_whiistle')  
       expect(rendered_content).not_to include "Whiistles::QuotedWhiistleComponent"
     end
   end
@@ -70,7 +70,7 @@ RSpec.describe Whiistles::BodyAndPicturesComponent, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle, show_pictures: false))
 
-      expect(rendered_content).to match_snapshot('BodyAndPicturesComponent_show_pictures-false')  
+      expect(rendered_content).to match_custom_snapshot('show_pictures-false')  
       expect(rendered_content).not_to include "Whiistles::PicturesComponent"
     end
   end

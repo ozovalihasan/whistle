@@ -7,9 +7,9 @@ RSpec.describe Users::AddFollowingComponent, type: :component do
 
     user = FactoryBot.create(:mock_user)
     
-    render_inline(described_class.new(user: user))
+    render_inline(described_class.new(user_id: user.id))
 
-    expect(rendered_content).to match_snapshot('AddFollowingComponent')  
+    expect(rendered_content).to match_custom_snapshot
     expect(rendered_content).to match(/button(.|\n)*bi-plus(.|\n)*button/)
   end
 end

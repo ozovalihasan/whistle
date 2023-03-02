@@ -11,7 +11,7 @@ RSpec.describe Streams::UpdateFlashesComponent, type: :component do
 
     render_inline( described_class.new(alert: "mock_alert", notice: "mock_notice") )
 
-    expect(rendered_content).to match_snapshot('UpdateFlashesComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to match(/Layout::NoticeComponent/)
     expect(rendered_content).to match(/Layout::AlertComponent/)
     expect(rendered_content).to match(/turbo-stream/)

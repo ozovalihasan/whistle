@@ -12,7 +12,7 @@ RSpec.describe Whiistles::FormOpeningModalComponent, type: :component do
 
       render_inline(described_class.new(label: "mock_label", whiistle: Whiistle.new, path: "mock_path", value: "mock_value"))
 
-      expect(rendered_content).to match_snapshot('FormOpeningModalComponent_with_value')  
+      expect(rendered_content).to match_custom_snapshot("with_value")  
       expect(rendered_content).to include "Whiistles::FormBodyComponent(form: SimpleForm::FormBuilder, label: String, open_modal: TrueClass, value: String)"
       expect(rendered_content).to include "mock_path"
       expect(rendered_content).to include 'data-modal-target="defaultAnchor"'
@@ -29,7 +29,7 @@ RSpec.describe Whiistles::FormOpeningModalComponent, type: :component do
 
       render_inline(described_class.new(label: "mock_label", whiistle: Whiistle.new, path: "mock_path"))
 
-      expect(rendered_content).to match_snapshot('FormOpeningModalComponent_without_value')  
+      expect(rendered_content).to match_custom_snapshot("without_value")  
       expect(rendered_content).to include "Whiistles::FormBodyComponent(form: SimpleForm::FormBuilder, label: String, open_modal: TrueClass, value: NilClass)"
     end
   end

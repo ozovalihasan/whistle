@@ -18,7 +18,7 @@ RSpec.describe Whiistles::AllChildrenFloodsComponent, type: :component do
       
       render_inline(described_class.new(flood: flood, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_snapshot('AllChildrenFloodsComponent_without_children_floods')  
+      expect(rendered_content).to match_custom_snapshot("without_children_floods")  
       expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Flood, current_user_presenter: CurrentUserPresenter)"
     end
   end
@@ -40,7 +40,7 @@ RSpec.describe Whiistles::AllChildrenFloodsComponent, type: :component do
       
       render_inline(described_class.new(flood: flood, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_snapshot('AllChildrenFloodsComponent_with_children_floods')  
+      expect(rendered_content).to match_custom_snapshot("with_children_floods")  
       expect(rendered_content).to include("Whiistles::WhiistleComponent(whiistle: Flood, current_user_presenter: CurrentUserPresenter)").exactly(2).times
     end
   end

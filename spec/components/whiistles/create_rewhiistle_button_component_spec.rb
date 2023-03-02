@@ -10,7 +10,7 @@ RSpec.describe Whiistles::CreateRewhiistleButtonComponent, type: :component do
     
     render_inline(described_class.new(whiistle: whiistle))
 
-    expect(rendered_content).to match_snapshot('CreateRewhiistleButtonComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to include "button"
     expect(rendered_content).to include "bi-repeat"
     expect(rendered_content).to include "Rewhiistle"

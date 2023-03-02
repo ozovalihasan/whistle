@@ -11,7 +11,7 @@ RSpec.describe Whiistles::DestroyRewhiistleButtonComponent, type: :component do
     
     render_inline(described_class.new(rewhiistle: rewhiistle))
 
-    expect(rendered_content).to match_snapshot('DestroyRewhiistleButtonComponent')
+    expect(rendered_content).to match_custom_snapshot
     expect(rendered_content).to include 'method="post"'
     expect(rendered_content).to match /action="\/whiistles\/\d+\/rewhiistle\/\d+"/
     expect(rendered_content).to include 'value="delete"'

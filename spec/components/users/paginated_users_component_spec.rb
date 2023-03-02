@@ -20,7 +20,7 @@ RSpec.describe Users::PaginatedUsersComponent, type: :component do
       
     render_inline(described_class.new(paginated_users: User.all.limit(1)))
 
-    expect(rendered_content).to match_snapshot('PaginatedUsersComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to match "Shared::InfiniteScrollComponent"
     expect(rendered_content).to match "Shared::InfiniteScrollUsersComponent"
   end

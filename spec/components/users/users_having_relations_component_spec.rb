@@ -3,6 +3,10 @@
 require "rails_helper"
 
 RSpec.describe Users::UsersHavingRelationsComponent, type: :component do
+  let(:user) do
+    FactoryBot.create(:mock_user)
+  end
+
   context "the paginated users is not empty" do
     it "renders correctly" do
 
@@ -18,11 +22,12 @@ RSpec.describe Users::UsersHavingRelationsComponent, type: :component do
       original_records = User.all.limit(2)
       paginated_users = PaginateUsers.new(original_records, page, url, cur_user)
         
-      tab_presenter = double("tab_presenter")
-      
-      render_inline(described_class.new(paginated_users: paginated_users, tab_presenter: tab_presenter))
+      tab_presenter = UsersTabPresenter.new(user, :followers, paginated_users)
 
-      expect(rendered_content).to match_snapshot('UsersHavingRelationsComponent_not_empty_users')  
+      
+      render_inline(described_class.new(tab_presenter: tab_presenter))
+
+      expect(rendered_content).to match_custom_snapshot('not_empty_users')  
       expect(rendered_content).to include "Users::PaginatedUsersComponent(paginated_users: PaginateUsers)"
     end
   end
@@ -36,13 +41,17 @@ RSpec.describe Users::UsersHavingRelationsComponent, type: :component do
 
       FactoryBot.create(:mock_user)
       
-      paginated_users = double("paginated_users", record_exist?: false)
-      tab_presenter = double("tab_presenter", no_user_info: "mock_no_user_info")
-      
-      render_inline(described_class.new(paginated_users: paginated_users, tab_presenter: tab_presenter))
+      cur_user = User.last
+      page = 1
+      url = "mock_url"
+      original_empty_records = User.where(id: -1)
+      paginated_users = PaginateUsers.new(original_empty_records, page, url, cur_user)
+      tab_presenter = UsersTabPresenter.new(user, :followers, paginated_users)
 
-      expect(rendered_content).to match_snapshot('UsersHavingRelationsComponent_empty_users')  
-      expect(rendered_content).to match "mock_no_user_info"
+      render_inline(described_class.new(tab_presenter: tab_presenter))
+
+      expect(rendered_content).to match_custom_snapshot('empty_users')  
+      expect(CGI::unescapeHTML rendered_content).to match "mock_fullname_2 doesn't have any follower."
     end
   end
 end

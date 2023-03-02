@@ -13,9 +13,9 @@ RSpec.describe Users::SidebarRightComponent, type: :component do
     
     sidebar_right_presenter = SidebarRightPresenter.new(user4, user)
     
-    render_inline(described_class.new(presenter: sidebar_right_presenter))
+    render_inline(described_class.new(sidebar_right_presenter: sidebar_right_presenter))
 
-    expect(rendered_content).to match_snapshot('SidebarRightComponent')  
+    expect(rendered_content).to match_custom_snapshot
     expect(rendered_content).to match(/button.*Follow.*button/)
     expect(rendered_content).to match("mock_fullname_2")
     expect(rendered_content).to match("mock_fullname_3")

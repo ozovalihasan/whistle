@@ -11,7 +11,7 @@ RSpec.describe Shared::InfiniteScrollUsersComponent, type: :component do
     
     render_inline( described_class.new(paginated_users: paginated_users) )
 
-    expect(rendered_content).to match_snapshot('InfiniteScrollUsersComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to match(/mock_fullname_1/)
     expect(rendered_content).to match(/mock_fullname_2/)
   end

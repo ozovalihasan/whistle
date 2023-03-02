@@ -1,0 +1,8 @@
+<div class="flex items-center">
+    
+    <div class="like_button_whiistle_1">
+            Whiistles::CreateLikeButtonComponent(whiistle: Whiistle)
+    </div>
+
+    
+</div>

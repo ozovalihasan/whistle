@@ -11,7 +11,7 @@ RSpec.describe Users::ProfileImageComponent, type: :component do
       
       render_inline(described_class.new(user: user))
 
-      expect(rendered_content).to match_snapshot('ProfileImageComponent_without_shape')  
+      expect(rendered_content).to match_custom_snapshot('without_shape')  
       expect(rendered_content).to match(/class=""/)
 
     end
@@ -22,7 +22,7 @@ RSpec.describe Users::ProfileImageComponent, type: :component do
       
       render_inline(described_class.new(user: user, shape: :default))
 
-      expect(rendered_content).to match_snapshot('ProfileImageComponent_default_shape')  
+      expect(rendered_content).to match_custom_snapshot('default_shape')  
       expect(rendered_content).to match(/class=""/)
 
     end
@@ -33,7 +33,7 @@ RSpec.describe Users::ProfileImageComponent, type: :component do
       
       render_inline(described_class.new(user: user, shape: :rounded))
 
-      expect(rendered_content).to match_snapshot('ProfileImageComponent_rounded_shape')  
+      expect(rendered_content).to match_custom_snapshot('rounded_shape')  
       expect(rendered_content).to match(/rounded-full/)
 
     end
@@ -47,7 +47,7 @@ RSpec.describe Users::ProfileImageComponent, type: :component do
       
       render_inline(described_class.new(user: user))
 
-      expect(rendered_content).to match_snapshot('ProfileImageComponent_without_size')  
+      expect(rendered_content).to match_custom_snapshot('without_size')  
       expect(rendered_content).to match(/width="50" height="50"/)
 
     end
@@ -58,7 +58,7 @@ RSpec.describe Users::ProfileImageComponent, type: :component do
       
       render_inline(described_class.new(user: user, size: :default))
 
-      expect(rendered_content).to match_snapshot('ProfileImageComponent_default_size')  
+      expect(rendered_content).to match_custom_snapshot('default_size')  
       expect(rendered_content).to match(/width="50" height="50"/)
 
     end
@@ -69,7 +69,7 @@ RSpec.describe Users::ProfileImageComponent, type: :component do
       
       render_inline(described_class.new(user: user, size: :small))
 
-      expect(rendered_content).to match_snapshot('ProfileImageComponent_small_size')  
+      expect(rendered_content).to match_custom_snapshot('small_size')  
       expect(rendered_content).to match(/width="25" height="25"/)
 
     end

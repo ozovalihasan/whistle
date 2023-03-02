@@ -35,7 +35,7 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPageComponent, type: :co
       
       render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_snapshot('ListWhiistlesForWhiistlesIndexPageComponent_with_reply')
+      expect(rendered_content).to match_custom_snapshot("with_reply")
       expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::WhiistleComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to match /mock_fullname_\d+ replied/
@@ -50,7 +50,7 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPageComponent, type: :co
       
       render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_snapshot('ListWhiistlesForWhiistlesIndexPageComponent_without_reply')
+      expect(rendered_content).to match_custom_snapshot("without_reply")
       expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfoComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
     end
   end

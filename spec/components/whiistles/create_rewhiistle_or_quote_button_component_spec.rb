@@ -11,7 +11,7 @@ RSpec.describe Whiistles::CreateRewhiistleOrQuoteButtonComponent, type: :compone
     
     render_inline(described_class.new(whiistle: whiistle).with_variant(:phone))
 
-    expect(rendered_content).to match_snapshot('CreateRewhiistleOrQuoteButtonComponent')  
+    expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to include "333"
   end
 end

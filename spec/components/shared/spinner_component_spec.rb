@@ -6,6 +6,6 @@ RSpec.describe Shared::SpinnerComponent, type: :component do
   it "renders correctly" do
     render_inline(described_class.new())
 
-    expect(rendered_content).to match_snapshot('SpinnerComponent')  
+    expect(rendered_content).to match_custom_snapshot  
   end
 end

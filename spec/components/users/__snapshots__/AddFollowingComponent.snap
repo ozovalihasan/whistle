@@ -1,3 +1,0 @@
-<form class="button_to" method="post" action="/relations"><button type="submit">
-    <i class="bi bi-plus-circle"></i>
-</button><input type="hidden" name="relation[followed_id]" value="6" autocomplete="off" /></form>
