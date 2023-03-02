@@ -26,7 +26,7 @@ end
 
 FactoryBot.define do
   factory :mock_flood, class: "Flood" do
-    id { BaseWhiistle.last&.id || 0  + 1 }
+    id { (BaseWhiistle.last&.id || 0)  + 1 }
     sequence(:body) { |n| "mock_body_flood_#{n}" }
     sequence(:user_id) { |n| User.first.id + n - 1 }
     sequence(:base_whiistle_id) { |n| BaseWhiistle.first.id + n - 1 }
@@ -35,7 +35,7 @@ end
 
 FactoryBot.define do
   factory :mock_flood_of_same_user, class: "Flood" do
-    id { BaseWhiistle.last&.id || 0  + 1 }
+    id { (BaseWhiistle.last&.id || 0)  + 1 }
     sequence(:body) { |n| "mock_body_flood_#{n}" }
     user { User.first }
     sequence(:base_whiistle_id) { |n| BaseWhiistle.first.id + n - 1 }
