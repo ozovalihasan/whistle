@@ -1,4 +1,4 @@
 <div class="my-4 flex flex-wrap">
-    <a class="hover:blur-xs" data-action="click-&gt;modal#open" data-turbo-frame="modal_body" href="/whiistles/1/pictures?index=0">
+    <a class="hover:blur-xs" data-action="modal#openAndVisit" href="/whiistles/1/pictures?index=0">
       <img class="w-32 h-32 rounded-lg mx-2 my-2" src="http://test.host/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fa94bfdd21b23a1db7765dd5a9f017e0599efa5b/mock-1.jpg" />
 </a></div>
