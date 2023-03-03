@@ -2,4 +2,5 @@
 
 class Shared::ModalComponent < ApplicationComponent
   include ApplicationHelper
+  include Turbo::FramesHelper
 end

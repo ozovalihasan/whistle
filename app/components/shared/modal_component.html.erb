@@ -1,4 +1,12 @@
+
 <div data-controller="modal" data-modal-allow-background-close="true" >
+  <template data-modal-target="loading">
+    <div
+      class="w-full h-32 mt-32 flex justify-center"
+    >
+      <%= render Shared::SpinnerComponent.new %>
+    </div>
+  </template>
 
   <%= content %>
 
@@ -11,8 +19,8 @@
           </button>
         </div>
         <div class="p-4">
-          <turbo-frame id=<%= modal_body_target %> >
-          </turbo-frame>
+          <%= turbo_frame_tag modal_body_target, data: { modal_target: "frame"} do %>
+          <% end %>
         </div>
       </div>
     </div>
