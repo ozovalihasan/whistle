@@ -1,4 +1,4 @@
-<a class="p-2" data-turbo-frame="modal_body" data-action="click-&gt;modal#open" href="/whiistles/1/reply/new">
+<a class="p-2" data-action="modal#openAndVisit" href="/whiistles/1/reply/new">
   <i class="bi bi-chat " > 
     <span class="px-1" id="reply_counter_whiistle_1" >
       1 

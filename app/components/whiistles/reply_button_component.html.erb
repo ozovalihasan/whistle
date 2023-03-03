@@ -1,4 +1,4 @@
-<%= link_to new_whiistle_reply_path(@whiistle), class:"p-2", data: {turbo_frame: modal_body_target, action: "click->modal#open"} do %>
+<%= link_to new_whiistle_reply_path(@whiistle), class:"p-2", data: { action: "modal#openAndVisit" } do %>
   <i class="bi bi-chat " > 
     <span class="px-1" id="<%= whiistle_reply_counter_target(@whiistle) %>" >
       <%= @whiistle.replies.size %> 

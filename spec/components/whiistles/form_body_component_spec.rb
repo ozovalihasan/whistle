@@ -43,7 +43,7 @@ RSpec.describe Whiistles::FormBodyComponent, type: :component do
 
       expect(rendered_content).to match_custom_snapshot("with_open_modal-true")
       expect_mandatory_elements
-      expect(rendered_content).to include 'modal#sendRequest'
+      expect(rendered_content).to include 'modal#openAndVisit'
     end
   end
 end

@@ -12,7 +12,8 @@ RSpec.describe Whiistles::ReplyButtonComponent, type: :component do
     render_inline(described_class.new(whiistle: whiistle))
 
     expect(rendered_content).to match_custom_snapshot
+    expect(rendered_content).to include "modal#openAndVisit"
     expect(rendered_content).to match /<a (.|\n)*1(.|\n)*<\/a>/
-    expect(rendered_content).to include 'data-turbo-frame="modal_body"'
+    expect(rendered_content).to match /reply_counter_whiistle_\d+/
   end
 end
