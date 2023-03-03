@@ -1,6 +1,6 @@
 <%= link_to new_whiistle_reply_path(@whiistle), class:"p-2", data: {turbo_frame: modal_body_target, action: "click->modal#open"} do %>
   <i class="bi bi-chat " > 
-    <span class="px-1" id=<%= whiistle_reply_counter_target(@whiistle) %>>
+    <span class="px-1" id="<%= whiistle_reply_counter_target(@whiistle) %>" >
       <%= @whiistle.replies.size %> 
     </span>
   </i>
