@@ -1,5 +1,5 @@
 <% if @like.saved_changes? %>
-  <%= turbo_stream.update_all classes_including whiistle_like_button_target(@like.whiistle) do %>
+  <%= render StreamAnimations::UpdateAllComponent.new( classes_including whiistle_like_button_target(@like.whiistle))  do %>
     <%= render Whiistles::DestroyLikeButtonComponent.new(like: @like) %>
   <% end %>
 <% end %>

@@ -1,48 +1,72 @@
 const addEnterAnimation = (event) => {
-  if (event.target.firstElementChild) {
-    var enterAnimationClass = event.target.templateContent.firstElementChild.dataset.streamEnterClass
-    if (enterAnimationClass) {
-      event.target.templateElement.content.firstElementChild.classList.add(enterAnimationClass)
-    }
+  const enterAnimationClass = event.target.dataset.streamEnterClass
+
+  if (enterAnimationClass) {
+    event.target.templateElement.content.firstElementChild.classList.add(enterAnimationClass)
   }
 }
 
 const addExitAnimation = (event) => {
   event.preventDefault()
-  
-  if (event.target.targets && event.target.action === "update") {
-    var targetsClassName = event.target.targets.replace(/^\./, "")
-  
-    var elementsToUpdate = Object.values(document.getElementsByClassName(targetsClassName))
-    const animationOfElements = elementsToUpdate.map((element) => {
-      let firstChildElement = element.firstElementChild
-      let streamExitClass = firstChildElement.dataset.streamExitClass
-      if (streamExitClass) {
-        return (
-          new Promise((resolve, _) => {
+  let streamExitClass = event.target.dataset.streamExitClass
 
-            firstChildElement.classList.add(streamExitClass)
-            firstChildElement.addEventListener("animationend", () => {
-              resolve()  
-            })
-            
-          })
-        );
-      } else {
-        return
+  if (streamExitClass) {
+    let elementsToAddAnimation = []
+
+    if (event.target.targets) {
+
+      let targets = event.target.targets
+
+      if (["replace", "remove"].includes(event.target.action)) {
+        elementsToAddAnimation = Object.values(document.querySelectorAll(targets))
+      } else if (["update"].includes(event.target.action)) {
+        let elementParents = Object.values(document.querySelectorAll(targets))
+        elementsToAddAnimation = elementParents.map((element) => element.firstElementChild)
       }
-    })
+      
+    } else if (event.target.target) {
+      let targetId = event.target.target
+
+      if (["replace", "remove"].includes(event.target.action)) {
+        elementsToAddAnimation = [ document.getElementById(targetId) ]
+      } else if (["update"].includes(event.target.action)) {
+        elementsToAddAnimation = [ document.getElementById(targetId)?.firstElementChild ]
+      }
+      
+    }
     
-    Promise.all(animationOfElements).then(()=> {
-      event.target.performAction()
-    })
+    addExitAnimationToElements(event, elementsToAddAnimation, streamExitClass)
     
   } else {
     event.target.performAction()
   }
 }
 
+const addExitAnimationToElements = (event, elements, exitClass) => {
+  
+  const animationOfElements = elements.filter(element => element).map((element) => {
+    if (exitClass) {
+      return (
+        new Promise((resolve, _) => {
+
+          element.classList.add(exitClass)
+          element.addEventListener("animationend", () => {
+            resolve()  
+          })
+          
+        })
+      );
+    } else {
+      return
+    }
+  })
+  
+  Promise.all(animationOfElements).then(()=> {
+    event.target.performAction()
+  })
+}
+
 document.addEventListener("turbo:before-stream-render", function(event) {
-  addEnterAnimation(event)
   addExitAnimation(event)
+  addEnterAnimation(event)
 })

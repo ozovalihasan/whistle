@@ -1,0 +1,9 @@
+<turbo-stream 
+  action="mock_action" 
+  data-stream-enter-class="mock_enter_class" 
+  data-stream-exit-class="animate-cart-out" 
+>
+  <template>
+    mock_content
+  </template>
+</turbo-stream>

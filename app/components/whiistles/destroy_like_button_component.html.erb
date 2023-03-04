@@ -1,10 +1,6 @@
-<%= render Streams::EnterLeaveAnimationComponent.new do %>
-
-  <%= button_to whiistle_like_path(@whiistle, @like), method: :delete, class: "p-2" do %>
-    <i class="bi bi-heart-fill text-second ">
-      <span><%= @whiistle.likes.size %></span> 
-    </i>
-  <% end %>
-  
+<%= button_to whiistle_like_path(@whiistle, @like), method: :delete, class: "p-2" do %>
+  <i class="bi bi-heart-fill text-second ">
+    <span><%= @whiistle.likes.size %></span> 
+  </i>
 <% end %>
-  
+

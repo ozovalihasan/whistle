@@ -1,7 +1,5 @@
-Streams::EnterLeaveAnimationComponent
-
-  <form class="button_to" method="post" action="/whiistles/1/likes"><button class="p-2" type="submit">
-    <i class="bi bi-heart text-first ">
-      <span>2</span> 
-    </i>
+<form class="button_to" method="post" action="/whiistles/1/likes"><button class="p-2" type="submit">
+  <i class="bi bi-heart text-first ">
+    <span>2</span> 
+  </i>
 </button></form>

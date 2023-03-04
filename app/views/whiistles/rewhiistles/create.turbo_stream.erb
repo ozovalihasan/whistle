@@ -3,7 +3,7 @@
     <%= render Whiistles::DestroyRewhiistleButtonComponent.new(rewhiistle: @rewhiistle) %>
   <% end %>
 
-  <%= turbo_stream.update_all classes_including whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle) do %>
+  <%= render StreamAnimations::UpdateAllComponent.new(classes_including whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle)) %>
     <%= render Whiistles::DestroyRewhiistleOrQuoteButtonComponent.new(whiistle: @rewhiistle.whiistle) %>
   <% end %>
 <% end %>
