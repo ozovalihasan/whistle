@@ -1,0 +1,25 @@
+<div class="my-4">
+
+  <%= render Whiistles::RewhiistleInfo::Component.new(whiistle: @whiistle) %>
+  <%= render Whiistles::LikeInfo::Component.new(whiistle: @whiistle) %>
+
+  <div class='flex  <%= check_click(@whiistle) %> '>
+    
+    <%= render Users::ProfileImageButton::Component.new(user: @whiistle.user) %>
+    
+    <div class="pl-2">
+      <%= render Whiistles::UserNamesWithTimestamp::Component.new(whiistle: @whiistle) %>
+      <%= render Whiistles::ReplyInfo::Component.new(whiistle: @whiistle) %>
+      <div class="mt-2">
+        <%= render Whiistles::BodyAndPictures::Component.new(whiistle: @whiistle) %>
+      </div>
+
+      <%= render Whiistles::Buttons::Component.new(whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+
+      <% if @show_flood_info %>
+        <%= render Whiistles::FloodInfo::Component.new(whiistle: @whiistle) %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

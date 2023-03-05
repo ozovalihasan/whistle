@@ -1,5 +1,0 @@
-<% if @relation %>
-    <%= render Users::DeleteFollowingComponent.new(relation: @relation) %>
-<% elsif @cur_user.id != @user.id %>
-    <%= render Users::AddFollowingComponent.new(user_id: @user.id) %>   
-<% end %>

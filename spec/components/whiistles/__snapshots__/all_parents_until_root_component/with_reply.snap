@@ -1,2 +1,0 @@
-  Whiistles::WhiistleComponent(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
-  Whiistles::WhiistleComponent(whiistle: Reply, current_user_presenter: CurrentUserPresenter)

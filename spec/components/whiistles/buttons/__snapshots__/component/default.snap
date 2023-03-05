@@ -1,0 +1,8 @@
+<div class="flex"> 
+  Whiistles::ReplyButton::Component(whiistle: Whiistle)
+  Whiistles::ToggleRewhiistleOrQuoteButton::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+  Whiistles::LikeButton::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+</div>
+
+<turbo-frame id="reply_whiistle_1"></turbo-frame>
+<turbo-frame id="quoting_whiistle_whiistle_1"></turbo-frame>

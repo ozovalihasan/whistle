@@ -1,5 +1,5 @@
-<%= render StreamAnimations::UpdateAllComponent.new(classes_including( whiistle_like_button_target(@like.whiistle))) do %>
-  <%= render Whiistles::CreateLikeButtonComponent.new(whiistle: @like.whiistle) %>
+<%= render StreamAnimations::UpdateAll::Component.new(classes_including( whiistle_like_button_target(@like.whiistle))) do %>
+  <%= render Whiistles::CreateLikeButton::Component.new(whiistle: @like.whiistle) %>
 <% end %>
 
-<%= render Streams::UpdateFlashesComponent.new(notice: notice, alert: alert) %>
+<%= render Streams::UpdateFlashes::Component.new(notice: notice, alert: alert) %>

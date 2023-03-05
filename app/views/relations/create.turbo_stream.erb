@@ -6,7 +6,7 @@
 
 
     <%= turbo_stream.update user_create_delete_relation_target(@relation.followed) do %>
-        <%= render Users::DeleteFollowingComponent.new(relation: @relation) %>
+        <%= render Users::DeleteFollowing::Component.new(relation: @relation) %>
     <% end %>
 
     <%= turbo_stream.update user_left_side_followings_count_target(@relation.following) do %>
@@ -18,4 +18,4 @@
     <% end %>
 <% end %>
 
-<%= render Streams::UpdateFlashesComponent.new(notice: notice, alert: alert) %>
+<%= render Streams::UpdateFlashes::Component.new(notice: notice, alert: alert) %>

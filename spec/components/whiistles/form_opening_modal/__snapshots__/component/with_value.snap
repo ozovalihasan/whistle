@@ -1,0 +1,4 @@
+  <a data-turbo-frame="modal_body" data-modal-target="defaultAnchor" href="mock_path">
+    <form class="simple_form w-full" id="new_whiistle" action="" accept-charset="UTF-8" method="post">
+      Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: String, open_modal: TrueClass, path: String)
+</form>  </a>

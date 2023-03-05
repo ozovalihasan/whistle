@@ -1,5 +1,0 @@
-  <%= link_to @path, data: {turbo_frame: modal_body_target, modal_target: "defaultAnchor"}  do %>
-    <%= simple_form_for @whiistle, url: "", html: { class: "w-full" } do |f| %>
-      <%= render Whiistles::FormBodyComponent.new(form: f, label: @label, value: @value, open_modal: true, path: @path) %>
-    <% end %>    
-  <% end %>

@@ -1,3 +1,3 @@
 <%= turbo_stream.append "pagination-body" do %>
-  <%= render Shared::InfiniteScrollUsersComponent.new(paginated_users: @paginated_users) %>
+  <%= render Shared::InfiniteScrollUsers::Component.new(paginated_users: @paginated_users) %>
 <% end %>

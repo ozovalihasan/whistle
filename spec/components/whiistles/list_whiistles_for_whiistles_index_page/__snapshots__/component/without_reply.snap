@@ -1,0 +1,6 @@
+
+  <div class=" border p-2 border-solid">
+
+      Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+  </div>
+  

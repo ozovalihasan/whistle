@@ -1,0 +1,4 @@
+<turbo-stream action="update" target="flashes"><template>
+    Layout::Notice::Component(notice: String)
+    Layout::Alert::Component(alert: String)
+</template></turbo-stream>

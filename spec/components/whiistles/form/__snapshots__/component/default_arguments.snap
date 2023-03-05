@@ -1,0 +1,26 @@
+<form class="simple_form self-center my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 w-96 new_whiistle" id="new_whiistle" data-controller="flood" action="mock_url" accept-charset="UTF-8" method="post">
+  <div data-controller="tabs" data-tabs-active-tab="-mb-px border-l border-t border-r rounded-t">
+    <ul class="list-reset border-b" data-flood-target="add_item">
+      <li class="-mb-px mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+        Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: NilClass)
+      </li>
+      <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
+        
+
+
+          <div class="w-full flex">
+            Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)
+            <div class="ml-auto flex">
+              <input type="submit" name="commit" value="Whiistle" class="btn-first py-2 px-4 my-4" data-disable-with="Whiistle" />        
+              
+            </div>
+          </div>
+
+      </div>
+      
+      <div >
+      </div>
+    </ul>
+  </div>
+
+</form>

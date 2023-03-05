@@ -1,7 +1,7 @@
 <% @tab_presenter = UsersTabPresenter.new(@user, :followers, @paginated_users) %>
 
 <%= 
-  render Users::TabsComponent.new(
+  render Users::Tabs::Component.new(
     tab_presenter: @tab_presenter, 
     sidebar_right_presenter: @sidebar_right_presenter
   )

@@ -1,0 +1,3 @@
+  Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+  Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)
+  Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)

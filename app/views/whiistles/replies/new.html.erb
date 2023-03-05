@@ -1,22 +1,22 @@
 <turbo-frame id=<%= modal_body_target %> >
   <div class='flex  <%= check_click(@whiistle) %> '>
-    <%= render Users::ProfileImageButtonComponent.new(user: @whiistle.user) %>
+    <%= render Users::ProfileImageButton::Component.new(user: @whiistle.user) %>
     
     <div class="pl-2">
 
-      <%= render Whiistles::UserNamesWithTimestampComponent.new(whiistle: @whiistle) %>
+      <%= render Whiistles::UserNamesWithTimestamp::Component.new(whiistle: @whiistle) %>
       
       <div class="mt-2">
-        <%= render Whiistles::BodyAndPicturesComponent.new(whiistle: @whiistle, show_pictures: false) %>
+        <%= render Whiistles::BodyAndPictures::Component.new(whiistle: @whiistle, show_pictures: false) %>
       </div>
 
-      <%= render Whiistles::ReplyInfoComponent.new(whiistle: @whiistle) %>
+      <%= render Whiistles::ReplyInfo::Component.new(whiistle: @whiistle) %>
 
     </div>
   </div>
   
   <%= 
-    render Whiistles::FormComponent.new(
+    render Whiistles::Form::Component.new(
       form_url: whiistle_reply_index_url(@whiistle), 
       whiistle: @reply,
       label: "Whiistle your reply",

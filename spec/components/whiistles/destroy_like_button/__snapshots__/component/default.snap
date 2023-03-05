@@ -1,0 +1,5 @@
+<form class="button_to" method="post" action="/whiistles/1/likes/1"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button class="p-2" type="submit">
+  <i class="bi bi-heart-fill text-second ">
+    <span>2</span> 
+  </i>
+</button></form>

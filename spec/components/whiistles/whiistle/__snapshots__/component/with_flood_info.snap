@@ -1,0 +1,23 @@
+<div class="my-4">
+
+  Whiistles::RewhiistleInfo::Component(whiistle: Whiistle)
+  Whiistles::LikeInfo::Component(whiistle: Whiistle)
+
+  <div class='flex   '>
+    
+    Users::ProfileImageButton::Component(user: User)
+    
+    <div class="pl-2">
+      Whiistles::UserNamesWithTimestamp::Component(whiistle: Whiistle)
+      Whiistles::ReplyInfo::Component(whiistle: Whiistle)
+      <div class="mt-2">
+        Whiistles::BodyAndPictures::Component(whiistle: Whiistle)
+      </div>
+
+      Whiistles::Buttons::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+
+        Whiistles::FloodInfo::Component(whiistle: Whiistle)
+
+    </div>
+  </div>
+</div>

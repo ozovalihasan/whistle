@@ -4,7 +4,7 @@
 </button></form>
 </template></turbo-stream>
 <turbo-stream action="update" target="rewhiistle_or_quote_button_whiistle_1"><template>
-    Whiistles::CreateRewhiistleOrQuoteButtonComponent(whiistle: Whiistle)
+    Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)
 </template></turbo-stream>
 <turbo-stream action="update" target="flashes"><template>
     <p class="flash alert-success" >The rewhiistle is destroyed</p>

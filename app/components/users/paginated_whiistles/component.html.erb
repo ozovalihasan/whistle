@@ -1,0 +1,4 @@
+<%= render Shared::InfiniteScroll::Component.new(paginated_records: @paginated_whiistles) do %>
+  <%= render Whiistles::WhiistlesCounter::Component.new(whiistles_count: @paginated_whiistles.count) %>
+  <%= render @paginated_whiistles.component_class.new whiistles: @paginated_whiistles.records, current_user_presenter: @current_user_presenter %>
+<% end %>

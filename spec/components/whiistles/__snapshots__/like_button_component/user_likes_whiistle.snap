@@ -1,8 +1,0 @@
-<div class="flex items-center">
-    
-    <div class="like_button_whiistle_1">
-            Whiistles::DestroyLikeButtonComponent(like: Like)
-    </div>
-
-    
-</div>

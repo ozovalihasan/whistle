@@ -1,0 +1,4 @@
+
+  Whiistles::FormOpeningModal::Component(label: String, value: String, whiistle: Whiistle, path: String)
+
+  Users::PaginatedWhiistles::Component(paginated_whiistles: PaginateWhiistles, current_user_presenter: CurrentUserPresenter)

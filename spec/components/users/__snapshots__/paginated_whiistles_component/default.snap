@@ -1,3 +1,0 @@
-Shared::InfiniteScrollComponent(paginated_records: PaginateWhiistles)
-  Whiistles::WhiistlesCounterComponent(whiistles_count: Integer)
-  Whiistles::ListWhiistlesComponent(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)

@@ -1,0 +1,5 @@
+  Whiistles::FloodInfo::Component(whiistle: Whiistle)
+
+  Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)
+
+Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)

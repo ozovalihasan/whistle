@@ -14,15 +14,15 @@
 
   <body class="w-full">
     <main class='flex font-bold'>
-      <%= render Layout::LeftSideComponent.new(current_user: current_user) %>
+      <%= render Layout::LeftSide::Component.new(current_user: current_user) %>
       <div class='center w-full flex flex-col'>
         <%= render 'layouts/header' %>
         <div id="flashes">
-          <%= render Layout::NoticeComponent.new(notice: notice) %>
-          <%= render Layout::AlertComponent.new(alert: alert) %>
+          <%= render Layout::Notice::Component.new(notice: notice) %>
+          <%= render Layout::Alert::Component.new(alert: alert) %>
         </div>
         
-        <%= render Shared::ModalComponent.new do %>
+        <%= render Shared::Modal::Component.new do %>
           <%= yield %>
         <% end %>
       </div>
