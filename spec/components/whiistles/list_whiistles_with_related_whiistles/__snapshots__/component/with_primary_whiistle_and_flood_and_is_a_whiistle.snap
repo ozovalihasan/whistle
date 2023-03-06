@@ -1,12 +1,14 @@
 
+  <div class="border border-solid border-sixth p-2 rounded-lg my-4">
   
-    <div class=" border p-2 border-solid">
+  
 
       
       Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
 
-        Whiistles::MinifiedFloods::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
 
-    </div>
-  
-  
+        Whiistles::MinifiedFloods::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+        
+
+
+</div>  

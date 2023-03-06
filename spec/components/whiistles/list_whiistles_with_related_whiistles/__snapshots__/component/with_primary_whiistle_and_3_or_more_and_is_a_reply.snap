@@ -1,9 +1,12 @@
 
+  <div class="border border-solid border-sixth p-2 rounded-lg my-4">
   
-    <div class=" border p-2 border-solid">
+  
 
       
           Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+          
+          
         
         Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)
 
@@ -11,6 +14,5 @@
       Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)
 
 
-    </div>
-  
-  
+
+</div>  

@@ -1,16 +1,20 @@
 <% @whiistles.each do |whiistle|  %>
 
-  <% if whiistle.label == "primary_whiistle" %>
+  <%= render Whiistles::Container::Component.new do %>
   
-    <div class=" border p-2 border-solid">
+    <% if whiistle.label == "primary_whiistle" %>
 
       <% if whiistle.is_a? Reply %>
       
         <% if whiistle.path.count >= 3 %>
           <%= render Whiistles::Whiistle::Component.new(whiistle: whiistle.root, current_user_presenter: @current_user_presenter) %>
+          
           <% if whiistle.path.count >= 4 %>
+
             <%= link_to "Show more replies", whiistle_path(whiistle.root) %>
+
           <% end %>
+          
         <% end %>
         
         <%= render Whiistles::Whiistle::Component.new(whiistle: whiistle.whiistle, current_user_presenter: @current_user_presenter) %>
@@ -20,17 +24,16 @@
       <%= render Whiistles::Whiistle::Component.new(whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
 
       <% if (whiistle.is_a? Whiistle) && whiistle.flood.present? %>
+
         <%= render Whiistles::MinifiedFloods::Component.new(whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
+        
       <% end %>  
 
-    </div>
-  
-  <% elsif whiistle.label == "shared_whiistle" %>
-
-    <div class=" border p-2 border-solid">
+    <% elsif whiistle.label == "shared_whiistle" %>
+    
       <%= render Whiistles::Whiistle::Component.new(whiistle: whiistle, current_user_presenter: @current_user_presenter, show_flood_info: true) %>
-    </div>
 
+    <% end %>
   <% end %>
   
 <% end %>

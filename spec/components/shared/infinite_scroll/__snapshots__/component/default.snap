@@ -4,7 +4,7 @@
   data-pagination-current-page-value=1
   data-pagination-max-page-value=1
   data-pagination-request-value="false"
-  class="p-4 mt-4"
+  class="mt-4"
 >
   <div id="pagination-body">
     mock_body
