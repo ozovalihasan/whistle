@@ -1,4 +1,5 @@
 require 'active_support/inflector'
+require 'fileutils'
 
 def correct_test_component_files_exist?
   files = Dir.glob("app/components/**/*_component.rb")
@@ -74,3 +75,12 @@ correct_test_files_exist?
 test_files_has_correct_describe_block?
 
 correct_test_component_files_exist?
+
+def remove_snap_files
+  
+  Dir.glob("spec/components/**/__snapshots__").each do |f|
+    FileUtils.remove_dir(f)
+  end  
+end
+
+remove_snap_files
