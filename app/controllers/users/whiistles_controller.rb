@@ -13,4 +13,15 @@ class Users::WhiistlesController < Users::TabsController
   def new
     @whiistle = Whiistle.new
   end
+
+  def create
+    @status, @whiistle = WhiistleCreator.call(params, current_user)
+    if @status.success?
+      flash[:notice] = @status.message
+      @current_user_presenter = CurrentUserPresenter.new(current_user)
+    else
+      flash[:alert] = @status.message
+    end
+  end
+
 end

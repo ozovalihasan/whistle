@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [] do 
     resources :followings, only: [:index], controller: "users/followings"
     resources :followers, only: [:index], controller: "users/followers"
-    resources :whiistles, only: [:index, :new], controller: "users/whiistles"
+    resources :whiistles, only: [:index, :new, :create], controller: "users/whiistles"
     resources :whiistles_with_replies, only: [:index], controller: "users/whiistles_with_replies"
     resources :medias, only: [:index], controller: "users/medias"
     resources :liked_whiistles, only: [:index], controller: "users/liked_whiistles"
