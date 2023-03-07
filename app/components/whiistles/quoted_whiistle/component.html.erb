@@ -1,9 +1,11 @@
-<div class="p-2 my-2 border border-solid border-first flex rounded-md" >
+<%= render Whiistles::Container::Component.new do %>
+  <div class="flex rounded-md" >
 
-  <%= render Users::ProfileImageButtonSmall::Component.new(user: @whiistle.user) %>
-  <div class="pl-2 text-base">
-    <%= render Whiistles::UserNamesWithTimestamp::Component.new(whiistle: @whiistle) %>
-    <%= render Whiistles::BodyAndPictures::Component.new(whiistle: @whiistle, show_quoted_whiistle: false) %>
-    <%= render Whiistles::FloodInfo::Component.new(whiistle: @whiistle) %>
+    <%= render Users::ProfileImageButtonSmall::Component.new(user: @whiistle.user) %>
+    <div class="pl-2 text-base">
+      <%= render Whiistles::UserNamesWithTimestamp::Component.new(whiistle: @whiistle) %>
+      <%= render Whiistles::BodyAndPictures::Component.new(whiistle: @whiistle, show_quoted_whiistle: false) %>
+      <%= render Whiistles::FloodInfo::Component.new(whiistle: @whiistle) %>
+    </div>
   </div>
-</div>
+<% end %>
