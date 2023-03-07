@@ -17,9 +17,14 @@
       <%= render Layout::LeftSide::Component.new(current_user: current_user) %>
       <div class='center w-full flex flex-col'>
         <%= render 'layouts/header' %>
-        <div id="flashes">
-          <%= render Layout::Notice::Component.new(notice: notice) %>
-          <%= render Layout::Alert::Component.new(alert: alert) %>
+
+        <div class="fixed bottom-0 right-0 inset-x-0 m-4 z-30">
+          <div class="relative ">
+            <div id="flashes" class="absolute right-0 bottom-0 flex flex-col items-end">
+              <%= render Layout::Notice::Component.new(notice: notice) %>
+              <%= render Layout::Alert::Component.new(alert: alert) %>
+            </div>
+          </div>
         </div>
         
         <%= render Shared::Modal::Component.new do %>

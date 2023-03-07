@@ -1,4 +1,8 @@
-<%= turbo_stream.update "flashes" do %>
+<%= turbo_stream.prepend "flashes" do %>
+  <% if @notice %>
     <%= render Layout::Notice::Component.new(notice: @notice) %>
+  <% end %>
+  <% if @alert %>
     <%= render Layout::Alert::Component.new(alert: @alert) %>
+  <% end %>
 <% end %>
