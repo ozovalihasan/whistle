@@ -1,19 +1,23 @@
-class FloodCreator < ApplicationService
-  attr_reader :whiistle, :floods_params, :user
+class WhiistleCreator < ApplicationService
+  attr_reader :whiistle, :cur_user, :params
   
-  def initialize(floods_params, whiistle, user)
-    @whiistle = whiistle
-    @floods_params = floods_params
-    @user = user
+  def initialize(params, cur_user)
+    @params = params
+    @cur_user = cur_user
   end
 
   def call
     status = nil
+    whiistle = nil
+
     begin
       ActiveRecord::Base.transaction do
+        whiistle = cur_user.whiistles.new(whiistle_params.merge(type: BaseWhiistle.types["Whiistle"]))
+        
         if whiistle.invalid?
           status = Status.new(false, "Whiistle: " << whiistle.errors.full_messages.join(' | ') )
         end
+
         whiistle.save!
         
         parent_whiistle = whiistle
@@ -21,7 +25,7 @@ class FloodCreator < ApplicationService
           parent_whiistle = parent_whiistle.build_flood( 
                               flood_params.merge( 
                                 base_whiistle_id: parent_whiistle.id, 
-                                user_id: user.id 
+                                user_id: cur_user.id 
                               ) 
                             )  
               
@@ -36,11 +40,21 @@ class FloodCreator < ApplicationService
     rescue ActiveRecord::RecordInvalid
     end
     
-    status
+    [status, whiistle]
   end
 
   def extract_floods_list(params)
     params[:floods].to_h.to_a.sort_by(&:first)
+  end
+
+  private
+  
+  def whiistle_params
+    params.require(:whiistle).permit(:body, :quoted_whiistle_url, pictures: [])
+  end
+
+  def floods_params
+    params.require(:whiistle).permit(floods: [:body, :quoted_whiistle_url, pictures: []])
   end
   
 end

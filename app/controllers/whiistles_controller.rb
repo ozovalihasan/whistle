@@ -21,14 +21,13 @@ class WhiistlesController < ApplicationController
   end
 
   def create
-    @whiistle = current_user.whiistles.new(whiistle_params.merge(type: BaseWhiistle.types["Whiistle"]))
-
-    result = FloodCreator.call(floods_params, @whiistle, current_user)
-    if result.success?
-      flash[:notice] = result.message
-      @whiistles = current_user.main_page_whiistles
+    @status, @whiistle = WhiistleCreator.call(params, current_user)
+    if @status.success?
+      flash[:notice] = @status.message
+      @whiistles_size = current_user.main_page_whiistles.size
+      @current_user_presenter = CurrentUserPresenter.new(current_user)
     else
-      flash[:alert] = result.message
+      flash[:alert] = @status.message
     end
   end
 
@@ -38,12 +37,5 @@ class WhiistlesController < ApplicationController
     @whiistle = BaseWhiistle.find(params[:id])
   end
 
-  def whiistle_params
-    params.require(:whiistle).permit(:body, :quoted_whiistle_url, pictures: [])
-  end
-
-  def floods_params
-    params.require(:whiistle).permit(floods: [:body, :quoted_whiistle_url, pictures: []])
-  end
 end
 
