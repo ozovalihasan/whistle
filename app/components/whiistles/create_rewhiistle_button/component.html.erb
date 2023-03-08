@@ -1,4 +1,8 @@
 <%= button_to whiistle_rewhiistle_index_path(@whiistle) do %>
-  <i class="bi bi-repeat">Rewhiistle</i>
+  <%= render Whiistles::ButtonInner::Component.new do %>
+    <i class="bi bi-repeat"></i>
+    <span>
+      Rewhiistle
+    </span>
+  <% end %>
 <% end %>
-

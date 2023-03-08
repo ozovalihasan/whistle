@@ -1,5 +1,6 @@
-<%= button_to whiistle_likes_path(@whiistle), class: "p-2" do %>
-  <i class="bi bi-heart text-first ">
+<%= button_to whiistle_likes_path(@whiistle) do %>
+  <%= render Whiistles::ButtonInner::Component.new do %>
+    <i class="bi bi-heart"></i>
     <span><%= @whiistle.likes.size %></span> 
-  </i>
+  <% end %>
 <% end %>

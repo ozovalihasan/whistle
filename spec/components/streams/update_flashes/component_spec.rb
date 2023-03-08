@@ -15,7 +15,7 @@ RSpec.describe Streams::UpdateFlashes::Component, type: :component do
     expect(rendered_content).to match(/Layout::Notice::Component/)
     expect(rendered_content).to match(/Layout::Alert::Component/)
     expect(rendered_content).to match(/turbo-stream/)
-    expect(rendered_content).to match(/action="update"/)
+    expect(rendered_content).to match(/action="prepend"/)
     
   end
 end

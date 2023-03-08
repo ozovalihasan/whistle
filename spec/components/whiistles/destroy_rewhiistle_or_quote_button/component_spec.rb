@@ -3,6 +3,12 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::DestroyRewhiistleOrQuoteButton::Component, type: :component do
+  before(:each) do
+    mock_components([
+      Whiistles::ButtonInner::Component
+    ])
+  end
+  
   it "renders correctly" do
 
     FactoryBot.create(:mock_user)
@@ -13,5 +19,6 @@ RSpec.describe Whiistles::DestroyRewhiistleOrQuoteButton::Component, type: :comp
 
     expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to match "333"
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
   end
 end

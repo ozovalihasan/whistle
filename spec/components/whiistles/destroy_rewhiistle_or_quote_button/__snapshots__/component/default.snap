@@ -1,5 +1,5 @@
-<i class="bi bi-repeat text-second">
-  <span class="px-2">
+Whiistles::ButtonInner::Component(active: TrueClass)
+  <i class="bi bi-repeat"></i>
+  <span>
     333  
   </span>
-</i>

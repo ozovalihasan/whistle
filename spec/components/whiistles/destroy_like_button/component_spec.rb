@@ -3,6 +3,11 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::DestroyLikeButton::Component, type: :component do
+  before(:each) do
+    mock_components([
+      Whiistles::ButtonInner::Component
+    ])
+  end
   
   it "renders correctly" do
 
@@ -15,6 +20,6 @@ RSpec.describe Whiistles::DestroyLikeButton::Component, type: :component do
     expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to match /action="\/whiistles\/\d+\/likes\/\d+"/
     expect(rendered_content).to include 'value="delete"'
-    
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
   end
 end

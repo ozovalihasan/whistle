@@ -3,6 +3,14 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::ReplyButton::Component, type: :component do
+  
+  before(:each) do
+    mock_components([
+      Whiistles::ButtonInner::Component,
+      Whiistles::ButtonContainer::Component
+    ])
+  end
+
   it "renders 'Show this thread' link " do
     FactoryBot.create(:mock_user)
     whiistle = FactoryBot.create(:mock_whiistle)
@@ -15,5 +23,7 @@ RSpec.describe Whiistles::ReplyButton::Component, type: :component do
     expect(rendered_content).to include "modal#openAndVisit"
     expect(rendered_content).to match /<a (.|\n)*1(.|\n)*<\/a>/
     expect(rendered_content).to match /reply_counter_whiistle_\d+/
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
+    expect(rendered_content).to include "Whiistles::ButtonContainer::Component"
   end
 end

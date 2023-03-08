@@ -1,7 +1,8 @@
-<a class="p-2" data-action="modal#openAndVisit" href="/whiistles/1/reply/new">
-  <i class="bi bi-chat " > 
-    <span class="px-1" id="reply_counter_whiistle_1" >
-      1 
-    </span>
-  </i>
+Whiistles::ButtonContainer::Component
+  <a data-action="modal#openAndVisit" href="/whiistles/1/reply/new">
+    Whiistles::ButtonInner::Component
+      <i class="bi bi-chat " > </i>
+      <span id="reply_counter_whiistle_1" >
+        1 
+      </span>
 </a>

@@ -1,7 +1,10 @@
-<%= link_to new_whiistle_reply_path(@whiistle), class:"p-2", data: { action: "modal#openAndVisit" } do %>
-  <i class="bi bi-chat " > 
-    <span class="px-1" id="<%= whiistle_reply_counter_target(@whiistle) %>" >
-      <%= @whiistle.replies.size %> 
-    </span>
-  </i>
+<%= render Whiistles::ButtonContainer::Component.new do %>
+  <%= link_to new_whiistle_reply_path(@whiistle), data: { action: "modal#openAndVisit" } do %>
+    <%= render Whiistles::ButtonInner::Component.new do %>
+      <i class="bi bi-chat " > </i>
+      <span id="<%= whiistle_reply_counter_target(@whiistle) %>" >
+        <%= @whiistle.replies.size %> 
+      </span>
+    <% end %>
+  <% end %>
 <% end %>

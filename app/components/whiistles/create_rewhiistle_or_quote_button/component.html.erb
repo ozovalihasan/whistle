@@ -1,7 +1,6 @@
-<%= render Whiistles::ButtonContainer::Component.new do %>
-  <i class="bi bi-repeat">
-    <span class="px-2">
-      <%= @whiistle.rewhiistles.size + @whiistle.quoting_whiistles.size %>  
-    </span>
-  </i>
+<%= render Whiistles::ButtonInner::Component.new do %>
+  <i class="bi bi-repeat"> </i>
+  <span>
+    <%= @whiistle.rewhiistles.size + @whiistle.quoting_whiistles.size %>  
+  </span>
 <% end %>

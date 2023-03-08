@@ -3,10 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::CreateLikeButton::Component, type: :component do
+  before(:each) do
+    mock_components([
+      Whiistles::ButtonInner::Component
+    ])
+  end
+  
   it "renders correctly" do
-
-
-
     FactoryBot.create_list(:mock_user, 3)
     whiistle = FactoryBot.create(:mock_whiistle)
     FactoryBot.create_list(:mock_like, 2, whiistle: whiistle)
@@ -17,6 +20,7 @@ RSpec.describe Whiistles::CreateLikeButton::Component, type: :component do
     expect(rendered_content).to match /form.*method="post".*action="\/whiistles\/\d+\/likes"/
     expect(rendered_content).to include "bi-heart"
     expect(rendered_content).to include "<span>2</span>"
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
     
   end
 end

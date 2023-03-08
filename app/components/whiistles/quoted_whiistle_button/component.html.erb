@@ -1,3 +1,8 @@
-<%= link_to new_whiistle_quoted_whiistle_path(@whiistle), class: "p-2", data: {turbo_frame: whiistle_quoting_whiistle_form_target(@whiistle)} do %>
-  <i class="bi bi-chat-left-quote" >Quoted Whiistle</i>
+<%= link_to new_whiistle_quoted_whiistle_path(@whiistle), data: {turbo_frame: whiistle_quoting_whiistle_form_target(@whiistle)} do %>
+  <%= render Whiistles::ButtonInner::Component.new do %>
+    <i class="bi bi-chat-left-quote" ></i>
+    <span>
+      Quoted Whiistle
+    </span>
+  <% end %>
 <% end %>

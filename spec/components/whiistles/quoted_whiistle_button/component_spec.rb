@@ -3,6 +3,12 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::QuotedWhiistleButton::Component, type: :component do
+  before(:each) do
+    mock_components([
+      Whiistles::ButtonInner::Component
+    ])
+  end
+  
   it "renders correctly" do
 
     FactoryBot.create(:mock_user)
@@ -14,5 +20,6 @@ RSpec.describe Whiistles::QuotedWhiistleButton::Component, type: :component do
     expect(rendered_content).to match "Quoted Whiistle"
     expect(rendered_content).to match /data-turbo-frame="quoting_whiistle_whiistle_\d+/
     expect(rendered_content).to match /href="\/whiistles\/\d+\/quoted_whiistle\/new"/
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
   end
 end
