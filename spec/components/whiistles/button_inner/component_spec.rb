@@ -20,7 +20,7 @@ RSpec.describe Whiistles::ButtonInner::Component, type: :component do
         
       render_inline(described_class.new(active: true)) { "mock_content" }
 
-      expect(rendered_content).to match_custom_snapshot
+      expect(rendered_content).to match_custom_snapshot("active-true")
       expect(rendered_content).to match "class=.*text-second"
     end
   end
