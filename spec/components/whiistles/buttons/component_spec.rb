@@ -3,16 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::Buttons::Component, type: :component do
-  before(:each) do
-    FactoryBot.reload
-    
-    mock_components([
-      Whiistles::ReplyButton::Component,
-      Whiistles::ToggleRewhiistleOrQuoteButton::Component,
-      Whiistles::LikeButton::Component
-    ])
-  end
-
   let(:user) do
     FactoryBot.create(:mock_user)
   end

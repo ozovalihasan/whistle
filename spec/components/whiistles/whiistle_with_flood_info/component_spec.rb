@@ -6,10 +6,6 @@ RSpec.describe Whiistles::WhiistleWithFloodInfo::Component, type: :component do
   
   it "renders correctly" do
 
-    mock_components([
-      Whiistles::Whiistle::Component
-    ])
-    
     user = FactoryBot.create(:mock_user)
     whiistle = FactoryBot.create(:mock_whiistle)
     

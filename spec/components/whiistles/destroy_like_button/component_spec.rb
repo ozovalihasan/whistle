@@ -3,11 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::DestroyLikeButton::Component, type: :component do
-  before(:each) do
-    mock_components([
-      Whiistles::ButtonInner::Component
-    ])
-  end
   
   it "renders correctly" do
 

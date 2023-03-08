@@ -9,11 +9,6 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
     
     it "renders correctly" do
 
-      mock_components([
-        Whiistles::Pictures::Component, 
-        Whiistles::QuotedWhiistle::Component
-      ])
-      
       user = FactoryBot.create(:mock_user)
       whiistle = FactoryBot.create(:mock_whiistle)
       quoting_whiistle = FactoryBot.create(:mock_whiistle, quoted_whiistle: whiistle, user: user)
@@ -30,10 +25,6 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
   context "if the argument 'show_quoted_whiistle' is false or the whiistle is not quoting another whiistle" do
     
     it "renders correctly" do
-
-      mock_components([
-        Whiistles::Pictures::Component
-      ])
       
       user = FactoryBot.create(:mock_user)
       whiistle = FactoryBot.create(:mock_whiistle)
@@ -47,10 +38,6 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
     
     it "renders correctly" do
 
-      mock_components([
-        Whiistles::Pictures::Component
-      ])
-      
       user = FactoryBot.create(:mock_user)
       whiistle = FactoryBot.create(:mock_whiistle)
       

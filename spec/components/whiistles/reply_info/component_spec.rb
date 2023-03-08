@@ -3,9 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::ReplyInfo::Component, type: :component do
-  before(:each) do 
-    FactoryBot.reload
-  end
   
   context "if whiistle is a reply" do
     it "renders correctly" do

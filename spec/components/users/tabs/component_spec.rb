@@ -3,17 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Users::Tabs::Component, type: :component do
-  before(:each) do
-    FactoryBot.reload
-    
-    mock_components([
-      Users::TabsButton::Component,
-      Users::SidebarRight::Component,
-      Users::WhiistlesTab::Component,
-      Users::UsersHavingRelations::Component
-    ])
-  end
-
   let(:user) do
     FactoryBot.create(:mock_user)
   end

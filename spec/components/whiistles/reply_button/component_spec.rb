@@ -4,13 +4,6 @@ require "rails_helper"
 
 RSpec.describe Whiistles::ReplyButton::Component, type: :component do
   
-  before(:each) do
-    mock_components([
-      Whiistles::ButtonInner::Component,
-      Whiistles::ButtonContainer::Component
-    ])
-  end
-
   it "renders 'Show this thread' link " do
     FactoryBot.create(:mock_user)
     whiistle = FactoryBot.create(:mock_whiistle)

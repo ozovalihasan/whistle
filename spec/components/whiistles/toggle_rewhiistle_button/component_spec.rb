@@ -10,10 +10,6 @@ RSpec.describe Whiistles::ToggleRewhiistleButton::Component, type: :component do
   context "if the whiistle is rewhiistled" do
     it "renders correctly" do
 
-      mock_components([
-        Whiistles::DestroyRewhiistleButton::Component
-      ])
-      
       user = FactoryBot.create(:mock_user)
       whiistle = FactoryBot.create(:mock_whiistle)
       FactoryBot.create(:mock_rewhiistle)
@@ -30,10 +26,6 @@ RSpec.describe Whiistles::ToggleRewhiistleButton::Component, type: :component do
   context "if the whiistle is not rewhiistled" do
     it "renders correctly" do
 
-      mock_components([
-        Whiistles::CreateRewhiistleButton::Component
-      ])
-      
       user = FactoryBot.create(:mock_user)
       whiistle = FactoryBot.create(:mock_whiistle)
       

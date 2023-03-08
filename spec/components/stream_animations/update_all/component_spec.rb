@@ -3,12 +3,6 @@
 require "rails_helper"
 
 RSpec.describe StreamAnimations::UpdateAll::Component, type: :component do
-  before(:each) do
-    mock_components([
-      StreamAnimations::Base::Component
-    ])
-  end
-
   it "renders correctly" do
     render_inline(described_class.new(targets: "mock_targets"))
 

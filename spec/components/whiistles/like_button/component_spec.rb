@@ -10,10 +10,6 @@ RSpec.describe Whiistles::LikeButton::Component, type: :component do
   context "if the current user likes the whiistle" do
     it "renders correctly" do
 
-      mock_components([
-        Whiistles::DestroyLikeButton::Component
-      ])
-
       current_user = FactoryBot.create(:mock_user)
       
       whiistle = FactoryBot.create(:mock_whiistle)
@@ -30,10 +26,6 @@ RSpec.describe Whiistles::LikeButton::Component, type: :component do
   
   context "if the current user doesn't like the whiistle" do
     it "renders correctly" do
-
-      mock_components([
-        Whiistles::CreateLikeButton::Component
-      ])
       
       current_user = FactoryBot.create(:mock_user)
       

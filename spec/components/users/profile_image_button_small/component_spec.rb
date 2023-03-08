@@ -3,10 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Users::ProfileImageButtonSmall::Component, type: :component do
-  before(:all) {
-    mock_components([Users::ProfileImageButton::Component])
-  }
-  
   it "renders correctly" do
 
     user = FactoryBot.create(:mock_user)

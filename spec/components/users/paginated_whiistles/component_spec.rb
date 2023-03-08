@@ -4,13 +4,6 @@ require "rails_helper"
 
 RSpec.describe Users::PaginatedWhiistles::Component, type: :component do
   it "renders correctly" do
-
-    mock_components([
-      Shared::InfiniteScroll::Component,
-      Whiistles::WhiistlesCounter::Component,
-      Whiistles::ListWhiistles::Component
-    ])
-    
     user = FactoryBot.create(:mock_user)
     cur_user = FactoryBot.create(:mock_user)
     current_user_presenter = CurrentUserPresenter.new(cur_user)

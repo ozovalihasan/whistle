@@ -13,21 +13,6 @@ RSpec.describe Whiistles::Whiistle::Component, type: :component do
     FactoryBot.create(:mock_whiistle)
   }
   
-  before(:each) do
-    FactoryBot.reload
-    
-    mock_components([
-      Whiistles::RewhiistleInfo::Component,
-      Whiistles::LikeInfo::Component,
-      Users::ProfileImageButton::Component,
-      Whiistles::UserNamesWithTimestamp::Component,
-      Whiistles::ReplyInfo::Component,
-      Whiistles::BodyAndPictures::Component,
-      Whiistles::Buttons::Component,
-      Whiistles::FloodInfo::Component
-    ])
-  end
-
   let(:expect_mandatory_components) {
     expect(rendered_content).to include "Whiistles::RewhiistleInfo::Component"
     expect(rendered_content).to include "Whiistles::LikeInfo::Component"

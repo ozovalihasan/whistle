@@ -1,5 +1,4 @@
-<div class="border border-solid border-sixth p-2 rounded-lg my-4">
-  
+Whiistles::Container::Component()
   <div class="flex rounded-md" >
 
     Users::ProfileImageButtonSmall::Component(user: User)
@@ -9,5 +8,3 @@
       Whiistles::FloodInfo::Component(whiistle: Whiistle)
     </div>
   </div>
-
-</div>

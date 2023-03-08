@@ -5,13 +5,6 @@ require "rails_helper"
 RSpec.describe Whiistles::QuotedWhiistle::Component, type: :component do
   it "renders correctly" do
 
-    mock_components([
-      Users::ProfileImageButtonSmall::Component, 
-      Whiistles::UserNamesWithTimestamp::Component, 
-      Whiistles::BodyAndPictures::Component, 
-      Whiistles::FloodInfo::Component
-    ])
-    
     FactoryBot.create(:mock_user)
     FactoryBot.create(:mock_whiistle)
     quoting_whiistle = FactoryBot.create(:mock_quoting_whiistle)

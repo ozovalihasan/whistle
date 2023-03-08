@@ -1,6 +1,6 @@
-Whiistles::ButtonContainer::Component
+Whiistles::ButtonContainer::Component()
   <a data-action="modal#openAndVisit" href="/whiistles/1/reply/new">
-    Whiistles::ButtonInner::Component
+    Whiistles::ButtonInner::Component()
       <i class="bi bi-chat " > </i>
       <span id="reply_counter_whiistle_1" >
         1 

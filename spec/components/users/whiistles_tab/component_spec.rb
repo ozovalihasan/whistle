@@ -3,15 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Users::WhiistlesTab::Component, type: :component do
-  before(:each) do
-    FactoryBot.reload
-    
-    mock_components([
-      Whiistles::FormOpeningModal::Component,
-      Users::PaginatedWhiistles::Component
-    ])
-  end
-
   let(:user) do
     FactoryBot.create(:mock_user)
   end

@@ -4,11 +4,6 @@ require "rails_helper"
 
 RSpec.describe Streams::UpdateFlashes::Component, type: :component do
   it "renders correctly" do
-    mock_components([
-      Layout::Notice::Component,
-      Layout::Alert::Component
-    ])
-
     render_inline( described_class.new(alert: "mock_alert", notice: "mock_notice") )
 
     expect(rendered_content).to match_custom_snapshot  

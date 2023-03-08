@@ -5,11 +5,6 @@ require "rails_helper"
 RSpec.describe Users::PaginatedUsers::Component, type: :component do
   it "renders correctly" do
 
-    mock_components([
-      Shared::InfiniteScroll::Component,
-      Shared::InfiniteScrollUsers::Component
-    ])
-
     FactoryBot.create_list(:mock_user, 3)
 
     cur_user = User.last

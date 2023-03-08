@@ -1,6 +1,5 @@
 
-  <div class="border border-solid border-sixth p-2 rounded-lg my-4">
-  
+  Whiistles::Container::Component()
   
 
       
@@ -14,5 +13,4 @@
       Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)
 
 
-
-</div>  
+  

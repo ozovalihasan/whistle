@@ -11,11 +11,6 @@ RSpec.describe Users::AddDeleteFollowing::Component, type: :component do
       
       relation = nil
 
-      mock_components([
-        Users::DeleteFollowing::Component, 
-        Users::AddFollowing::Component
-      ])
-      
       render_inline(described_class.new(user: user, cur_user: cur_user, relation: nil))
 
       expect(rendered_content).to match_custom_snapshot("without_relation")  
@@ -30,11 +25,6 @@ RSpec.describe Users::AddDeleteFollowing::Component, type: :component do
       cur_user = FactoryBot.create(:mock_user)
       relation = FactoryBot.create(:mock_relation, following: cur_user, followed: user)
       
-      mock_components([
-        Users::DeleteFollowing::Component, 
-        Users::AddFollowing::Component
-      ])
-      
       render_inline(described_class.new(user: user, cur_user: cur_user, relation: relation))
 
       expect(rendered_content).to match_custom_snapshot("with_relation")  
@@ -48,11 +38,6 @@ RSpec.describe Users::AddDeleteFollowing::Component, type: :component do
       user = FactoryBot.create(:mock_user)
       cur_user = user
       relation = nil
-      
-      mock_components([
-        Users::DeleteFollowing::Component, 
-        Users::AddFollowing::Component
-      ])
       
       render_inline(described_class.new(user: user, cur_user: cur_user, relation: relation))
 

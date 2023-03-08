@@ -6,10 +6,6 @@ RSpec.describe Whiistles::AllChildrenFloods::Component, type: :component do
   context "if the flood doesn't have another flood" do
     it "renders correctly" do
 
-      mock_components([
-        Whiistles::Whiistle::Component
-      ])
-
       user = FactoryBot.create(:mock_user)
       cur_user = FactoryBot.create(:mock_user)
       current_user_presenter = CurrentUserPresenter.new(cur_user)
@@ -25,10 +21,6 @@ RSpec.describe Whiistles::AllChildrenFloods::Component, type: :component do
 
   context "if the flood doesn't have another flood" do
     it "renders correctly" do
-
-      mock_components([
-        Whiistles::Whiistle::Component
-      ])
 
       user = FactoryBot.create(:mock_user)
       cur_user = FactoryBot.create(:mock_user)

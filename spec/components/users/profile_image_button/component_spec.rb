@@ -3,9 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Users::ProfileImageButton::Component, type: :component do
-  before(:each) {
-    mock_components([Users::ProfileImage::Component])
-  }
   
   context "if a size is defined" do
     it "renders correctly" do

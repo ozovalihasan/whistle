@@ -3,16 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::Form::Component, type: :component do
-  before(:each) do
-    FactoryBot.reload
-    
-    mock_components([
-      Whiistles::FormPicturesButton::Component,
-      Whiistles::FloodWhiistleForm::Component,
-      Whiistles::FormBody::Component
-    ])
-  end
-
   let(:user) do
     FactoryBot.create(:mock_user)
   end

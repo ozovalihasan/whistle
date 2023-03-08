@@ -3,14 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Whiistles::MinifiedFloods::Component, type: :component do
-  before(:each) do
-    FactoryBot.reload
-
-    mock_components([
-      Whiistles::FloodInfo::Component,
-      Whiistles::Whiistle::Component
-    ])
-  end
 
   let(:current_user_presenter) { 
     cur_user = FactoryBot.create(:mock_user)

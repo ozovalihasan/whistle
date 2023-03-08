@@ -10,10 +10,6 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
   context "the paginated users is not empty" do
     it "renders correctly" do
 
-      mock_components([
-        Users::PaginatedUsers::Component
-      ])
-
       FactoryBot.create_list(:mock_user, 3)
 
       cur_user = User.last
@@ -34,10 +30,6 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
 
   context "the paginated users is empty" do
     it "renders correctly" do
-
-      mock_components([
-        Users::PaginatedUsers::Component
-      ])
 
       FactoryBot.create(:mock_user)
       

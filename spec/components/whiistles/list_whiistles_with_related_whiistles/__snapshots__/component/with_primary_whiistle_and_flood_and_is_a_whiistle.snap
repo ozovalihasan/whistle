@@ -1,6 +1,5 @@
 
-  <div class="border border-solid border-sixth p-2 rounded-lg my-4">
-  
+  Whiistles::Container::Component()
   
 
       
@@ -10,5 +9,4 @@
         Whiistles::MinifiedFloods::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
         
 
-
-</div>  
+  
