@@ -1,5 +1,5 @@
 <% if @like.saved_changes? %>
-  <%= render StreamAnimations::UpdateAll::Component.new( classes_including whiistle_like_button_target(@like.whiistle)) do %>
+  <%= render StreamAnimations::UpdateAll::Component.new( targets: classes_including whiistle_like_button_target(@like.whiistle)) do %>
     <%= render Whiistles::DestroyLikeButton::Component.new(like: @like) %>
   <% end %>
 <% end %>

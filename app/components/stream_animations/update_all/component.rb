@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class StreamAnimations::UpdateAll::Component < Application::Component
-  def initialize(targets, **arguments )
+  def initialize(targets:, **arguments )
     @targets = targets
     @arguments = arguments
   end
