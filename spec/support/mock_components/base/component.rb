@@ -1,9 +1,10 @@
 module MockComponents
   module Base
     class Component < Application::Component
-      def initialize(component, params, &block)
+      def initialize(component, *args, **kwargs, &block)
         @name = component.name
-        @params= params
+        @args= args
+        @kwargs= kwargs
       end
   
       def call
@@ -11,9 +12,13 @@ module MockComponents
       end
   
       def params_to_s
-        return "" if @params.nil?
+        return "" if @kwargs.nil?
   
-        "(" + @params.map {|param_key, param_value| param_key.to_s + ": " + param_value.class.name}.join(", ")  + ")"
+        "(" + 
+        @args.map {|arg| arg.class.name}.concat( 
+          @kwargs.map {|param_key, param_value| param_key.to_s + ": " + param_value.class.name} 
+        ).join(", ")  + 
+        ")"
       end
     end  
   end
