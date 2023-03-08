@@ -1,6 +1,6 @@
 module MockComponents
   module Base
-    class Component < Application::Component
+    class Component < ViewComponent::Base
       def initialize(component, *args, **kwargs, &block)
         @name = component.name
         @args= args

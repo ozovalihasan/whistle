@@ -1,5 +1,7 @@
 require "view_component/test_helpers"
 
+Dir[Rails.root.join('app', 'components', '**', '*.rb')].each { |f| require f }
+
 RSpec.configure do |config|
   config.include ViewComponent::TestHelpers, type: :component
   
@@ -7,12 +9,8 @@ RSpec.configure do |config|
   config.include Helpers::Components, type: :view
 
   config.before(:all, :type => :component) do
-    Dir[Rails.root.join('app', 'components', '**', '*.rb')].each { |f| require f }
     mock_components(
-      Application::Component.descendants - [ 
-        MockComponents::Base::Component, 
-        MockComponents::SimpleForm::Component 
-      ])
+      Application::Component.descendants)
   end
 
   config.before(:each, :type => :component) do
@@ -24,7 +22,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each, :type => :component) do
-    mock_components([self.class.metadata[:described_class]] - [Application::Component])
+    mock_components([ self.class.metadata[:described_class] ] - [ Application::Component ])
 
     if defined?(allowed_components)
       mock_components(allowed_components)

@@ -1,6 +1,6 @@
 module MockComponents
   module SimpleForm
-    class Component < Application::Component
+    class Component < ViewComponent::Base
       def initialize(component_class:, form_key:, **kwargs)
         @component_class = component_class
         @form_key = form_key
