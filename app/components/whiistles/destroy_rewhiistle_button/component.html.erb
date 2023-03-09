@@ -1,5 +1,5 @@
 <%= button_to whiistle_rewhiistle_path(@rewhiistle.id, @rewhiistle), method: :delete do %>
-  <%= render Whiistles::ButtonInner::Component.new active: true do %>
+  <%= render Whiistles::ButtonInner::Component.new(active: true) do %>
     <i class="bi bi-repeat"></i>
     <span>
       Cancel rewhiistle

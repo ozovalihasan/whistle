@@ -3,7 +3,7 @@
 <% end %>
 
 <%= render StreamAnimations::UpdateAll::Component.new(targets: classes_including( whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle) )) do %>
-  <%= render Whiistles::CreateRewhiistleOrQuoteButton::Component.new whiistle: @rewhiistle.whiistle %>
+  <%= render Whiistles::CreateRewhiistleOrQuoteButton::Component.new(whiistle: @rewhiistle.whiistle) %>
 <% end %>
 
 <%= render Streams::UpdateFlashes::Component.new(notice: notice, alert: alert) %>

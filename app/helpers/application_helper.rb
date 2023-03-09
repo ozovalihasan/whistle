@@ -48,4 +48,12 @@ module ApplicationHelper
   def classes_including(class_name)
     "." + class_name
   end
+
+  def component(name, *args, **kwargs, &block)
+    name.to_s.camelize.constantize::Component.new(*args, **kwargs, &block)
+  end
+
+  def components(name, *args, **kwargs, &block)
+    name.to_s.camelize.constantize::Component.with_collection(*args, **kwargs, &block)
+  end
 end

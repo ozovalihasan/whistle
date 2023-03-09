@@ -12,7 +12,7 @@ class Whiistles::ToggleRewhiistleOrQuoteButton::Component < Application::Compone
     if @current_user_presenter.rewhiistled? @whiistle
       Whiistles::DestroyRewhiistleOrQuoteButton::Component.new(whiistle: @whiistle)
     else
-      Whiistles::CreateRewhiistleOrQuoteButton::Component.new whiistle: @whiistle
+      Whiistles::CreateRewhiistleOrQuoteButton::Component.new(whiistle: @whiistle)
     end
   end
   
