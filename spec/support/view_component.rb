@@ -8,25 +8,16 @@ RSpec.configure do |config|
   config.include Helpers::Components, type: :component
   config.include Helpers::Components, type: :view
 
-  config.before(:all, :type => :component) do
+  config.before(:each, type: :component) do
+    components = [ self.class.metadata[:described_class] ]
+
+    if defined?(allowed_components)
+      components.concat allowed_components
+    end
+
     mock_components(
-      Application::Component.descendants)
-  end
-
-  config.before(:each, :type => :component) do
-    unmock_components([self.class.metadata[:described_class]])
-    
-    if defined?(allowed_components)
-      unmock_components(allowed_components)
-    end
-  end
-
-  config.after(:each, :type => :component) do
-    mock_components([ self.class.metadata[:described_class] ] - [ Application::Component ])
-
-    if defined?(allowed_components)
-      mock_components(allowed_components)
-    end
+      components
+    )
   end
 
 end
