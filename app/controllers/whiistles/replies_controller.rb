@@ -3,6 +3,7 @@ class Whiistles::RepliesController < ApplicationController
 
   def new
     @reply = Reply.new()
+    @current_user_presenter = CurrentUserPresenter.new(current_user)
   end
   
   def create
