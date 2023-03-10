@@ -15,7 +15,11 @@ module.exports = {
     "top-0",
     "left-0",
     "w-full",
-    "h-full"
+    "h-full",
+    "h-[50px]",
+    "w-[50px]",
+    "h-[25px]",
+    "w-[25px]",
   ],
   theme: {
     colors: {

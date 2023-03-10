@@ -14,8 +14,8 @@ class Users::ProfileImage::Component < Application::Component
   private
   
   VARIANT_SIZES = {
-    default: "50x50",
-    small: "25x25"
+    default: "h-[50px] w-[50px]",
+    small: "h-[25px] w-[25px]"
   }.freeze
 
   VARIANT_SHAPES = {
