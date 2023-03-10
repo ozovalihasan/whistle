@@ -1,4 +1,4 @@
-<%= render Whiistles::ButtonInner::Component.new(active: true) do %>
+<%= render component("whiistles/button_inner", active: true) do %>
   <i class="bi bi-repeat"></i>
   <span>
     <%= @whiistle.rewhiistles.size + @whiistle.quoting_whiistles.size %>  

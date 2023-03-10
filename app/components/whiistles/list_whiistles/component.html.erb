@@ -1,5 +1,5 @@
 <% @whiistles.each do |whiistle|  %>
-  <%= render Whiistles::Container::Component.new do %>
-    <%= render Whiistles::WhiistleWithFloodInfo::Component.new(whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
+  <%= render component("whiistles/container")do %>
+    <%= render component("whiistles/whiistle_with_flood_info", whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
   <% end %>
 <% end %>

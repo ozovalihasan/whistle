@@ -15,11 +15,13 @@ class Users::Tabs::Component < Application::Component
 
   def tab_body
     if @paginated_records.class == PaginateWhiistles
-      Users::WhiistlesTab::Component.new(
+      component(
+        "users/whiistles_tab", 
         tab_presenter: @tab_presenter
       ) 
     elsif @paginated_records.class == PaginateUsers
-      Users::UsersHavingRelations::Component.new(
+      component(
+        "users/users_having_relations", 
         tab_presenter: @tab_presenter
       )
     end

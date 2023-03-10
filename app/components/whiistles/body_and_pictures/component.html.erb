@@ -4,10 +4,10 @@
   <% end %>
   
   <% if @show_pictures %>
-    <%= render Whiistles::Pictures::Component.new(whiistle: @whiistle) %>
+    <%= render component("whiistles/pictures", whiistle: @whiistle) %>
   <% end %>
   
   <% if @whiistle.quoted_whiistle && @show_quoted_whiistle %>
-    <%= render Whiistles::QuotedWhiistle::Component.new(whiistle: @whiistle.quoted_whiistle) %>
+    <%= render component("whiistles/quoted_whiistle", whiistle: @whiistle.quoted_whiistle) %>
   <% end %>
 </div>

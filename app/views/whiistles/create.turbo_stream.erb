@@ -1,13 +1,13 @@
 <% if @status.success? %>
   <%= turbo_stream.prepend "whiistles" do %>
-    <%= render Whiistles::WhiistleWithFloodInfo::Component.new(whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+    <%= render component("whiistles/whiistle_with_flood_info", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
   <% end %>
 
   <%= turbo_stream.replace "whiistles_counter" do %>
-    <%= render Whiistles::WhiistlesCounter::Component.new(whiistles_count: @whiistles_size) %>
+    <%= render component("whiistles/whiistles_counter", whiistles_count: @whiistles_size) %>
 
   <% end %>
   
 <% end %>
 
-<%= render Streams::UpdateFlashes::Component.new(notice: notice, alert: alert) %>
+<%= render component("streams/update_flashes", notice: notice, alert: alert) %>

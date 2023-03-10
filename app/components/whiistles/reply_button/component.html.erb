@@ -1,6 +1,6 @@
-<%= render Whiistles::ButtonContainer::Component.new do %>
+<%= render component("whiistles/button_container")do %>
   <%= link_to new_whiistle_reply_path(@whiistle), data: { action: "modal#openAndVisit" } do %>
-    <%= render Whiistles::ButtonInner::Component.new do %>
+    <%= render component("whiistles/button_inner")do %>
       <i class="bi bi-chat " > </i>
       <span id="<%= whiistle_reply_counter_target(@whiistle) %>" >
         <%= @whiistle.replies.size %> 

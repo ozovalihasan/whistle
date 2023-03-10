@@ -16,7 +16,8 @@ RSpec.describe Whiistles::FormBody::Component, type: :component do
   context "if the argument 'open_modal' is false" do
     it "renders correctly" do
       render_inline(
-        MockComponents::SimpleForm::Component.new(
+        component(
+          "mock_components/simple_form",
           component_class: described_class, 
           form_key: :form, 
           label: "mock_label", 
@@ -32,7 +33,8 @@ RSpec.describe Whiistles::FormBody::Component, type: :component do
   context "if the argument 'open_modal' is true" do
     it "renders correctly" do
       render_inline(
-        MockComponents::SimpleForm::Component.new(
+        component(
+          "mock_components/simple_form", 
           component_class: described_class, 
           form_key: :form, 
           label: "mock_label", 

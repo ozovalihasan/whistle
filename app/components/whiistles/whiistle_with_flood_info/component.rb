@@ -8,6 +8,6 @@ class Whiistles::WhiistleWithFloodInfo::Component < Application::Component
 
 
   def call 
-    render Whiistles::Whiistle::Component.new(whiistle: @whiistle, current_user_presenter: @current_user_presenter, show_flood_info: true)
+    render component("whiistles/whiistle", whiistle: @whiistle, current_user_presenter: @current_user_presenter, show_flood_info: true)
   end
 end

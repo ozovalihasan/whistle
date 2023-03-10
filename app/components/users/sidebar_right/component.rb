@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::SidebarRight::Component < Application::Component
-  include ApplicationHelper
   include WhiistlesHelper
   
   def initialize(sidebar_right_presenter:)

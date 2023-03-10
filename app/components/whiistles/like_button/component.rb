@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Whiistles::LikeButton::Component < Application::Component
-  include ApplicationHelper
   
   def initialize(whiistle:, current_user_presenter:)
     @whiistle = whiistle

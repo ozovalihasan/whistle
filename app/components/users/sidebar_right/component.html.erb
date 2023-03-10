@@ -3,9 +3,9 @@
         <div class="flex ">
             <div class="flex items-center gap-4 align-items-center mx-auto text-xl">
                 <div id=<%= user_create_delete_relation_target(@user) %>>
-                    <%= render Users::AddDeleteFollowing::Component.new(user: @user, relation: @relation, cur_user: @cur_user) %>
+                    <%= render component("users/add_delete_following", user: @user, relation: @relation, cur_user: @cur_user) %>
                 </div>
-                <%= render Users::ProfileImage::Component.new(user: @user, shape: :rounded) %>
+                <%= render component("users/profile_image", user: @user, shape: :rounded) %>
                 
                 <a href="#">
                     <i class="bi bi-list-ul"></i>
@@ -47,5 +47,5 @@
     </div>
     <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
 
-    <%= render Users::User::Component.with_collection(@random_followings, cur_user: @cur_user) %>
+    <%= render components("users/user", @random_followings, cur_user: @cur_user) %>
 </div>

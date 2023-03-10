@@ -14,20 +14,20 @@
 
   <body class="w-full">
     <main class='flex font-bold'>
-      <%= render Layout::LeftSide::Component.new(current_user: current_user) %>
+      <%= render component("layout/left_side", current_user: current_user) %>
       <div class='center w-full flex flex-col'>
         <%= render 'layouts/header' %>
 
         <div class="fixed bottom-0 right-0 inset-x-0 m-4 z-30">
           <div class="relative ">
             <div id="flashes" class="absolute right-0 bottom-0 flex flex-col items-end">
-              <%= render Layout::Notice::Component.new(notice: notice) %>
-              <%= render Layout::Alert::Component.new(alert: alert) %>
+              <%= render component("layout/notice", notice: notice) %>
+              <%= render component("layout/alert", alert: alert) %>
             </div>
           </div>
         </div>
         
-        <%= render Shared::Modal::Component.new do %>
+        <%= render component("shared/modal")do %>
           <%= yield %>
         <% end %>
       </div>

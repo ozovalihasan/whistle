@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Whiistles::ToggleRewhiistleButton::Component < Application::Component
-  include ApplicationHelper
-  
   def initialize(whiistle:, current_user_presenter:)
     @whiistle = whiistle
     @current_user_presenter = current_user_presenter
@@ -10,9 +8,9 @@ class Whiistles::ToggleRewhiistleButton::Component < Application::Component
 
   def active_button
     if @current_user_presenter.rewhiistled? @whiistle
-        Whiistles::DestroyRewhiistleButton::Component.new(rewhiistle: @current_user_presenter.rewhiistle_of(@whiistle))
+        component("whiistles/destroy_rewhiistle_button", rewhiistle: @current_user_presenter.rewhiistle_of(@whiistle))
     else
-        Whiistles::CreateRewhiistleButton::Component.new(whiistle: @whiistle)
+        component("whiistles/create_rewhiistle_button", whiistle: @whiistle)
     end
   end
 

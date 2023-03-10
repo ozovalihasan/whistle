@@ -1,7 +1,7 @@
 <div class="flex w-full">
   <%= link_to user_whiistles_path(@user), class:"hover-image" do %>
     <div class="px-4 py-2 flex w-full">
-      <%= render Users::ProfileImage::Component.new(user: @user) %>
+      <%= render component("users/profile_image", user: @user) %>
       <div class="pl-2 flex flex-col self-center">
         <div class="text-ellipsis">
           <%= @user.fullname %>
@@ -14,6 +14,6 @@
   <% end %>
 
   <% unless @cur_user.followings_and_user_ids.include? @user.id %>
-    <%= render Users::FollowButton::Component.new(user: @user) %>
+    <%= render component("users/follow_button", user: @user) %>
   <% end %>
 </div>

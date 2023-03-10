@@ -1,5 +1,5 @@
 <%= button_to whiistle_like_path(@whiistle, @like), method: :delete do %>
-  <%= render Whiistles::ButtonInner::Component.new(active: true) do %>
+  <%= render component("whiistles/button_inner", active: true) do %>
     <i class="bi bi-heart-fill "></i>
     <span><%= @whiistle.likes.size %></span> 
   <% end %>

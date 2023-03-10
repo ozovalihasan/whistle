@@ -1,6 +1,7 @@
 <turbo-frame id=<%= whiistle_quoting_whiistle_form_target(@quoted_whiistle) %> >
   <%= 
-    render Whiistles::Form::Component.new(
+    render component(
+      "whiistles/form", 
       form_url: whiistles_url, 
       whiistle: @quoting_whiistle,
       label: "Whiistle something by quoting the whiistle",

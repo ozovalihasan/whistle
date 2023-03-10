@@ -1,10 +1,10 @@
 <div class="flex items-center">
     
     <div class="<%= whiistle_like_button_target(@whiistle) %>">
-        <% if @current_user_presenter.liked? @whiistle %>
-            <%= render Whiistles::DestroyLikeButton::Component.new(like: @current_user_presenter.like_of(@whiistle)) %>
+        <% if @current_user_presenter.liked?(@whiistle) %>
+            <%= render component("whiistles/destroy_like_button", like: @current_user_presenter.like_of(@whiistle)) %>
         <% else %>
-            <%= render Whiistles::CreateLikeButton::Component.new(whiistle: @whiistle) %>
+            <%= render component("whiistles/create_like_button", whiistle: @whiistle) %>
         <% end %>
     </div>
 

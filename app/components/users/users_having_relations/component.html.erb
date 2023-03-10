@@ -1,5 +1,5 @@
 <% if @paginated_users.record_exist? %>
-  <%= render Users::PaginatedUsers::Component.new(paginated_users: @paginated_users) %>
+  <%= render component("users/paginated_users", paginated_users: @paginated_users) %>
 <% else %>
   <%= @tab_presenter.no_user_info %>
 <% end %>

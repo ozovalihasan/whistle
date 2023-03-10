@@ -1,4 +1,6 @@
 class Application::Component < ViewComponent::Base
+  include ApplicationHelper
+  
   def initialize; end
   
   private

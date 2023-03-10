@@ -9,7 +9,7 @@
   <% end %>
   
   <%= turbo_stream.after whiistle_reply_form_target(@whiistle) do %>
-    <%= render Whiistles::WhiistleWithFloodInfo::Component.new(whiistle: @reply, current_user_presenter: @current_user_presenter ) %>
+    <%= render component("whiistles/whiistle_with_flood_info", whiistle: @reply, current_user_presenter: @current_user_presenter ) %>
   <% end %>
 
   <%= turbo_stream.update modal_body_target do %>
@@ -18,4 +18,4 @@
 
 <% end %>
 
-<%= render Streams::UpdateFlashes::Component.new(notice: notice, alert: alert) %>
+<%= render component("streams/update_flashes", notice: notice, alert: alert) %>

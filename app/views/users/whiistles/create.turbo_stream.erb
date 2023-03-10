@@ -1,7 +1,7 @@
 <% if @status.success? %>
   <%= turbo_stream.update modal_body_target do %>
-    <%= render Whiistles::Whiistle::Component.new(whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+    <%= render component("whiistles/whiistle", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
   <% end %>
 <% end %>
 
-<%= render Streams::UpdateFlashes::Component.new(notice: notice, alert: alert) %>
+<%= render component("streams/update_flashes", notice: notice, alert: alert) %>

@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Whiistles::FloodWhiistleForm::Component, type: :component do
   it "renders correctly" do
     
-    render_inline(MockComponents::SimpleForm::Component.new(component_class: described_class, form_key: :main_form))
+    render_inline(component("mock_components/simple_form", component_class: described_class, form_key: :main_form))
 
     expect(rendered_content).to match_custom_snapshot
     expect(rendered_content).to include 'whiistle_floods_TEMPLATE_RECORD_body'

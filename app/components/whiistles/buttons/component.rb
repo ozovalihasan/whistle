@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Whiistles::Buttons::Component < Application::Component
-  include ApplicationHelper
   include Turbo::FramesHelper
   
   def initialize(whiistle:, current_user_presenter:)

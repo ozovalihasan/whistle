@@ -2,7 +2,8 @@
   <% user = @tab_presenter.user %>
 
   <%= 
-    render Whiistles::FormOpeningModal::Component.new(
+    render component(
+      "whiistles/form_opening_modal", 
       label: "Whiistle to #{user.fullname}", 
       value: "@#{user.username} ", 
       whiistle: @tab_presenter.new_whiistle, 
@@ -12,7 +13,7 @@
 <% end %>
 
 <% if @paginated_whiistles.record_exist? %>
-  <%= render Users::PaginatedWhiistles::Component.new(paginated_whiistles: @paginated_whiistles, current_user_presenter: @current_user_presenter) %>
+  <%= render component("users/paginated_whiistles", paginated_whiistles: @paginated_whiistles, current_user_presenter: @current_user_presenter) %>
 <% else %>
   <%= @tab_presenter.no_whiistle_info %>
 <% end %>

@@ -1,9 +1,9 @@
 <% if @whiistle.count_floods > 2 %>
-  <%= render Whiistles::FloodInfo::Component.new(whiistle: @whiistle) %>
+  <%= render component("whiistles/flood_info", whiistle: @whiistle) %>
 <% end %>
 
 <% if @whiistle.count_floods > 1 %>
-  <%= render Whiistles::Whiistle::Component.new(whiistle: @whiistle.leaf_flood.parent, current_user_presenter: @current_user_presenter) %>
+  <%= render component("whiistles/whiistle", whiistle: @whiistle.leaf_flood.parent, current_user_presenter: @current_user_presenter) %>
 <% end %>
 
-<%= render Whiistles::Whiistle::Component.new(whiistle: @whiistle.leaf_flood, current_user_presenter: @current_user_presenter) %>
+<%= render component("whiistles/whiistle", whiistle: @whiistle.leaf_flood, current_user_presenter: @current_user_presenter) %>

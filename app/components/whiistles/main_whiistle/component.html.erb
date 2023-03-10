@@ -5,25 +5,25 @@
     <div class="">
       <div class="flex">
         <div class="mr-2">
-          <%= render Users::ProfileImageButton::Component.new(user: @whiistle.user) %>
+          <%= render component("users/profile_image_button", user: @whiistle.user) %>
         </div>
-        <%= render Whiistles::UserNamesVertical::Component.new(user: @whiistle.user) %>
+        <%= render component("whiistles/user_names_vertical", user: @whiistle.user) %>
       </div>
       
       <div class="mt-4">
-        <%= render Whiistles::ReplyInfo::Component.new(whiistle: @whiistle) %>
+        <%= render component("whiistles/reply_info", whiistle: @whiistle) %>
       </div>
       
       <div class="mt-2 ">
         <div class="text-2xl my-4">
-          <%= render Whiistles::BodyAndPictures::Component.new(whiistle: @whiistle) %>
+          <%= render component("whiistles/body_and_pictures", whiistle: @whiistle) %>
         </div>
         <div>
           <%= @whiistle.created_at %>
         </div>
       </div>
       
-      <%= render Whiistles::Buttons::Component.new(whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+      <%= render component("whiistles/buttons", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
     </div>
   </div>
 </div>

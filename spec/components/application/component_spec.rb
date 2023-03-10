@@ -10,7 +10,7 @@ RSpec.describe Application::Component, type: :component do
       non_default: "non_default"
     }.freeze
     
-    application_component = Application::Component.new
+    application_component = component("application")
 
     expect(application_component.send(:filter_attribute, nil, VARIANT_VALUES.keys)).to eq(nil)
     expect(application_component.send(:filter_attribute, :default, VARIANT_VALUES.keys, default: :default)).to eq(:default)

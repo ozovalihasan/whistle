@@ -8,6 +8,9 @@ RSpec.configure do |config|
   config.include Helpers::Components, type: :component
   config.include Helpers::Components, type: :view
 
+  config.include ApplicationHelper, type: :component
+  config.include ApplicationHelper, type: :view
+
   config.before(:each, type: :component) do
     components = [ self.class.metadata[:described_class] ]
 

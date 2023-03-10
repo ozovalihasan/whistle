@@ -1,6 +1,6 @@
 <% @whiistles.each do |whiistle|  %>
 
-  <%= render Whiistles::Container::Component.new do %>
+  <%= render component("whiistles/container")do %>
     <% if whiistle.label == "primary_whiistle" && (whiistle.is_a? Reply) %>
     
       <div class="my-1">
@@ -9,12 +9,12 @@
         </i>
       </div>    
     
-      <%= render Whiistles::Whiistle::Component.new(whiistle: whiistle.whiistle, current_user_presenter: @current_user_presenter) %>
-      <%= render Whiistles::Whiistle::Component.new(whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
+      <%= render component("whiistles/whiistle", whiistle: whiistle.whiistle, current_user_presenter: @current_user_presenter) %>
+      <%= render component("whiistles/whiistle", whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
 
     <% else %>
 
-      <%= render Whiistles::WhiistleWithFloodInfo::Component.new(whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
+      <%= render component("whiistles/whiistle_with_flood_info", whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
     <% end %>
   <% end %>
   

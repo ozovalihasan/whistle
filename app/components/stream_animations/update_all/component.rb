@@ -7,7 +7,7 @@ class StreamAnimations::UpdateAll::Component < Application::Component
   end
 
   def call
-    render StreamAnimations::Base::Component.new(action: "update", targets: @targets, **@arguments) do
+    render component("stream_animations/base", action: "update", targets: @targets, **@arguments) do
       content
     end
   end

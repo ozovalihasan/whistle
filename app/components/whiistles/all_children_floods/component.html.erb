@@ -1,7 +1,7 @@
 <div class="pl-2 pt-1">
-  <%= render Whiistles::Whiistle::Component.new(whiistle: @flood, current_user_presenter: @current_user_presenter) %>
+  <%= render component("whiistles/whiistle", whiistle: @flood, current_user_presenter: @current_user_presenter) %>
 </div>
 
 <% if @flood.flood.present? %>
-  <%= render Whiistles::AllChildrenFloods::Component.new(flood: @flood.flood, current_user_presenter: @current_user_presenter) %>
+  <%= render component("whiistles/all_children_floods", flood: @flood.flood, current_user_presenter: @current_user_presenter) %>
 <% end %>
