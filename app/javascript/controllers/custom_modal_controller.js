@@ -5,7 +5,7 @@ export default class extends Modal {
   
   openAndVisit(e) {
     this.open(e)
-    Turbo.visit(e.currentTarget.href || e.currentTarget.dataset.path, { frame: "modal_body" });
+    Turbo.visit(e.currentTarget.href || e.currentTarget.dataset.modalPath, { frame: "modal_body" });
     this._removeAllChildren(this.frameTarget)  
     this.frameTarget.appendChild(this.loadingTarget.content.cloneNode(true));
   }

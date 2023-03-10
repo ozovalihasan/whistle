@@ -1,5 +1,12 @@
-  <%= link_to @path, data: {turbo_frame: modal_body_target, modal_target: "defaultAnchor"}  do %>
-    <%= simple_form_for @whiistle, url: "", html: { class: "w-full" } do |f| %>
-      <%= render component("whiistles/form_body", form: f, label: @label, value: @value, open_modal: true, path: @path) %>
-    <% end %>    
-  <% end %>
+<%= 
+  render component(
+    "whiistles/form", 
+    form_url: "", 
+    whiistle: @whiistle, 
+    label: @label, 
+    current_user_presenter: @current_user_presenter, 
+    value: @value, 
+    open_modal: true, 
+    modal_path: @path
+  ) 
+%>

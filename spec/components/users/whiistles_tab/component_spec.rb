@@ -49,7 +49,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
       expect(rendered_content).to match_custom_snapshot("with_whiistle_form")
-      expect(rendered_content).to include("Whiistles::FormOpeningModal::Component(label: String, value: String, whiistle: Whiistle, path: String)")
+      expect(rendered_content).to include("Whiistles::FormOpeningModal::Component(label: String, value: String, whiistle: Whiistle, path: String, current_user_presenter: CurrentUserPresenter)")
     end
   end
 

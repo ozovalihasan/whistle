@@ -1,3 +1,3 @@
-<form class="simple_form self-center my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 w-96 new_whiistle" id="new_whiistle" enctype="multipart/form-data" action="/whiistles" accept-charset="UTF-8" method="post">
+<form class="simple_form my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_whiistle" id="new_whiistle" enctype="multipart/form-data" action="/whiistles" accept-charset="UTF-8" method="post">
 <label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_pictures">
 </label><div class="flex flex-col file optional whiistle_pictures"><label class="hidden file optional" for="whiistle_pictures">Pictures</label><input name="whiistle[pictures][]" type="hidden" value="" autocomplete="off" /><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[pictures][]" id="whiistle_pictures" /></div></form>

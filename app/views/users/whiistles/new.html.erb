@@ -5,6 +5,7 @@
       form_url: user_whiistles_url(current_user), 
       whiistle: @whiistle,
       label: "Whiistle to #{@user.fullname}", 
+      current_user_presenter: @current_user_presenter,
       value: "@#{@user.username} "
     ) 
   %>

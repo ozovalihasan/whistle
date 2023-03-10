@@ -1,4 +1,6 @@
 class CurrentUserPresenter
+  attr_reader :current_user
+  
   def initialize(current_user)
     @current_user = current_user
     @likes = current_user.likes.to_h {|like| [like.whiistle_id, like]}

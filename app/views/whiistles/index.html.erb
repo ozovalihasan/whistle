@@ -1,9 +1,9 @@
 <div class='flex grow'>
     <div class='p-4 w-2/3'>
 
-        <%= render component("whiistles/form_opening_modal", label: "Whiistle something", whiistle: @whiistle, path: new_whiistle_path) %>
+        <%= render component("whiistles/form_opening_modal", label: "Whiistle something", whiistle: @whiistle, path: new_whiistle_path, current_user_presenter: @current_user_presenter) %>
         
-        <div class="p-4 mt-4 ">
+        <div class="p-4 mt-4">
             <%= render component("whiistles/whiistles_counter", whiistles_count: @paginated_whiistles.count) %>
 
 

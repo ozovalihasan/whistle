@@ -4,6 +4,7 @@ class WhiistlesController < ApplicationController
 
   def new
     @whiistle = Whiistle.new
+    @current_user_presenter = CurrentUserPresenter.new(current_user)
   end
   
   def show

@@ -7,7 +7,8 @@
       label: "Whiistle to #{user.fullname}", 
       value: "@#{user.username} ", 
       whiistle: @tab_presenter.new_whiistle, 
-      path: new_user_whiistle_path(user)
+      path: new_user_whiistle_path(user),
+      current_user_presenter: @current_user_presenter
     ) 
   %>
 <% end %>

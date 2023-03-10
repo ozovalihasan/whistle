@@ -1,4 +1,4 @@
-<%= simple_form_for resource, url: registration_path(resource_name) do |f| %>
+<%= simple_form_for resource, url: registration_path(resource_name), html: { class: "w-96 self-items mx-auto mt-8" } do |f| %>
   <h2 class="text-center pb-8">Edit <%= resource_name.to_s.humanize %></h2>
   
   <%= render "devise/shared/error_messages", resource: resource %>
