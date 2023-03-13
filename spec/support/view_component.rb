@@ -23,4 +23,16 @@ RSpec.configure do |config|
     )
   end
 
+  config.before(:each, type: :view) do
+    components = [ self.class.metadata[:described_class] ]
+
+    if defined?(allowed_components)
+      components.concat allowed_components
+    end
+
+    mock_components(
+      components
+    )
+  end
+
 end
