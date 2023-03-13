@@ -3,7 +3,29 @@ require 'rails_helper'
 RSpec.describe "users/medias/index.turbo_stream", type: :view do
   
   describe "renders the index(turbo_stream) view of Users::MediasController" do
-    # TODO: Add tests
+
+    let(:current_user_presenter) do
+      cur_user = FactoryBot.create(:mock_user)
+      CurrentUserPresenter.new(cur_user)
+    end
+
+    it "renders correctly" do
+      FactoryBot.create(:mock_user)
+      FactoryBot.create_pair(:mock_whiistle, user: User.first)
+      
+      paginated_whiistles = PaginateWhiistles.new(Whiistle.all, 1, nil)
+      paginated_whiistles.set_basic
+
+      assign(:paginated_whiistles, paginated_whiistles)
+      assign(:current_user_presenter, current_user_presenter)
+
+      render
+
+      expect(rendered).to match_snapshot('index_turbo_stream')
+      expect(rendered).to include('turbo-stream action="append" target="pagination-body"')
+      expect(rendered).to include('Whiistles::ListWhiistles::Component(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)')
+
+    end
   end
 
 end
