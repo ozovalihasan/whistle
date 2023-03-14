@@ -3,7 +3,9 @@ class Users::TabsController < ApplicationController
   before_action :set_user
 
   def index
-    @sidebar_right_presenter = SidebarRightPresenter.new(@user, current_user)
+    unless request.format.turbo_stream?
+      @sidebar_right_presenter = SidebarRightPresenter.new(@user, current_user)
+    end
   end
 
   private 
