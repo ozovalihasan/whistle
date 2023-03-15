@@ -17,9 +17,9 @@ RSpec.describe "users/liked_whiistles/index.turbo_stream", type: :view do
       end
 
       all_whiistles = BaseWhiistle.all
-      paginated_whiistles = PaginateWhiistles.new(all_whiistles, 1, user_liked_whiistles_url(user))
-      paginated_whiistles.set_basic
-      assign(:paginated_whiistles, paginated_whiistles)
+      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, user_liked_whiistles_url(user))
+      paginate_whiistles.set_basic
+      assign(:paginate_whiistles, paginate_whiistles)
 
       relation = nil
       assign(:relation, relation)

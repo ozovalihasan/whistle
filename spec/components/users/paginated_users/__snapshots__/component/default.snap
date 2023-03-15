@@ -1,2 +1,0 @@
-Shared::InfiniteScroll::Component(paginated_records: ActiveRecord::Relation)
-  Shared::InfiniteScrollUsers::Component(paginated_users: ActiveRecord::Relation)

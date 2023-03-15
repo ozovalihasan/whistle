@@ -16,15 +16,15 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
       page = 1
       url = "mock_url"
       original_records = User.all.limit(2)
-      paginated_users = PaginateUsers.new(original_records, page, url, cur_user)
+      paginate_users = PaginateUsers.new(original_records, page, url, cur_user)
         
-      tab_presenter = UsersTabPresenter.new(user, :followers, paginated_users)
+      tab_presenter = UsersTabPresenter.new(user, :followers, paginate_users)
 
       
       render_inline(described_class.new(tab_presenter: tab_presenter))
 
       expect(rendered_content).to match_custom_snapshot('not_empty_users')  
-      expect(rendered_content).to include "Users::PaginatedUsers::Component(paginated_users: PaginateUsers)"
+      expect(rendered_content).to include "Users::PaginateUsers::Component(paginate_users: PaginateUsers)"
     end
   end
 
@@ -37,8 +37,8 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
       page = 1
       url = "mock_url"
       original_empty_records = User.where(id: -1)
-      paginated_users = PaginateUsers.new(original_empty_records, page, url, cur_user)
-      tab_presenter = UsersTabPresenter.new(user, :followers, paginated_users)
+      paginate_users = PaginateUsers.new(original_empty_records, page, url, cur_user)
+      tab_presenter = UsersTabPresenter.new(user, :followers, paginate_users)
 
       render_inline(described_class.new(tab_presenter: tab_presenter))
 

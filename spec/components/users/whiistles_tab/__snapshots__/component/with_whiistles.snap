@@ -1,4 +1,4 @@
 
-  Whiistles::FormOpeningModal::Component(label: String, value: String, whiistle: Whiistle, path: String, current_user_presenter: CurrentUserPresenter)
+  Whiistles::FormOpeningModal::Component(label: String, whiistle: Whiistle, path: String, current_user_presenter: CurrentUserPresenter, value: String)
 
-  Users::PaginatedWhiistles::Component(paginated_whiistles: PaginateWhiistles, current_user_presenter: CurrentUserPresenter)
+  Users::PaginateWhiistles::Component(paginate_whiistles: PaginateWhiistles)

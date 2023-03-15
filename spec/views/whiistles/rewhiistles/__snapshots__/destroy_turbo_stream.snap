@@ -1,13 +1,7 @@
-<turbo-stream action="update" target="rewhiistle_button_whiistle_1"><template>
-  <form class="button_to" method="post" action="/whiistles/1/rewhiistle"><button type="submit">
-  <i class="bi bi-repeat">Rewhiistle</i>
-</button></form>
+<turbo-stream action="update" targets=".rewhiistle_button_whiistle_1"><template>
+  Whiistles::CreateRewhiistleButton::Component(whiistle: Whiistle)
 </template></turbo-stream>
-<turbo-stream action="update" target="rewhiistle_or_quote_button_whiistle_1"><template>
-    Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)
-</template></turbo-stream>
-<turbo-stream action="update" target="flashes"><template>
-    <p class="flash alert-success" >The rewhiistle is destroyed</p>
+StreamAnimations::UpdateAll::Component(targets: String)
+  Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)
 
-    
-</template></turbo-stream>
+Streams::UpdateFlashes::Component(notice: String, alert: NilClass)

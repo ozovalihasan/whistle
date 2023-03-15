@@ -12,9 +12,9 @@ RSpec.describe "users/whiistles/index.turbo_stream", type: :view do
     
       all_whiistles = Whiistle.all
       
-      paginated_whiistles = PaginateWhiistles.new(all_whiistles, 1, '')
-      paginated_whiistles.set_connected
-      assign(:paginated_whiistles, paginated_whiistles)
+      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, '')
+      paginate_whiistles.set_connected
+      assign(:paginate_whiistles, paginate_whiistles)
 
       assign(:current_user_presenter, current_user_presenter)
 

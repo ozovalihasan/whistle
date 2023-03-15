@@ -1,0 +1,3 @@
+<turbo-frame id="modal_body">
+  Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, current_user_presenter: CurrentUserPresenter, value: String)
+</turbo-frame>

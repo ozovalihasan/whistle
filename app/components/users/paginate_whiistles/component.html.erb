@@ -1,0 +1,4 @@
+<%= render component("shared/infinite_scroll", paginate_records: @paginate_whiistles) do %>
+  <%= render component("whiistles/whiistles_counter", whiistles_count: @paginate_whiistles.count) %>
+  <%= render @paginate_whiistles.component_class.new paginate_whiistles: @paginate_whiistles %>
+<% end %>

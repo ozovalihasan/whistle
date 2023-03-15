@@ -14,6 +14,6 @@ RSpec.describe Whiistles::QuotedWhiistleButton::Component, type: :component do
     expect(rendered_content).to match "Quoted Whiistle"
     expect(rendered_content).to match /data-turbo-frame="quoting_whiistle_whiistle_\d+/
     expect(rendered_content).to match /href="\/whiistles\/\d+\/quoted_whiistle\/new"/
-    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component()"
   end
 end

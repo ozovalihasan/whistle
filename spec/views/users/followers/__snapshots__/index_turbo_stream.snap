@@ -1,38 +1,3 @@
 <turbo-stream action="append" target="pagination-body"><template>
-  <div class="flex w-full">
-  <a class="hover-image" href="/users/1/whiistles">
-    <div class="px-4 py-2 flex w-full">
-      <img class="" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
-      <div class="pl-2 flex flex-col self-center">
-        <div class="text-ellipsis">
-          mock_fullname_1
-        </div>
-        <div class=" text-ellipsis">
-          @mock_username_1
-        </div>
-      </div>
-    </div>
-</a>  
-</div><div class="flex w-full">
-  <a class="hover-image" href="/users/2/whiistles">
-    <div class="px-4 py-2 flex w-full">
-      <img class="" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50" />
-      <div class="pl-2 flex flex-col self-center">
-        <div class="text-ellipsis">
-          mock_fullname_2
-        </div>
-        <div class=" text-ellipsis">
-          @mock_username_2
-        </div>
-      </div>
-    </div>
-</a>  
-    <div class="ml-auto mr-2 my-2 justify-content-center flex" >
-  <div class=relation_user_2>
-    <form class="button_to" method="post" action="/relations?relation%5Bfollowed_id%5D=2"><button type="submit">Follow</button></form>
-  </div>
-</div>
-
-
-</div>
+  Shared::ListUsers::Component(paginate_users: PaginateUsers)
 </template></turbo-stream>

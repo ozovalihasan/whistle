@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Users::PaginatedUsers::Component, type: :component do
+RSpec.describe Users::PaginateUsers::Component, type: :component do
   it "renders correctly" do
 
     FactoryBot.create_list(:mock_user, 3)
@@ -11,12 +11,12 @@ RSpec.describe Users::PaginatedUsers::Component, type: :component do
     page = 1
     url = "mock_url"
     original_records = User.all.limit(2)
-    paginated_users = PaginateUsers.new(original_records, page, url, cur_user)
+    paginate_users = PaginateUsers.new(original_records, page, url, cur_user)
       
-    render_inline(described_class.new(paginated_users: User.all.limit(1)))
+    render_inline(described_class.new(paginate_users: User.all.limit(1)))
 
     expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to match "Shared::InfiniteScroll::Component"
-    expect(rendered_content).to match "Shared::InfiniteScrollUsers::Component"
+    expect(rendered_content).to match "Shared::ListUsers::Component"
   end
 end

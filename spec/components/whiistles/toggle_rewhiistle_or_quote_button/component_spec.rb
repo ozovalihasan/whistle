@@ -29,7 +29,7 @@ RSpec.describe Whiistles::ToggleRewhiistleOrQuoteButton::Component, type: :compo
     expect(rendered_content).to include("click->dropdown#toggle").exactly(2).times
     expect(rendered_content).to include "click@window->dropdown#hide"
     expect(rendered_content).to match /rewhiistle_or_quote_button_whiistle_\d+/
-    expect(rendered_content).to include "Whiistles::ButtonContainer::Component"
+    expect(rendered_content).to include "Whiistles::ButtonContainer::Component()"
     
   end
 

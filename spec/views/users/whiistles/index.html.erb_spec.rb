@@ -8,22 +8,21 @@ RSpec.describe "users/whiistles/index", type: :view do
       FactoryBot.create(:mock_user)
     }
 
-    let(:current_user_presenter) { 
-      cur_user = FactoryBot.create(:mock_user)
-      CurrentUserPresenter.new(cur_user)
+    let(:cur_user) { 
+       FactoryBot.create(:mock_user)
     }
   
     it "renders correctly" do
     
       all_whiistles = Whiistle.all
-      paginated_whiistles = PaginateWhiistles.new(all_whiistles, 1, '')
+      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, '', cur_user)
 
       whiistle = Whiistle.new
 
-      tab_presenter = WhiistlesTabPresenter.new(user, :mock_name, paginated_whiistles, current_user_presenter, whiistle)
+      tab_presenter = WhiistlesTabPresenter.new(user, :mock_name, paginate_whiistles, whiistle)
       assign(:tab_presenter, tab_presenter)
 
-      sidebar_right_presenter = SidebarRightPresenter.new(user, current_user_presenter.current_user)
+      sidebar_right_presenter = SidebarRightPresenter.new(user, cur_user)
       assign(:sidebar_right_presenter, sidebar_right_presenter)
 
       render

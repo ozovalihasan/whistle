@@ -1,11 +1,4 @@
-  <turbo-stream action="update" target="like_button_whiistle_1"><template>
-    <form class="button_to" method="post" action="/whiistles/1/likes/1"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button class="p-2" type="submit">
-      <i class="bi bi-heart-fill text-second ">
-        <span>1</span> 
-      </i>
-</button></form></template></turbo-stream>
-<turbo-stream action="update" target="flashes"><template>
-    <p class="flash alert-success" >The like is saved</p>
+  StreamAnimations::UpdateAll::Component(targets: String)
+    Whiistles::DestroyLikeButton::Component(like: Like)
 
-    
-</template></turbo-stream>
+Streams::UpdateFlashes::Component(notice: String, alert: NilClass)

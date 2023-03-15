@@ -1,14 +1,14 @@
 <div class='flex grow'>
     <div class='p-4 w-2/3'>
 
-        <%= render component("whiistles/form_opening_modal", label: "Whiistle something", whiistle: @whiistle, path: new_whiistle_path, current_user_presenter: @current_user_presenter) %>
+        <%= render component("whiistles/form_opening_modal", label: "Whiistle something", whiistle: @whiistle, path: new_whiistle_path, cur_user: current_user) %>
         
         <div class="p-4 mt-4">
-            <%= render component("whiistles/whiistles_counter", whiistles_count: @paginated_whiistles.count) %>
+            <%= render component("whiistles/whiistles_counter", whiistles_count: @paginate_whiistles.count) %>
 
 
-            <%= render component("shared/infinite_scroll", paginated_records: @paginated_whiistles) do %>
-                <%= render @paginated_whiistles.component_class.new whiistles: @paginated_whiistles.records, current_user_presenter: @current_user_presenter %>
+            <%= render component("shared/infinite_scroll", paginate_records: @paginate_whiistles) do %>
+                <%= render @paginate_whiistles.component_class.new paginate_whiistles: @paginate_whiistles %>
             <% end %>
         </div>
     </div>

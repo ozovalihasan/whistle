@@ -6,7 +6,7 @@ class Users::Tabs::Component < Application::Component
   
   def initialize(tab_presenter:, sidebar_right_presenter:)
     @tab_presenter = tab_presenter
-    @paginated_records = tab_presenter.paginated_records
+    @paginate_records = tab_presenter.paginate_records
     @user = tab_presenter.user
     @selected_tab = tab_presenter.name
 
@@ -14,12 +14,12 @@ class Users::Tabs::Component < Application::Component
   end
 
   def tab_body
-    if @paginated_records.class == PaginateWhiistles
+    if @paginate_records.class == PaginateWhiistles
       component(
         "users/whiistles_tab", 
         tab_presenter: @tab_presenter
       ) 
-    elsif @paginated_records.class == PaginateUsers
+    elsif @paginate_records.class == PaginateUsers
       component(
         "users/users_having_relations", 
         tab_presenter: @tab_presenter

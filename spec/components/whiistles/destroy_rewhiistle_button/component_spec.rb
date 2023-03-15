@@ -16,6 +16,6 @@ RSpec.describe Whiistles::DestroyRewhiistleButton::Component, type: :component d
     expect(rendered_content).to match /action="\/whiistles\/\d+\/rewhiistle\/\d+"/
     expect(rendered_content).to include 'value="delete"'
     expect(rendered_content).to include 'Cancel rewhiistle'
-    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component(active: TrueClass)"
   end
 end

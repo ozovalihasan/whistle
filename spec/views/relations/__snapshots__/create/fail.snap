@@ -1,9 +1,3 @@
 
 
-
-
-<turbo-stream action="update" target="flashes"><template>
-    
-    <p class="flash alert-warning">The relation is not saved</p>
-
-</template></turbo-stream>
+Streams::UpdateFlashes::Component(notice: NilClass, alert: String)

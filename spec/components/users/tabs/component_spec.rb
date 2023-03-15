@@ -23,10 +23,9 @@ RSpec.describe Users::Tabs::Component, type: :component do
   context "if the tab shows whiistles" do
     it "renders correctly" do
       
-      paginated_whiistles = PaginateWhiistles.new(Whiistle.all, 1, "mock_url")
-      current_user_presenter = CurrentUserPresenter.new(cur_user)
+      paginate_whiistles = PaginateWhiistles.new(Whiistle.all, 1, "mock_url", cur_user)
 
-      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginated_whiistles, current_user_presenter, Whiistle.new)
+      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginate_whiistles, Whiistle.new)
       sidebar_right_presenter = SidebarRightPresenter.new(user, cur_user)
       
       render_inline(described_class.new(
@@ -43,8 +42,8 @@ RSpec.describe Users::Tabs::Component, type: :component do
   context "if the tab shows users" do
     it "renders correctly" do
       
-      paginated_users = PaginateUsers.new(User.all.limit(0), 1, "mock_url", cur_user)
-      tab_presenter = UsersTabPresenter.new(user, :followers, paginated_users)
+      paginate_users = PaginateUsers.new(User.all.limit(0), 1, "mock_url", cur_user)
+      tab_presenter = UsersTabPresenter.new(user, :followers, paginate_users)
       
       sidebar_right_presenter = SidebarRightPresenter.new(user, cur_user)
       

@@ -13,10 +13,10 @@ RSpec.describe "users/medias/index.turbo_stream", type: :view do
       FactoryBot.create(:mock_user)
       FactoryBot.create_pair(:mock_whiistle, user: User.first)
       
-      paginated_whiistles = PaginateWhiistles.new(Whiistle.all, 1, nil)
-      paginated_whiistles.set_basic
+      paginate_whiistles = PaginateWhiistles.new(Whiistle.all, 1, nil)
+      paginate_whiistles.set_basic
 
-      assign(:paginated_whiistles, paginated_whiistles)
+      assign(:paginate_whiistles, paginate_whiistles)
       assign(:current_user_presenter, current_user_presenter)
 
       render

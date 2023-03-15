@@ -5,7 +5,7 @@
       <ul class="list-reset border-b" data-flood-target="add_item">
         <div class="flex ">
           <div class="m-2 shrink-0">
-            <%= render component("users/profile_image", user: @current_user_presenter.current_user) %>
+            <%= render component("users/profile_image", user: @user) %>
           </div>
           
           <div class="mt-4 shrink w-full">
@@ -29,7 +29,7 @@
                       <template data-flood-target='template'>
                         <div class="flex">
                           <div class="m-2 shrink-0">
-                            <%= render component("users/profile_image", user: @current_user_presenter.current_user) %>
+                            <%= render component("users/profile_image", user: @user) %>
                           </div>
                           <div class="mt-4">
                             <%= render component("whiistles/flood_whiistle_form", main_form: form) %>

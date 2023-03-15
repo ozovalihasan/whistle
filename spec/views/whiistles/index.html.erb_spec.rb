@@ -25,9 +25,9 @@ RSpec.describe "whiistles/index", type: :view do
       end
 
       all_whiistles = user.main_page_whiistles
-      paginated_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], whiistles_url)
-      paginated_whiistles.set_for_whiistles_index_page
-      assign(:paginated_whiistles, paginated_whiistles)
+      paginate_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], whiistles_url)
+      paginate_whiistles.set_for_whiistles_index_page
+      assign(:paginate_whiistles, paginate_whiistles)
 
       whiistle = Whiistle.new
       assign(:whiistle, whiistle)

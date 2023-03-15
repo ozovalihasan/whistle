@@ -4,9 +4,7 @@
 </template></turbo-stream>
 
     <turbo-stream action="update" target="create_delete_relation_user_2"><template>
-        <form class="button_to" method="post" action="/relations/1"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button type="submit">
-    <i class="bi bi-x"></i>
-</button></form>
+        Users::DeleteFollowing::Component(relation: Relation)
 </template></turbo-stream>
     <turbo-stream action="update" target="left_side_followings_count_user_1"><template>
         1
@@ -14,10 +12,4 @@
     <turbo-stream action="update" target="followers_count_user_2"><template>
         1
 </template></turbo-stream>
-
-
-<turbo-stream action="update" target="flashes"><template>
-    <p class="flash alert-success" >The relation is saved</p>
-
-    
-</template></turbo-stream>
+Streams::UpdateFlashes::Component(notice: String, alert: NilClass)

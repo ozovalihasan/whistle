@@ -1,9 +1,9 @@
 class TabPresenter
-  attr_reader :user, :name, :paginated_records
+  attr_reader :user, :name, :paginate_records
 
-  def initialize(user, name, paginated_records)
+  def initialize(user, name, paginate_records)
     @user = user
     @name = name
-    @paginated_records = paginated_records
+    @paginate_records = paginate_records
   end
 end

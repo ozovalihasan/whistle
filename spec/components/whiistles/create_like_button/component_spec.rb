@@ -14,7 +14,7 @@ RSpec.describe Whiistles::CreateLikeButton::Component, type: :component do
     expect(rendered_content).to match /form.*method="post".*action="\/whiistles\/\d+\/likes"/
     expect(rendered_content).to include "bi-heart"
     expect(rendered_content).to include "<span>2</span>"
-    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component()"
     
   end
 end

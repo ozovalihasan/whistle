@@ -17,8 +17,8 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
 
       expect(rendered_content).to match_custom_snapshot('with_default_arguments')  
       expect(rendered_content).to include "mock_body_whiistle"
-      expect(rendered_content).to include "Whiistles::Pictures::Component"
-      expect(rendered_content).to include "Whiistles::QuotedWhiistle::Component"
+      expect(rendered_content).to include "Whiistles::Pictures::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include "Whiistles::QuotedWhiistle::Component(whiistle: Whiistle)"
     end
   end
 

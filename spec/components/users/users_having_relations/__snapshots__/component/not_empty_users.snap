@@ -1,1 +1,1 @@
-  Users::PaginatedUsers::Component(paginated_users: PaginateUsers)
+  Users::PaginateUsers::Component(paginate_users: PaginateUsers)

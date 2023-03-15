@@ -22,9 +22,9 @@ RSpec.describe "users/medias/index", type: :view do
       end
 
       all_whiistles = user2.whiistles.joins(:pictures_attachments).distinct.descending_order
-      paginated_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], whiistles_url)
-      paginated_whiistles.set_basic
-      assign(:paginated_whiistles, paginated_whiistles)
+      paginate_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], whiistles_url)
+      paginate_whiistles.set_basic
+      assign(:paginate_whiistles, paginate_whiistles)
 
       suggested_users = user.suggested_users
       assign(:suggested_users, suggested_users)

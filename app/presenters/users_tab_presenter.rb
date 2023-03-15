@@ -1,7 +1,7 @@
 class UsersTabPresenter < TabPresenter
   
-  def initialize(user, name, paginated_records)
-    super(user, name, paginated_records)
+  def initialize(user, name, paginate_records)
+    super(user, name, paginate_records)
   end
 
   def no_user_info

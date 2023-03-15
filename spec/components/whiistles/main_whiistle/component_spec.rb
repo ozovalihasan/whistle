@@ -17,10 +17,10 @@ RSpec.describe Whiistles::MainWhiistle::Component, type: :component do
     render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
     expect(rendered_content).to match_custom_snapshot
-    expect(rendered_content).to include "Users::ProfileImageButton::Component"
-    expect(rendered_content).to include "Whiistles::UserNamesVertical::Component"
-    expect(rendered_content).to include "Whiistles::ReplyInfo::Component"
-    expect(rendered_content).to include "Whiistles::BodyAndPictures::Component"
-    expect(rendered_content).to include "Whiistles::Buttons::Component"
+    expect(rendered_content).to include "Users::ProfileImageButton::Component(user: User)"
+    expect(rendered_content).to include "Whiistles::UserNamesVertical::Component(user: User)"
+    expect(rendered_content).to include "Whiistles::ReplyInfo::Component(whiistle: Whiistle)"
+    expect(rendered_content).to include "Whiistles::BodyAndPictures::Component(whiistle: Whiistle)"
+    expect(rendered_content).to include "Whiistles::Buttons::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
   end
 end

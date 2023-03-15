@@ -16,7 +16,7 @@ RSpec.describe Whiistles::ReplyButton::Component, type: :component do
     expect(rendered_content).to include "modal#openAndVisit"
     expect(rendered_content).to match /<a (.|\n)*1(.|\n)*<\/a>/
     expect(rendered_content).to match /reply_counter_whiistle_\d+/
-    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
-    expect(rendered_content).to include "Whiistles::ButtonContainer::Component"
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component()"
+    expect(rendered_content).to include "Whiistles::ButtonContainer::Component()"
   end
 end

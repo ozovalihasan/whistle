@@ -14,13 +14,13 @@ RSpec.describe Whiistles::Whiistle::Component, type: :component do
   }
   
   let(:expect_mandatory_components) {
-    expect(rendered_content).to include "Whiistles::RewhiistleInfo::Component"
-    expect(rendered_content).to include "Whiistles::LikeInfo::Component"
-    expect(rendered_content).to include "Users::ProfileImageButton::Component"
-    expect(rendered_content).to include "Whiistles::UserNamesWithTimestamp::Component"
-    expect(rendered_content).to include "Whiistles::ReplyInfo::Component"
-    expect(rendered_content).to include "Whiistles::BodyAndPictures::Component"
-    expect(rendered_content).to include "Whiistles::Buttons::Component"
+    expect(rendered_content).to include "Whiistles::RewhiistleInfo::Component(whiistle: Whiistle)"
+    expect(rendered_content).to include "Whiistles::LikeInfo::Component(whiistle: Whiistle)"
+    expect(rendered_content).to include "Users::ProfileImageButton::Component(user: User)"
+    expect(rendered_content).to include "Whiistles::UserNamesWithTimestamp::Component(whiistle: Whiistle)"
+    expect(rendered_content).to include "Whiistles::ReplyInfo::Component(whiistle: Whiistle)"
+    expect(rendered_content).to include "Whiistles::BodyAndPictures::Component(whiistle: Whiistle)"
+    expect(rendered_content).to include "Whiistles::Buttons::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
   }
   
   context "if it is not necessary to show the flood info" do
@@ -39,7 +39,7 @@ RSpec.describe Whiistles::Whiistle::Component, type: :component do
 
       expect(rendered_content).to match_custom_snapshot("with_flood_info")  
       expect_mandatory_components
-      expect(rendered_content).to include "Whiistles::FloodInfo::Component"
+      expect(rendered_content).to include "Whiistles::FloodInfo::Component(whiistle: Whiistle)"
     end
   end
 end

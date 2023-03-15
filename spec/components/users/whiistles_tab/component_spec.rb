@@ -7,13 +7,12 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
     FactoryBot.create(:mock_user)
   end
 
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(cur_user)
+  let(:cur_user) do
+    FactoryBot.create(:mock_user)
   end
 
-  let(:paginated_whiistles) do
-     PaginateWhiistles.new(Whiistle.all, 1, "mock_url")
+  let(:paginate_whiistles) do
+     PaginateWhiistles.new(Whiistle.all, 1, "mock_url", cur_user)
   end
   
   context "if there is a whiistle to show" do
@@ -22,18 +21,18 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
       user
       FactoryBot.create(:mock_whiistle)
 
-      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginated_whiistles, current_user_presenter, Whiistle.new)
+      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginate_whiistles, Whiistle.new)
       
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
       expect(rendered_content).to match_custom_snapshot("with_whiistles")
-      expect(rendered_content).to include("Users::PaginatedWhiistles::Component(paginated_whiistles: PaginateWhiistles, current_user_presenter: CurrentUserPresenter)")
+      expect(rendered_content).to include("Users::PaginateWhiistles::Component(paginate_whiistles: PaginateWhiistles)")
     end
   end
 
   context "if there is no any whiistle to show" do
     it "renders correctly" do
-      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginated_whiistles, current_user_presenter, Whiistle.new)
+      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginate_whiistles, Whiistle.new)
       
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
@@ -44,23 +43,23 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
 
   context "if there is a form for a new whiistle" do
     it "renders correctly" do
-      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginated_whiistles, current_user_presenter, Whiistle.new)
+      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginate_whiistles, Whiistle.new)
       
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
       expect(rendered_content).to match_custom_snapshot("with_whiistle_form")
-      expect(rendered_content).to include("Whiistles::FormOpeningModal::Component(label: String, value: String, whiistle: Whiistle, path: String, current_user_presenter: CurrentUserPresenter)")
+      expect(rendered_content).to include("Whiistles::FormOpeningModal::Component(label: String, whiistle: Whiistle, path: String, current_user_presenter: CurrentUserPresenter, value: String)")
     end
   end
 
   context "if there isn't any form for a new whiistle" do
     it "renders correctly" do
-      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginated_whiistles, current_user_presenter)
+      tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginate_whiistles)
       
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
       expect(rendered_content).to match_custom_snapshot("without_whiistle_form")
-      expect(rendered_content).not_to include("Whiistles::FormOpeningModal::Component(label: String, value: String, whiistle: Whiistle, path: String)")
+      expect(rendered_content).not_to include("Whiistles::FormOpeningModal::Component")
     end
   end
 

@@ -4,12 +4,13 @@ RSpec.describe "users/liked_whiistles/index", type: :view do
   
   describe "renders the index(html) view of Users::LikedWhiistlesController" do
 
+
     it "renders correctly" do
       FactoryBot.reload
-      FactoryBot.create(:mock_user)
+      FactoryBot.create_pair(:mock_user)
       user = User.first
       assign(:user, user)
-      user2 = User.last
+      cur_user = User.last
 
       travel_to(Time.new(2001, 1, 1, 1, 1, 1)) do
         FactoryBot.create_list(:mock_whiistle, 2, user: user)
@@ -17,14 +18,14 @@ RSpec.describe "users/liked_whiistles/index", type: :view do
       end
 
       all_whiistles = user.liked_whiistles.includes(user:  [{ profile_picture_attachment: :blob }])
-      paginated_whiistles = PaginateWhiistles.new(all_whiistles, nil, user_liked_whiistles_url(user))
-      paginated_whiistles.set_basic
-      assign(:paginated_whiistles, paginated_whiistles)
+      paginate_whiistles = PaginateWhiistles.new(all_whiistles, nil, user_liked_whiistles_url(user), cur_user)
+      paginate_whiistles.set_basic
+      assign(:paginate_whiistles, paginate_whiistles)
 
       relation = nil
       assign(:relation, relation)
 
-      sign_in user2      
+      sign_in cur_user      
 
       travel_to(Time.new(2001, 1, 1, 1, 1, 1)) do
         render

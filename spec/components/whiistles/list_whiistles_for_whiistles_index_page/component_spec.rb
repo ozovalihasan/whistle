@@ -12,9 +12,8 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :
     FactoryBot.create(:mock_whiistle, user: user)
   end
 
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(user)
+  let(:cur_user) do
+    FactoryBot.create(:mock_user)
   end
   
   context "if the whiistle is a reply and has a label 'primary_whiistle' " do 
@@ -24,9 +23,10 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :
       FactoryBot.create(:mock_reply, user: user)
 
       all_whiistles = Reply.select(" *, 'primary_whiistle' AS label ")
+      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, "", cur_user)
+    
+      render_inline( described_class.new( paginate_whiistles: paginate_whiistles ) )
       
-      render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
-
       expect(rendered_content).to match_custom_snapshot("with_reply")
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)"
@@ -39,8 +39,9 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :
       
       create_whiistle      
       all_whiistles = Whiistle.select(" *, '' AS label ")
-      
-      render_inline(described_class.new(whiistles: all_whiistles, current_user_presenter: current_user_presenter))
+      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, "", cur_user)
+    
+      render_inline( described_class.new( paginate_whiistles: paginate_whiistles ) )
 
       expect(rendered_content).to match_custom_snapshot("without_reply")
       expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Shared::InfiniteScroll::Component < Application::Component
-  def initialize(paginated_records:)
-    @url = paginated_records.url
-    @page = paginated_records.page
-    @last_page = paginated_records.last_page
+  def initialize(paginate_records:)
+    @url = paginate_records.url
+    @page = paginate_records.page
+    @last_page = paginate_records.last_page
   end
 end

@@ -13,6 +13,6 @@ RSpec.describe Whiistles::CreateRewhiistleOrQuoteButton::Component, type: :compo
 
     expect(rendered_content).to match_custom_snapshot  
     expect(rendered_content).to include "333"
-    expect(rendered_content).to include "Whiistles::ButtonInner::Component"
+    expect(rendered_content).to include "Whiistles::ButtonInner::Component()"
   end
 end
