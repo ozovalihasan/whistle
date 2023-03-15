@@ -23,6 +23,11 @@ class User < ApplicationRecord
   has_many :following_relations, class_name: "Relation", foreign_key: "following_id", dependent: :destroy
   has_many :followings, through: :following_relations, source: :followed
 
+  scope :with_current_user_situation, -> (cur_user) {
+    select("users.*, (CASE WHEN (cur_user_following_relations.id IS NULL) THEN false ELSE true END) AS is_followed_by_cur_user")
+    .joins("LEFT JOIN (#{cur_user.following_relations.to_sql}) AS cur_user_following_relations ON users.id = cur_user_following_relations.followed_id")
+  }
+
   def whiistles_of_whiistles_index_page(remove_replies = true)
     whiistles_shared_by_user = self.shared_whiistles
                                    .select("

@@ -26,6 +26,23 @@ RSpec.describe User, type: :model do
     it { should have_many(:followings).through(:following_relations).source(:followed) }
   end
 
+  describe 'scopes' do
+    describe 'with_current_user_situation' do
+      it 'returns a column "is_followed_by_cur_user" showing whether a user is followed by cur_user or not' do
+        user1 = FactoryBot.create(:mock_user)
+        user2 = FactoryBot.create(:mock_user)
+        user3 = FactoryBot.create(:mock_user)
+        user4 = FactoryBot.create(:mock_user)
+
+        user1.followers << user2
+        user1.followers << user3
+        user4.followings << user3
+        
+        expect(user1.followers.with_current_user_situation(user4).map(&:is_followed_by_cur_user)).to eq [false, true]
+      end
+    end
+  end
+
   describe "#whiistles_of_whiistles_index_page" do
     it "selects necessary whiistles of the user in a correct order" do  
       user = FactoryBot.create(:mock_user)
