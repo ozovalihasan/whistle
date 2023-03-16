@@ -1,6 +1,6 @@
 class PaginateWhiistles < PaginateRecords
   attr_reader :current_user_presenter
-  attr_accessor :component_class
+  attr_accessor :component_name
   
   def initialize(original_records, page, url, cur_user)
     super(original_records, page, url)
@@ -9,14 +9,14 @@ class PaginateWhiistles < PaginateRecords
   end
   
   def set_for_whiistles_index_page
-    self.component_class = Whiistles::ListWhiistlesForWhiistlesIndexPage::Component
+    self.component_name = "whiistles/list_whiistles_for_whiistles_index_page"
   end
 
   def set_basic
-    self.component_class = Whiistles::ListWhiistles::Component
+    self.component_name = "whiistles/list_whiistles"
   end
 
   def set_connected
-    self.component_class = Whiistles::ListWhiistlesWithRelatedWhiistles::Component
+    self.component_name = "whiistles/list_whiistles_with_related_whiistles"
   end
 end

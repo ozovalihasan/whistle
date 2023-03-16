@@ -8,8 +8,9 @@ RSpec.describe Whiistles::ListWhiistles::Component, type: :component do
     FactoryBot.create(:mock_user)
   end
 
-  let(:cur_user) do
-    FactoryBot.create(:mock_user)
+  let(:current_user_presenter) do
+    cur_user = FactoryBot.create(:mock_user)
+    CurrentUserPresenter.new(user)
   end
 
   it "renders correctly" do
@@ -18,9 +19,8 @@ RSpec.describe Whiistles::ListWhiistles::Component, type: :component do
     FactoryBot.create(:mock_flood, user: user)
     FactoryBot.create(:mock_reply, user: user)
 
-    paginate_whiistles = PaginateWhiistles.new(BaseWhiistle.all, 1, "", cur_user)
-    
-    render_inline( described_class.new( paginate_whiistles: paginate_whiistles ) )
+    whiistles = BaseWhiistle.all
+    render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
     expect(rendered_content).to match_custom_snapshot
     expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfo::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)"

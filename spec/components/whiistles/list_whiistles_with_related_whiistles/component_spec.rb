@@ -11,8 +11,9 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
     FactoryBot.create(:mock_whiistle, user: user)
   end
 
-  let(:cur_user) do
-    FactoryBot.create(:mock_user)
+  let(:current_user_presenter) do
+    cur_user = FactoryBot.create(:mock_user)
+    CurrentUserPresenter.new(user)
   end
   
   context "if the whiistle has a label 'shared_whiistle' " do 
@@ -20,10 +21,9 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       
       create_whiistle
 
-      all_whiistles = BaseWhiistle.select(" *, 'shared_whiistle' AS label ")
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, "", cur_user)
+      whiistles = BaseWhiistle.select(" *, 'shared_whiistle' AS label ")
 
-      render_inline(described_class.new(paginate_whiistles: paginate_whiistles))
+      render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
       expect(rendered_content).to match_custom_snapshot('with_shared_whiistle')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter, show_flood_info: TrueClass)"
@@ -36,10 +36,9 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       
       create_whiistle
 
-      all_whiistles = Whiistle.select(" *, 'primary_whiistle' AS label ")
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, "", cur_user)
+      whiistles = Whiistle.select(" *, 'primary_whiistle' AS label ")
 
-      render_inline(described_class.new(paginate_whiistles: paginate_whiistles))
+      render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
       expect(rendered_content).to match_custom_snapshot('with_primary_whiistle_and_is_a_whiistle')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
@@ -53,10 +52,9 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       create_whiistle
       FactoryBot.create(:mock_flood, user: user)
 
-      all_whiistles = Whiistle.select(" *, 'primary_whiistle' AS label ")
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, "", cur_user)
+      whiistles = Whiistle.select(" *, 'primary_whiistle' AS label ")
 
-      render_inline(described_class.new(paginate_whiistles: paginate_whiistles))
+      render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
       expect(rendered_content).to match_custom_snapshot('with_primary_whiistle_and_flood_and_is_a_whiistle')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
@@ -71,10 +69,9 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       create_whiistle
       reply = FactoryBot.create(:mock_reply, user: user)
 
-      all_whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, "", cur_user)
+      whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
 
-      render_inline(described_class.new(paginate_whiistles: paginate_whiistles))
+      render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
       expect(rendered_content).to match_custom_snapshot('with_primary_whiistle_and_2_or_more_and_is_a_reply')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
@@ -90,10 +87,9 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       FactoryBot.create(:mock_reply, user: user)
       reply = FactoryBot.create(:mock_reply, user: user)
 
-      all_whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, "", cur_user)
+      whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
 
-      render_inline(described_class.new(paginate_whiistles: paginate_whiistles))
+      render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
       expect(rendered_content).to match_custom_snapshot('with_primary_whiistle_and_3_or_more_and_is_a_reply')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
@@ -110,10 +106,9 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       FactoryBot.create(:mock_reply, user: user)
       reply = FactoryBot.create(:mock_reply, user: user)
 
-      all_whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, "", cur_user)
+      whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
 
-      render_inline(described_class.new(paginate_whiistles: paginate_whiistles))
+      render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
       expect(rendered_content).to match_custom_snapshot('with_primary_whiistle_and_4_or_more_and_is_a_reply')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"

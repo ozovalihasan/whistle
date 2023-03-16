@@ -1,0 +1,7 @@
+<%= 
+    render component(
+        @paginate_whiistles.component_name, 
+        whiistles: @paginate_whiistles.records,
+        current_user_presenter: @paginate_whiistles.current_user_presenter
+    ) 
+%>
