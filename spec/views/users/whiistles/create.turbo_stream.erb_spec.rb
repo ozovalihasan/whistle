@@ -24,7 +24,7 @@ RSpec.describe "users/whiistles/create.turbo_stream", type: :view do
 
         render
 
-        expect(rendered).to match_custom_snapshot('successful')
+        expect_snapshot_match('successful')
         expect(rendered).to include('turbo-stream action="update" target="modal_body"')
         expect(rendered).to include('Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)')
         expect(rendered).to include('Streams::UpdateFlashes::Component(notice: String, alert: NilClass)')
@@ -41,7 +41,7 @@ RSpec.describe "users/whiistles/create.turbo_stream", type: :view do
 
         render
 
-        expect(rendered).to match_custom_snapshot('unsuccessful')
+        expect_snapshot_match('unsuccessful')
         expect(rendered).to include('Streams::UpdateFlashes::Component(notice: NilClass, alert: String)')
       end
     end

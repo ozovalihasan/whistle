@@ -23,7 +23,7 @@ RSpec.describe Whiistles::ToggleRewhiistleOrQuoteButton::Component, type: :compo
   it "renders correctly" do
     render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-    expect(rendered_content).to match_custom_snapshot
+    expect_snapshot_match
     expect(rendered_content).to include "Whiistles::ToggleRewhiistleButton::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
     expect(rendered_content).to include "Whiistles::QuotedWhiistleButton::Component(whiistle: Whiistle)"
     expect(rendered_content).to include("click->dropdown#toggle").exactly(2).times
@@ -39,7 +39,7 @@ RSpec.describe Whiistles::ToggleRewhiistleOrQuoteButton::Component, type: :compo
       
       render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_custom_snapshot('rewhiistled')
+      expect_snapshot_match('rewhiistled')
       expect(rendered_content).to include "Whiistles::DestroyRewhiistleOrQuoteButton::Component(whiistle: Whiistle)"
     end
   end
@@ -49,7 +49,7 @@ RSpec.describe Whiistles::ToggleRewhiistleOrQuoteButton::Component, type: :compo
       
       render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_custom_snapshot('not_rewhiistled')
+      expect_snapshot_match('not_rewhiistled')
       expect(rendered_content).to include "Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)"
     end
   end

@@ -11,7 +11,7 @@ RSpec.describe Shared::ListUsers::Component, type: :component do
     
     render_inline( described_class.new(paginate_users: paginate_users) )
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to include "Users::User::Component(ActiveRecord::Relation, cur_user: User)"
   end
 end

@@ -10,7 +10,7 @@ RSpec.describe Whiistles::CreateLikeButton::Component, type: :component do
     
     render_inline(described_class.new(whiistle: whiistle))
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to match /form.*method="post".*action="\/whiistles\/\d+\/likes"/
     expect(rendered_content).to include "bi-heart"
     expect(rendered_content).to include "<span>2</span>"

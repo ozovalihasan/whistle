@@ -23,7 +23,7 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
       
       render_inline(described_class.new(tab_presenter: tab_presenter))
 
-      expect(rendered_content).to match_custom_snapshot('not_empty_users')  
+      expect_snapshot_match('not_empty_users')  
       expect(rendered_content).to include "Users::PaginateUsers::Component(paginate_users: PaginateUsers)"
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
 
       render_inline(described_class.new(tab_presenter: tab_presenter))
 
-      expect(rendered_content).to match_custom_snapshot('empty_users')  
+      expect_snapshot_match('empty_users')  
       expect(CGI::unescapeHTML rendered_content).to match "mock_fullname_2 doesn't have any follower."
     end
   end

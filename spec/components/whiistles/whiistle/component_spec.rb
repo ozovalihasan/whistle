@@ -28,7 +28,7 @@ RSpec.describe Whiistles::Whiistle::Component, type: :component do
 
       render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_custom_snapshot("without_flood_info")  
+      expect_snapshot_match("without_flood_info")  
       expect_mandatory_components
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe Whiistles::Whiistle::Component, type: :component do
     it "renders correctly" do
       render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter, show_flood_info: true))
 
-      expect(rendered_content).to match_custom_snapshot("with_flood_info")  
+      expect_snapshot_match("with_flood_info")  
       expect_mandatory_components
       expect(rendered_content).to include "Whiistles::FloodInfo::Component(whiistle: Whiistle)"
     end

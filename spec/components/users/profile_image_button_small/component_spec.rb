@@ -9,7 +9,7 @@ RSpec.describe Users::ProfileImageButtonSmall::Component, type: :component do
     
     render_inline(described_class.new(user: user))
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to include("Users::ProfileImageButton::Component(user: User, size: Symbol)")
 
   end  

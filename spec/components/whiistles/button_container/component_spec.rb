@@ -7,7 +7,7 @@ RSpec.describe Whiistles::ButtonContainer::Component, type: :component do
       
     render_inline(described_class.new) { "mock_content" }
 
-    expect(rendered_content).to match_custom_snapshot
+    expect_snapshot_match
     expect(rendered_content).to include "mock_content"
   end
 end

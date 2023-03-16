@@ -6,7 +6,7 @@ RSpec.describe Streams::UpdateFlashes::Component, type: :component do
   it "renders correctly" do
     render_inline( described_class.new(alert: "mock_alert", notice: "mock_notice") )
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to match(/Layout::Notice::Component/)
     expect(rendered_content).to match(/Layout::Alert::Component/)
     expect(rendered_content).to match(/turbo-stream/)

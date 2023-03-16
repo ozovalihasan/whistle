@@ -35,7 +35,7 @@ RSpec.describe Whiistles::Pictures::Component, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle))
 
-      expect(rendered_content).to match_custom_snapshot
+      expect_snapshot_match
       expect(rendered_content).to include "modal#openAndVisit"
       expect(rendered_content).to match /img.*src.*jpg/
     end

@@ -22,7 +22,7 @@ RSpec.describe Whiistles::ListWhiistles::Component, type: :component do
     whiistles = BaseWhiistle.all
     render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
-    expect(rendered_content).to match_custom_snapshot
+    expect_snapshot_match
     expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfo::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)"
     expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfo::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)"
     expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"

@@ -13,7 +13,7 @@ RSpec.describe Whiistles::ReplyInfo::Component, type: :component do
       
       render_inline(described_class.new(whiistle: reply))
 
-      expect(rendered_content).to match_custom_snapshot
+      expect_snapshot_match
       expect(rendered_content).to match "Replying to"
       expect(rendered_content).to match "@mock_username_1"
     end

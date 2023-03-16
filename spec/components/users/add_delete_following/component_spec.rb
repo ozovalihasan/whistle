@@ -13,7 +13,7 @@ RSpec.describe Users::AddDeleteFollowing::Component, type: :component do
 
       render_inline(described_class.new(user: user, cur_user: cur_user, relation: nil))
 
-      expect(rendered_content).to match_custom_snapshot("without_relation")  
+      expect_snapshot_match("without_relation")  
       expect(rendered_content).to include "Users::AddFollowing::Component(user_id: Integer)"
     end
   end
@@ -27,7 +27,7 @@ RSpec.describe Users::AddDeleteFollowing::Component, type: :component do
       
       render_inline(described_class.new(user: user, cur_user: cur_user, relation: relation))
 
-      expect(rendered_content).to match_custom_snapshot("with_relation")  
+      expect_snapshot_match("with_relation")  
       expect(rendered_content).to include "Users::DeleteFollowing::Component(relation: Relation)"
     end
   end
@@ -41,7 +41,7 @@ RSpec.describe Users::AddDeleteFollowing::Component, type: :component do
       
       render_inline(described_class.new(user: user, cur_user: cur_user, relation: relation))
 
-      expect(rendered_content).to match_custom_snapshot("self")  
+      expect_snapshot_match("self")  
       expect(rendered_content).to be_empty
     end
   end

@@ -25,7 +25,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
       
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
-      expect(rendered_content).to match_custom_snapshot("with_whiistles")
+      expect_snapshot_match("with_whiistles")
       expect(rendered_content).to include("Users::PaginateWhiistles::Component(paginate_whiistles: PaginateWhiistles)")
     end
   end
@@ -36,7 +36,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
       
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
-      expect(rendered_content).to match_custom_snapshot("without_whiistles")
+      expect_snapshot_match("without_whiistles")
       expect(rendered_content).to include("mock_fullname_1 doesn&#39;t have any whiistle to show.")
     end
   end
@@ -47,7 +47,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
       
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
-      expect(rendered_content).to match_custom_snapshot("with_whiistle_form")
+      expect_snapshot_match("with_whiistle_form")
       expect(rendered_content).to include("Whiistles::FormOpeningModal::Component(label: String, whiistle: Whiistle, path: String, cur_user: User, value: String)")
     end
   end
@@ -58,7 +58,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
       
       render_inline(described_class.new( tab_presenter: tab_presenter ))
 
-      expect(rendered_content).to match_custom_snapshot("without_whiistle_form")
+      expect_snapshot_match("without_whiistle_form")
       expect(rendered_content).not_to include("Whiistles::FormOpeningModal::Component")
     end
   end

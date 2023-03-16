@@ -21,7 +21,7 @@ RSpec.describe Whiistles::AllParentsUntilRoot::Component, type: :component do
       
       render_inline(described_class.new(whiistle: flood.whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_custom_snapshot("with_flood")
+      expect_snapshot_match("with_flood")
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)"
     end
@@ -36,7 +36,7 @@ RSpec.describe Whiistles::AllParentsUntilRoot::Component, type: :component do
       
       render_inline(described_class.new(whiistle: reply.whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_custom_snapshot("with_reply")
+      expect_snapshot_match("with_reply")
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)"
     end
@@ -53,7 +53,7 @@ RSpec.describe Whiistles::AllParentsUntilRoot::Component, type: :component do
       
       render_inline(described_class.new(whiistle: reply.whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_custom_snapshot("with_flood_and_reply")
+      expect_snapshot_match("with_flood_and_reply")
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)"

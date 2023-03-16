@@ -27,7 +27,7 @@ RSpec.describe "users/whiistles/index", type: :view do
 
       render
 
-      expect(rendered).to match_custom_snapshot
+      expect_snapshot_match
       expect(rendered).to include('Users::Tabs::Component(tab_presenter: WhiistlesTabPresenter, sidebar_right_presenter: SidebarRightPresenter)')
 
     end

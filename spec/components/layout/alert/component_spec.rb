@@ -7,7 +7,7 @@ RSpec.describe Layout::Alert::Component, type: :component do
 
     render_inline( described_class.new(alert: "mock_alert") )
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to match(/mock_alert/)
   end
 end

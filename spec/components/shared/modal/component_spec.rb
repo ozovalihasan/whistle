@@ -7,7 +7,7 @@ RSpec.describe Shared::Modal::Component, type: :component do
 
     render_inline(described_class.new) { "mock_content" }
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     
     expect(rendered_content).to include '<template data-modal-target="loading">'
     expect(rendered_content).to include "mock_content"

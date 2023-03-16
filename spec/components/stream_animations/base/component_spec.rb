@@ -9,7 +9,7 @@ RSpec.describe StreamAnimations::Base::Component, type: :component do
 
       render_inline(described_class.new(action: "mock_action")) { "mock_content"}
 
-      expect(rendered_content).to match_custom_snapshot
+      expect_snapshot_match
       expect(rendered_content).to include 'action="mock_action"'
       expect(rendered_content).to include 'data-stream-enter-class="animate-cart-in"'
       expect(rendered_content).to include 'data-stream-exit-class="animate-cart-out"'
@@ -23,7 +23,7 @@ RSpec.describe StreamAnimations::Base::Component, type: :component do
 
       render_inline(described_class.new(action: "mock_action", target: "mock_target")) { "mock_content"}
 
-      expect(rendered_content).to match_custom_snapshot("with_target")
+      expect_snapshot_match("with_target")
       expect(rendered_content).to include 'target="mock_target"'
     end
   end
@@ -33,7 +33,7 @@ RSpec.describe StreamAnimations::Base::Component, type: :component do
 
       render_inline(described_class.new(action: "mock_action", targets: "mock_targets")) { "mock_content"}
 
-      expect(rendered_content).to match_custom_snapshot("with_targets")
+      expect_snapshot_match("with_targets")
       expect(rendered_content).to include 'targets="mock_targets"'
     end
   end
@@ -43,7 +43,7 @@ RSpec.describe StreamAnimations::Base::Component, type: :component do
 
       render_inline(described_class.new(action: "mock_action", enter_class: "mock_enter_class")) { "mock_content"}
 
-      expect(rendered_content).to match_custom_snapshot("with_enter_class")
+      expect_snapshot_match("with_enter_class")
       expect(rendered_content).to include 'data-stream-enter-class="mock_enter_class" '
     end
   end
@@ -53,7 +53,7 @@ RSpec.describe StreamAnimations::Base::Component, type: :component do
 
       render_inline(described_class.new(action: "mock_action", exit_class: "mock_exit_class")) { "mock_content"}
 
-      expect(rendered_content).to match_custom_snapshot("with_exit_class")
+      expect_snapshot_match("with_exit_class")
       expect(rendered_content).to include 'data-stream-exit-class="mock_exit_class" '
     end
   end

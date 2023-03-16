@@ -26,7 +26,7 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :
       whiistles = Reply.select(" *, 'primary_whiistle' AS label ")
       render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
       
-      expect(rendered_content).to match_custom_snapshot("with_reply")
+      expect_snapshot_match("with_reply")
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to match /mock_fullname_\d+ replied/
@@ -41,7 +41,7 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :
     
       render_inline( described_class.new( whiistles: whiistles, current_user_presenter: current_user_presenter ) )
 
-      expect(rendered_content).to match_custom_snapshot("without_reply")
+      expect_snapshot_match("without_reply")
       expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
     end
   end

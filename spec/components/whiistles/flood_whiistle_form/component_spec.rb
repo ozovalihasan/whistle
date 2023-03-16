@@ -7,7 +7,7 @@ RSpec.describe Whiistles::FloodWhiistleForm::Component, type: :component do
     
     render_inline(component("mock_components/simple_form", component_class: described_class, form_key: :main_form))
 
-    expect(rendered_content).to match_custom_snapshot
+    expect_snapshot_match
     expect(rendered_content).to include 'whiistle_floods_TEMPLATE_RECORD_body'
     expect(rendered_content).to include 'whiistle_floods_TEMPLATE_RECORD_quoted_whiistle_url'
     expect(rendered_content).to include 'Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)'

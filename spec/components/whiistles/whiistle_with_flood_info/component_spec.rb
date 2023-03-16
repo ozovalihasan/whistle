@@ -13,7 +13,7 @@ RSpec.describe Whiistles::WhiistleWithFloodInfo::Component, type: :component do
 
     render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-    expect(rendered_content).to match_custom_snapshot
+    expect_snapshot_match
     expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter, show_flood_info: TrueClass)"
   end
 end

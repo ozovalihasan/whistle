@@ -18,7 +18,7 @@ RSpec.describe Whiistles::LikeButton::Component, type: :component do
      
       render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_custom_snapshot("user_likes_whiistle")  
+      expect_snapshot_match("user_likes_whiistle")  
       expect(rendered_content).to include "Whiistles::DestroyLikeButton::Component(like: Like)"
       expect(rendered_content).to match(/like_button_whiistle_\d+/)
     end
@@ -35,7 +35,7 @@ RSpec.describe Whiistles::LikeButton::Component, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle, current_user_presenter: current_user_presenter))
 
-      expect(rendered_content).to match_custom_snapshot("user_not like_whiistle")  
+      expect_snapshot_match("user_not like_whiistle")  
       expect(rendered_content).to include "Whiistles::CreateLikeButton::Component(whiistle: Whiistle)"
     end
   end

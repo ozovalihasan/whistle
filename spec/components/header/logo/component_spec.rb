@@ -7,6 +7,6 @@ RSpec.describe Header::Logo::Component, type: :component do
 
     render_inline( described_class.new )
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
   end
 end

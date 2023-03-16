@@ -21,7 +21,7 @@ RSpec.describe Whiistles::LikeInfo::Component, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle))
 
-      expect(rendered_content).to match_custom_snapshot  
+      expect_snapshot_match  
       expect(rendered_content).to include "mock_fullname_1 liked"
     end
   end

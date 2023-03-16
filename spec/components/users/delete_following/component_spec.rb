@@ -11,7 +11,7 @@ RSpec.describe Users::DeleteFollowing::Component, type: :component do
     
     render_inline(described_class.new(relation: relation))
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to match(/button(.|\n)*bi-x(.|\n)*button/)
 
   end

@@ -11,7 +11,7 @@ RSpec.describe Users::ProfileImageButton::Component, type: :component do
       
       render_inline(described_class.new(user: user, size: :mock_size))
   
-      expect(rendered_content).to match_custom_snapshot("with_size")  
+      expect_snapshot_match("with_size")  
       expect(rendered_content).to include("Users::ProfileImage::Component(user: User, size: Symbol)")
   
     end  
@@ -24,7 +24,7 @@ RSpec.describe Users::ProfileImageButton::Component, type: :component do
       
       render_inline(described_class.new(user: user))
   
-      expect(rendered_content).to match_custom_snapshot("without_size")  
+      expect_snapshot_match("without_size")  
       expect(rendered_content).to include("Users::ProfileImage::Component(user: User, size: NilClass)")
   
     end  

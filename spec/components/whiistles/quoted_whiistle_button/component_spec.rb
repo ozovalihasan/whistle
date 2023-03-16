@@ -10,7 +10,7 @@ RSpec.describe Whiistles::QuotedWhiistleButton::Component, type: :component do
     
     render_inline(described_class.new(whiistle: Whiistle.first))
 
-    expect(rendered_content).to match_custom_snapshot
+    expect_snapshot_match
     expect(rendered_content).to match "Quoted Whiistle"
     expect(rendered_content).to match /data-turbo-frame="quoting_whiistle_whiistle_\d+/
     expect(rendered_content).to match /href="\/whiistles\/\d+\/quoted_whiistle\/new"/

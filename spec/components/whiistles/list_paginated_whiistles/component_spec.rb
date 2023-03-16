@@ -20,7 +20,7 @@ RSpec.describe Whiistles::ListPaginatedWhiistles::Component, type: :component do
 
     render_inline( described_class.new( paginate_whiistles: paginate_whiistles ) )
 
-    expect(rendered_content).to match_custom_snapshot
+    expect_snapshot_match
     expect(rendered_content).to include "Whiistles::ListWhiistles::Component(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)"
   end
 end

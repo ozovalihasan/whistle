@@ -29,7 +29,7 @@ RSpec.describe "whiistles/pictures/index", type: :view do
 
       render 
 
-      expect(rendered).to match_custom_snapshot
+      expect_snapshot_match
       expect(rendered).to include('turbo-frame id="modal_body"')
       expect(rendered).to include('data-controller="tabs"').exactly(1).times
       expect(rendered).to include('data-tabs-index="1"')

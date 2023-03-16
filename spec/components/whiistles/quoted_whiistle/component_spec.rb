@@ -11,7 +11,7 @@ RSpec.describe Whiistles::QuotedWhiistle::Component, type: :component do
     
     render_inline(described_class.new(whiistle: quoting_whiistle))
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to match "Users::ProfileImageButtonSmall::Component"
     expect(rendered_content).to match "Whiistles::UserNamesWithTimestamp::Component"
     expect(rendered_content).to match "Whiistles::BodyAndPictures::Component"

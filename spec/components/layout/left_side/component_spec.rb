@@ -9,7 +9,7 @@ RSpec.describe Layout::LeftSide::Component, type: :component do
     
     render_inline( described_class.new(current_user: current_user) )
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to match(/Followers/)
     expect(rendered_content).to match(/Followings/)
     expect(rendered_content).to match(/HOME/)

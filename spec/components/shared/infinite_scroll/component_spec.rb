@@ -10,7 +10,7 @@ RSpec.describe Shared::InfiniteScroll::Component, type: :component do
     
     render_inline( described_class.new(paginate_records: paginate_records) ) { "mock_body" }
 
-    expect(rendered_content).to match_custom_snapshot  
+    expect_snapshot_match  
     expect(rendered_content).to match(/mock_body/)
     expect(rendered_content).to match(/mock_url/)
   end

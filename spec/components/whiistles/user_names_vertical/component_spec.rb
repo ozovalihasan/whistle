@@ -9,7 +9,7 @@ RSpec.describe Whiistles::UserNamesVertical::Component, type: :component do
     
     render_inline(described_class.new(user: user))
 
-    expect(rendered_content).to match_custom_snapshot
+    expect_snapshot_match
     expect(rendered_content).to match "mock_fullname_1"
     expect(rendered_content).to match "mock_username_1"
   end

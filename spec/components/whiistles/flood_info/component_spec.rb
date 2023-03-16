@@ -15,7 +15,7 @@ RSpec.describe Whiistles::FloodInfo::Component, type: :component do
       
       render_inline(described_class.new(whiistle: whiistle))
 
-      expect(rendered_content).to match_custom_snapshot("with_whiistle")  
+      expect_snapshot_match("with_whiistle")  
       expect(rendered_content).to include "Show this thread"
     end
   end
@@ -28,7 +28,7 @@ RSpec.describe Whiistles::FloodInfo::Component, type: :component do
       
       render_inline(described_class.new(whiistle: flood))
 
-      expect(rendered_content).to match_custom_snapshot("with_whiistle_as_Flood")  
+      expect_snapshot_match("with_whiistle_as_Flood")  
       expect(rendered_content).to include "Show this thread"
     end
   end

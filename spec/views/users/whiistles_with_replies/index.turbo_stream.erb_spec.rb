@@ -20,7 +20,7 @@ RSpec.describe "users/whiistles_with_replies/index.turbo_stream", type: :view do
 
       render
 
-      expect(rendered).to match_custom_snapshot
+      expect_snapshot_match
       expect(rendered).to include('Whiistles::ListWhiistlesWithRelatedWhiistles::Component(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)')
       expect(rendered).to include('turbo-stream action="append" target="pagination-body"')
 
