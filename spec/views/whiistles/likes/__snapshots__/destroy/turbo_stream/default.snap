@@ -1,0 +1,4 @@
+StreamAnimations::UpdateAll::Component(targets: String)
+  Whiistles::CreateLikeButton::Component(whiistle: Whiistle)
+
+Streams::UpdateFlashes::Component(notice: String, alert: NilClass)

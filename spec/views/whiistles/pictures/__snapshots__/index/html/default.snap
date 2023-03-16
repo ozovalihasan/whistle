@@ -1,0 +1,33 @@
+<turbo-frame id="modal_body" >
+                            
+  <div data-controller="tabs" class="bg-slate-300" data-tabs-index="1" data-tabs-active-tab="brightness-90 opacity-90">
+    <div class="relative group">
+        <div class="hidden py-4 px-4" data-tabs-target="panel">
+          <img class="object-contain w-full rounded-md" loading="lazy" src="http://test.host/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--fa94bfdd21b23a1db7765dd5a9f017e0599efa5b/mock-1.jpg" />
+        </div>
+        
+        <div class="hidden py-4 px-4" data-tabs-target="panel">
+          <img class="object-contain w-full rounded-md" loading="lazy" src="http://test.host/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1846e89f5753f9c121b9f84086a2c1f6c68e7c4b/mock-2.jpg" />
+        </div>
+        
+
+      <div class="absolute top-1/2 left-8 p-2 aspect-square rounded-full btn-second opacity-0 group-hover:opacity-40" data-action="click->tabs#previous">
+        <i class="bi bi-chevron-left"></i>
+      </div>
+      <div class="absolute top-1/2 right-8 p-2 aspect-square rounded-full btn-second opacity-0 group-hover:opacity-40" data-action="click->tabs#next">
+        <i class="bi bi-chevron-right"></i>
+      </div>
+    </div>
+    
+    <div class="px-4">
+      <ul class="flex overflow-x-scroll justify-center">
+          <button class="m-1 h-8 w-8 aspect-square btn-second rounded-full opacity-50" data-tabs-target="tab" data-action="mouseover->tabs#change">
+          </button>
+          <button class="m-1 h-8 w-8 aspect-square btn-second rounded-full opacity-50" data-tabs-target="tab" data-action="mouseover->tabs#change">
+          </button>
+      </ul>
+    </div>
+    
+
+  </div>
+</turbo-frame>
