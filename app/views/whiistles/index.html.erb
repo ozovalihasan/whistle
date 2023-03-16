@@ -16,7 +16,7 @@
 
 
             <%= render component("shared/infinite_scroll", paginate_records: @paginate_whiistles) do %>
-                <%= render component "whiistles/list_paginated_whiistles" paginate_whiistles: @paginate_whiistles %>
+                <%= render component "whiistles/list_paginated_whiistles", paginate_whiistles: @paginate_whiistles %>
             <% end %>
         </div>
     </div>
