@@ -1,4 +1,4 @@
-<% if @status.success? %>
+<% if @completed_successfully %>
   <%= turbo_stream.prepend "whiistles" do %>
     <%= render component("whiistles/whiistle_with_flood_info", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
   <% end %>

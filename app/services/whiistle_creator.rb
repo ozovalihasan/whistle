@@ -7,7 +7,9 @@ class WhiistleCreator < ApplicationService
   end
 
   def call
-    status = nil
+    completed = nil
+    message = nil
+    
     whiistle = nil
 
     begin
@@ -15,7 +17,8 @@ class WhiistleCreator < ApplicationService
         whiistle = cur_user.whiistles.new(whiistle_params.merge(type: BaseWhiistle.types["Whiistle"]))
         
         if whiistle.invalid?
-          status = Status.new(false, "Whiistle: " << whiistle.errors.full_messages.join(' | ') )
+          completed = false
+          message = "Whiistle: " << whiistle.errors.full_messages.join(' | ')
         end
 
         whiistle.save!
@@ -30,17 +33,19 @@ class WhiistleCreator < ApplicationService
                             )  
               
           if parent_whiistle.invalid?
-            status = Status.new(false, "Flood-#{index}: " << parent_whiistle.errors.full_messages[0])
+            completed = false
+            message = "Flood-#{index}: " << parent_whiistle.errors.full_messages[0]
           end
           parent_whiistle.save!
         end
       end
 
-      status = Status.new(true, "You whiistled")
+      completed = true
+      message = "You whiistled"
     rescue ActiveRecord::RecordInvalid
     end
     
-    [status, whiistle]
+    [completed, message, whiistle]
   end
 
   def extract_floods_list(params)

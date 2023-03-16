@@ -1,4 +1,4 @@
-<% if @status.success? %>
+<% if @completed_successfully %>
   <%= turbo_stream.update modal_body_target do %>
     <%= render component("whiistles/whiistle", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
   <% end %>
