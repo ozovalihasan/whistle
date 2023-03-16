@@ -1,4 +1,4 @@
 
-  Whiistles::FormOpeningModal::Component(label: String, whiistle: Whiistle, path: String, current_user_presenter: CurrentUserPresenter, value: String)
+  Whiistles::FormOpeningModal::Component(label: String, whiistle: Whiistle, path: String, cur_user: User, value: String)
 
   mock_fullname_1 doesn&#39;t have any whiistle to show.

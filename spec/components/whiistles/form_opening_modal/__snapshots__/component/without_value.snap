@@ -1,1 +1,1 @@
-Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, current_user_presenter: CurrentUserPresenter, value: NilClass, open_modal: TrueClass, modal_path: String)
+Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, cur_user: User, value: NilClass, open_modal: TrueClass, modal_path: String)

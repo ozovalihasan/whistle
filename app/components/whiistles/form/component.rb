@@ -5,7 +5,7 @@ class Whiistles::Form::Component < Application::Component
                   form_url:, 
                   whiistle:, 
                   label:, 
-                  current_user_presenter:,
+                  cur_user:,
                   value: nil, 
                   quoted_whiistle: nil, 
                   enable_quoting_whiistle: nil, 
@@ -17,7 +17,7 @@ class Whiistles::Form::Component < Application::Component
     @form_url = form_url
     @whiistle = whiistle
     @label = label
-    @user = current_user_presenter.current_user
+    @user = cur_user
     @value = value
     @quoted_whiistle = quoted_whiistle
     @enable_quoting_whiistle = enable_quoting_whiistle

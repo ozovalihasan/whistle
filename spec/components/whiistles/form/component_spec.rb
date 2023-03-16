@@ -7,9 +7,8 @@ RSpec.describe Whiistles::Form::Component, type: :component do
     FactoryBot.create(:mock_user)
   end
 
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(user)
+  let(:cur_user) do
+    FactoryBot.create(:mock_user)
   end
   
   context "if any optional parameter isn't provided" do
@@ -21,7 +20,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
           form_url: "mock_url", 
           whiistle: whiistle,  
           label: "mock_label",
-          current_user_presenter: current_user_presenter
+          cur_user: cur_user
         ))
 
       expect(rendered_content).to match_custom_snapshot("default_arguments")
@@ -41,7 +40,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
           form_url: "mock_url", 
           whiistle: whiistle,  
           label: "mock_label",
-          current_user_presenter: current_user_presenter,
+          cur_user: cur_user,
           value: "mock_value"
         ))
 
@@ -61,7 +60,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
           form_url: "mock_url", 
           whiistle: whiistle,  
           label: "mock_label",
-          current_user_presenter: current_user_presenter,
+          cur_user: cur_user,
           quoted_whiistle: quoted_whiistle
         ))
 
@@ -82,7 +81,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
           form_url: "mock_url", 
           whiistle: whiistle,  
           label: "mock_label",
-          current_user_presenter: current_user_presenter,
+          cur_user: cur_user,
           enable_quoting_whiistle: true
         ))
 
@@ -102,7 +101,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
           form_url: "mock_url", 
           whiistle: whiistle,  
           label: "mock_label",
-          current_user_presenter: current_user_presenter,
+          cur_user: cur_user,
           open_modal: true,
           modal_path: "mock_path"
         ))
@@ -123,7 +122,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
           form_url: "mock_url", 
           whiistle: whiistle,  
           label: "mock_label",
-          current_user_presenter: current_user_presenter,
+          cur_user: cur_user,
           enable_adding_floods: true
         ))
 
