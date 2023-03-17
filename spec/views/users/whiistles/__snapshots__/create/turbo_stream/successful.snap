@@ -1,4 +1,2 @@
-  <turbo-stream action="update" target="modal_body"><template>
-    Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
-</template></turbo-stream>
+
 Streams::UpdateFlashes::Component(notice: String, alert: NilClass)

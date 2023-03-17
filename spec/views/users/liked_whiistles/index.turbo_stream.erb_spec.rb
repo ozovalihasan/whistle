@@ -30,7 +30,7 @@ RSpec.describe "users/liked_whiistles/index.turbo_stream", type: :view do
         render
       end
 
-      expect(rendered).to match_snapshot('index_turbo_stream')
+      expect_snapshot_match
       expect(rendered).to match('mock_body_whiistle_1')  
       expect(rendered).to match('mock_body_whiistle_2') 
     end

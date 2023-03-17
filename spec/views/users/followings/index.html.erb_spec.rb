@@ -39,7 +39,7 @@ RSpec.describe "users/followings/index", type: :view do
       render
 
       expect(rendered).to match "mock_fullname_2"
-      expect(rendered).to match_snapshot('index/first_user')  
+      expect_snapshot_match('first_user')  
     end
 
     it "renders for the second user" do
@@ -49,7 +49,7 @@ RSpec.describe "users/followings/index", type: :view do
       render
 
       expect(rendered).to match "mock_fullname_3"
-      expect(rendered).to match_snapshot('index/second_user')  
+      expect_snapshot_match('second_user')  
     end
 
     it "renders for the third user" do
@@ -58,7 +58,7 @@ RSpec.describe "users/followings/index", type: :view do
 
       render
       
-      expect(rendered).to match_snapshot('index/third_user')  
+      expect_snapshot_match('third_user')  
     end
 
     it "renders for the forth user" do
@@ -67,7 +67,7 @@ RSpec.describe "users/followings/index", type: :view do
 
       render
 
-      expect(rendered).to match_snapshot('index/forth_user')  
+      expect_snapshot_match('forth_user')  
     end
     
   end

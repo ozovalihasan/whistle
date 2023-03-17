@@ -1,3 +1,0 @@
-<turbo-stream action="append" target="pagination-body"><template>
-  Whiistles::ListWhiistles::Component(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)
-</template></turbo-stream>

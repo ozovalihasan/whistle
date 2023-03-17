@@ -15,7 +15,7 @@ RSpec.describe "whiistles/likes/create.turbo_stream", type: :view do
 
       render 
 
-      expect(rendered).to match_snapshot('create/successful')  
+      expect_snapshot_match('successful')  
     end
 
     it "renders turbo_streams correctly if the like is not saved" do
@@ -25,7 +25,7 @@ RSpec.describe "whiistles/likes/create.turbo_stream", type: :view do
 
       render 
       
-      expect(rendered).to match_snapshot('create/fail')  
+      expect_snapshot_match('fail')  
     end
   end
 

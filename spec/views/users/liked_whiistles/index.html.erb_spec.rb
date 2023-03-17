@@ -31,7 +31,7 @@ RSpec.describe "users/liked_whiistles/index", type: :view do
         render
       end
 
-      expect(rendered).to match_snapshot('index_html')
+      expect_snapshot_match
       expect(rendered).to match('2 Whiistles')
       expect(rendered).to match('mock_body_whiistle_1')  
       expect(rendered).to match('mock_body_whiistle_2')  

@@ -1,3 +1,3 @@
 <turbo-frame id="quoting_whiistle_whiistle_1" >
-  Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, current_user_presenter: CurrentUserPresenter, quoted_whiistle: Whiistle)
+  Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, cur_user: NilClass, quoted_whiistle: Whiistle)
 </turbo-frame>

@@ -18,7 +18,7 @@ RSpec.describe "users/followers/index.turbo_stream", type: :view do
 
       render
 
-      expect(rendered).to match_snapshot('index_turbo_stream')
+      expect_snapshot_match
       expect(rendered).to include('mock_fullname_1').exactly(1).times
       expect(rendered).to include('mock_fullname_2').exactly(1).times
 

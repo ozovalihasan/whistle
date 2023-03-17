@@ -21,7 +21,7 @@ RSpec.describe "whiistles/rewhiistles/destroy.turbo_stream", type: :view do
       
       render
 
-      expect(rendered).to match_snapshot('destroy_turbo_stream')
+      expect_snapshot_match
       expect(rendered).to include("The rewhiistle is destroyed").exactly(1).times
       expect(rendered).to include("Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)")
       expect(rendered).to match(/button(.|\n)*Rewhiistle(.|\n)*button/)

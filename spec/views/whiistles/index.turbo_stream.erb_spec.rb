@@ -41,7 +41,7 @@ RSpec.describe "whiistles/index.turbo_stream", type: :view do
         render
       end
 
-      expect(rendered).to match_snapshot('index_turbo_stream')
+      expect_snapshot_match
       expect(rendered).to include('mock_body_whiistle_1')
       expect(rendered).to include('mock_body_whiistle_2').exactly(3).times
       expect(rendered).to include('Show this thread').exactly(3).times

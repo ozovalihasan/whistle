@@ -35,7 +35,7 @@ RSpec.describe "users/medias/index", type: :view do
         render
       end
 
-      expect(rendered).to match_snapshot('index')
+      expect_snapshot_match
       expect(rendered).to include('mock_body_whiistle_1').exactly(1).times
     end
   end

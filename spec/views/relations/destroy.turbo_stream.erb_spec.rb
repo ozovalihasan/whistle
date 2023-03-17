@@ -16,8 +16,8 @@ RSpec.describe "relations/destroy.turbo_stream", type: :view do
 
       render 
       
+      expect_snapshot_match
       expect(rendered).to match(flash[:notice])
-      expect(rendered).to match_snapshot('destroy')  
     end
   end
 

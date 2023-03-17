@@ -41,7 +41,7 @@ RSpec.describe "whiistles/index", type: :view do
         render
       end
 
-      expect(rendered).to match_snapshot('index_html')
+      expect_snapshot_match
       expect(rendered).to include('mock_body_whiistle_1').exactly(1).times
       expect(rendered).to include('mock_body_whiistle_2').exactly(3).times
       expect(rendered).to include('Show this thread').exactly(3).times
