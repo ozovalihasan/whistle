@@ -16,5 +16,6 @@ RSpec.describe Whiistles::DestroyLikeButton::Component, type: :component do
     expect(rendered_content).to match /action="\/whiistles\/\d+\/likes\/\d+"/
     expect(rendered_content).to include 'value="delete"'
     expect(rendered_content).to include "Whiistles::ButtonInner::Component(active: TrueClass)"
+    expect(rendered_content).to include("::Component").exactly(1).times
   end
 end

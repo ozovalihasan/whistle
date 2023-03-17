@@ -16,5 +16,6 @@ RSpec.describe Whiistles::CreateRewhiistleButton::Component, type: :component do
     expect(rendered_content).to include "Rewhiistle"
     expect(rendered_content).to match /action="\/whiistles\/\d+\/rewhiistle"/
     expect(rendered_content).to include "Whiistles::ButtonInner::Component()"
+    expect(rendered_content).to include("::Component").exactly(1).times
   end
 end

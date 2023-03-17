@@ -19,6 +19,7 @@ RSpec.describe "whiistles/new", type: :view do
       expect_snapshot_match
       expect(rendered).to include('turbo-frame id="modal_body"')
       expect(rendered).to include("Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, cur_user: User, enable_quoting_whiistle: TrueClass, enable_adding_floods: TrueClass)")
+      expect(rendered).to include("::Component").exactly(1).times
     end
   end
 

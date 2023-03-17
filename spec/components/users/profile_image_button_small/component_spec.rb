@@ -11,7 +11,7 @@ RSpec.describe Users::ProfileImageButtonSmall::Component, type: :component do
 
     expect_snapshot_match  
     expect(rendered_content).to include("Users::ProfileImageButton::Component(user: User, size: Symbol)")
-
+    expect(rendered_content).to include("::Component").exactly(1).times
   end  
 
   

@@ -27,7 +27,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
 
       expect_snapshot_match('with_shared_whiistle')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter, show_flood_info: TrueClass)"
-      
+      expect(rendered_content).to include("::Component").exactly(2).times
     end
   end
   
@@ -42,7 +42,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
 
       expect_snapshot_match('with_primary_whiistle_and_is_a_whiistle')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
-      
+      expect(rendered_content).to include("::Component").exactly(2).times
     end
   end
 
@@ -59,7 +59,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       expect_snapshot_match('with_primary_whiistle_and_flood_and_is_a_whiistle')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::MinifiedFloods::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
-      
+      expect(rendered_content).to include("::Component").exactly(3).times
     end
   end
 
@@ -76,7 +76,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       expect_snapshot_match('with_primary_whiistle_and_2_or_more_and_is_a_reply')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include("Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)").exactly(1).times
-      
+      expect(rendered_content).to include("::Component").exactly(3).times      
     end
   end
   
@@ -94,7 +94,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       expect_snapshot_match('with_primary_whiistle_and_3_or_more_and_is_a_reply')
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include("Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)").exactly(2).times
-      
+      expect(rendered_content).to include("::Component").exactly(4).times
     end
   end
   
@@ -115,7 +115,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
       expect(rendered_content).to include("Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)").exactly(2).times
       expect(rendered_content).to include("Show more replies")
       expect(rendered_content).to match(/\/whiistles\/#{Whiistle.first.id}/)
-      
+      expect(rendered_content).to include("::Component").exactly(4).times
     end
   end
   

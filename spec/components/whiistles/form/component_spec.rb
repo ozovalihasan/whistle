@@ -24,8 +24,10 @@ RSpec.describe Whiistles::Form::Component, type: :component do
         ))
 
       expect_snapshot_match("default_arguments")
+      expect(rendered_content).to include('Users::ProfileImage::Component(user: User)')
       expect(rendered_content).to include('Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: NilClass, open_modal: NilClass, modal_path: NilClass)')
       expect(rendered_content).to include "Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)"
+      expect(rendered_content).to include("::Component").exactly(3).times
     end
     
   end
@@ -45,8 +47,10 @@ RSpec.describe Whiistles::Form::Component, type: :component do
         ))
 
       expect_snapshot_match("with_value")
+      expect(rendered_content).to include('Users::ProfileImage::Component(user: User)')
       expect(rendered_content).to include('Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: String, open_modal: NilClass, modal_path: NilClass)')
       expect(rendered_content).to include('Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)')
+      expect(rendered_content).to include("::Component").exactly(3).times
     end
   end
 
@@ -65,9 +69,11 @@ RSpec.describe Whiistles::Form::Component, type: :component do
         ))
 
       expect_snapshot_match("with_quoted_whiistle")
+      expect(rendered_content).to include('Users::ProfileImage::Component(user: User)')
       expect(rendered_content).to include('Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: NilClass, open_modal: NilClass, modal_path: NilClass)')
       expect(rendered_content).to include('Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)')
       expect(rendered_content).to match /input class=".*hidden" value="http:\/\/test.host\/whiistles\/\d+"/
+      expect(rendered_content).to include("::Component").exactly(3).times
     end
   end
 
@@ -86,8 +92,10 @@ RSpec.describe Whiistles::Form::Component, type: :component do
         ))
 
       expect_snapshot_match("with_enable_quoting_whiistle-true")
+      expect(rendered_content).to include('Users::ProfileImage::Component(user: User)')
       expect(rendered_content).to include('Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: NilClass, open_modal: NilClass, modal_path: NilClass)')
       expect(rendered_content).to match /input.*id="whiistle_quoted_whiistle_url"/
+      expect(rendered_content).to include("::Component").exactly(3).times
     end
   end
 
@@ -107,8 +115,10 @@ RSpec.describe Whiistles::Form::Component, type: :component do
         ))
 
       expect_snapshot_match("with_open_modal-true")
+      expect(rendered_content).to include('Users::ProfileImage::Component(user: User)')
       expect(rendered_content).to include('Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: NilClass, open_modal: TrueClass, modal_path: String)')
       expect(rendered_content).not_to include "Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)"
+      expect(rendered_content).to include("::Component").exactly(2).times
     end
   end
 
@@ -127,10 +137,12 @@ RSpec.describe Whiistles::Form::Component, type: :component do
         ))
 
       expect_snapshot_match("with_enable_adding_floods-true")
+      expect(rendered_content).to include('Users::ProfileImage::Component(user: User)')
       expect(rendered_content).to include('Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: NilClass, open_modal: NilClass, modal_path: NilClass)')
       expect(rendered_content).to include('Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)')
       expect(rendered_content).to include "Whiistles::FloodWhiistleForm::Component(main_form: SimpleForm::FormBuilder)"
       expect(rendered_content).to include "Add Flood"
+      expect(rendered_content).to include("::Component").exactly(5).times
     end
   end
 end

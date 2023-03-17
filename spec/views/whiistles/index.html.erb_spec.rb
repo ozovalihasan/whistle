@@ -28,7 +28,7 @@ RSpec.describe "whiistles/index", type: :view do
       expect(rendered).to include('Shared::InfiniteScroll::Component(paginate_records: PaginateWhiistles)')
       expect(rendered).to include('Whiistles::ListPaginatedWhiistles::Component(paginate_whiistles: PaginateWhiistles)')
       expect(rendered).to include('Users::User::Component(ActiveRecord::Relation, cur_user: User)')
-
+      expect(rendered).to include("::Component").exactly(5).times
     end
   end
 

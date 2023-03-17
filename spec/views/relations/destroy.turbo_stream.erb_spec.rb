@@ -21,6 +21,7 @@ RSpec.describe "relations/destroy.turbo_stream", type: :view do
       expect(rendered).to match(/action="update" target="left_side_followings_count_user_\d+"/)
       expect(rendered).to match(/action="update" target="followers_count_user_\d+"/)
       expect(rendered).to match(/action="update" target="create_delete_relation_user_\d+"/)
+      expect(rendered).to include("::Component").exactly(2).times
     end
   end
 

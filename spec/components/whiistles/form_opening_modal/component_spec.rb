@@ -14,6 +14,7 @@ RSpec.describe Whiistles::FormOpeningModal::Component, type: :component do
 
       expect_snapshot_match("with_value")  
       expect(rendered_content).to include "Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, cur_user: User, value: String, open_modal: TrueClass, modal_path: String)"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 
@@ -24,7 +25,7 @@ RSpec.describe Whiistles::FormOpeningModal::Component, type: :component do
 
       expect_snapshot_match("without_value")  
       expect(rendered_content).to include "Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, cur_user: User, value: NilClass, open_modal: TrueClass, modal_path: String)"
-      
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 

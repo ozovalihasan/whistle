@@ -15,5 +15,6 @@ RSpec.describe Whiistles::WhiistleWithFloodInfo::Component, type: :component do
 
     expect_snapshot_match
     expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter, show_flood_info: TrueClass)"
+    expect(rendered_content).to include("::Component").exactly(1).times
   end
 end

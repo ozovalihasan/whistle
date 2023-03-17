@@ -1,2 +1,2 @@
 
-Streams::UpdateFlashes::Component(notice: String, alert: NilClass)
+Streams::UpdateFlashes::Component(notice: NilClass, alert: String)

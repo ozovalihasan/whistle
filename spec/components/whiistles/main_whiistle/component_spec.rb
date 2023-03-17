@@ -22,5 +22,6 @@ RSpec.describe Whiistles::MainWhiistle::Component, type: :component do
     expect(rendered_content).to include "Whiistles::ReplyInfo::Component(whiistle: Whiistle)"
     expect(rendered_content).to include "Whiistles::BodyAndPictures::Component(whiistle: Whiistle)"
     expect(rendered_content).to include "Whiistles::Buttons::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+    expect(rendered_content).to include("::Component").exactly(5).times
   end
 end

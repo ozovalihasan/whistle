@@ -21,6 +21,7 @@ RSpec.describe "users/liked_whiistles/index.turbo_stream", type: :view do
       expect_snapshot_match
       expect(rendered).to include('action="append" target="pagination-body"')  
       expect(rendered).to include('Whiistles::ListPaginatedWhiistles::Component(paginate_whiistles: PaginateWhiistles)') 
+      expect(rendered).to include("::Component").exactly(1).times
     end
   end
 end

@@ -25,6 +25,7 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
 
       expect_snapshot_match('not_empty_users')  
       expect(rendered_content).to include "Users::PaginateUsers::Component(paginate_users: PaginateUsers)"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 
@@ -44,6 +45,7 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
 
       expect_snapshot_match('empty_users')  
       expect(CGI::unescapeHTML rendered_content).to match "mock_fullname_2 doesn't have any follower."
+      expect(rendered_content).to include("::Component").exactly(0).times
     end
   end
 end

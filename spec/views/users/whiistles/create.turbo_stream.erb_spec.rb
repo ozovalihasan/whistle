@@ -29,6 +29,7 @@ RSpec.describe "users/whiistles/create.turbo_stream", type: :view do
         expect(rendered).to include('action="update" target="modal_body"')
         expect(rendered).to include("Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)")
         expect(rendered).to include("Streams::UpdateFlashes::Component(notice: String, alert: NilClass)")
+        expect(rendered).to include("::Component").exactly(2).times
       end
     end
 

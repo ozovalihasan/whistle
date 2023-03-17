@@ -30,6 +30,7 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)"
       expect(rendered_content).to match /mock_fullname_\d+ replied/
+      expect(rendered_content).to include("::Component").exactly(3).times
     end
   end
   
@@ -43,6 +44,7 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :
 
       expect_snapshot_match("without_reply")
       expect(rendered_content).to include "Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)"
+      expect(rendered_content).to include("::Component").exactly(2).times
     end
   end
 

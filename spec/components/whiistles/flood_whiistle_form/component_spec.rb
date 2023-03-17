@@ -14,6 +14,6 @@ RSpec.describe Whiistles::FloodWhiistleForm::Component, type: :component do
     expect(rendered_content).to include 'Quoted whiistle url'
     expect(rendered_content).to include 'Add Flood'
     expect(rendered_content).to include 'type="submit"'
-
+    expect(rendered_content).to include("::Component").exactly(1).times
   end
 end

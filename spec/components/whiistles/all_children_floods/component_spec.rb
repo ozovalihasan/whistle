@@ -16,6 +16,7 @@ RSpec.describe Whiistles::AllChildrenFloods::Component, type: :component do
 
       expect_snapshot_match("without_children_floods")  
       expect(rendered_content).to include "Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 
@@ -34,6 +35,7 @@ RSpec.describe Whiistles::AllChildrenFloods::Component, type: :component do
 
       expect_snapshot_match("with_children_floods")  
       expect(rendered_content).to include("Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)").exactly(2).times
+      expect(rendered_content).to include("::Component").exactly(2).times
     end
   end
 end

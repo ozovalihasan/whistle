@@ -18,5 +18,6 @@ RSpec.describe Whiistles::ReplyButton::Component, type: :component do
     expect(rendered_content).to match /reply_counter_whiistle_\d+/
     expect(rendered_content).to include "Whiistles::ButtonInner::Component()"
     expect(rendered_content).to include "Whiistles::ButtonContainer::Component()"
+    expect(rendered_content).to include("::Component").exactly(2).times
   end
 end

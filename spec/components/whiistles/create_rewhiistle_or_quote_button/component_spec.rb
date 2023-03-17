@@ -14,5 +14,6 @@ RSpec.describe Whiistles::CreateRewhiistleOrQuoteButton::Component, type: :compo
     expect_snapshot_match  
     expect(rendered_content).to include "333"
     expect(rendered_content).to include "Whiistles::ButtonInner::Component()"
+    expect(rendered_content).to include("::Component").exactly(1).times
   end
 end

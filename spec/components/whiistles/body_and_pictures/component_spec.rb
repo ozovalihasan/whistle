@@ -19,6 +19,7 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
       expect(rendered_content).to include "mock_body_whiistle"
       expect(rendered_content).to include "Whiistles::Pictures::Component(whiistle: Whiistle)"
       expect(rendered_content).to include "Whiistles::QuotedWhiistle::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include("::Component").exactly(2).times
     end
   end
 
@@ -34,6 +35,7 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
 
       expect_snapshot_match('with_show_quoted_whiistle-false')  
       expect(rendered_content).not_to include "Whiistles::QuotedWhiistle::Component"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
     
     it "renders correctly" do
@@ -45,6 +47,7 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
 
       expect_snapshot_match('without_quoting_any_whiistle')  
       expect(rendered_content).not_to include "Whiistles::QuotedWhiistle::Component"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
   
@@ -59,6 +62,7 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
 
       expect_snapshot_match('show_pictures-false')  
       expect(rendered_content).not_to include "Whiistles::Pictures::Component"
+      expect(rendered_content).to include("::Component").exactly(0).times
     end
   end
 

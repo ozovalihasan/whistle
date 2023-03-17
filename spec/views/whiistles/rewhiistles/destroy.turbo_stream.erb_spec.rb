@@ -24,8 +24,7 @@ RSpec.describe "whiistles/rewhiistles/destroy.turbo_stream", type: :view do
       expect(rendered).to include('StreamAnimations::UpdateAll::Component(targets: String)')
       expect(rendered).to include('Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)')
       expect(rendered).to include('Streams::UpdateFlashes::Component(notice: String, alert: NilClass)')
-      
-
+      expect(rendered).to include("::Component").exactly(4).times
     end
   end
 

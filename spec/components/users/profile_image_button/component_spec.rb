@@ -13,7 +13,7 @@ RSpec.describe Users::ProfileImageButton::Component, type: :component do
   
       expect_snapshot_match("with_size")  
       expect(rendered_content).to include("Users::ProfileImage::Component(user: User, size: Symbol)")
-  
+      expect(rendered_content).to include("::Component").exactly(1).times
     end  
   end
 
@@ -26,7 +26,7 @@ RSpec.describe Users::ProfileImageButton::Component, type: :component do
   
       expect_snapshot_match("without_size")  
       expect(rendered_content).to include("Users::ProfileImage::Component(user: User, size: NilClass)")
-  
+      expect(rendered_content).to include("::Component").exactly(1).times
     end  
   end
 end

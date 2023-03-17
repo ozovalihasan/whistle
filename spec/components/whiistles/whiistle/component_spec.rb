@@ -30,6 +30,7 @@ RSpec.describe Whiistles::Whiistle::Component, type: :component do
 
       expect_snapshot_match("without_flood_info")  
       expect_mandatory_components
+      expect(rendered_content).to include("::Component").exactly(7).times
     end
   end
   
@@ -40,6 +41,7 @@ RSpec.describe Whiistles::Whiistle::Component, type: :component do
       expect_snapshot_match("with_flood_info")  
       expect_mandatory_components
       expect(rendered_content).to include "Whiistles::FloodInfo::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include("::Component").exactly(8).times
     end
   end
 end

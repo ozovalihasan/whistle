@@ -18,5 +18,6 @@ RSpec.describe Users::PaginateWhiistles::Component, type: :component do
     expect(rendered_content).to include "Shared::InfiniteScroll::Component(paginate_records: PaginateWhiistles)"
     expect(rendered_content).to include "Whiistles::WhiistlesCounter::Component(whiistles_count: Integer)"
     expect(rendered_content).to include "Whiistles::ListPaginatedWhiistles::Component(paginate_whiistles: PaginateWhiistles)"
+    expect(rendered_content).to include("::Component").exactly(3).times
   end
 end

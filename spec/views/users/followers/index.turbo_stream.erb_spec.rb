@@ -20,7 +20,7 @@ RSpec.describe "users/followers/index.turbo_stream", type: :view do
       expect_snapshot_match
       expect(rendered).to include('turbo-stream action="append" target="pagination-body"')
       expect(rendered).to include('Shared::ListUsers::Component(paginate_users: PaginateUsers)')
-
+      expect(rendered).to include("::Component").exactly(1).times
     end
   end
 

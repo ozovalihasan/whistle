@@ -21,6 +21,7 @@ RSpec.describe Whiistles::LikeButton::Component, type: :component do
       expect_snapshot_match("user_likes_whiistle")  
       expect(rendered_content).to include "Whiistles::DestroyLikeButton::Component(like: Like)"
       expect(rendered_content).to match(/like_button_whiistle_\d+/)
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
   
@@ -37,6 +38,7 @@ RSpec.describe Whiistles::LikeButton::Component, type: :component do
 
       expect_snapshot_match("user_not like_whiistle")  
       expect(rendered_content).to include "Whiistles::CreateLikeButton::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 end

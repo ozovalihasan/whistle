@@ -29,7 +29,7 @@ RSpec.describe "whiistles/replies/new", type: :view do
       expect(rendered).to include('Whiistles::BodyAndPictures::Component(whiistle: Whiistle, show_pictures: FalseClass)')
       expect(rendered).to include('Whiistles::ReplyInfo::Component(whiistle: Whiistle)')
       expect(rendered).to include('Whiistles::Form::Component(form_url: String, whiistle: Reply, label: String, cur_user: User, enable_quoting_whiistle: TrueClass)')
-      
+      expect(rendered).to include("::Component").exactly(5).times
     end
   end
 

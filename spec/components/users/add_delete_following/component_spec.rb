@@ -15,12 +15,12 @@ RSpec.describe Users::AddDeleteFollowing::Component, type: :component do
 
       expect_snapshot_match("without_relation")  
       expect(rendered_content).to include "Users::AddFollowing::Component(user_id: Integer)"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 
   context "if the current user follows another user" do
     it "renders correctly" do
-
       user = FactoryBot.create(:mock_user)
       cur_user = FactoryBot.create(:mock_user)
       relation = FactoryBot.create(:mock_relation, following: cur_user, followed: user)
@@ -29,6 +29,7 @@ RSpec.describe Users::AddDeleteFollowing::Component, type: :component do
 
       expect_snapshot_match("with_relation")  
       expect(rendered_content).to include "Users::DeleteFollowing::Component(relation: Relation)"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 

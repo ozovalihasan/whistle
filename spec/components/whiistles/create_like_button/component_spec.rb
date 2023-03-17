@@ -15,6 +15,6 @@ RSpec.describe Whiistles::CreateLikeButton::Component, type: :component do
     expect(rendered_content).to include "bi-heart"
     expect(rendered_content).to include "<span>2</span>"
     expect(rendered_content).to include "Whiistles::ButtonInner::Component()"
-    
+    expect(rendered_content).to include("::Component").exactly(1).times
   end
 end

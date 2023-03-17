@@ -22,5 +22,6 @@ RSpec.describe Whiistles::ListPaginatedWhiistles::Component, type: :component do
 
     expect_snapshot_match
     expect(rendered_content).to include "Whiistles::ListWhiistles::Component(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)"
+    expect(rendered_content).to include("::Component").exactly(1).times
   end
 end

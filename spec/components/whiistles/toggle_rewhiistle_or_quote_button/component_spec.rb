@@ -30,7 +30,7 @@ RSpec.describe Whiistles::ToggleRewhiistleOrQuoteButton::Component, type: :compo
     expect(rendered_content).to include "click@window->dropdown#hide"
     expect(rendered_content).to match /rewhiistle_or_quote_button_whiistle_\d+/
     expect(rendered_content).to include "Whiistles::ButtonContainer::Component()"
-    
+    expect(rendered_content).to include("::Component").exactly(4).times
   end
 
   context "if the whiistle is rewhiistled by the current user" do
@@ -41,6 +41,7 @@ RSpec.describe Whiistles::ToggleRewhiistleOrQuoteButton::Component, type: :compo
 
       expect_snapshot_match('rewhiistled')
       expect(rendered_content).to include "Whiistles::DestroyRewhiistleOrQuoteButton::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include("::Component").exactly(4).times
     end
   end
 
@@ -51,6 +52,7 @@ RSpec.describe Whiistles::ToggleRewhiistleOrQuoteButton::Component, type: :compo
 
       expect_snapshot_match('not_rewhiistled')
       expect(rendered_content).to include "Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include("::Component").exactly(4).times
     end
   end
 end

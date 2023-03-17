@@ -29,7 +29,7 @@ RSpec.describe "users/whiistles_with_replies/index", type: :view do
 
       expect_snapshot_match
       expect(rendered).to include('Users::Tabs::Component(tab_presenter: WhiistlesTabPresenter, sidebar_right_presenter: SidebarRightPresenter)')
-
+      expect(rendered).to include("::Component").exactly(1).times
     end
   end
 

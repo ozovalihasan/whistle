@@ -18,6 +18,7 @@ RSpec.describe Users::Tabs::Component, type: :component do
     expect(rendered_content).to include("Users::SidebarRight::Component(sidebar_right_presenter: SidebarRightPresenter)")
     expect(rendered_content).to include('<div class="w-2/3">')
     expect(rendered_content).to include('<div class="w-1/3">')
+    expect(rendered_content).to include("::Component").exactly(8).times
   end
 
   context "if the tab shows whiistles" do

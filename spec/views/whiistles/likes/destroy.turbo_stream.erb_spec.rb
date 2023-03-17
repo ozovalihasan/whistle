@@ -17,6 +17,7 @@ RSpec.describe "whiistles/likes/destroy.turbo_stream", type: :view do
       expect(rendered).to include("StreamAnimations::UpdateAll::Component(targets: String)")
       expect(rendered).to include("Whiistles::CreateLikeButton::Component(whiistle: Whiistle)")
       expect(rendered).to include("Streams::UpdateFlashes::Component(notice: String, alert: NilClass)")
+      expect(rendered).to include("::Component").exactly(3).times
     end
   end
   

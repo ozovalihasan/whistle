@@ -23,6 +23,7 @@ RSpec.describe "whiistles/show", type: :view do
       expect_snapshot_match
       expect(rendered).to include("Whiistles::MainWhiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)")
       expect(rendered).to include("Users::SidebarRight::Component(sidebar_right_presenter: SidebarRightPresenter)")
+      expect(rendered).to include("::Component").exactly(2).times
     end
   end
 

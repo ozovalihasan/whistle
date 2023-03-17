@@ -14,5 +14,6 @@ RSpec.describe Whiistles::DestroyRewhiistleOrQuoteButton::Component, type: :comp
     expect_snapshot_match  
     expect(rendered_content).to match "333"
     expect(rendered_content).to include "Whiistles::ButtonInner::Component(active: TrueClass)"
+    expect(rendered_content).to include("::Component").exactly(1).times
   end
 end

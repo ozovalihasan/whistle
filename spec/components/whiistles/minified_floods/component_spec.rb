@@ -37,6 +37,7 @@ RSpec.describe Whiistles::MinifiedFloods::Component, type: :component do
       expect_snapshot_match("three_or_more")
       expect(rendered_content).to include("Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)").exactly(2).times
       expect(rendered_content).to include "Whiistles::FloodInfo::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include("::Component").exactly(3).times
     end
   end
 
@@ -50,6 +51,7 @@ RSpec.describe Whiistles::MinifiedFloods::Component, type: :component do
       expect_snapshot_match("two")
       expect(rendered_content).to include("Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)").exactly(2).times
       expect(rendered_content).not_to include "Whiistles::FloodInfo::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include("::Component").exactly(2).times
     end
   end
 
@@ -63,6 +65,7 @@ RSpec.describe Whiistles::MinifiedFloods::Component, type: :component do
       expect_snapshot_match("one")
       expect(rendered_content).to include("Whiistles::Whiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)").exactly(1).times
       expect(rendered_content).not_to include "Whiistles::FloodInfo::Component(whiistle: Whiistle)"
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 end

@@ -27,6 +27,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
 
       expect_snapshot_match("with_whiistles")
       expect(rendered_content).to include("Users::PaginateWhiistles::Component(paginate_whiistles: PaginateWhiistles)")
+      expect(rendered_content).to include("::Component").exactly(2).times
     end
   end
 
@@ -38,6 +39,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
 
       expect_snapshot_match("without_whiistles")
       expect(rendered_content).to include("mock_fullname_1 doesn&#39;t have any whiistle to show.")
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 
@@ -49,6 +51,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
 
       expect_snapshot_match("with_whiistle_form")
       expect(rendered_content).to include("Whiistles::FormOpeningModal::Component(label: String, whiistle: Whiistle, path: String, cur_user: User, value: String)")
+      expect(rendered_content).to include("::Component").exactly(1).times
     end
   end
 
@@ -60,6 +63,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
 
       expect_snapshot_match("without_whiistle_form")
       expect(rendered_content).not_to include("Whiistles::FormOpeningModal::Component")
+      expect(rendered_content).to include("::Component").exactly(0).times
     end
   end
 

@@ -33,6 +33,7 @@ RSpec.describe "whiistles/create.turbo_stream", type: :view do
         expect(rendered).to include("Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter")
         expect(rendered).to include("Whiistles::WhiistlesCounter::Component(whiistles_count: Integer)")
         expect(rendered).to include("Streams::UpdateFlashes::Component(notice: String, alert: NilClass)")
+        expect(rendered).to include("::Component").exactly(3).times
       end
     end
 
