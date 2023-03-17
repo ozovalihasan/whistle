@@ -15,8 +15,11 @@ RSpec.describe "whiistles/create.turbo_stream", type: :view do
         whiistle = FactoryBot.create(:mock_whiistle)
         assign(:whiistle, whiistle)
         
-        completed = true
-        assign(:completed, completed)
+        whiistles_size = 111
+        assign(:whiistles_size, whiistles_size)
+        
+        completed_successfully = true
+        assign(:completed_successfully, completed_successfully)
   
         assign(:current_user_presenter, current_user_presenter)
 
@@ -25,23 +28,25 @@ RSpec.describe "whiistles/create.turbo_stream", type: :view do
         render 
   
         expect_snapshot_match("successful")
-        expect(rendered).to include("Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)")
-        expect(rendered).to include("Whiistles::WhiistlesCounter::Component(whiistles_count: NilClass)")
+        expect(rendered).to include('action="prepend" target="whiistles"')
+        expect(rendered).to include('action="replace" target="whiistles_counter"')
+        expect(rendered).to include("Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter")
+        expect(rendered).to include("Whiistles::WhiistlesCounter::Component(whiistles_count: Integer)")
         expect(rendered).to include("Streams::UpdateFlashes::Component(notice: String, alert: NilClass)")
       end
     end
 
     context "if the whiistle is not saved" do
       it "renders correctly" do
-        completed = false
-        assign(:completed, completed)
+        completed_successfully = false
+        assign(:completed_successfully, completed_successfully)
 
-        flash[:notice] = "mock_alarm_message"
+        flash[:alert] = "mock_alarm_message"
   
         render 
   
         expect_snapshot_match("fail")
-        expect(rendered).to include("Streams::UpdateFlashes::Component(notice: String, alert: NilClass)")
+        expect(rendered).to include("Streams::UpdateFlashes::Component(notice: NilClass, alert: String)")
         expect(rendered).to include("::Component").exactly(1).times
       end
     end

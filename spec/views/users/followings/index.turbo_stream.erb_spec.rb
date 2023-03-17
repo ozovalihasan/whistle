@@ -3,10 +3,16 @@ require 'rails_helper'
 RSpec.describe "users/followings/index.turbo_stream", type: :view do
   
   describe "renders the index(turbo_stream) view of Users::FollowingsController" do
+    let(:user) do
+      FactoryBot.create(:mock_user)
+    end
+    
+    let(:cur_user) do
+      FactoryBot.create(:mock_user)
+    end
+
     it "renders Shared::ListUsers::Component" do
-      FactoryBot.create_pair(:mock_user)
-      followings = User.all
-      paginate_users = PaginateUsers.new(followings, 1, "", nil)
+      paginate_users = PaginateUsers.new(user.followings, 1, "", cur_user)
       
       assign(:paginate_users, paginate_users)
 

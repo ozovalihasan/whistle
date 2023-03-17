@@ -3,27 +3,24 @@ require 'rails_helper'
 RSpec.describe "users/whiistles_with_replies/index.turbo_stream", type: :view do
   
   describe "renders the index(turbo_stream) view of Users::WhiistlesWithRepliesController" do
-    let(:current_user_presenter) { 
-      cur_user = FactoryBot.create(:mock_user)
-      CurrentUserPresenter.new(cur_user)
-    }
-  
+    let(:cur_user) do
+      FactoryBot.create(:mock_user)
+    end
+
+    let(:user) do
+      FactoryBot.create(:mock_user)
+    end
+
     it "renders correctly" do
-    
-      all_whiistles = Whiistle.all
-      
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, '')
+      paginate_whiistles = PaginateWhiistles.new(user.liked_whiistles, 1, "", cur_user)
       paginate_whiistles.set_connected
       assign(:paginate_whiistles, paginate_whiistles)
-
-      assign(:current_user_presenter, current_user_presenter)
 
       render
 
       expect_snapshot_match
-      expect(rendered).to include('Whiistles::ListWhiistlesWithRelatedWhiistles::Component(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)')
-      expect(rendered).to include('turbo-stream action="append" target="pagination-body"')
-
+      expect(rendered).to include('action="append" target="pagination-body"')  
+      expect(rendered).to include('Whiistles::ListPaginatedWhiistles::Component(paginate_whiistles: PaginateWhiistles)') 
     end
   end
 

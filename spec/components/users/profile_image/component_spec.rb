@@ -22,7 +22,6 @@ RSpec.describe Users::ProfileImage::Component, type: :component do
       render_inline(described_class.new(user: user, shape: :default))
 
       expect_snapshot_match('default_shape')  
-      expect(rendered_content).to match(//)
       expect(rendered_content).to include('class="h-[50px] w-[50px] "')
     end
 

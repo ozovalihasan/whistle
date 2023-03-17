@@ -13,9 +13,8 @@ RSpec.describe "users/whiistles/index", type: :view do
     }
   
     it "renders correctly" do
-    
-      all_whiistles = Whiistle.all
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, '', cur_user)
+      paginate_whiistles = PaginateWhiistles.new(user.whiistles, 1, '', cur_user)
+      paginate_whiistles.set_connected
 
       whiistle = Whiistle.new
 

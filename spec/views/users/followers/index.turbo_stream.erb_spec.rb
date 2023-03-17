@@ -3,24 +3,23 @@ require 'rails_helper'
 RSpec.describe "users/followers/index.turbo_stream", type: :view do
   
   describe "renders the index(turbo_stream) view of Users::FollowersController" do
-    it "renders correctly" do
-      FactoryBot.reload
-      user = FactoryBot.create(:mock_user)
-      user2 = FactoryBot.create(:mock_user)
-      user3 = FactoryBot.create(:mock_user)
-      create_list(:mock_relation, 2, followed: user3)
-      
-      followers = user3.followers
-      paginate_users = PaginateUsers.new(followers, 1, user_followers_url(user3), user)
-      assign(:paginate_users, paginate_users)
+    let(:user) do
+      FactoryBot.create(:mock_user)
+    end
 
-      sign_in user      
+    let(:cur_user) do
+      FactoryBot.create(:mock_user)
+    end
+    
+    it "renders Shared::ListUsers::Component" do
+      paginate_users = PaginateUsers.new(user.followers, 1, "", cur_user)
+      assign(:paginate_users, paginate_users)
 
       render
 
       expect_snapshot_match
-      expect(rendered).to include('mock_fullname_1').exactly(1).times
-      expect(rendered).to include('mock_fullname_2').exactly(1).times
+      expect(rendered).to include('turbo-stream action="append" target="pagination-body"')
+      expect(rendered).to include('Shared::ListUsers::Component(paginate_users: PaginateUsers)')
 
     end
   end

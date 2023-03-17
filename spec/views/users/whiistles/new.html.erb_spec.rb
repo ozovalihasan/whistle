@@ -4,29 +4,28 @@ RSpec.describe "users/whiistles/new", type: :view do
   
   describe "renders the new view of Users::WhiistlesController" do
 
-    let(:current_user_presenter) { 
-      cur_user = FactoryBot.create(:mock_user)
-      CurrentUserPresenter.new(cur_user)
+    let(:cur_user) { 
+      FactoryBot.create(:mock_user)
+    }
+
+    let(:user) { 
+      FactoryBot.create(:mock_user)
     }
   
     it "renders correctly" do
     
-
       whiistle = Whiistle.new
       assign(:whiistle, whiistle)
 
-      assign(:current_user_presenter, current_user_presenter)
-
-      sign_in current_user_presenter.current_user
-
-      user = FactoryBot.create(:mock_user)
       assign(:user, user)
-      
+
+      sign_in cur_user
+
       render
 
       expect_snapshot_match
       expect(rendered).to include('turbo-frame id="modal_body"')
-      expect(rendered).to include('Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, current_user_presenter: CurrentUserPresenter, value: String)')
+      expect(rendered).to include('Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, cur_user: User, value: String)')
 
     end
     

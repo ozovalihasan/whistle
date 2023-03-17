@@ -4,27 +4,24 @@ RSpec.describe "users/medias/index.turbo_stream", type: :view do
   
   describe "renders the index(turbo_stream) view of Users::MediasController" do
 
-    let(:current_user_presenter) do
-      cur_user = FactoryBot.create(:mock_user)
-      CurrentUserPresenter.new(cur_user)
+    let(:cur_user) do
+      FactoryBot.create(:mock_user)
+    end
+
+    let(:user) do
+      FactoryBot.create(:mock_user)
     end
 
     it "renders correctly" do
-      FactoryBot.create(:mock_user)
-      FactoryBot.create_pair(:mock_whiistle, user: User.first)
-      
-      paginate_whiistles = PaginateWhiistles.new(Whiistle.all, 1, nil)
+      paginate_whiistles = PaginateWhiistles.new(user.liked_whiistles, 1, "", cur_user)
       paginate_whiistles.set_basic
-
       assign(:paginate_whiistles, paginate_whiistles)
-      assign(:current_user_presenter, current_user_presenter)
 
       render
 
       expect_snapshot_match
-      expect(rendered).to include('turbo-stream action="append" target="pagination-body"')
-      expect(rendered).to include('Whiistles::ListWhiistles::Component(whiistles: ActiveRecord::Relation, current_user_presenter: CurrentUserPresenter)')
-
+      expect(rendered).to include('action="append" target="pagination-body"')  
+      expect(rendered).to include('Whiistles::ListPaginatedWhiistles::Component(paginate_whiistles: PaginateWhiistles)') 
     end
   end
 

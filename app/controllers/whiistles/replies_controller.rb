@@ -2,8 +2,7 @@ class Whiistles::RepliesController < ApplicationController
   before_action :set_whiistle, only: [:new, :create]
 
   def new
-    @reply = Reply.new()
-    @current_user_presenter = CurrentUserPresenter.new(current_user)
+    @reply = Reply.new
   end
   
   def create

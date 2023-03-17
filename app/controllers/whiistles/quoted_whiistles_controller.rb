@@ -3,7 +3,6 @@ class Whiistles::QuotedWhiistlesController < ApplicationController
 
   def new
     @quoting_whiistle = Whiistle.new()
-    @current_user_presenter = CurrentUserPresenter.new(current_user)
   end
   
   private 

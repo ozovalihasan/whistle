@@ -3,38 +3,27 @@ require 'rails_helper'
 RSpec.describe "users/liked_whiistles/index", type: :view do
   
   describe "renders the index(html) view of Users::LikedWhiistlesController" do
+    let(:cur_user) do
+      FactoryBot.create(:mock_user)
+    end
 
-
+    let(:user) do
+      FactoryBot.create(:mock_user)
+    end
+    
     it "renders correctly" do
-      FactoryBot.reload
-      FactoryBot.create_pair(:mock_user)
-      user = User.first
-      assign(:user, user)
-      cur_user = User.last
-
-      travel_to(Time.new(2001, 1, 1, 1, 1, 1)) do
-        FactoryBot.create_list(:mock_whiistle, 2, user: user)
-        FactoryBot.create_list(:mock_like, 2, user: user)
-      end
-
-      all_whiistles = user.liked_whiistles.includes(user:  [{ profile_picture_attachment: :blob }])
-      paginate_whiistles = PaginateWhiistles.new(all_whiistles, nil, user_liked_whiistles_url(user), cur_user)
+      paginate_whiistles = PaginateWhiistles.new(user.liked_whiistles, 1, "", cur_user)
       paginate_whiistles.set_basic
-      assign(:paginate_whiistles, paginate_whiistles)
+      tab_presenter = WhiistlesTabPresenter.new(User.all, :mock_name, paginate_whiistles)
+      assign(:tab_presenter, tab_presenter)
 
-      relation = nil
-      assign(:relation, relation)
+      sidebar_right_presenter = SidebarRightPresenter.new(user, cur_user)
+      assign(:sidebar_right_presenter, sidebar_right_presenter)
 
-      sign_in cur_user      
-
-      travel_to(Time.new(2001, 1, 1, 1, 1, 1)) do
-        render
-      end
+      render
 
       expect_snapshot_match
-      expect(rendered).to match('2 Whiistles')
-      expect(rendered).to match('mock_body_whiistle_1')  
-      expect(rendered).to match('mock_body_whiistle_2')  
+      expect(rendered).to include('Users::Tabs::Component(tab_presenter: WhiistlesTabPresenter, sidebar_right_presenter: SidebarRightPresenter)')
     end
   end
 end

@@ -15,6 +15,7 @@ RSpec.describe "users/whiistles_with_replies/index", type: :view do
     
       all_whiistles = Whiistle.all
       paginate_whiistles = PaginateWhiistles.new(all_whiistles, 1, '', cur_user)
+      paginate_whiistles.set_connected
       
       whiistle = Whiistle.new
 

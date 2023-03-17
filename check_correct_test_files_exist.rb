@@ -78,7 +78,7 @@ correct_test_component_files_exist?
 
 def remove_snap_files
   
-  Dir.glob("spec/components/**/__snapshots__").each do |f|
+  Dir.glob("spec/views/**/__snapshots__").each do |f|
     FileUtils.remove_dir(f)
   end  
 end

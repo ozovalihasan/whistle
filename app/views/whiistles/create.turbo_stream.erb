@@ -5,9 +5,7 @@
 
   <%= turbo_stream.replace "whiistles_counter" do %>
     <%= render component("whiistles/whiistles_counter", whiistles_count: @whiistles_size) %>
-
   <% end %>
-  
 <% end %>
 
 <%= render component("streams/update_flashes", notice: notice, alert: alert) %>

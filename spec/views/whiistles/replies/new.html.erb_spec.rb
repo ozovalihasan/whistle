@@ -3,27 +3,33 @@ require 'rails_helper'
 RSpec.describe "whiistles/replies/new", type: :view do
   
   describe "renders the new view of Whiistles::RepliesController" do
-    let(:current_user_presenter) do
-      cur_user = FactoryBot.create(:mock_user)
-      CurrentUserPresenter.new(cur_user)
+    let(:cur_user) do
+      FactoryBot.create(:mock_user)
+    end
+
+    let(:whiistle) do
+      FactoryBot.create(:mock_whiistle)
     end
 
     it "renders correctly" do
       FactoryBot.create(:mock_user)
-      FactoryBot.create(:mock_whiistle)
-      reply = FactoryBot.build(:mock_reply)
+      assign(:whiistle, whiistle)
+
+      reply = @reply = Reply.new
       assign(:reply, reply)
       
-      quoting_whiistle = Whiistle.new
-      assign(:quoting_whiistle, quoting_whiistle)
-
-      assign(:current_user_presenter, current_user_presenter)
+      sign_in cur_user
 
       render 
 
       expect_snapshot_match
-      expect(rendered).to match 'turbo-frame id="quoting_whiistle_whiistle_\d*"'
-      expect(rendered).to include("Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, current_user_presenter: CurrentUserPresenter, quoted_whiistle: Whiistle)")
+      expect(rendered).to match 'turbo-frame id="modal_body"'
+      expect(rendered).to include('Users::ProfileImageButton::Component(user: User)')
+      expect(rendered).to include('Whiistles::UserNamesWithTimestamp::Component(whiistle: Whiistle)')
+      expect(rendered).to include('Whiistles::BodyAndPictures::Component(whiistle: Whiistle, show_pictures: FalseClass)')
+      expect(rendered).to include('Whiistles::ReplyInfo::Component(whiistle: Whiistle)')
+      expect(rendered).to include('Whiistles::Form::Component(form_url: String, whiistle: Reply, label: String, cur_user: User, enable_quoting_whiistle: TrueClass)')
+      
     end
   end
 

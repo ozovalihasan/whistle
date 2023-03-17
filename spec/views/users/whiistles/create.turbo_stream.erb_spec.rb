@@ -4,45 +4,46 @@ RSpec.describe "users/whiistles/create.turbo_stream", type: :view do
   
   describe "renders the create(turbo_stream) view of Users::WhiistlesController" do
     
-    context "if whiistle is saved successfully" do
-      
-      let(:current_user_presenter) do
-        cur_user = FactoryBot.create(:mock_user)
-        CurrentUserPresenter.new(cur_user)
-      end
+    let(:current_user_presenter) do
+      cur_user = FactoryBot.create(:mock_user)
+      CurrentUserPresenter.new(cur_user)
+    end
 
+    context "if the whiistle is saved successfully" do
       it "renders correctly" do
+        FactoryBot.create(:mock_user)
 
-        status = double('status', success?: true) 
-        assign(:status, status)
-
-        assign(:current_user_presenter, current_user_presenter)
-        whiistle = FactoryBot.create(:mock_whiistle)      
+        whiistle = FactoryBot.create(:mock_whiistle)
         assign(:whiistle, whiistle)
+        
+        completed_successfully = true
+        assign(:completed_successfully, completed_successfully)
+  
+        assign(:current_user_presenter, current_user_presenter)
 
-        flash[:notice] = "mock_notice"
-
-        render
-
-        expect_snapshot_match('successful')
-        expect(rendered).to include('turbo-stream action="update" target="modal_body"')
-        expect(rendered).to include('Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)')
-        expect(rendered).to include('Streams::UpdateFlashes::Component(notice: String, alert: NilClass)')
+        flash[:notice] = "mock_notice_message"
+  
+        render 
+  
+        expect_snapshot_match("successful")
+        expect(rendered).to include('action="update" target="modal_body"')
+        expect(rendered).to include("Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)")
+        expect(rendered).to include("Streams::UpdateFlashes::Component(notice: String, alert: NilClass)")
       end
     end
 
-    context "if whiistle is not saved" do
+    context "if the whiistle is not saved" do
       it "renders correctly" do
+        completed_successfully = false
+        assign(:completed_successfully, completed_successfully)
 
-        status = double('status', success?: false) 
-        assign(:status, status)
-
-        flash[:alert] = "mock_notice"
-
-        render
-
-        expect_snapshot_match('unsuccessful')
-        expect(rendered).to include('Streams::UpdateFlashes::Component(notice: NilClass, alert: String)')
+        flash[:notice] = "mock_alarm_message"
+  
+        render 
+  
+        expect_snapshot_match("fail")
+        expect(rendered).to include("Streams::UpdateFlashes::Component(notice: String, alert: NilClass)")
+        expect(rendered).to include("::Component").exactly(1).times
       end
     end
   end

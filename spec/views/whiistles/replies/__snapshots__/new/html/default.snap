@@ -1,0 +1,20 @@
+<turbo-frame id="modal_body" >
+  <div class='flex   '>
+    Users::ProfileImageButton::Component(user: User)
+    
+    <div class="pl-2">
+
+      Whiistles::UserNamesWithTimestamp::Component(whiistle: Whiistle)
+      
+      <div class="mt-2">
+        Whiistles::BodyAndPictures::Component(whiistle: Whiistle, show_pictures: FalseClass)
+      </div>
+
+      Whiistles::ReplyInfo::Component(whiistle: Whiistle)
+
+    </div>
+  </div>
+  
+  Whiistles::Form::Component(form_url: String, whiistle: Reply, label: String, cur_user: User, enable_quoting_whiistle: TrueClass)
+  
+</turbo-frame>

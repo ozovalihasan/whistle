@@ -14,17 +14,17 @@ RSpec.describe "whiistles/rewhiistles/destroy.turbo_stream", type: :view do
 
       rewhiistle.destroy!
 
-      flash[:notice] = "The rewhiistle is destroyed"
-      
-      subcomponents = [ Whiistles::CreateRewhiistleOrQuoteButton::Component ]
-      mock_components(subcomponents)
-      
+      flash[:notice] = "mock_notice"
+            
       render
 
       expect_snapshot_match
-      expect(rendered).to include("The rewhiistle is destroyed").exactly(1).times
-      expect(rendered).to include("Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)")
-      expect(rendered).to match(/button(.|\n)*Rewhiistle(.|\n)*button/)
+      expect(rendered).to match(/turbo-stream action="update" targets=".rewhiistle_button_whiistle_\d+"/)
+      expect(rendered).to include('Whiistles::CreateRewhiistleButton::Component(whiistle: Whiistle)')
+      expect(rendered).to include('StreamAnimations::UpdateAll::Component(targets: String)')
+      expect(rendered).to include('Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)')
+      expect(rendered).to include('Streams::UpdateFlashes::Component(notice: String, alert: NilClass)')
+      
 
     end
   end
