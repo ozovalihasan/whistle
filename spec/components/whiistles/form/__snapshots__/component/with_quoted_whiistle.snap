@@ -14,6 +14,7 @@
             </li>
             <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
           
+                Whiistles::QuotedWhiistle::Component(whiistle: Whiistle)
                 <div class="flex flex-col hidden whiistle_quoted_whiistle_url"><input class="p-1 hidden" value="http://test.host/whiistles/1" autocomplete="off" type="hidden" name="whiistle[quoted_whiistle_url]" id="whiistle_quoted_whiistle_url" /></div>
                 <div class="w-full flex">
                   Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)

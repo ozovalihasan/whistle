@@ -28,12 +28,13 @@ RSpec.describe "whiistles/create.turbo_stream", type: :view do
         render 
   
         expect_snapshot_match("successful")
-        expect(rendered).to include('action="prepend" target="whiistles"')
+        expect(rendered).to include('turbo-stream action="update" target="modal_body"')
         expect(rendered).to include('action="replace" target="whiistles_counter"')
-        expect(rendered).to include("Whiistles::WhiistleWithFloodInfo::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter")
+        expect(rendered).to include("Whiistles::Container::Component()")
+        expect(rendered).to include("Whiistles::MainWhiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)")
         expect(rendered).to include("Whiistles::WhiistlesCounter::Component(whiistles_count: Integer)")
         expect(rendered).to include("Streams::UpdateFlashes::Component(notice: String, alert: NilClass)")
-        expect(rendered).to include("::Component").exactly(3).times
+        expect(rendered).to include("::Component").exactly(4).times
       end
     end
 

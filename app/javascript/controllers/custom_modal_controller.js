@@ -16,4 +16,8 @@ export default class extends Modal {
     }
   }
   
+  open(e) {
+    super.close(e);
+    super.open(e);
+  }
 }

@@ -1,6 +1,6 @@
 <% if @completed_successfully %>
-  <%= turbo_stream.prepend "whiistles" do %>
-    <%= render component("whiistles/whiistle_with_flood_info", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+  <%= turbo_stream.update "modal_body" do %>
+    <%= render component("whiistles/whiistle_with_connected_whiistles", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
   <% end %>
 
   <%= turbo_stream.replace "whiistles_counter" do %>

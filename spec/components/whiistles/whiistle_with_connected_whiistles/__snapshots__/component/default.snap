@@ -1,0 +1,4 @@
+Whiistles::Container::Component()
+
+  Whiistles::MainWhiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+

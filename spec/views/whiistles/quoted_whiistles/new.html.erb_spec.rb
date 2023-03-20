@@ -21,7 +21,7 @@ RSpec.describe "whiistles/quoted_whiistles/new", type: :view do
       render 
 
       expect_snapshot_match
-      expect(rendered).to match 'turbo-frame id="quoting_whiistle_whiistle_\d*"'
+      expect(rendered).to match 'turbo-frame id="modal_body"'
       expect(rendered).to include("Whiistles::Form::Component(form_url: String, whiistle: Whiistle, label: String, cur_user: User, quoted_whiistle: Whiistle)")
       expect(rendered).to include("::Component").exactly(1).times
     end

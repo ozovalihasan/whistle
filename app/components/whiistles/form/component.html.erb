@@ -15,10 +15,21 @@
             <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
           
               <% if @quoted_whiistle %>
-                <%= form.input :quoted_whiistle_url, as: :hidden, input_html: {value: whiistle_url(@quoted_whiistle)} %>
+                <%= render component("whiistles/quoted_whiistle", whiistle: @quoted_whiistle) %>
+                <%= 
+                  form.input :quoted_whiistle_url, 
+                              as: :hidden, 
+                              input_html: {
+                                value: whiistle_url(@quoted_whiistle)
+                              } 
+                %>
               <% end %>
               <% if @enable_quoting_whiistle %>
-                <%= form.input :quoted_whiistle_url, as: :string, placeholder: "Copy paste the link of a whiistle to quote" %>
+                <%= 
+                  form.input :quoted_whiistle_url, 
+                              as: :string, 
+                              placeholder: "Copy paste the link of a whiistle to quote"
+                %>
               <% end %>
               <% unless @open_modal %>
                 <div class="w-full flex">

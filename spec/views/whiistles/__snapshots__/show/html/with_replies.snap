@@ -9,6 +9,7 @@
 
 
     
+        Whiistles::ListWhiistles::Component(whiistles: ActiveRecord::Associations::CollectionProxy, current_user_presenter: CurrentUserPresenter)
     </div>
   </div>
   <div class='w-1/3'>

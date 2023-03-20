@@ -1,0 +1,7 @@
+Whiistles::Container::Component()
+
+  Whiistles::MainWhiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+
+    <div class="pl-2 ">
+      Whiistles::AllChildrenFloods::Component(flood: Flood, current_user_presenter: CurrentUserPresenter)
+    </div>

@@ -1,4 +1,4 @@
-<a data-turbo-frame="quoting_whiistle_whiistle_1" href="/whiistles/1/quoted_whiistle/new">
+<a data-action="modal#openAndVisit" href="/whiistles/1/quoted_whiistle/new">
   Whiistles::ButtonInner::Component()
     <i class="bi bi-chat-left-quote" ></i>
     <span>

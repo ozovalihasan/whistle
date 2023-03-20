@@ -1,24 +1,12 @@
 <div class='flex grow'>
   <div class="p-2 w-2/3">
-    <% if @whiistle.is_a?(Reply) || @whiistle.is_a?(Flood)  %>
-      <div class="border-solid border-second border-l p-2 ">
-        <%= render component("whiistles/all_parents_until_root", whiistle: @whiistle.whiistle, current_user_presenter: @current_user_presenter) %>
-      </div>
-    <% end %>
-
     <div class='p-2'>
-      <%= render component("whiistles/main_whiistle", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
     
-      <% if (@whiistle.is_a?(Whiistle) || @whiistle.is_a?(Flood)) && @whiistle.flood.present? %>
-        <div class="pl-2 ml-6 border-solid border-l border-l-second border-b ">
-          <%= render component("whiistles/all_children_floods", flood: @whiistle.flood, current_user_presenter: @current_user_presenter) %>
-        </div>
-      <% end %>
+      
+      <%= render component("whiistles/whiistle_with_connected_whiistles", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
     
       <% if @whiistle.replies.present? %>
-        <div class="pl-8">
-          <%= render component("whiistles/list_whiistles", whiistles: @whiistle.replies, current_user_presenter: @current_user_presenter) %>
-        </div>
+        <%= render component("whiistles/list_whiistles", whiistles: @whiistle.replies, current_user_presenter: @current_user_presenter) %>
       <% end %>
     </div>
   </div>

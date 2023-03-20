@@ -71,9 +71,10 @@ RSpec.describe Whiistles::Form::Component, type: :component do
       expect_snapshot_match("with_quoted_whiistle")
       expect(rendered_content).to include('Users::ProfileImage::Component(user: User)')
       expect(rendered_content).to include('Whiistles::FormBody::Component(form: SimpleForm::FormBuilder, label: String, value: NilClass, open_modal: NilClass, modal_path: NilClass)')
+      expect(rendered_content).to include('Whiistles::QuotedWhiistle::Component(whiistle: Whiistle)')
       expect(rendered_content).to include('Whiistles::FormPicturesButton::Component(form: SimpleForm::FormBuilder)')
       expect(rendered_content).to match /input class=".*hidden" value="http:\/\/test.host\/whiistles\/\d+"/
-      expect(rendered_content).to include("::Component").exactly(3).times
+      expect(rendered_content).to include("::Component").exactly(4).times
     end
   end
 
