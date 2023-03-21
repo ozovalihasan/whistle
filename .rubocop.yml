@@ -5,3 +5,15 @@ require:
 Style/ClassAndModuleChildren:
   Enabled: true
   EnforcedStyle: compact
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/**/*"
+    - "bin/*" 
+    - "config/**/*"
+    - "Guardfile"
+    - "Rakefile"
+    - "node_modules/**/*"
+
+  DisplayCopNames: true
