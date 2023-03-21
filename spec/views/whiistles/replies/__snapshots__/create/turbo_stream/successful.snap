@@ -1,0 +1,17 @@
+  <turbo-stream action="update" target="modal_body"><template>
+    Whiistles::Container::Component()
+    <div class="border-solid border-second py-2 ">
+      Whiistles::AllParentsUntilRoot::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+    </div>
+
+  Whiistles::MainWhiistle::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)
+
+
+</template></turbo-stream>  
+  <turbo-stream action="update" target="reply_counter_whiistle_1"><template>
+    1
+</template></turbo-stream>  
+  <turbo-stream action="after" target="reply_whiistle_1"><template>
+    Whiistles::WhiistleWithFloodInfo::Component(whiistle: Reply, current_user_presenter: CurrentUserPresenter)
+</template></turbo-stream>
+Streams::UpdateFlashes::Component(notice: String, alert: NilClass)

@@ -1,7 +1,6 @@
 <% if @reply.saved_changes? %>
-  <%= turbo_stream.update whiistle_reply_form_target(@whiistle) do %>
-    <turbo-frame id=<%= whiistle_reply_form_target(@whiistle) %> >
-    </turbo-frame>  
+  <%= turbo_stream.update modal_body_target do %>
+    <%= render component("whiistles/whiistle_with_connected_whiistles", whiistle: @reply, current_user_presenter: @current_user_presenter) %>
   <% end %>
   
   <%= turbo_stream.update whiistle_reply_counter_target(@whiistle) do %>
@@ -11,11 +10,6 @@
   <%= turbo_stream.after whiistle_reply_form_target(@whiistle) do %>
     <%= render component("whiistles/whiistle_with_flood_info", whiistle: @reply, current_user_presenter: @current_user_presenter ) %>
   <% end %>
-
-  <%= turbo_stream.update modal_body_target do %>
-    <%= notice %>
-  <% end %>
-
 <% end %>
 
 <%= render component("streams/update_flashes", notice: notice, alert: alert) %>
