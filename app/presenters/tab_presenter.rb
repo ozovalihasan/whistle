@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TabPresenter
   attr_reader :user, :name, :paginate_records
 

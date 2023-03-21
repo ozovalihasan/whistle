@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateWhiistleRootFloodLeafPair < ActiveRecord::Migration[7.0]
   def change
     create_table :whiistle_root_flood_leaf_pairs do |t|

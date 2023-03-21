@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
     username { Faker::Internet.username }
     fullname { Faker::Name.name }
     email { Faker::Internet.email }
-    password { "aaaaaa" }
+    password { 'aaaaaa' }
     profile_picture { Rack::Test::UploadedFile.new("app/assets/images/mock-#{rand(1..5)}.jpg", 'image/png') }
     cover_image { Rack::Test::UploadedFile.new("app/assets/images/mock-#{rand(1..5)}.jpg", 'image/png') }
   end
 end
 
 FactoryBot.define do
-  factory :mock_user, class: "User" do
+  factory :mock_user, class: 'User' do
     sequence(:id) { |n| n }
     sequence(:username) { |n| "mock_username_#{n}" }
     sequence(:fullname) { |n| "mock_fullname_#{n}" }
@@ -18,4 +20,3 @@ FactoryBot.define do
     sequence(:password) { |n| "password_user_#{n}" }
   end
 end
-

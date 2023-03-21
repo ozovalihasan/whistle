@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
-class Shared::Spinner::Component < Application::Component
+module Shared
+  module Spinner
+    class Component < Application::Component
+    end
+  end
 end

@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-class Whiistles::FloodWhiistleForm::Component < Application::Component
-  def initialize(main_form:)
-    @main_form = main_form
+module Whiistles
+  module FloodWhiistleForm
+    class Component < Application::Component
+      def initialize(main_form:)
+        @main_form = main_form
+      end
+    end
   end
-
 end

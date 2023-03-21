@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
-class Header::Logo::Component < Application::Component
+module Header
+  module Logo
+    class Component < Application::Component
+    end
+  end
 end

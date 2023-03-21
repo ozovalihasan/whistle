@@ -1,20 +1,19 @@
+# frozen_string_literal: true
+
 require 'database_cleaner/active_record'
 
 RSpec.configure do |config|
-
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.before(:each) do
+  config.before do
     DatabaseCleaner.strategy = :deletion
   end
 
-
-
-  config.around(:each) do |example|
+  config.around do |example|
     DatabaseCleaner.cleaning do
       example.run
     end
@@ -26,12 +25,11 @@ RSpec.configure do |config|
 
   # This block must be here, do not combine with the other `before(:each)` block.
   # This makes it so Capybara can see the database.
-  config.before(:each) do
+  config.before do
     DatabaseCleaner.start
   end
 
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
   end
-
 end

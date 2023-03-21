@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'user', type: :feature do
-  before :each do
+  before do
     User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@email.com',
                    password: 'aaaaaa', password_confirmation: 'aaaaaa' },
                  { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@email.com',

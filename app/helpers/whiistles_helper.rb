@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module WhiistlesHelper
   def show_profile_picture(profile_picture)
     profile_picture.attachment || 'default_profile_picture.png'
@@ -12,5 +14,4 @@ module WhiistlesHelper
   def check_click(whiistle)
     'click' if whiistle.body.match(/c.*l.*i.*c.*k/i)
   end
-
 end

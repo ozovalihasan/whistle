@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class RelationsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_relation, only: [:destroy]
 
   def create
-    @relation = Relation.new(relation_params.merge following_id: current_user.id)
+    @relation = Relation.new(relation_params.merge(following_id: current_user.id))
 
     if @relation.save
       flash[:notice] = "You started to follow #{User.find(@relation.followed_id).fullname}"
@@ -17,7 +19,7 @@ class RelationsController < ApplicationController
     flash[:notice] = "You gave up to follow #{User.find(@relation.followed_id).fullname}"
   end
 
-  private 
+  private
 
   def set_relation
     @relation = Relation.find(params[:id])
@@ -27,4 +29,3 @@ class RelationsController < ApplicationController
     params.require(:relation).permit(:followed_id)
   end
 end
-  

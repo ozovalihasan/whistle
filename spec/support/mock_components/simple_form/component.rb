@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MockComponents
   module SimpleForm
     class Component < ViewComponent::Base
@@ -9,10 +11,9 @@ module MockComponents
 
       def call
         simple_form_for Whiistle.new do |form|
-          render @component_class.new(@form_key => form, **@kwargs) 
+          render @component_class.new(@form_key => form, **@kwargs)
         end
       end
-      
     end
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-  Rails.application.reloader.to_prepare do
+Rails.application.reloader.to_prepare do
   class TurboFailureApp < Devise::FailureApp
     def respond
       if request_format == :turbo_stream
@@ -11,7 +11,7 @@
     end
 
     def skip_format?
-      %w(html turbo_stream */*).include? request_format.to_s
+      %w[html turbo_stream */*].include? request_format.to_s
     end
   end
 
@@ -19,9 +19,9 @@
     class Responder < ActionController::Responder
       def to_turbo_stream
         controller.render(options.merge(formats: :html))
-      rescue ActionView::MissingTemplate => error
+      rescue ActionView::MissingTemplate => e
         if get?
-          raise error
+          raise e
         elsif has_errors? && default_action
           render rendering_options.merge(formats: :html, status: :unprocessable_entity)
         else
@@ -34,7 +34,6 @@
     respond_to :html, :turbo_stream
   end
 end
-
 
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others

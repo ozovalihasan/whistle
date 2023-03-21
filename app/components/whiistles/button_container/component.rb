@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
-class Whiistles::ButtonContainer::Component < Application::Component
-
+module Whiistles
+  module ButtonContainer
+    class Component < Application::Component
+    end
+  end
 end

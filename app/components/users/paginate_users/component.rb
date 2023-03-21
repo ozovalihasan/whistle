@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-class Users::PaginateUsers::Component < Application::Component
-  def initialize(paginate_users:)
-    @paginate_users = paginate_users
+module Users
+  module PaginateUsers
+    class Component < Application::Component
+      def initialize(paginate_users:)
+        @paginate_users = paginate_users
+      end
+    end
   end
-
 end

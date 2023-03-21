@@ -1,16 +1,20 @@
-class Users::TabsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_user
+# frozen_string_literal: true
 
-  def index
-    unless request.format.turbo_stream?
+module Users
+  class TabsController < ApplicationController
+    before_action :authenticate_user!
+    before_action :set_user
+
+    def index
+      return if request.format.turbo_stream?
+
       @sidebar_right_presenter = SidebarRightPresenter.new(@user, current_user)
     end
-  end
 
-  private 
+    private
 
-  def set_user
-    @user = User.find(params[:user_id])
+    def set_user
+      @user = User.find(params[:user_id])
+    end
   end
 end

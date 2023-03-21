@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
-class Whiistles::Container::Component < Application::Component
-  def initialize; end
+module Whiistles
+  module Container
+    class Component < Application::Component
+    end
+  end
 end

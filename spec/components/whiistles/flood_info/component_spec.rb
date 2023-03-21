@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe Whiistles::FloodInfo::Component, type: :component do
-  before(:each) do
+  before do
     FactoryBot.reload
   end
 
@@ -12,11 +12,11 @@ RSpec.describe Whiistles::FloodInfo::Component, type: :component do
       FactoryBot.create(:mock_user)
       whiistle = FactoryBot.create(:mock_whiistle)
       FactoryBot.create(:mock_flood)
-      
-      render_inline(described_class.new(whiistle: whiistle))
 
-      expect_snapshot_match("with_whiistle")  
-      expect(rendered_content).to include "Show this thread"
+      render_inline(described_class.new(whiistle:))
+
+      expect_snapshot_match('with_whiistle')
+      expect(rendered_content).to include 'Show this thread'
     end
   end
 
@@ -25,11 +25,11 @@ RSpec.describe Whiistles::FloodInfo::Component, type: :component do
       FactoryBot.create(:mock_user)
       whiistle = FactoryBot.create(:mock_whiistle)
       flood = FactoryBot.create(:mock_flood)
-      
+
       render_inline(described_class.new(whiistle: flood))
 
-      expect_snapshot_match("with_whiistle_as_Flood")  
-      expect(rendered_content).to include "Show this thread"
+      expect_snapshot_match('with_whiistle_as_Flood')
+      expect(rendered_content).to include 'Show this thread'
     end
   end
 end

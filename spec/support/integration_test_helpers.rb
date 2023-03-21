@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module IntegrationTestHelpers
   def do_signup(username, fullname, email)
     visit root_path

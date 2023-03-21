@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Uncomment this and change the path if necessary to include your own
 # components.
@@ -13,8 +14,8 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, tag: 'div', class: "flex flex-col",
-    hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
+  config.wrappers :default, tag: 'div', class: 'flex flex-col',
+                            hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.
@@ -53,8 +54,8 @@ SimpleForm.setup do |config|
 
     ## Inputs
     # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :label, class: "py-2"
-    b.use :input, class: "p-1"
+    b.use :label, class: 'py-2'
+    b.use :input, class: 'p-1'
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
 
@@ -115,7 +116,7 @@ SimpleForm.setup do |config|
 
   # You can define the default class to be used on forms. Can be overriden
   # with `html: { :class }`. Defaulting to none.
-  config.default_form_class = "my-8 mx-auto py-8 px-4 bg-second bg-opacity-5"
+  config.default_form_class = 'my-8 mx-auto py-8 px-4 bg-second bg-opacity-5'
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
@@ -175,27 +176,24 @@ SimpleForm.setup do |config|
   # config.input_field_valid_class = 'is-valid'
   # config.input_field_error_class = 'is-invalid'
 
-  config.wrappers :file_wrapper, tag: 'div', class: "flex flex-col" do |b|
+  config.wrappers :file_wrapper, tag: 'div', class: 'flex flex-col' do |b|
     b.use :html5
 
-    b.use :label, class: "btn-second py-2 px-4"
-    b.use :input, class: "hidden"
-    
+    b.use :label, class: 'btn-second py-2 px-4'
+    b.use :input, class: 'hidden'
   end
 
-  config.wrappers :whiistle_file_wrapper, tag: 'div', class: "flex flex-col" do |b|
+  config.wrappers :whiistle_file_wrapper, tag: 'div', class: 'flex flex-col' do |b|
     b.use :html5
 
-    b.use :label, class: "hidden"
-    b.use :input, class: "hidden"
+    b.use :label, class: 'hidden'
+    b.use :input, class: 'hidden'
   end
 
-  config.wrappers :whiistle_wrapper, tag: 'div', class: "flex flex-col" do |b|
+  config.wrappers :whiistle_wrapper, tag: 'div', class: 'flex flex-col' do |b|
     b.use :html5
 
-    b.use :label, class: "py-2"
-    b.use :input, class: "w-full rounded-md border border-solid", size: "60x4"
+    b.use :label, class: 'py-2'
+    b.use :input, class: 'w-full rounded-md border border-solid', size: '60x4'
   end
-
-
 end

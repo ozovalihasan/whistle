@@ -1,21 +1,22 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "whiistles/rewhiistles/destroy.turbo_stream", type: :view do
-  
-  describe "renders the destroy turbo stream view of Whiistles::RewhiistlesController" do
-    it "renders correctly" do
+RSpec.describe 'whiistles/rewhiistles/destroy.turbo_stream', type: :view do
+  describe 'renders the destroy turbo stream view of Whiistles::RewhiistlesController' do
+    it 'renders correctly' do
       FactoryBot.reload
       user = FactoryBot.create(:mock_user)
       FactoryBot.create(:mock_user)
 
-      main_whiistle = FactoryBot.create(:mock_whiistle, user: user)
+      main_whiistle = FactoryBot.create(:mock_whiistle, user:)
       rewhiistle = FactoryBot.create(:mock_rewhiistle)
       assign(:rewhiistle, rewhiistle)
 
       rewhiistle.destroy!
 
-      flash[:notice] = "mock_notice"
-            
+      flash[:notice] = 'mock_notice'
+
       render
 
       expect_snapshot_match
@@ -24,8 +25,7 @@ RSpec.describe "whiistles/rewhiistles/destroy.turbo_stream", type: :view do
       expect(rendered).to include('StreamAnimations::UpdateAll::Component(targets: String)')
       expect(rendered).to include('Whiistles::CreateRewhiistleOrQuoteButton::Component(whiistle: Whiistle)')
       expect(rendered).to include('Streams::UpdateFlashes::Component(notice: String, alert: NilClass)')
-      expect(rendered).to include("::Component").exactly(4).times
+      expect(rendered).to include('::Component').exactly(4).times
     end
   end
-
 end

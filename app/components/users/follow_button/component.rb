@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-class Users::FollowButton::Component < Application::Component
-  def initialize(user:)
-    @user = user
+module Users
+  module FollowButton
+    class Component < Application::Component
+      def initialize(user:)
+        @user = user
+      end
+    end
   end
-
 end

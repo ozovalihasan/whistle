@@ -1,16 +1,14 @@
-class UsersTabPresenter < TabPresenter
-  
-  def initialize(user, name, paginate_records)
-    super(user, name, paginate_records)
-  end
+# frozen_string_literal: true
 
+class UsersTabPresenter < TabPresenter
   def no_user_info
-    if name == :followings
-      user.fullname + " doesn't follow anyone."
-    elsif name == :followers
-      user.fullname + " doesn't have any follower."
+    case name
+    when :followings
+      "#{user.fullname} doesn't follow anyone."
+    when :followers
+      "#{user.fullname} doesn't have any follower."
     else
-      raise StandardError.new "The name is not available"
+      raise StandardError, 'The name is not available'
     end
   end
 end
