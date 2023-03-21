@@ -3,22 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
-  let(:create_whiistle) do
-    FactoryBot.create(:mock_whiistle, user:)
-  end
-
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(user)
-  end
 
   context "if the whiistle has a label 'shared_whiistle' " do
     it 'renders correctly' do
-      create_whiistle
+      whiistle
 
       whiistles = BaseWhiistle.select(" *, 'shared_whiistle' AS label ")
 
@@ -32,7 +20,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
 
   context "if the whiistle is a Whiistle and has a label 'primary_whiistle' " do
     it 'renders correctly' do
-      create_whiistle
+      whiistle
 
       whiistles = Whiistle.select(" *, 'primary_whiistle' AS label ")
 
@@ -46,7 +34,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
 
   context "if the whiistle is a Whiistle and has a label 'primary_whiistle' and a flood" do
     it 'renders correctly' do
-      create_whiistle
+      whiistle
       FactoryBot.create(:mock_flood, user:)
 
       whiistles = Whiistle.select(" *, 'primary_whiistle' AS label ")
@@ -62,7 +50,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
 
   context "if the whiistle is a Reply and has a label 'primary_whiistle' and its path is 2 or more" do
     it 'renders correctly' do
-      create_whiistle
+      whiistle
       reply = FactoryBot.create(:mock_reply, user:)
 
       whiistles = Reply.select(" *, 'primary_whiistle' AS label ").where(id: reply.id)
@@ -78,7 +66,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
 
   context "if the whiistle is a Reply and has a label 'primary_whiistle' and its path is 3 or more" do
     it 'renders correctly' do
-      create_whiistle
+      whiistle
       FactoryBot.create(:mock_reply, user:)
       reply = FactoryBot.create(:mock_reply, user:)
 
@@ -95,7 +83,7 @@ RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :c
 
   context "if the whiistle is a Reply and has a label 'primary_whiistle' and its path is 4 or more" do
     it 'renders correctly' do
-      create_whiistle
+      whiistle
       FactoryBot.create(:mock_reply, user:)
       FactoryBot.create(:mock_reply, user:)
       reply = FactoryBot.create(:mock_reply, user:)

@@ -3,14 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::ListPaginatedWhiistles::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
-  let(:cur_user) do
-    FactoryBot.create(:mock_user)
-  end
-
   it 'renders correctly' do
     FactoryBot.create(:mock_whiistle, user:)
 

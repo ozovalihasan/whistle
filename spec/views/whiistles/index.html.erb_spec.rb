@@ -4,10 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'whiistles/index', type: :view do
   describe 'renders the index view of WhiistlesController' do
-    let(:cur_user) do
-      FactoryBot.create(:mock_user)
-    end
-
     it 'renders correctly' do
       paginate_whiistles = PaginateWhiistles.new(cur_user.main_page_whiistles, 1, '', cur_user)
       paginate_whiistles.set_connected

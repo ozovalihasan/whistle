@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::FormOpeningModal::Component, type: :component do
-  let(:cur_user) do
-    FactoryBot.create(:mock_user)
-  end
-
   context 'if value is given' do
     it 'renders correctly' do
       render_inline(described_class.new(label: 'mock_label', whiistle: Whiistle.new, path: 'mock_path',

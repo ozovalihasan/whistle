@@ -3,14 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Users::Tabs::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
-  let(:cur_user) do
-    FactoryBot.create(:mock_user)
-  end
-
   let(:expect_mandatory_elements) do
     expect(rendered_content).to include('<turbo-frame data-turbo-action="advance" id="user_tabs">')
     expect(rendered_content).to include('Users::TabsButton::Component(url: String, text: String, active_tab: TrueClass)').exactly(1).times

@@ -4,14 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'users/followings/index', type: :view do
   describe 'renders the index view of Users::FollowingsController' do
-    let(:cur_user) do
-      FactoryBot.create(:mock_user)
-    end
-
-    let(:user) do
-      FactoryBot.create(:mock_user)
-    end
-
     it 'renders correctly' do
       paginate_users = PaginateUsers.new(user.followings, 1, '', cur_user)
       tab_presenter = UsersTabPresenter.new(User.all, :mock_name, paginate_users)

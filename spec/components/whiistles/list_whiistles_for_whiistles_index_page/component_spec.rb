@@ -3,22 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
-  let(:create_whiistle) do
-    FactoryBot.create(:mock_whiistle, user:)
-  end
-
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(user)
-  end
-
   context "if the whiistle is a reply and has a label 'primary_whiistle' " do
     it 'renders correctly' do
-      create_whiistle
+      whiistle
       FactoryBot.create(:mock_reply, user:)
 
       whiistles = Reply.select(" *, 'primary_whiistle' AS label ")

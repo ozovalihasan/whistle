@@ -4,10 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'whiistles/replies/create.turbo_stream', type: :view do
   describe 'renders the create turbo stream view of Whiistles::RepliesController' do
-    let(:current_user_presenter) do
-      cur_user = FactoryBot.create(:mock_user)
-      CurrentUserPresenter.new(cur_user)
-    end
 
     context 'if the reply is saved successfully' do
       it 'renders correctly' do

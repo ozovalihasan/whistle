@@ -3,15 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::Buttons::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(user)
-  end
-
   it 'renders correctly' do
     whiistle = FactoryBot.create(:mock_whiistle, user:)
 

@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Users::UsersHavingRelations::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
   context 'the paginated users is not empty' do
     it 'renders correctly' do
       FactoryBot.create_list(:mock_user, 3)

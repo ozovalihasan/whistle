@@ -3,16 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::Whiistle::Component, type: :component do
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(cur_user)
-  end
-
-  let(:whiistle) do
-    FactoryBot.create(:mock_user)
-    FactoryBot.create(:mock_whiistle)
-  end
-
   let(:expect_mandatory_components) do
     expect(rendered_content).to include 'Whiistles::RewhiistleInfo::Component(whiistle: Whiistle)'
     expect(rendered_content).to include 'Whiistles::LikeInfo::Component(whiistle: Whiistle)'

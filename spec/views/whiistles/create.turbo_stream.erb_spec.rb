@@ -4,11 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'whiistles/create.turbo_stream', type: :view do
   describe 'renders the create turbo stream view of WhiistlesController' do
-    let(:current_user_presenter) do
-      cur_user = FactoryBot.create(:mock_user)
-      CurrentUserPresenter.new(cur_user)
-    end
-
     context 'if the whiistle is saved successfully' do
       it 'renders correctly' do
         FactoryBot.create(:mock_user)

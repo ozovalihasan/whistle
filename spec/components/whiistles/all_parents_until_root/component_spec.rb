@@ -3,15 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::AllParentsUntilRoot::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(user)
-  end
-
   context "if the whiistle's parent is a flood" do
     it 'renders correctly' do
       FactoryBot.create(:mock_whiistle, user:)

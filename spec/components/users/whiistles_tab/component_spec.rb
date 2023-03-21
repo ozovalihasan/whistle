@@ -3,14 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Users::WhiistlesTab::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
-  let(:cur_user) do
-    FactoryBot.create(:mock_user)
-  end
-
   let(:paginate_whiistles) do
     PaginateWhiistles.new(Whiistle.all, 1, 'mock_url', cur_user)
   end

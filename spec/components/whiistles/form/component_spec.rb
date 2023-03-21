@@ -3,14 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::Form::Component, type: :component do
-  let(:user) do
-    FactoryBot.create(:mock_user)
-  end
-
-  let(:cur_user) do
-    FactoryBot.create(:mock_user)
-  end
-
   context "if any optional parameter isn't provided" do
     it 'renders correctly' do
       whiistle = Whiistle.new

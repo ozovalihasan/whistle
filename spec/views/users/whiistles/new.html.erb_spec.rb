@@ -4,14 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'users/whiistles/new', type: :view do
   describe 'renders the new view of Users::WhiistlesController' do
-    let(:cur_user) do
-      FactoryBot.create(:mock_user)
-    end
-
-    let(:user) do
-      FactoryBot.create(:mock_user)
-    end
-
     it 'renders correctly' do
       whiistle = Whiistle.new
       assign(:whiistle, whiistle)

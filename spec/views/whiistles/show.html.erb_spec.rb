@@ -4,16 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'whiistles/show', type: :view do
   describe 'renders the show view of WhiistlesController' do
-    let(:current_user_presenter) do
-      cur_user = FactoryBot.create(:mock_user)
-      CurrentUserPresenter.new(cur_user)
-    end
-
-    let(:whiistle) do
-      FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-    end
-
     let(:sidebar_right_presenter) do
       SidebarRightPresenter.new(whiistle.user, current_user_presenter.current_user)
     end
