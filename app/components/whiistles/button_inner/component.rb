@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-module Whiistles
-  module ButtonInner
-    class Component < Application::Component
-      def initialize(active: false)
-        @active = active
-      end
-    end
+class Whiistles::ButtonInner::Component < Application::Component
+  def initialize(active: false)
+    @active = active
   end
 end

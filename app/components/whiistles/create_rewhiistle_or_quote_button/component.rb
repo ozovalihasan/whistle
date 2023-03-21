@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-module Whiistles
-  module CreateRewhiistleOrQuoteButton
-    class Component < Application::Component
-      def initialize(whiistle:)
-        @whiistle = whiistle
-      end
-    end
+class Whiistles::CreateRewhiistleOrQuoteButton::Component < Application::Component
+  def initialize(whiistle:)
+    @whiistle = whiistle
   end
 end

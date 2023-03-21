@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
-module Whiistles
-  class QuotedWhiistlesController < ApplicationController
-    before_action :set_quoted_whiistle, only: [:new]
+class Whiistles::QuotedWhiistlesController < ApplicationController
+  before_action :set_quoted_whiistle, only: [:new]
 
-    def new
-      @quoting_whiistle = Whiistle.new
-    end
+  def new
+    @quoting_whiistle = Whiistle.new
+  end
 
-    private
+  private
 
-    def set_quoted_whiistle
-      @quoted_whiistle = BaseWhiistle.find(params[:whiistle_id])
-    end
+  def set_quoted_whiistle
+    @quoted_whiistle = BaseWhiistle.find(params[:whiistle_id])
   end
 end

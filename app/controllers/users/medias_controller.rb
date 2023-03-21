@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
-module Users
-  class MediasController < Users::TabsController
-    def index
-      super
+class Users::MediasController < Users::TabsController
+  def index
+    super
 
-      all_whiistles = @user.whiistles.joins(:pictures_attachments).distinct.descending_order
-      @paginate_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], user_medias_url(@user), current_user)
-      @paginate_whiistles.set_basic
+    all_whiistles = @user.whiistles.joins(:pictures_attachments).distinct.descending_order
+    @paginate_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], user_medias_url(@user), current_user)
+    @paginate_whiistles.set_basic
 
-      return if request.format.turbo_stream?
+    return if request.format.turbo_stream?
 
-      @tab_presenter = WhiistlesTabPresenter.new(@user, :medias, @paginate_whiistles)
-    end
+    @tab_presenter = WhiistlesTabPresenter.new(@user, :medias, @paginate_whiistles)
   end
 end

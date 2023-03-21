@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
-module Whiistles
-  class PicturesController < ApplicationController
-    before_action :authenticate_user!
-    before_action :set_whiistle, only: [:index]
+class Whiistles::PicturesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_whiistle, only: [:index]
 
-    def index
-      @pictures = @whiistle.pictures
-      @index = params[:index] || 1
-    end
+  def index
+    @pictures = @whiistle.pictures
+    @index = params[:index] || 1
+  end
 
-    private
+  private
 
-    def set_whiistle
-      @whiistle = BaseWhiistle.find(params[:whiistle_id])
-    end
+  def set_whiistle
+    @whiistle = BaseWhiistle.find(params[:whiistle_id])
   end
 end

@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::ListWhiistlesWithRelatedWhiistles::Component, type: :component do
-
   context "if the whiistle has a label 'shared_whiistle' " do
     it 'renders correctly' do
       whiistle
