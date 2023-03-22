@@ -5,11 +5,7 @@ require 'rails_helper'
 RSpec.describe Whiistles::AllChildrenFloods::Component, type: :component do
   context "if the flood doesn't have another flood" do
     it 'renders correctly' do
-      user = FactoryBot.create(:mock_user)
-      cur_user = FactoryBot.create(:mock_user)
-      current_user_presenter = CurrentUserPresenter.new(cur_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-      flood = FactoryBot.create(:mock_flood, whiistle:)
+      flood = create(:mock_flood, whiistle:)
 
       render_inline(described_class.new(flood:, current_user_presenter:))
 
@@ -21,13 +17,8 @@ RSpec.describe Whiistles::AllChildrenFloods::Component, type: :component do
 
   context "if the flood doesn't have another flood" do
     it 'renders correctly' do
-      user = FactoryBot.create(:mock_user)
-      cur_user = FactoryBot.create(:mock_user)
-      current_user_presenter = CurrentUserPresenter.new(cur_user)
-
-      whiistle = FactoryBot.create(:mock_whiistle)
-      flood = FactoryBot.create(:mock_flood, whiistle:)
-      flood2 = FactoryBot.create(:mock_flood, whiistle: flood, user:)
+      flood = create(:mock_flood, whiistle:)
+      flood2 = create(:mock_flood, whiistle: flood, user:)
 
       render_inline(described_class.new(flood:, current_user_presenter:))
 

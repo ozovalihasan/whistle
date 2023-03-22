@@ -2,12 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/likes/destroy.turbo_stream', type: :view do
+RSpec.describe 'whiistles/likes/destroy.turbo_stream' do
   describe 'renders the destroy(turbo_stream) view of Users::FollowingsController' do
     it 'renders turbo_streams correctly if the like is saved' do
-      FactoryBot.create(:mock_user)
-      FactoryBot.create(:mock_whiistle)
-      like = FactoryBot.build(:mock_like)
+      whiistle
+      like = build(:mock_like)
       like.destroy
       flash[:notice] = 'mock notice'
       assign(:like, like)

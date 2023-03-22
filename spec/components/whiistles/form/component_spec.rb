@@ -25,7 +25,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
   context 'if a value is provided' do
     it 'renders correctly' do
       whiistle = Whiistle.new
-      quoted_whiistle = FactoryBot.create(:mock_whiistle, user:)
+      quoted_whiistle = create(:mock_whiistle, user:)
 
       render_inline(described_class.new(
                       form_url: 'mock_url',
@@ -46,7 +46,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
   context 'if a quoted whiistle is provided' do
     it 'renders correctly' do
       whiistle = Whiistle.new
-      quoted_whiistle = FactoryBot.create(:mock_whiistle, user:)
+      quoted_whiistle = create(:mock_whiistle, user:)
 
       render_inline(described_class.new(
                       form_url: 'mock_url',
@@ -69,7 +69,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
   context "if the parameter 'enable_quoting_whiistle' is provided as true" do
     it 'renders correctly' do
       whiistle = Whiistle.new
-      quoted_whiistle = FactoryBot.create(:mock_whiistle, user:)
+      quoted_whiistle = create(:mock_whiistle, user:)
 
       render_inline(described_class.new(
                       form_url: 'mock_url',
@@ -90,7 +90,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
   context "if the parameter 'open_modal' is provided as true and the parameter 'modal_path' is provided" do
     it 'renders correctly' do
       whiistle = Whiistle.new
-      quoted_whiistle = FactoryBot.create(:mock_whiistle, user:)
+      quoted_whiistle = create(:mock_whiistle, user:)
 
       render_inline(described_class.new(
                       form_url: 'mock_url',
@@ -112,7 +112,7 @@ RSpec.describe Whiistles::Form::Component, type: :component do
   context "if the parameter 'enable_adding_floods' is provided as true and the parameter 'enable_modal' is false" do
     it 'renders correctly' do
       whiistle = Whiistle.new
-      quoted_whiistle = FactoryBot.create(:mock_whiistle, user:)
+      quoted_whiistle = create(:mock_whiistle, user:)
 
       render_inline(described_class.new(
                       form_url: 'mock_url',

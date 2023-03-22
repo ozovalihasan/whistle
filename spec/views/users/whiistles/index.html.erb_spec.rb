@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'users/whiistles/index', type: :view do
+RSpec.describe 'users/whiistles/index' do
   describe 'renders the index view of Users::WhiistlesController' do
     it 'renders correctly' do
       paginate_whiistles = PaginateWhiistles.new(user.whiistles, 1, '', cur_user)

@@ -2,16 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/replies/create.turbo_stream', type: :view do
+RSpec.describe 'whiistles/replies/create.turbo_stream' do
   describe 'renders the create turbo stream view of Whiistles::RepliesController' do
     context 'if the reply is saved successfully' do
       it 'renders correctly' do
-        FactoryBot.create(:mock_user)
-        FactoryBot.create(:mock_whiistle)
-        reply = FactoryBot.create(:mock_reply)
-        assign(:reply, reply)
+        assign(:whiistle, whiistle)
 
-        assign(:whiistle, reply.whiistle)
+        reply = create(:mock_reply)
+        assign(:reply, reply)
 
         assign(:current_user_presenter, current_user_presenter)
 
@@ -30,12 +28,11 @@ RSpec.describe 'whiistles/replies/create.turbo_stream', type: :view do
 
     context 'if the whiistle is not saved' do
       it 'renders correctly' do
-        FactoryBot.create(:mock_user)
-        FactoryBot.create(:mock_whiistle)
-        reply = FactoryBot.build(:mock_reply, whiistle: nil)
+        whiistle
+        reply = build(:mock_reply, whiistle: nil)
         assign(:reply, reply)
 
-        flash[:alert] = 'mock_alarm_message'
+        flash[:alert] = 'mock_alert_message'
 
         render
 

@@ -16,7 +16,7 @@ class RelationsController < ApplicationController
 
   def destroy
     @relation.destroy
-    flash[:notice] = "You gave up to follow #{User.find(@relation.followed_id).fullname}"
+    flash.now[:notice] = "You gave up to follow #{User.find(@relation.followed_id).fullname}"
   end
 
   private

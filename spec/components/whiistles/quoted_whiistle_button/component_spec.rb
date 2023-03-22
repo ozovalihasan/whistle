@@ -4,10 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::QuotedWhiistleButton::Component, type: :component do
   it 'renders correctly' do
-    FactoryBot.create(:mock_user)
-    FactoryBot.create(:mock_whiistle)
-
-    render_inline(described_class.new(whiistle: Whiistle.first))
+    render_inline(described_class.new(whiistle:))
 
     expect_snapshot_match
     expect(rendered_content).to include 'data-action="modal#openAndVisit"'

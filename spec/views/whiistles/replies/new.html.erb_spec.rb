@@ -2,13 +2,12 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/replies/new', type: :view do
+RSpec.describe 'whiistles/replies/new' do
   describe 'renders the new view of Whiistles::RepliesController' do
     it 'renders correctly' do
-      FactoryBot.create(:mock_user)
       assign(:whiistle, whiistle)
 
-      reply = @reply = Reply.new
+      reply = Reply.new
       assign(:reply, reply)
 
       sign_in cur_user

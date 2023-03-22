@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::ListPaginatedWhiistles::Component, type: :component do
   it 'renders correctly' do
-    FactoryBot.create(:mock_whiistle, user:)
+    whiistle
 
     paginate_whiistles = PaginateWhiistles.new(BaseWhiistle.all, 1, '', cur_user)
     paginate_whiistles.set_basic

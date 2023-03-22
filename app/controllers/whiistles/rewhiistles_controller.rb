@@ -17,7 +17,7 @@ class Whiistles::RewhiistlesController < ApplicationController
   def destroy
     @rewhiistle.destroy
 
-    flash[:notice] = "You have removed #{@rewhiistle.whiistle.user.fullname}'s whiistle's rewhiistle"
+    flash.now[:notice] = "You have removed #{@rewhiistle.whiistle.user.fullname}'s whiistle's rewhiistle"
   end
 
   private

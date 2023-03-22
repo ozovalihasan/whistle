@@ -4,9 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Layout::LeftSide::Component, type: :component do
   it 'renders correctly' do
-    current_user = FactoryBot.create(:mock_user)
-
-    render_inline(described_class.new(current_user:))
+    render_inline(described_class.new(current_user: cur_user))
 
     expect_snapshot_match
     expect(rendered_content).to match(/Followers/)

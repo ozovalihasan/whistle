@@ -4,9 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::DestroyLikeButton::Component, type: :component do
   it 'renders correctly' do
-    FactoryBot.create_list(:mock_user, 2)
-    whiistle = FactoryBot.create(:mock_whiistle)
-    FactoryBot.create_list(:mock_like, 2, whiistle:)
+    create(:mock_like, whiistle:)
 
     render_inline(described_class.new(like: Like.first))
 

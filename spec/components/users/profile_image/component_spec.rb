@@ -5,7 +5,6 @@ require 'rails_helper'
 RSpec.describe Users::ProfileImage::Component, type: :component do
   describe 'renders with different shapes' do
     it 'renders correctly if its shape is empty' do
-      user = FactoryBot.create(:mock_user)
 
       render_inline(described_class.new(user:))
 
@@ -14,8 +13,6 @@ RSpec.describe Users::ProfileImage::Component, type: :component do
     end
 
     it 'renders correctly if its shape is default' do
-      user = FactoryBot.create(:mock_user)
-
       render_inline(described_class.new(user:, shape: :default))
 
       expect_snapshot_match('default_shape')
@@ -23,8 +20,6 @@ RSpec.describe Users::ProfileImage::Component, type: :component do
     end
 
     it 'renders correctly if its shape is rounded' do
-      user = FactoryBot.create(:mock_user)
-
       render_inline(described_class.new(user:, shape: :rounded))
 
       expect_snapshot_match('rounded_shape')
@@ -34,8 +29,6 @@ RSpec.describe Users::ProfileImage::Component, type: :component do
 
   describe 'renders with different sizes' do
     it 'renders correctly if its size is empty' do
-      user = FactoryBot.create(:mock_user)
-
       render_inline(described_class.new(user:))
 
       expect_snapshot_match('without_size')
@@ -43,8 +36,6 @@ RSpec.describe Users::ProfileImage::Component, type: :component do
     end
 
     it 'renders correctly if its size is default' do
-      user = FactoryBot.create(:mock_user)
-
       render_inline(described_class.new(user:, size: :default))
 
       expect_snapshot_match('default_size')
@@ -52,8 +43,6 @@ RSpec.describe Users::ProfileImage::Component, type: :component do
     end
 
     it 'renders correctly if its size is rounded' do
-      user = FactoryBot.create(:mock_user)
-
       render_inline(described_class.new(user:, size: :small))
 
       expect_snapshot_match('small_size')

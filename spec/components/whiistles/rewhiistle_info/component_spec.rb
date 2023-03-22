@@ -3,19 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::RewhiistleInfo::Component, type: :component do
-  before do
-    FactoryBot.reload
-  end
-
   context "if a whiistle has the label 'shared_whiistle'" do
     it 'renders correctly' do
-      user = FactoryBot.create(:mock_user)
-      FactoryBot.create(:mock_whiistle)
-      FactoryBot.create(:mock_rewhiistle)
+      
+      create(:mock_rewhiistle, whiistle:)
 
       whiistle = BaseWhiistle.joins(rewhiistles: :user)
-                             .select("'shared_whiistle' AS label, users.fullname AS parent_user")
-                             .first
+                   .select("'shared_whiistle' AS label, users.fullname AS parent_user")
+                   .first
 
       render_inline(described_class.new(whiistle:))
 
@@ -26,14 +21,11 @@ RSpec.describe Whiistles::RewhiistleInfo::Component, type: :component do
 
   context "if a whiistle doesn't have the label 'shared_whiistle'" do
     it 'renders correctly' do
-      user = FactoryBot.create(:mock_user)
-
-      FactoryBot.create(:mock_whiistle)
-      FactoryBot.create(:mock_rewhiistle)
+      create(:mock_rewhiistle, whiistle:)
 
       whiistle = BaseWhiistle.joins(:user)
-                             .select('users.fullname AS parent_user')
-                             .first
+                   .select('users.fullname AS parent_user')
+                   .first
 
       render_inline(described_class.new(whiistle:))
 

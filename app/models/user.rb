@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   scope :with_current_user_situation, lambda { |cur_user|
     select(
-      <<~SQL
+      <<~SQL.squish
         users.*,
         (
           CASE WHEN (
@@ -36,7 +36,7 @@ class User < ApplicationRecord
       SQL
     )
       .joins(
-        <<~SQL
+        <<~SQL.squish
           LEFT JOIN (
             #{cur_user.following_relations.to_sql}
           ) AS cur_user_following_relations ON users.id = cur_user_following_relations.followed_id
@@ -46,38 +46,38 @@ class User < ApplicationRecord
 
   def whiistles_of_whiistles_index_page(remove_replies = true)
     whiistles_shared_by_user = shared_whiistles
-                               .select(
-                                 <<~SQL
-                                   base_whiistles.*,
-                                   rewhiistles.created_at AS primary_created_at,
-                                   'shared_whiistle' AS label,
-                                   '#{fullname}' AS parent_user
-                                 SQL
-                               )
+                                 .select(
+                                   <<~SQL.squish
+                                     base_whiistles.*,
+                                     rewhiistles.created_at AS primary_created_at,
+                                     'shared_whiistle' AS label,
+                                     '#{fullname}' AS parent_user
+                                   SQL
+                                 )
 
     user_whiistles = whiistles
-                     .select(
-                       <<~SQL
-                         base_whiistles.*,
-                         base_whiistles.created_at AS primary_created_at,
-                         'primary_whiistle' AS label,
-                         '' AS parent_user
-                       SQL
-                     )
-                     .without_floods
+                       .select(
+                         <<~SQL.squish
+                           base_whiistles.*,
+                           base_whiistles.created_at AS primary_created_at,
+                           'primary_whiistle' AS label,
+                           '' AS parent_user
+                         SQL
+                       )
+                       .without_floods
 
     user_whiistles = user_whiistles.without_replies if remove_replies
 
     all_whiistles = BaseWhiistle
-                    .select('*')
-                    .from(
-                      <<~SQL
-                        (
-                          (#{whiistles_shared_by_user.to_sql}) UNION ALL
-                          (#{user_whiistles.to_sql})
-                        ) AS all_whiistles
-                      SQL
-                    )
+                      .select('*')
+                      .from(
+                        <<~SQL.squish
+                          (
+                            (#{whiistles_shared_by_user.to_sql}) UNION ALL
+                            (#{user_whiistles.to_sql})
+                          ) AS all_whiistles
+                        SQL
+                      )
 
     all_whiistles.order(primary_created_at: :desc)
   end
@@ -89,82 +89,78 @@ class User < ApplicationRecord
   def main_page_whiistles
     followings_ids = followings.select('relations.followed_id')
 
-    whiistles_shared_by_followings = BaseWhiistle.joins(rewhiistles: :user)
-                                                 .select(
-                                                   <<~SQL
-                                                     base_whiistles.*,
-                                                     rewhiistles.created_at AS primary_created_at,
-                                                     'shared_whiistle' AS label,
-                                                     users.fullname AS parent_user
-                                                   SQL
-                                                 )
-                                                 .where(
-                                                   'rewhiistles.user_id IN (?)',
-                                                   followings_ids
-                                                 )
-                                                 .without_replies
-                                                 .without_floods
+    whiistles_shared_by_followings = BaseWhiistle
+                                       .joins(rewhiistles: :user)
+                                       .select(
+                                         <<~SQL.squish
+                                           base_whiistles.*,
+                                           rewhiistles.created_at AS primary_created_at,
+                                           'shared_whiistle' AS label,
+                                           users.fullname AS parent_user
+                                         SQL
+                                       )
+                                       .where(rewhiistles: { user_id: followings_ids })
+                                       .without_replies
+                                       .without_floods
 
-    whiistles_liked_by_followings = BaseWhiistle.joins(likes: :user)
-                                                .select(
-                                                  <<~SQL
-                                                    base_whiistles.*,
-                                                    likes.created_at AS primary_created_at,
-                                                    'liked_whiistle' AS label,
-                                                    users.fullname AS parent_user
-                                                  SQL
-                                                )
-                                                .where(
-                                                  'likes.user_id IN (?)',
-                                                  followings_ids
-                                                )
-                                                .without_replies
-                                                .without_floods
+    whiistles_liked_by_followings = BaseWhiistle
+                                      .joins(likes: :user)
+                                      .select(
+                                        <<~SQL.squish
+                                          base_whiistles.*,
+                                          likes.created_at AS primary_created_at,
+                                          'liked_whiistle' AS label,
+                                          users.fullname AS parent_user
+                                        SQL
+                                      )
+                                      .where(likes: { user_id: followings_ids })
+                                      .without_replies
+                                      .without_floods
 
     whiistles_of_followings = BaseWhiistle
+                                .select(
+                                  <<~SQL.squish
+                                    base_whiistles.*,
+                                    base_whiistles.created_at AS primary_created_at,
+                                    'primary_whiistle' AS label,
+                                    '' AS parent_user
+                                  SQL
+                                )
+                                .where(base_whiistles: { user_id: followings_ids })
+                                .without_floods
+                                .without_replies
+
+    replies_of_followings = Reply
+                              .joins(:whiistle)
                               .select(
-                                <<~SQL
+                                <<~SQL.squish
                                   base_whiistles.*,
                                   base_whiistles.created_at AS primary_created_at,
                                   'primary_whiistle' AS label,
                                   '' AS parent_user
                                 SQL
                               )
+                              .where(base_whiistles: { user_id: followings_ids })
                               .where(
-                                'base_whiistles.user_id IN (?)',
-                                followings_ids
+                                whiistles_base_whiistles: {
+                                  type: [
+                                    BaseWhiistle.types['Whiistle']
+                                  ]
+                                }
                               )
-                              .without_floods
-                              .without_replies
 
-    replies_of_followings = Reply.joins(:whiistle)
-                                 .select(
-                                   <<~SQL
-                                     base_whiistles.*,
-                                     base_whiistles.created_at AS primary_created_at,
-                                     'primary_whiistle' AS label,
-                                     '' AS parent_user
-                                   SQL
-                                 )
-                                 .where(
-                                   'base_whiistles.user_id IN (?)',
-                                   followings_ids
-                                 )
-                                 .where(
-                                   'whiistles_base_whiistles.type IN (?)',
-                                   [
-                                     BaseWhiistle.types['Whiistle']
-                                   ]
-                                 )
-
-    all_whiistles = BaseWhiistle.select('*').from(
-      "(
-                                                 ( #{whiistles_shared_by_followings.to_sql} ) UNION ALL
-                                                 ( #{whiistles_liked_by_followings.to_sql} ) UNION ALL
-                                                 ( #{whiistles_of_followings.to_sql} ) UNION ALL
-                                                 ( #{replies_of_followings.to_sql} )
-                                               ) AS all_whiistles"
-    )
+    all_whiistles = BaseWhiistle
+                      .select('*')
+                      .from(
+                        <<~SQL.squish
+                          (
+                            ( #{whiistles_shared_by_followings.to_sql} ) UNION ALL
+                            ( #{whiistles_liked_by_followings.to_sql} ) UNION ALL
+                            ( #{whiistles_of_followings.to_sql} ) UNION ALL
+                            ( #{replies_of_followings.to_sql} )
+                          ) AS all_whiistles
+                        SQL
+                      )
 
     all_whiistles.order(primary_created_at: :desc).includes(:user)
   end
@@ -174,6 +170,6 @@ class User < ApplicationRecord
   end
 
   def suggested_users
-    User.where('id NOT IN (?)', followings_and_user_ids).order('id desc').limit(3)
+    User.where.not(id: followings_and_user_ids).order('id desc').limit(3)
   end
 end

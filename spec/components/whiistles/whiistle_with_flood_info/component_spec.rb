@@ -4,11 +4,6 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::WhiistleWithFloodInfo::Component, type: :component do
   it 'renders correctly' do
-    user = FactoryBot.create(:mock_user)
-    whiistle = FactoryBot.create(:mock_whiistle)
-
-    current_user_presenter = CurrentUserPresenter.new(user)
-
     render_inline(described_class.new(whiistle:, current_user_presenter:))
 
     expect_snapshot_match

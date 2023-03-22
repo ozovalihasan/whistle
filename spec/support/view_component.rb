@@ -9,16 +9,16 @@ RSpec.shared_context 'Global let helpers' do
   end
 
   let(:cur_user) do
-    FactoryBot.create(:mock_user)
+    create(:mock_user)
   end
 
   let(:user) do
-    FactoryBot.create(:mock_user)
+    create(:mock_user)
   end
 
   let(:whiistle) do
     user
-    FactoryBot.create(:mock_whiistle)
+    create(:mock_whiistle)
   end
 end
 

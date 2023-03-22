@@ -2,13 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/create.turbo_stream', type: :view do
+RSpec.describe 'whiistles/create.turbo_stream' do
   describe 'renders the create turbo stream view of WhiistlesController' do
     context 'if the whiistle is saved successfully' do
       it 'renders correctly' do
-        FactoryBot.create(:mock_user)
-
-        whiistle = FactoryBot.create(:mock_whiistle)
         assign(:whiistle, whiistle)
 
         whiistles_size = 111

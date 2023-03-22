@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe 'relations/destroy.turbo_stream', type: :view do
+RSpec.describe 'relations/destroy.turbo_stream' do
   before do
-    FactoryBot.create_pair(:mock_user)
-    FactoryBot.create(:mock_relation)
+    create_pair(:mock_user)
+    create(:mock_relation)
   end
 
   describe 'renders the destroy turbo stream view of RelationsController' do

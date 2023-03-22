@@ -19,7 +19,7 @@ class Whiistles::LikesController < ApplicationController
   def destroy
     @like.destroy
 
-    flash[:notice] = "You unliked #{@like.whiistle.user.fullname}'s whiistle"
+    flash.now[:notice] = "You unliked #{@like.whiistle.user.fullname}'s whiistle"
   end
 
   private

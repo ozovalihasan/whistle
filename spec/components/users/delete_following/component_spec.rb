@@ -4,8 +4,9 @@ require 'rails_helper'
 
 RSpec.describe Users::DeleteFollowing::Component, type: :component do
   it 'renders correctly' do
-    FactoryBot.create_pair(:mock_user)
-    relation = FactoryBot.create(:mock_relation)
+    user
+    cur_user
+    relation = create(:mock_relation)
 
     render_inline(described_class.new(relation:))
 

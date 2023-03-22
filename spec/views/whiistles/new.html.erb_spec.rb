@@ -2,10 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/new', type: :view do
+RSpec.describe 'whiistles/new' do
   describe 'renders the new view of WhiistlesController' do
     it 'renders correctly' do
-      FactoryBot.create(:mock_user)
       whiistle = Whiistle.new
       assign(:whiistle, whiistle)
 

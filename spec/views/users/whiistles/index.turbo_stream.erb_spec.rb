@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'users/whiistles/index.turbo_stream', type: :view do
+RSpec.describe 'users/whiistles/index.turbo_stream' do
   describe 'renders the index(turbo_stream) view of Users::WhiistlesController' do
     it 'renders correctly' do
       paginate_whiistles = PaginateWhiistles.new(user.whiistles, 1, '', cur_user)

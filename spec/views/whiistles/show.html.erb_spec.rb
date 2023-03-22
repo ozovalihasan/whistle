@@ -2,16 +2,15 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/show', type: :view do
+RSpec.describe 'whiistles/show' do
   describe 'renders the show view of WhiistlesController' do
     let(:sidebar_right_presenter) do
-      SidebarRightPresenter.new(whiistle.user, current_user_presenter.current_user)
+      SidebarRightPresenter.new(whiistle.user, cur_user)
     end
 
     it 'renders correctly' do
       assign(:whiistle, whiistle)
 
-      sidebar_right_presenter = SidebarRightPresenter.new(whiistle.user, current_user_presenter.current_user)
       assign(:sidebar_right_presenter, sidebar_right_presenter)
 
       assign(:current_user_presenter, current_user_presenter)
@@ -26,10 +25,9 @@ RSpec.describe 'whiistles/show', type: :view do
 
     context 'if whiistle has replies' do
       it 'renders correctly' do
-        FactoryBot.create(:mock_reply, whiistle:)
         assign(:whiistle, whiistle)
+        create(:mock_reply)
 
-        sidebar_right_presenter = SidebarRightPresenter.new(whiistle.user, current_user_presenter.current_user)
         assign(:sidebar_right_presenter, sidebar_right_presenter)
 
         assign(:current_user_presenter, current_user_presenter)

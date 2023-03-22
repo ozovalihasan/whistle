@@ -3,10 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::ReplyButton::Component, type: :component do
-  it "renders 'Show this thread' link " do
-    FactoryBot.create(:mock_user)
-    whiistle = FactoryBot.create(:mock_whiistle)
-    FactoryBot.create(:mock_reply)
+  it "renders 'Show this thread' link" do
+    whiistle
+    create(:mock_reply)
     whiistle.reload
 
     render_inline(described_class.new(whiistle:))

@@ -4,9 +4,9 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::ListWhiistles::Component, type: :component do
   it 'renders correctly' do
-    FactoryBot.create(:mock_whiistle, user:)
-    FactoryBot.create(:mock_flood, user:)
-    FactoryBot.create(:mock_reply, user:)
+    whiistle
+    create(:mock_flood, user:)
+    create(:mock_reply, user:)
 
     whiistles = BaseWhiistle.all
     render_inline(described_class.new(whiistles:, current_user_presenter:))

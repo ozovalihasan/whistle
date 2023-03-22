@@ -2,25 +2,25 @@
 
 require 'rails_helper'
 
-RSpec.describe BaseWhiistle, type: :model do
+RSpec.describe BaseWhiistle do
   describe 'before_validations' do
     it 'updates parent_id of replies and floods' do
-      FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.build(:mock_whiistle)
+      create(:mock_user)
+      whiistle = build(:mock_whiistle)
       expect { whiistle.valid? }.not_to change { whiistle.parent_id }
 
       whiistle.save
-      flood = FactoryBot.build(:mock_flood)
+      flood = build(:mock_flood)
       expect { flood.valid? }.to change { flood.parent_id }.to 1
 
-      reply = FactoryBot.build(:mock_reply)
+      reply = build(:mock_reply)
       expect { reply.valid? }.to change { reply.parent_id }.to 1
     end
 
     it 'updates the id of the quoted whiistle if the url of the quoted whiistle is defined' do
-      FactoryBot.create(:mock_user)
-      whiistle1 = FactoryBot.create(:mock_whiistle)
-      whiistle2 = FactoryBot.build(:mock_whiistle)
+      create(:mock_user)
+      whiistle1 = create(:mock_whiistle)
+      whiistle2 = build(:mock_whiistle)
       whiistle2.quoted_whiistle_url = whiistle_url(whiistle1, host: 'example.com')
 
       expect { whiistle2.valid? }.to change { whiistle2.quoted_whiistle_id }.to 1
@@ -37,8 +37,8 @@ RSpec.describe BaseWhiistle, type: :model do
     it { is_expected.to have_one_attached(:pictures) }
 
     it 'has ancestry' do
-      FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
+      create(:mock_user)
+      whiistle = create(:mock_whiistle)
       reply = Reply.new(whiistle:)
       reply.valid?
 
@@ -63,9 +63,9 @@ RSpec.describe BaseWhiistle, type: :model do
   describe 'scopes' do
     describe 'descending_order' do
       it 'returns base_whiistles in descending order of their created time' do
-        user = FactoryBot.create(:mock_user)
-        whiistle1 = FactoryBot.create(:mock_whiistle, user:)
-        whiistle2 = FactoryBot.create(:mock_whiistle, user:)
+        user = create(:mock_user)
+        whiistle1 = create(:mock_whiistle, user:)
+        whiistle2 = create(:mock_whiistle, user:)
 
         expect(described_class.descending_order).to eq [whiistle2, whiistle1]
       end
@@ -73,9 +73,9 @@ RSpec.describe BaseWhiistle, type: :model do
 
     describe 'without_replies' do
       it 'returns base_whiistles without replies' do
-        FactoryBot.create(:mock_user)
-        whiistle = FactoryBot.create(:mock_whiistle)
-        FactoryBot.create(:mock_reply)
+        create(:mock_user)
+        whiistle = create(:mock_whiistle)
+        create(:mock_reply)
 
         expect(described_class.without_replies).to eq [whiistle]
       end
@@ -83,9 +83,9 @@ RSpec.describe BaseWhiistle, type: :model do
 
     describe 'without_floods' do
       it 'returns base_whiistles without floods' do
-        FactoryBot.create(:mock_user)
-        whiistle = FactoryBot.create(:mock_whiistle)
-        FactoryBot.create(:mock_flood)
+        create(:mock_user)
+        whiistle = create(:mock_whiistle)
+        create(:mock_flood)
 
         expect(described_class.without_floods).to eq [whiistle]
       end
@@ -94,16 +94,16 @@ RSpec.describe BaseWhiistle, type: :model do
 
   describe 'enum' do
     it 'has enum type' do
-      FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
+      create(:mock_user)
+      whiistle = create(:mock_whiistle)
 
       expect(whiistle.type).to eq('Whiistle')
 
-      reply = FactoryBot.build(:mock_reply)
+      reply = build(:mock_reply)
 
       expect(reply.type).to eq('Reply')
 
-      flood = FactoryBot.build(:mock_flood)
+      flood = build(:mock_flood)
 
       expect(flood.type).to eq('Flood')
     end

@@ -2,21 +2,20 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/pictures/index', type: :view do
+RSpec.describe 'whiistles/pictures/index' do
   describe 'renders the index view of Whiistles::PicturesController' do
     it 'renders correctly' do
-      FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
+      whiistle
       whiistle.pictures.attach(
         [
-          io: File.open(Rails.root.join('app', 'assets', 'images', 'mock-1.jpg')),
+          io: Rails.root.join('app', 'assets', 'images', 'mock-1.jpg').open,
           filename: 'mock-1.jpg',
           content_type: 'image/jpeg'
         ]
       )
       whiistle.pictures.attach(
         [
-          io: File.open(Rails.root.join('app', 'assets', 'images', 'mock-2.jpg')),
+          io: Rails.root.join('app', 'assets', 'images', 'mock-2.jpg').open,
           filename: 'mock-2.jpg',
           content_type: 'image/jpeg'
         ]

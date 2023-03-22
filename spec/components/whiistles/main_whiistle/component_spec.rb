@@ -4,14 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::MainWhiistle::Component, type: :component do
   it 'renders correctly' do
-    user = FactoryBot.create(:mock_user)
-    cur_user = FactoryBot.create(:mock_user)
-    current_user_presenter = CurrentUserPresenter.new(user)
-
-    whiistle = nil
-    travel_to(Time.utc(2001, 1, 1, 1, 1, 1)) do
-      whiistle = FactoryBot.create(:mock_whiistle)
-    end
+    whiistle
 
     render_inline(described_class.new(whiistle:, current_user_presenter:))
 

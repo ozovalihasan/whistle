@@ -18,7 +18,7 @@ RSpec.describe Whiistles::ToggleRewhiistleOrQuoteButton::Component, type: :compo
 
   context 'if the whiistle is rewhiistled by the current user' do
     it 'renders correctly' do
-      FactoryBot.create(:mock_rewhiistle, whiistle:, user: cur_user)
+      create(:mock_rewhiistle, whiistle:, user: cur_user)
 
       render_inline(described_class.new(whiistle:, current_user_presenter:))
 

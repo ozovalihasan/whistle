@@ -10,17 +10,17 @@ RSpec.describe 'user', type: :feature do
                    password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
   end
 
-  it 'signs up ' do
+  it 'signs up' do
     do_signup('jackie', 'Jackie Chan', 'jackie@email.com')
     expect(page).to have_content 'Jackie Chan'
   end
 
-  it 'logs in ' do
+  it 'logs in' do
     do_login('hasan')
     expect(page).to have_content 'Hasan Ozovali'
   end
 
-  it 'logs out ' do
+  it 'logs out' do
     do_login('hasan')
     do_logout
     expect(page).to have_content 'Log in'

@@ -11,7 +11,7 @@ RSpec.describe Application::Component, type: :component do
 
     application_component = component('application')
 
-    expect(application_component.send(:filter_attribute, nil, VARIANT_VALUES.keys)).to eq(nil)
+    expect(application_component.send(:filter_attribute, nil, VARIANT_VALUES.keys)).to be_nil
     expect(application_component.send(:filter_attribute, :default, VARIANT_VALUES.keys,
                                       default: :default)).to eq(:default)
     expect(application_component.send(:filter_attribute, :non_existing_key, VARIANT_VALUES.keys,

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Flood, type: :model do
+RSpec.describe Flood do
   describe 'associations' do
     it { is_expected.to have_one(:flood).with_foreign_key('base_whiistle_id') }
 

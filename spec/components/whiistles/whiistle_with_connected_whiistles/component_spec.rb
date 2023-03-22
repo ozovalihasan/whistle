@@ -3,16 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::WhiistleWithConnectedWhiistles::Component, type: :component do
-  let(:current_user_presenter) do
-    cur_user = FactoryBot.create(:mock_user)
-    CurrentUserPresenter.new(cur_user)
-  end
-
-  let(:whiistle) do
-    FactoryBot.create(:mock_user)
-    FactoryBot.create(:mock_whiistle)
-  end
-
   context "if whiistle is a 'Whiistle' and doesn't have a flood" do
     it 'renders correctly' do
       render_inline(described_class.new(whiistle:, current_user_presenter:))
@@ -25,7 +15,7 @@ RSpec.describe Whiistles::WhiistleWithConnectedWhiistles::Component, type: :comp
 
   context "if whiistle is a 'Reply'" do
     it 'renders correctly' do
-      reply = FactoryBot.create(:mock_reply, whiistle:)
+      reply = create(:mock_reply, whiistle:)
 
       render_inline(described_class.new(whiistle: reply, current_user_presenter:))
 
@@ -37,7 +27,7 @@ RSpec.describe Whiistles::WhiistleWithConnectedWhiistles::Component, type: :comp
 
   context "if whiistle is a 'Flood'" do
     it 'renders correctly' do
-      flood = FactoryBot.create(:mock_flood, whiistle:)
+      flood = create(:mock_flood, whiistle:)
 
       render_inline(described_class.new(whiistle: flood, current_user_presenter:))
 
@@ -49,7 +39,7 @@ RSpec.describe Whiistles::WhiistleWithConnectedWhiistles::Component, type: :comp
 
   context "if whiistle is a 'Whiistle' with a flood" do
     it 'renders correctly' do
-      FactoryBot.create(:mock_flood, whiistle:)
+      create(:mock_flood, whiistle:)
 
       render_inline(described_class.new(whiistle:, current_user_presenter:))
 
@@ -61,8 +51,8 @@ RSpec.describe Whiistles::WhiistleWithConnectedWhiistles::Component, type: :comp
 
   context "if whiistle is a 'Flood' with a flood" do
     it 'renders correctly' do
-      flood = FactoryBot.create(:mock_flood, whiistle:)
-      FactoryBot.create(:mock_flood, whiistle: flood, user: whiistle.user)
+      flood = create(:mock_flood, whiistle:)
+      create(:mock_flood, whiistle: flood, user: whiistle.user)
 
       render_inline(described_class.new(whiistle: flood, current_user_presenter:))
 

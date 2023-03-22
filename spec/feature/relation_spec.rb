@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'relation', type: :feature do
   before do
-    FactoryBot.create_pair(:mock_user)
+    create_pair(:mock_user)
   end
 
   it 'A user can follow another user by using a button' do

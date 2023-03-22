@@ -14,7 +14,6 @@
           Users::TabsButton::Component(url: String, text: String, active_tab: TrueClass)
         </ul>
 
-        
         Users::UsersHavingRelations::Component(tab_presenter: UsersTabPresenter)
       </div>
       

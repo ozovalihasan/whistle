@@ -2,10 +2,6 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
-Style/ClassAndModuleChildren:
-  Enabled: true
-  EnforcedStyle: compact
-
 AllCops:
   NewCops: enable
   Exclude:
@@ -17,3 +13,10 @@ AllCops:
     - "node_modules/**/*"
 
   DisplayCopNames: true
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented_relative_to_receiver

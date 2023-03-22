@@ -3,13 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
-  before { FactoryBot.reload }
-
   context 'if any optional argument is not provided and the whiistle is quoting another whiistle' do
     it 'renders correctly' do
-      user = FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-      quoting_whiistle = FactoryBot.create(:mock_whiistle, quoted_whiistle: whiistle, user:)
+      quoting_whiistle = create(:mock_whiistle, quoted_whiistle: whiistle, user:)
 
       render_inline(described_class.new(whiistle: quoting_whiistle))
 
@@ -23,9 +19,7 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
 
   context "if the argument 'show_quoted_whiistle' is false or the whiistle is not quoting another whiistle" do
     it 'renders correctly' do
-      user = FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-      quoting_whiistle = FactoryBot.create(:mock_whiistle, quoted_whiistle: whiistle, user:)
+      quoting_whiistle = create(:mock_whiistle, quoted_whiistle: whiistle, user:)
 
       render_inline(described_class.new(whiistle: quoting_whiistle, show_quoted_whiistle: false))
 
@@ -35,9 +29,6 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
     end
 
     it 'renders correctly' do
-      user = FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-
       render_inline(described_class.new(whiistle:))
 
       expect_snapshot_match('without_quoting_any_whiistle')
@@ -48,9 +39,6 @@ RSpec.describe Whiistles::BodyAndPictures::Component, type: :component do
 
   context "if the argument 'show_quoted_whiistle' is false" do
     it 'renders correctly' do
-      user = FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-
       render_inline(described_class.new(whiistle:, show_pictures: false))
 
       expect_snapshot_match('show_pictures-false')

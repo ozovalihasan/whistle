@@ -5,9 +5,7 @@ require 'rails_helper'
 RSpec.describe Whiistles::ReplyInfo::Component, type: :component do
   context 'if whiistle is a reply' do
     it 'renders correctly' do
-      FactoryBot.create(:mock_user)
-      FactoryBot.create(:mock_whiistle)
-      reply = FactoryBot.create(:mock_reply)
+      reply = create(:mock_reply, whiistle:)
 
       render_inline(described_class.new(whiistle: reply))
 
@@ -19,9 +17,6 @@ RSpec.describe Whiistles::ReplyInfo::Component, type: :component do
 
   context 'if whiistle is not a reply' do
     it "doesn't render" do
-      FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-
       render_inline(described_class.new(whiistle:))
 
       expect(rendered_content).to be_empty

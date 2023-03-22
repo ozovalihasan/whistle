@@ -3,15 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::FloodInfo::Component, type: :component do
-  before do
-    FactoryBot.reload
-  end
-
   context 'if a whiistle has a flood' do
-    it "renders 'Show this thread' link " do
-      FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-      FactoryBot.create(:mock_flood)
+    it "renders 'Show this thread' link" do
+      create(:mock_flood, whiistle:)
 
       render_inline(described_class.new(whiistle:))
 
@@ -21,10 +15,8 @@ RSpec.describe Whiistles::FloodInfo::Component, type: :component do
   end
 
   context 'if a whiistle is a Flood' do
-    it "renders 'Show this thread' link " do
-      FactoryBot.create(:mock_user)
-      whiistle = FactoryBot.create(:mock_whiistle)
-      flood = FactoryBot.create(:mock_flood)
+    it "renders 'Show this thread' link" do
+      flood = create(:mock_flood, whiistle:)
 
       render_inline(described_class.new(whiistle: flood))
 

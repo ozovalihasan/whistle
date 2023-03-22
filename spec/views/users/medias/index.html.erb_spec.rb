@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'users/medias/index', type: :view do
+RSpec.describe 'users/medias/index' do
   describe 'renders the index view of Users::MediasController' do
     it 'renders correctly' do
       paginate_whiistles = PaginateWhiistles.new(user.whiistles, 1, '', cur_user)

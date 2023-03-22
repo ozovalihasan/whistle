@@ -9,9 +9,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
 
   context 'if there is a whiistle to show' do
     it 'renders correctly' do
-      user
-      FactoryBot.create(:mock_whiistle)
-
+      whiistle
       tab_presenter = WhiistlesTabPresenter.new(user, :whiistles_without_replies, paginate_whiistles, Whiistle.new)
 
       render_inline(described_class.new(tab_presenter:))
@@ -29,7 +27,7 @@ RSpec.describe Users::WhiistlesTab::Component, type: :component do
       render_inline(described_class.new(tab_presenter:))
 
       expect_snapshot_match('without_whiistles')
-      expect(rendered_content).to include('mock_fullname_1 doesn&#39;t have any whiistle to show.')
+      expect(CGI.unescapeHTML(rendered_content)).to include("mock_fullname_1 doesn't have any whiistle to show.")
       expect(rendered_content).to include('::Component').exactly(1).times
     end
   end

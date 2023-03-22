@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'users/followers/index', type: :view do
+RSpec.describe 'users/followers/index' do
   describe 'renders the index view of Users::FollowersController' do
     it 'renders correctly' do
       paginate_users = PaginateUsers.new(user.followers, 1, '', cur_user)

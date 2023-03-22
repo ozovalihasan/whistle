@@ -2,9 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe User do
   describe 'validations' do
-    subject { FactoryBot.build(:mock_user) }
+    subject { build(:mock_user) }
 
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
@@ -39,10 +39,10 @@ RSpec.describe User, type: :model do
   describe 'scopes' do
     describe 'with_current_user_situation' do
       it 'returns a column "is_followed_by_cur_user" showing whether a user is followed by cur_user or not' do
-        user1 = FactoryBot.create(:mock_user)
-        user2 = FactoryBot.create(:mock_user)
-        user3 = FactoryBot.create(:mock_user)
-        user4 = FactoryBot.create(:mock_user)
+        user1 = create(:mock_user)
+        user2 = create(:mock_user)
+        user3 = create(:mock_user)
+        user4 = create(:mock_user)
 
         user1.followers << user2
         user1.followers << user3
@@ -55,18 +55,18 @@ RSpec.describe User, type: :model do
 
   describe '#whiistles_of_whiistles_index_page' do
     it 'selects necessary whiistles of the user in a correct order' do
-      user = FactoryBot.create(:mock_user)
+      user = create(:mock_user)
       result = []
-      whiistle = FactoryBot.create(:mock_whiistle, user:)
+      whiistle = create(:mock_whiistle, user:)
       result << whiistle
-      flood = FactoryBot.create(:mock_flood, user:, whiistle:)
-      reply = FactoryBot.create(:mock_reply, user:, whiistle:)
+      flood = create(:mock_flood, user:, whiistle:)
+      reply = create(:mock_reply, user:, whiistle:)
 
-      FactoryBot.create(:mock_rewhiistle, user:, whiistle:)
+      create(:mock_rewhiistle, user:, whiistle:)
       result << whiistle
-      FactoryBot.create(:mock_rewhiistle, user:, whiistle: flood)
+      create(:mock_rewhiistle, user:, whiistle: flood)
       result << flood
-      FactoryBot.create(:mock_rewhiistle, user:, whiistle: reply)
+      create(:mock_rewhiistle, user:, whiistle: reply)
       result << reply
 
       whiistles = user.whiistles_of_whiistles_index_page
@@ -77,19 +77,19 @@ RSpec.describe User, type: :model do
 
   describe '#whiistles_of_whiistles_and_replies_index_page' do
     it 'selects necessary whiistles of the user in a correct order' do
-      user = FactoryBot.create(:mock_user)
+      user = create(:mock_user)
       result = []
-      whiistle = FactoryBot.create(:mock_whiistle, user:)
+      whiistle = create(:mock_whiistle, user:)
       result << whiistle
-      flood = FactoryBot.create(:mock_flood, user:, whiistle:)
-      reply = FactoryBot.create(:mock_reply, user:, whiistle:)
+      flood = create(:mock_flood, user:, whiistle:)
+      reply = create(:mock_reply, user:, whiistle:)
       result << reply
 
-      FactoryBot.create(:mock_rewhiistle, user:, whiistle:)
+      create(:mock_rewhiistle, user:, whiistle:)
       result << whiistle
-      FactoryBot.create(:mock_rewhiistle, user:, whiistle: flood)
+      create(:mock_rewhiistle, user:, whiistle: flood)
       result << flood
-      FactoryBot.create(:mock_rewhiistle, user:, whiistle: reply)
+      create(:mock_rewhiistle, user:, whiistle: reply)
       result << reply
 
       whiistles = user.whiistles_of_whiistles_and_replies_index_page
@@ -100,29 +100,29 @@ RSpec.describe User, type: :model do
 
   describe '#main_page_whiistles' do
     it 'selects necessary whiistles of followings in a correct order' do
-      user = FactoryBot.create(:mock_user)
-      user2 = FactoryBot.create(:mock_user)
+      user = create(:mock_user)
+      user2 = create(:mock_user)
       user.followings << user2
 
       result = []
-      whiistle = FactoryBot.create(:mock_whiistle, user: user2)
+      whiistle = create(:mock_whiistle, user: user2)
       result << whiistle
-      flood = FactoryBot.create(:mock_flood, user: user2, whiistle:)
+      flood = create(:mock_flood, user: user2, whiistle:)
 
-      reply = FactoryBot.create(:mock_reply, user: user2, whiistle:)
+      reply = create(:mock_reply, user: user2, whiistle:)
       result << reply
-      FactoryBot.create(:mock_reply, user: user2, whiistle: flood)
-      FactoryBot.create(:mock_reply, user: user2, whiistle: reply)
+      create(:mock_reply, user: user2, whiistle: flood)
+      create(:mock_reply, user: user2, whiistle: reply)
 
-      FactoryBot.create(:mock_rewhiistle, user: user2, whiistle:)
+      create(:mock_rewhiistle, user: user2, whiistle:)
       result << whiistle
-      FactoryBot.create(:mock_rewhiistle, user: user2, whiistle: flood)
-      FactoryBot.create(:mock_rewhiistle, user: user2, whiistle: reply)
+      create(:mock_rewhiistle, user: user2, whiistle: flood)
+      create(:mock_rewhiistle, user: user2, whiistle: reply)
 
-      FactoryBot.create(:mock_like, user: user2, whiistle:)
+      create(:mock_like, user: user2, whiistle:)
       result << whiistle
-      FactoryBot.create(:mock_like, user: user2, whiistle: flood)
-      FactoryBot.create(:mock_like, user: user2, whiistle: reply)
+      create(:mock_like, user: user2, whiistle: flood)
+      create(:mock_like, user: user2, whiistle: reply)
 
       whiistles = user.main_page_whiistles
       expect(whiistles.size).to eq 4
@@ -132,8 +132,8 @@ RSpec.describe User, type: :model do
 
   describe '#followings_and_user_ids' do
     it "returns ids of the user's followings and the user" do
-      user = FactoryBot.create(:mock_user)
-      user2 = FactoryBot.create(:mock_user)
+      user = create(:mock_user)
+      user2 = create(:mock_user)
       user.followings << user2
 
       expect(user.followings_and_user_ids).to eq [user2.id, user.id]
@@ -142,11 +142,11 @@ RSpec.describe User, type: :model do
 
   describe '#suggested_users' do
     it 'returns 3 suggested users who are not followed by the user' do
-      user = FactoryBot.create(:mock_user)
-      user2 = FactoryBot.create(:mock_user)
+      user = create(:mock_user)
+      user2 = create(:mock_user)
       user.followings << user2
 
-      FactoryBot.create_list(:mock_user, 4)
+      create_list(:mock_user, 4)
 
       expect(user.suggested_users.ids).to eq((described_class.ids - [user.id, user2.id]).last(3).reverse)
     end

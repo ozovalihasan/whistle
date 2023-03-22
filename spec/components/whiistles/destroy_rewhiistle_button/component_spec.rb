@@ -4,9 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::DestroyRewhiistleButton::Component, type: :component do
   it 'renders correctly' do
-    FactoryBot.create(:mock_user)
-    FactoryBot.create(:mock_whiistle)
-    rewhiistle = FactoryBot.create(:mock_rewhiistle)
+    whiistle
+    rewhiistle = create(:mock_rewhiistle)
 
     render_inline(described_class.new(rewhiistle:))
 

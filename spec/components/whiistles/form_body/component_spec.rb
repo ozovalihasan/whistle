@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Whiistles::FormBody::Component, type: :component do
-  before do
-    FactoryBot.reload
-  end
-
   let(:expect_mandatory_elements) do
     expect(rendered_content).to include 'mock_value'
     expect(rendered_content).to include 'mock_label'

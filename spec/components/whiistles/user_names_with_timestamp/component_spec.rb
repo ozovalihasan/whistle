@@ -4,11 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::UserNamesWithTimestamp::Component, type: :component do
   it 'renders correctly' do
-    FactoryBot.create(:mock_user)
-    whiistle = nil
-
     travel_to(Time.zone.local(2000, 1, 1, 1, 1, 1)) do
-      whiistle = FactoryBot.create(:mock_whiistle)
+      whiistle
     end
 
     travel_to(Time.zone.local(2001, 1, 1, 1, 1, 1)) do

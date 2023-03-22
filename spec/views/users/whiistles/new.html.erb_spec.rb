@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'users/whiistles/new', type: :view do
+RSpec.describe 'users/whiistles/new' do
   describe 'renders the new view of Users::WhiistlesController' do
     it 'renders correctly' do
       whiistle = Whiistle.new

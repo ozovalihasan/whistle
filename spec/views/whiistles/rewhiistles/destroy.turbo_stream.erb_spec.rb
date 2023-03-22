@@ -2,20 +2,16 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/rewhiistles/destroy.turbo_stream', type: :view do
+RSpec.describe 'whiistles/rewhiistles/destroy.turbo_stream' do
   describe 'renders the destroy turbo stream view of Whiistles::RewhiistlesController' do
     it 'renders correctly' do
-      FactoryBot.reload
-      user = FactoryBot.create(:mock_user)
-      FactoryBot.create(:mock_user)
-
-      main_whiistle = FactoryBot.create(:mock_whiistle, user:)
-      rewhiistle = FactoryBot.create(:mock_rewhiistle)
+      whiistle
+      rewhiistle = create(:mock_rewhiistle)
       assign(:rewhiistle, rewhiistle)
 
       rewhiistle.destroy!
 
-      flash[:notice] = 'mock_notice'
+      flash[:notice] = 'mock_notice_message'
 
       render
 

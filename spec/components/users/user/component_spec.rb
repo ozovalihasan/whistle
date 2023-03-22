@@ -4,10 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Users::User::Component, type: :component do
   it 'renders correctly' do
-    user = FactoryBot.create(:mock_user)
-    user2 = FactoryBot.create(:mock_user)
-
-    render_inline(described_class.new(user:, cur_user: user2))
+    render_inline(described_class.new(user:, cur_user:))
 
     expect_snapshot_match
     expect(rendered_content).to include 'Users::ProfileImage::Component(user: User)'
