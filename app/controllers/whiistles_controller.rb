@@ -12,7 +12,9 @@ class WhiistlesController < ApplicationController
     return if request.format.turbo_stream?
 
     @whiistle = Whiistle.new
-    @suggested_users = current_user.suggested_users.with_attached_profile_picture
+    @suggested_users = current_user.suggested_users
+                                  .with_current_user_situation(current_user)
+                                  .with_attached_profile_picture
   end
 
   def show

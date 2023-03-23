@@ -12,7 +12,7 @@ RSpec.describe 'whiistles/index' do
       whiistle = Whiistle.new
       assign(:whiistle, whiistle)
 
-      suggested_users = cur_user.suggested_users
+      suggested_users = cur_user.suggested_users.with_current_user_situation(cur_user)
       assign(:suggested_users, suggested_users)
 
       sign_in cur_user
