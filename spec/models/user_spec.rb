@@ -42,13 +42,20 @@ RSpec.describe User do
         user1 = create(:mock_user)
         user2 = create(:mock_user)
         user3 = create(:mock_user)
-        user4 = create(:mock_user)
+        cur_user = create(:mock_user)
 
         user1.followers << user2
         user1.followers << user3
-        user4.followings << user3
+        
+        cur_user.followings << user3
 
-        expect(user1.followers.with_current_user_situation(user4).map(&:is_followed_by_cur_user)).to eq [false, true]
+        expect(user1.followers.with_current_user_situation(cur_user).map(&:is_followed_by_cur_user)).to eq [false, true]
+      end
+    end
+
+    describe 'in_random_order' do
+      it 'returns users in a random order' do
+        expect(User.all.in_random_order.to_sql).to include "ORDER BY RANDOM()"
       end
     end
   end

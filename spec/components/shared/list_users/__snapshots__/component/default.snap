@@ -1,1 +1,1 @@
-Users::User::Component(ActiveRecord::Relation, cur_user: User)
+Users::User::Component(ActiveRecord::Relation)

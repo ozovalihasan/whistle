@@ -30,7 +30,8 @@ class User < ApplicationRecord
         users.*,
         (
           CASE WHEN (
-            cur_user_following_relations.id IS NULL
+            ( cur_user_following_relations.id IS NULL )
+            AND ( users.id != #{cur_user.id} )
           ) THEN false ELSE true END
         ) AS is_followed_by_cur_user
       SQL
@@ -43,6 +44,7 @@ class User < ApplicationRecord
         SQL
       )
   }
+  scope :in_random_order, lambda { order('RANDOM()') }
 
   def whiistles_of_whiistles_index_page(remove_replies = true)
     whiistles_shared_by_user = shared_whiistles

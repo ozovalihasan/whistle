@@ -16,7 +16,7 @@ RSpec.describe Users::SidebarRight::Component, type: :component do
     expect(rendered_content).to include 'Users::ProfileImage::Component(user: User, shape: Symbol)'
     expect(rendered_content).to match('mock_fullname_2')
     expect(rendered_content).to match('@mock_username_2')
-    expect(rendered_content).to include 'Users::User::Component(Array, cur_user: User)'
+    expect(rendered_content).to include 'Users::User::Component(ActiveRecord::AssociationRelation)'
     expect(rendered_content).to include('::Component').exactly(3).times
   end
 end

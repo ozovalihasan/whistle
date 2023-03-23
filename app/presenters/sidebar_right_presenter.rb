@@ -7,6 +7,6 @@ class SidebarRightPresenter
     @user = user
     @cur_user = cur_user
     @relation = cur_user.following_relations.find_by(followed_id: user.id)
-    @random_followings = user.followings.limit(5).order('RANDOM()') - [cur_user]
+    @random_followings = user.followings.with_current_user_situation(cur_user).in_random_order.limit(5).without(cur_user)
   end
 end

@@ -13,7 +13,7 @@
     </div>
   <% end %>
 
-  <% unless @cur_user.followings_and_user_ids.include? @user.id %>
+  <% unless @user.is_followed_by_cur_user %>
     <%= render component("users/follow_button", user: @user) %>
   <% end %>
 </div>
