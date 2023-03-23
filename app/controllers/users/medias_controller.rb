@@ -4,7 +4,7 @@ class Users::MediasController < Users::TabsController
   def index
     super
 
-    all_whiistles = @user.whiistles.joins(:pictures_attachments).distinct.descending_order
+    all_whiistles = @user.whiistles.joins(:pictures_attachments).distinct.descending_order.includes(user: [{ profile_picture_attachment: :blob }])
     @paginate_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], user_medias_url(@user), current_user)
     @paginate_whiistles.set_basic
 
