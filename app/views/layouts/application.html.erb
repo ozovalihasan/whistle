@@ -21,8 +21,8 @@
         <div class="fixed bottom-0 right-0 inset-x-0 m-4 z-30">
           <div class="relative ">
             <div id="flashes" class="absolute right-0 bottom-0 flex flex-col items-end">
-              <%= render component("layout/notice", notice: notice) %>
-              <%= render component("layout/alert", alert: alert) %>
+              <%= render component("layout/flash", message: notice) %>
+              <%= render component("layout/flash", message: alert, alert: true) %>
             </div>
           </div>
         </div>

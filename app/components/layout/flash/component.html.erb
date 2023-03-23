@@ -6,11 +6,11 @@
   data-alert-hide-class="translate-full opacity-0 max-h-0" 
   class="transition-all ease-in-out duration-1000 max-w-sm "
 >
-  <div class="px-4 py-3 my-4 w-full shadow-lg rounded relative bg-second text-white pointer-events-auto">
+  <div class="px-4 py-3 my-4 w-full shadow-lg rounded relative <%= @alert ? "bg-danger" : "bg-second" %> text-white pointer-events-auto">
     <div class="flex items-start">
       <div class="ml-3 w-full flex-1 pt-0.5">
         <p class="text-sm leading-5 font-bold">
-          <%= @notice %>
+          <%= @message %>
         </p>
       </div>
       <div class="ml-4 flex-shrink-0 flex">

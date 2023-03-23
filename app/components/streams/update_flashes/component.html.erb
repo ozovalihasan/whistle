@@ -1,8 +1,8 @@
 <%= turbo_stream.prepend "flashes" do %>
   <% if @notice %>
-    <%= render component("layout/notice", notice: @notice) %>
+    <%= render component("layout/flash", message: @notice) %>
   <% end %>
   <% if @alert %>
-    <%= render component("layout/alert", alert: @alert) %>
+    <%= render component("layout/flash", message: @alert, alert: true) %>
   <% end %>
 <% end %>
