@@ -4,9 +4,14 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::MainWhiistle::Component, type: :component do
   it 'renders correctly' do
-    whiistle
 
-    render_inline(described_class.new(whiistle:, current_user_presenter:))
+    travel_to(Time.zone.local(2000, 1, 1, 1, 1, 1)) do
+      whiistle
+    end
+    
+    travel_to(Time.zone.local(2001, 1, 1, 1, 1, 1)) do
+      render_inline(described_class.new(whiistle:, current_user_presenter:))
+    end
 
     expect_snapshot_match
     expect(rendered_content).to include 'Users::ProfileImageButton::Component(user: User)'
