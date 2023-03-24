@@ -5,6 +5,7 @@ class PaginateWhiistles < PaginateRecords
   attr_accessor :component_name
 
   def initialize(original_records, page, url, cur_user)
+    original_records = original_records.includes(user: [{ profile_picture_attachment: :blob }])
     super(original_records, page, url)
 
     @current_user_presenter = CurrentUserPresenter.new(cur_user)

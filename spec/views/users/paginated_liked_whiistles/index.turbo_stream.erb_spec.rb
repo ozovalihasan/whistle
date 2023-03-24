@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe 'whiistles/index.turbo_stream' do
-  describe 'renders the index(turbo_stream) view of WhiistlesController' do
+RSpec.describe 'users/paginated_liked_whiistles/index.turbo_stream' do
+  describe 'renders the index(turbo_stream) view of Users::PaginatedLikedWhiistlesController' do
     it 'renders correctly' do
-      paginate_whiistles = PaginateWhiistles.new(cur_user.main_page_whiistles, 1, '', cur_user)
-      paginate_whiistles.set_connected
+      paginate_whiistles = PaginateWhiistles.new(user.liked_whiistles, 1, '', cur_user)
+      paginate_whiistles.set_basic
       assign(:paginate_whiistles, paginate_whiistles)
 
       render

@@ -1,15 +1,8 @@
 # frozen_string_literal: true
 
-class Users::WhiistlesController < Users::TabsController
+class Users::WhiistlesController < Users::PaginatedWhiistlesController
   def index
     super
-
-    all_whiistles = @user.whiistles_of_whiistles_index_page.includes(user: [{ profile_picture_attachment: :blob }])
-
-    @paginate_whiistles = PaginateWhiistles.new(all_whiistles, params[:page], user_whiistles_url(@user), current_user)
-    @paginate_whiistles.set_connected
-
-    return if request.format.turbo_stream?
 
     whiistle = Whiistle.new
 

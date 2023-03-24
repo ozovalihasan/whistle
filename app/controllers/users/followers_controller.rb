@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
-class Users::FollowersController < Users::TabsController
+class Users::FollowersController < Users::PaginatedFollowersController
   def index
     super
-
-    followers = @user.followers.with_current_user_situation(current_user).with_attached_profile_picture
-    @paginate_users = PaginateUsers.new(followers, params[:page], user_followers_url(@user), current_user)
-
-    return if request.format.turbo_stream?
 
     @tab_presenter = UsersTabPresenter.new(@user, :followers, @paginate_users)
   end

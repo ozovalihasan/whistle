@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe 'users/followings/index.turbo_stream' do
-  describe 'renders the index(turbo_stream) view of Users::FollowingsController' do
+RSpec.describe 'users/paginated_followings/index.turbo_stream' do
+  describe 'renders the index(turbo_stream) view of Users::PaginatedFollowingsController' do
     it 'renders Shared::ListUsers::Component' do
       paginate_users = PaginateUsers.new(user.followings, 1, '', cur_user)
 
