@@ -2,7 +2,7 @@
   <h2 class="text-center pb-8">Log in</h2>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= f.input :username, required: true %>
+  <%= f.input :username, required: true, input_html: { autocomplete: "username" } %>
   <%= f.input :password, as: :hidden, input_html: {value: 'aaaaaa'} %>
 
 
