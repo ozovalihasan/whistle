@@ -6,7 +6,7 @@ RSpec.describe Users::UsersHavingRelations::Component, type: :component do
   context 'the paginated users is not empty' do
     it 'renders correctly' do
       create(:mock_user)
-      paginate_users = PaginateUsers.new(User.all.where("id != ?", cur_user.id) , 1, "", cur_user)
+      paginate_users = PaginateUsers.new(User.all.where("users.id != ?", cur_user.id) , 1, "", cur_user)
       
       tab_presenter = UsersTabPresenter.new(user, :followers, paginate_users)
 
