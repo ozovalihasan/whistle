@@ -8,7 +8,7 @@ RSpec.describe Layout::LeftSide::Component, type: :component do
 
     expect_snapshot_match
     expect(rendered_content).to match(/Followers/)
-    expect(rendered_content).to match(/Followings/)
+    expect(rendered_content).to match(/Following/)
     expect(rendered_content).to match(/HOME/)
     expect(rendered_content).to match(/CONNECT/)
     expect(rendered_content).to match(/DISCOVER/)
