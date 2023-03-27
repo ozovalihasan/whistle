@@ -2,7 +2,7 @@
   <div class="w-2/3">
     <div style="background-image: url('');", class="h-60 bg-cover bg-center w-full bg-third">
     </div>
-    <turbo-frame data-turbo-action="advance" id="user_tabs">
+    <turbo-frame data-turbo-action="advance" id="user-tabs">
 
       <div class="p-4">
         <ul class="flex">
