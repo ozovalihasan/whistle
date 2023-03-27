@@ -1,4 +1,4 @@
-<div class='sidebar-right border-left flex-shrink-0 text-third'>
+<div id="user-sidebar-right" class='border-left flex-shrink-0 text-third'>
     <div class='text-center pt-4 '>
         <div class="flex ">
             <div class="flex items-center gap-4 align-items-center mx-auto text-xl">

@@ -11,7 +11,7 @@
                 Whiistles::ListPaginatedWhiistles::Component(paginate_whiistles: PaginateWhiistles)
         </div>
     </div>
-    <div class='w-1/3'>
+    <div id="who-to-follow" class='w-1/3'>
         <h1 class="py-4 pl-4">Who To Follow</h1>
         Users::User::Component(ActiveRecord::Relation)
     </div>
