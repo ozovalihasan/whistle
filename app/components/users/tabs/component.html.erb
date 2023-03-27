@@ -2,7 +2,7 @@
   <div class="w-2/3">
     <div style="background-image: url('<%= cover_image_url(@user) %>');", class="h-60 bg-cover bg-center w-full bg-third">
     </div>
-    <%= turbo_frame_tag "user-tabs", data: { turbo_action: "advance" } do %>
+    <%= turbo_frame_tag "user-tabs", data: { turbo_action: "advance"}, target: "_top" do %>
 
       <div class="p-4">
         <ul class="flex">

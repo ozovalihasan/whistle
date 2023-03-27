@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Users::Tabs::Component, type: :component do
   let(:expect_mandatory_elements) do
-    expect(rendered_content).to include('<turbo-frame data-turbo-action="advance" id="user-tabs">')
+    expect(rendered_content).to include('<turbo-frame data-turbo-action="advance" id="user-tabs" target="_top">')
     expect(rendered_content).to include('Users::TabsButton::Component(url: String, text: String, active_tab: TrueClass)').exactly(1).times
     expect(rendered_content).to include('Users::TabsButton::Component(url: String, text: String, active_tab: FalseClass)').exactly(5).times
     expect(rendered_content).to include('Users::SidebarRight::Component(sidebar_right_presenter: SidebarRightPresenter)')
