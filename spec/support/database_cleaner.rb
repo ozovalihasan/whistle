@@ -3,7 +3,7 @@
 require 'database_cleaner/active_record'
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = true
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
