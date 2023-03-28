@@ -1,5 +1,5 @@
 <div class='bg-fourth flex grow'>
-  <div class="w-2/3">
+  <main class="w-2/3">
     <div style="background-image: url('<%= cover_image_url(@user) %>');", class="h-60 bg-cover bg-center w-full bg-third">
     </div>
     <%= turbo_frame_tag "user-tabs", data: { turbo_action: "advance"}, target: "_top" do %>
@@ -61,7 +61,7 @@
       
     <% end %>
 
-  </div>
+  </main>
   
   <div class="w-1/3">
     <%= render component("users/sidebar_right", sidebar_right_presenter: @sidebar_right_presenter) %>

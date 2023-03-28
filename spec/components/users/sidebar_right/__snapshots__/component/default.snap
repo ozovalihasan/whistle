@@ -1,4 +1,4 @@
-<div id="user-sidebar-right" class='border-left flex-shrink-0 text-third'>
+<aside id="user-sidebar-right" class='border-left flex-shrink-0 text-third'>
     <div class='text-center pt-4 '>
         <div class="flex ">
             <div class="flex items-center gap-4 align-items-center mx-auto text-xl">
@@ -48,4 +48,4 @@
     <h1 class="py-4 pl-4 text-third-color border-bottom">Followed by</h1>
 
     Users::User::Component(ActiveRecord::AssociationRelation)
-</div>
+</aside>

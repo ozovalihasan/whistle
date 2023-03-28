@@ -1,5 +1,5 @@
 <div class='flex grow'>
-    <div class='p-4 w-2/3'>
+    <main class='p-4 w-2/3'>
 
         <%= 
             render component(
@@ -19,9 +19,9 @@
                 <%= render component "whiistles/list_paginated_whiistles", paginate_whiistles: @paginate_whiistles %>
             <% end %>
         </div>
-    </div>
-    <div id="who-to-follow" class='w-1/3'>
+    </main>
+    <aside id="who-to-follow" class='w-1/3'>
         <h1 class="py-4 pl-4">Who To Follow</h1>
         <%= render components("users/user", @suggested_users) %>
-    </div>
+    </aside>
 </div>

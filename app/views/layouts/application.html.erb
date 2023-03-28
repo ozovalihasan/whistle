@@ -13,24 +13,24 @@
   </head>
 
   <body class="w-full">
-    <main class='flex font-bold'>
-      <%= render component("layout/left_side", current_user: current_user) %>
-      <div class='center w-3/4 flex flex-col'>
-        <%= render 'layouts/header' %>
+    <%= render component("shared/modal")do %>
+      <div class='flex font-bold'>
+        <%= render component("layout/left_side", current_user: current_user) %>
+        <div class='center w-3/4 flex flex-col'>
+          <%= render 'layouts/header' %>
 
-        <div class="fixed bottom-0 right-0 inset-x-0 m-4 z-30">
-          <div class="relative ">
-            <div id="flashes" class="absolute right-0 bottom-0 flex flex-col items-end">
-              <%= render component("layout/flash", message: notice) %>
-              <%= render component("layout/flash", message: alert, alert: true) %>
+          <div class="fixed bottom-0 right-0 inset-x-0 m-4 z-30">
+            <div class="relative ">
+              <div id="flashes" class="absolute right-0 bottom-0 flex flex-col items-end">
+                <%= render component("layout/flash", message: notice) %>
+                <%= render component("layout/flash", message: alert, alert: true) %>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <%= render component("shared/modal")do %>
+          
           <%= yield %>
-        <% end %>
+        </div>
       </div>
-    </main>
+    <% end %>
   </body>
 </html>
