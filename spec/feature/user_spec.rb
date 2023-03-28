@@ -2,27 +2,41 @@
 
 require 'rails_helper'
 
-RSpec.describe 'user', type: :feature do
+RSpec.describe 'User', type: :feature do
   before do
-    User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@email.com',
-                   password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-                 { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@email.com',
-                   password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
+    cur_user
   end
 
   it 'signs up' do
-    do_signup('jackie', 'Jackie Chan', 'jackie@email.com')
-    expect(page).to have_content 'Jackie Chan'
+    visit root_path
+    click_link('Sign up')
+    fill_in('Username', with: "mock_username")
+    fill_in('Fullname', with: "mock_fullname")
+    fill_in('Email', with: "mock@email.com")
+    find("input[value='Sign Up']").click
+
+    expect_snapshot_match("sign_up")
+    expect(page).to have_content "mock_fullname"
   end
 
   it 'logs in' do
-    do_login('hasan')
-    expect(page).to have_content 'Hasan Ozovali'
+    visit root_path
+    fill_in('Username', with: cur_user.username)
+    click_button('Log in')
+    
+    expect_snapshot_match("log_in")
+    expect(page).to have_content cur_user.fullname
   end
 
   it 'logs out' do
-    do_login('hasan')
-    do_logout
+    sign_in cur_user
+    visit root_path
+    
+    within "header" do
+      find('.bi-box-arrow-right').click  
+    end
+
+    expect_snapshot_match("log_out")
     expect(page).to have_content 'Log in'
     expect(page).to have_content 'Username'
     expect(page).to have_content 'Sign up'
