@@ -34,7 +34,7 @@ RSpec.describe BaseWhiistle do
   end
 
   describe 'associations' do
-    it { is_expected.to have_one_attached(:pictures) }
+    it { is_expected.to have_many_attached(:pictures) }
 
     it 'has ancestry' do
       create(:mock_user)
