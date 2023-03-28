@@ -1,51 +1,4 @@
-<html class="font-sans"><head><style type="text/css">.turbo-progress-bar {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: #0076ff;
-  z-index: 2147483647;
-  transition:
-    width 300ms ease-out,
-    opacity 150ms 150ms ease-in;
-  transform: translate3d(0, 0, 0);
-}
-</style>
-    <title>Whistle</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    
-    
-    <link rel="stylesheet" href="/assets/tailwind-6c913495cc172fca58d92dd801e2da0b2fb68ae2e92836b50dceb64ebe802622.css" data-turbo-track="reload">
-<link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" data-turbo-track="reload">
-
-    <link rel="stylesheet" href="/assets/application-56f714c13ca398a1b5d442d014ffddc1afd0dd1a19167e37e7e386eb3f991458.css" data-turbo-track="reload">
-    <script type="importmap" data-turbo-track="reload">{
-  "imports": {
-    "application": "/assets/application-04f8630fe2f357737880cb24f3a1a6f4804cb2817873c1fa8ccaeae8e34692c4.js",
-    "@hotwired/turbo-rails": "/assets/turbo.min-f309baafa3ae5ad6ccee3e7362118b87678d792db8e8ab466c4fa284dd3a4700.js",
-    "@hotwired/stimulus": "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.1/dist/stimulus.js",
-    "@hotwired/stimulus-loading": "/assets/stimulus-loading-1fc59770fb1654500044afd3f5f6d7d00800e5be36746d55b94a2963a7a228aa.js",
-    "tailwindcss-stimulus-components": "https://ga.jspm.io/npm:tailwindcss-stimulus-components@3.0.4/dist/tailwindcss-stimulus-components.modern.js",
-    "@rails/request.js": "https://ga.jspm.io/npm:@rails/request.js@0.0.8/src/index.js",
-    "controllers/application": "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js",
-    "controllers/custom_modal_controller": "/assets/controllers/custom_modal_controller-f6b79042766a37b50c1762f56602bef9252921d44771e382240e0bb8f6fadbe2.js",
-    "controllers/custom_tabs_controller": "/assets/controllers/custom_tabs_controller-dbfc4c017dab05d46cccc1be08be5240cb0ceebf77d0e3307dbc2b9838fc2a72.js",
-    "controllers/flood_controller": "/assets/controllers/flood_controller-68c44c780237ecfc70a0ef9957c21e5288bb6340d7c8a5fcaee87d7c744f1eaa.js",
-    "controllers/hello_controller": "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js",
-    "controllers": "/assets/controllers/index-5873c0a25f635bd67bb8a7e4cf516e8791dbd569cc986be5c210487ad4329757.js",
-    "controllers/pagination_controller": "/assets/controllers/pagination_controller-e0c4787bd75c38366ae57883e519c96e00eaac9424c40d64d01fe7fa9955dc9c.js"
-  }
-}</script>
-<link rel="modulepreload" href="/assets/application-04f8630fe2f357737880cb24f3a1a6f4804cb2817873c1fa8ccaeae8e34692c4.js">
-<link rel="modulepreload" href="/assets/turbo.min-f309baafa3ae5ad6ccee3e7362118b87678d792db8e8ab466c4fa284dd3a4700.js">
-<link rel="modulepreload" href="/assets/stimulus-loading-1fc59770fb1654500044afd3f5f6d7d00800e5be36746d55b94a2963a7a228aa.js">
-<script src="/assets/es-module-shims.min-d89e73202ec09dede55fb74115af9c5f9f2bb965433de1c2446e1faa6dac2470.js" async="async" data-turbo-track="reload"></script>
-<script type="module">import "application"</script>
-    
-  </head>
-
-  <body class="w-full">
+<body class="w-full">
     
 <div data-controller="modal" data-modal-allow-background-close="true">
   <template data-modal-target="loading">
@@ -243,7 +196,7 @@
 
   </form>
 
-  <div data-controller="pagination" data-pagination-url-value="http://127.0.0.1:44549/users/2/paginated_whiistles" data-pagination-current-page-value="1" data-pagination-max-page-value="1" data-pagination-request-value="false" class="mt-4">
+  <div data-controller="pagination" data-pagination-url-value="http://127.0.0.1:30303/users/2/paginated_whiistles" data-pagination-current-page-value="1" data-pagination-max-page-value="1" data-pagination-request-value="false" class="mt-4">
   <div id="pagination-body">
     
   <div id="whiistles_counter" class="pb-4 mb-3 text-second-color">
@@ -477,6 +430,3 @@
 </div>  
 
 </body>
-
-
-</html>
