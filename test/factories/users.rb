@@ -17,6 +17,6 @@ FactoryBot.define do
     sequence(:username) { |n| "mock_username_#{n}" }
     sequence(:fullname) { |n| "mock_fullname_#{n}" }
     sequence(:email) { |n| "mock_user_#{n}@email.com" }
-    sequence(:password) { |n| "password_user_#{n}" }
+    sequence(:password) { |n| "aaaaaa" }
   end
 end
