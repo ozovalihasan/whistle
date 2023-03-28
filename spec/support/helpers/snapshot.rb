@@ -19,6 +19,12 @@ module Helpers::Snapshot
       snapshot_name = 'default' if snapshot_name.nil?
       expect(rendered_content).to match_snapshot(component_file_match << '/' << snapshot_name, config)
 
+    when :feature
+
+      request_file_match = RSpec.current_example.metadata[:file_path].match(%r{([^/]*)_spec.rb})[1]
+      snapshot_name = 'default' if snapshot_name.nil?
+      expect(page.body).to match_snapshot(request_file_match << '/' << snapshot_name, config)
+
     else
       raise StandardError, "This method is not used for this(#{RSpec.current_example.metadata[:type]}) type"
     end

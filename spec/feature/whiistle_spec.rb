@@ -4,26 +4,52 @@ require 'rails_helper'
 
 RSpec.describe 'whiistle', type: :feature do
   before do
-    User.create([{ username: 'hillary', fullname: 'Hillary Kiptoo', email: 'hillary@email.com',
-                   password: 'aaaaaa', password_confirmation: 'aaaaaa' },
-                 { username: 'hasan', fullname: 'Hasan Ozovali', email: 'hasan@email.com',
-                   password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
+    sign_in cur_user
+    user
+  end
+
+  let(:whiistle_by_pressing_button) do
+    find('textarea').click
+
+    within '#modal_body' do
+      find('#whiistle_body')
+      expect(page).not_to have_content 'mock whiistle body'
+      
+      fill_in('whiistle_body', with: 'mock whiistle body')
+
+      click_button "Whiistle", exact: true
+    end
   end
 
   it 'is created by using form on the index page of whiistles' do
-    do_login('hasan')
-    fill_in('whiistle_body', with: 'Hi everyone')
-    click_button('Whiistle')
+    sign_in cur_user
+    visit whiistles_path
 
-    expect(page).to have_content 'Hi everyone'
+    whiistle_by_pressing_button
+
+    expect(page).to have_current_path(whiistles_path)
+    expect_snapshot_match("index_page_of_whiistles")
+    expect(page).to have_content 'mock whiistle body'
   end
 
-  it 'is created by using form on the show page of users' do
-    do_login('hasan')
+  it 'is created by using form on the index page of whiistles of a user' do
+    
+    visit user_whiistles_path(user)
 
-    find('a', text: '@hillary').click
-    fill_in('whiistle_body', with: 'hi @hillary')
-    click_button('Whiistle')
-    expect(page).to have_content 'You whiistled'
+    whiistle_by_pressing_button
+
+    expect_snapshot_match("index_page_of_whiistles_of_a_user")
+    expect(page).to have_content 'mock whiistle body'
   end
+
+  it 'is created by using form on the index page of whiistles with replies of a user' do
+    
+    visit user_whiistles_with_replies_path(user)
+
+    whiistle_by_pressing_button
+
+    expect_snapshot_match("index_page_of_whiistles_with_replies_of_a_user")
+    expect(page).to have_content 'mock whiistle body'
+  end
+  
 end
