@@ -5,7 +5,7 @@
     <%= turbo_frame_tag "user-tabs", data: { turbo_action: "advance"}, target: "_top" do %>
 
       <div class="p-4">
-        <ul class="flex">
+        <ul id="user-tab-buttons" class="flex gap-x-1">
           <%= 
             render component(
               "users/tabs_button", 

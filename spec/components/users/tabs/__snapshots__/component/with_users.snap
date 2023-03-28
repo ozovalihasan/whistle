@@ -5,7 +5,7 @@
     <turbo-frame data-turbo-action="advance" id="user-tabs" target="_top">
 
       <div class="p-4">
-        <ul class="flex">
+        <ul id="user-tab-buttons" class="flex gap-x-1">
           Users::TabsButton::Component(url: String, text: String, active_tab: FalseClass)
           Users::TabsButton::Component(url: String, text: String, active_tab: FalseClass)
           Users::TabsButton::Component(url: String, text: String, active_tab: FalseClass)
