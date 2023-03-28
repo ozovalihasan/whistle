@@ -69,7 +69,7 @@ RSpec.configure do |config|
   config.include Rails.application.routes.url_helpers
   config.include ActiveSupport::Testing::TimeHelpers
 
-  config.example_status_persistence_file_path = 'spec/support/examples.txt'
+  config.example_status_persistence_file_path = 'spec/examples.txt'
 
 end
 
