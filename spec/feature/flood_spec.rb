@@ -33,7 +33,7 @@ RSpec.describe 'Flood', type: :feature do
   end
 
   it 'is created by using form on the index page of whiistles by quoting a whiistle' do
-    whiistle = create(:mock_whiistle, body: "mock quoted whiistle body", id: 100)
+    whiistle = create(:mock_whiistle, body: "mock quoted whiistle body")
     quoted_whiistle_url = whiistle_url(whiistle)
     visit whiistles_path
 
@@ -52,7 +52,6 @@ RSpec.describe 'Flood', type: :feature do
         input = find("input[placeholder='Copy paste the link of a whiistle to quote']")
         fill_in(input[:id], with: quoted_whiistle_url)  
       end
-      binding.break
 
       click_button "Whiistle", exact: true
     end

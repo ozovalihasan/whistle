@@ -12,7 +12,7 @@ RSpec.describe 'Reply', type: :feature do
   end
 
   it 'is created by click a button shown under whiistles' do
-    whiistle = create(:mock_whiistle, user: user, id: 100)
+    whiistle = create(:mock_whiistle, user: user)
 
     visit user_whiistles_path(user)
 

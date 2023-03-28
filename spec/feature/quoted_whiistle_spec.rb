@@ -15,7 +15,7 @@ RSpec.describe 'QuotedWhiistle', type: :feature do
   let(:active_button_css) { "div.text-second" } 
 
   it 'is created by click a button shown under whiistles' do
-    whiistle = create(:mock_whiistle, user: user, id: 100)
+    whiistle = create(:mock_whiistle, user: user)
     
     visit user_whiistles_path(user)
     rewhiistle_and_quote_button = find("#user-tabs div.#{whiistle_rewhiistle_or_quote_button_target(whiistle)}")
