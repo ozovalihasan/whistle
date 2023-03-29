@@ -12,69 +12,72 @@
 
   
       <div class="flex font-bold">
-        <aside id="cur-user-left-side" class="w-1/4 bg-first min-h-screen text-third">
-    <div class="flex p-4 items-center ">
-        <div class="mr-4">
+        <aside id="cur-user-left-side" class="w-1/4 bg-first min-h-screen text-third ">
+    <div class="sticky top-0">
+        <div class="flex p-4 items-center ">
+            <div class="mr-4">
         
-            <a class="hover:blur-xs" href="/users/1/whiistles">
-                <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50">
-</a>        </div>
-        <div class="text-center ">
-            <a class="hover:text-sixth" href="/users/1/whiistles">
-                mock_fullname_1
-</a>        </div>
-    </div>
-    <div class="flex px-0 py-3 w-full self-center mx-auto [&amp;>a:hover]:text-sixth">
-            
-        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="/users/1/followings">
-            <div id="left_side_followings_count_user_1" class="font-bold text-sixth">
-                0
-            </div>
-            <div>
-                Following
-            </div>
-        </a>
-            
-        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="/users/1/followers">
-            <div id="left-side-followers-counter" class=" font-bold text-sixth">
-                0
-            </div>
-            <div>
-                Followers
-            </div>
-        </a>
+                <a class="hover:blur-xs" href="/users/1/whiistles">
+                    <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50">
+</a>            </div>
+            <div class="text-center ">
+                <a class="hover:text-sixth" href="/users/1/whiistles">
+                    mock_fullname_1
+</a>            </div>
+        </div>
+        <div class="flex px-0 py-3 w-full self-center mx-auto [&amp;>a:hover]:text-sixth">
         
+            <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="/users/1/followings">
+                <div id="left_side_followings_count_user_1" class="font-bold text-sixth">
+                    0
+                </div>
+                <div>
+                    Following
+                </div>
+            </a>
+        
+            <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="/users/1/followers">
+                <div id="left-side-followers-counter" class=" font-bold text-sixth">
+                    0
+                </div>
+                <div>
+                    Followers
+                </div>
+            </a>
+        
+        </div>
+        <ul class="flex flex-col [&amp;_a]:p-6 [&amp;_a]:py-4 [&amp;>*:hover]:bg-second [&amp;>*:hover]:text-fourth [&amp;_i]:text-2xl [&amp;_i]:m-2 [&amp;_a]:flex [&amp;_a]:items-center  ">
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <i class="bi bi-house-door-fill"></i>
+                    HOME
+</a>            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-at"></i>
+                    CONNECT
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-hash"></i>
+                    DISCOVER
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class=" nav-link " href="/users/1/whiistles">
+                    <i class="bi bi-person-fill"></i>
+                    PROFILE
+</a>            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-pie-chart-fill"></i>
+                    STATISTICS
+                </a>
+            </li>
+        </ul>
     </div>
-    <ul class="flex flex-col [&amp;_a]:p-6 [&amp;_a]:py-4 [&amp;>*:hover]:bg-second [&amp;>*:hover]:text-fourth [&amp;_i]:text-2xl [&amp;_i]:m-2 [&amp;_a]:flex [&amp;_a]:items-center  ">
-        <li class="nav-item">
-            <a class="nav-link" href="/">
-                <i class="bi bi-house-door-fill"></i>
-                HOME            
-</a>        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-at"></i>
-                CONNECT
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-hash"></i>
-                DISCOVER
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class=" nav-link " href="/users/1/whiistles">
-                <i class="bi bi-person-fill"></i>
-                PROFILE
-</a>        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-pie-chart-fill"></i>
-                STATISTICS
-            </a>
-        </li>
-    </ul>
+    
 </aside>
 
         <div class="center w-3/4 flex flex-col">
@@ -269,16 +272,16 @@
                           </div>
                           <div class="mt-4">
                               <li class="mr-1 inactive" data-tabs-target="tab" data-action="click->tabs#change">
-    <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_1680089846268_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][1680089846268][body]" id="whiistle_floods_1680089846268_body" cols="60" rows="4"></textarea></div>
+    <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_1680090086212_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][1680090086212][body]" id="whiistle_floods_1680090086212_body" cols="60" rows="4"></textarea></div>
   </li>
 
   <div class="py-4 px-4 border-l border-b border-r hidden" data-tabs-target="panel">
-    <div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_1680089846268_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][1680089846268][quoted_whiistle_url]" id="whiistle_floods_1680089846268_quoted_whiistle_url"></div>
+    <div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_1680090086212_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][1680090086212][quoted_whiistle_url]" id="whiistle_floods_1680090086212_quoted_whiistle_url"></div>
 
     <div class="w-full flex">
       
-<label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_1680089846268_pictures">
-</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_1680089846268_pictures">Pictures</label><input name="whiistle[floods][1680089846268][pictures][]" type="hidden" value="" autocomplete="off"><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][1680089846268][pictures][]" id="whiistle_floods_1680089846268_pictures"></div>
+<label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_1680090086212_pictures">
+</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_1680090086212_pictures">Pictures</label><input name="whiistle[floods][1680090086212][pictures][]" type="hidden" value="" autocomplete="off"><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][1680090086212][pictures][]" id="whiistle_floods_1680090086212_pictures"></div>
       <div class="ml-auto flex">
         
         <a data-action="click->flood#add_association" class="btn-second w-24 p-2  m-4" href="#">Add Flood</a>
@@ -296,16 +299,16 @@
                           </div>
                           <div class="mt-4">
                               <li class="mr-1 -mb-px border-l border-t border-r rounded-t" data-tabs-target="tab" data-action="click->tabs#change">
-    <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_1680089846348_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][1680089846348][body]" id="whiistle_floods_1680089846348_body" cols="60" rows="4"></textarea></div>
+    <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_1680090086303_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][1680090086303][body]" id="whiistle_floods_1680090086303_body" cols="60" rows="4"></textarea></div>
   </li>
 
   <div class="py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
-    <div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_1680089846348_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][1680089846348][quoted_whiistle_url]" id="whiistle_floods_1680089846348_quoted_whiistle_url"></div>
+    <div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_1680090086303_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][1680090086303][quoted_whiistle_url]" id="whiistle_floods_1680090086303_quoted_whiistle_url"></div>
 
     <div class="w-full flex">
       
-<label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_1680089846348_pictures">
-</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_1680089846348_pictures">Pictures</label><input name="whiistle[floods][1680089846348][pictures][]" type="hidden" value="" autocomplete="off"><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][1680089846348][pictures][]" id="whiistle_floods_1680089846348_pictures"></div>
+<label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_1680090086303_pictures">
+</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_1680090086303_pictures">Pictures</label><input name="whiistle[floods][1680090086303][pictures][]" type="hidden" value="" autocomplete="off"><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][1680090086303][pictures][]" id="whiistle_floods_1680090086303_pictures"></div>
       <div class="ml-auto flex">
         
         <a data-action="click->flood#add_association" class="btn-second w-24 p-2  m-4" href="#">Add Flood</a>
