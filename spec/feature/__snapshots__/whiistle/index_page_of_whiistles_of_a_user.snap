@@ -1,4 +1,4 @@
-<body class="w-full fixed inset-x-0 overflow-hidden" style="padding-right: 15px; top: 0px;">
+<body class="w-full max-w-screen-xl self-center mx-auto fixed inset-x-0 overflow-hidden" style="padding-right: 15px; top: 0px;">
     
 <div data-controller="modal" data-modal-allow-background-close="true">
   <template data-modal-target="loading">
@@ -78,7 +78,7 @@
 </aside>
 
         <div class="center w-3/4 flex flex-col">
-          <header class="header bg-second w-full px-4 py-3 flex align-items-center">
+          <header class="bg-second w-full px-4 py-3 flex align-items-center sticky top-0">
     <a href="/">
         <svg width="60" height="60" viewBox="0 0 999.99998 1000" inkscape:version="1.0 (b51213c273, 2020-08-10)">
     <path style="fill:#ffffff;stroke:#000000;stroke-width:1.64544px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 994.21238,491.02675 c 2.35987,-23.13268 -120.94337,-74.94837 -190.03229,-105.38014 -25.3573,-19.26917 -74.40981,-6.86958 -103.2815,-20.31275 -34.30191,-15.97157 -53.45224,-55.25458 -86.7724,-73.18444 -44.16831,-23.76733 -95.05209,-33.19899 -144.32994,-42.54872 -20.4834,-3.88642 -35.56938,-8.09349 -62.30268,-5.51761 -6.8491,0.65995 -19.97143,11.47244 -14.10635,15.07059 116.58616,71.52443 201.04363,89.82125 201.04363,89.82125 0,0 -136.62048,7.62662 -208.55905,42.56802 -71.93856,34.94139 -227.06293,138.09424 -227.06293,138.09424 0,0 -108.752608,-74.04168 -126.905888,-76.4811 -25.1983201,-3.38617 -45.48668,11.6264 -17.75702,49.92845 45.43271,62.75483 74.47732,42.51047 98.768828,76.27954 7.68157,10.6785 12.43889,24.13718 12.93741,37.28205 1.76284,46.50118 -25.858318,29.18185 -35.649888,134.97527 -1.35072,14.59451 53.806968,25.1345 61.641038,6.03345 27.25266,-66.4465 -3.50933,-86.85313 17.71601,-121.56977 23.18694,-37.92514 64.41526,-66.18922 106.0496,-71.30255 41.63433,-5.11332 315.1892,-0.0959 315.1892,-0.0959 0,0 -57.34186,30.80816 -162.01089,149.14871 -6.91409,7.81721 9.65286,22.13135 19.88548,24.18242 64.84471,12.99776 125.14442,-49.78186 175.34185,-92.83994 25.93774,-22.24872 5.48845,-11.87101 59.50545,-77.37635 17.52514,-21.25237 56.14547,-13.41391 83.53154,-16.37969 57.51221,-6.22831 113.88103,-8.02084 169.16831,-20.30569 51.67127,-11.48136 55.63261,-16.95667 57.99248,-40.08934 z"></path>
@@ -118,33 +118,33 @@
 
       <div class="p-4">
         <ul id="user-tab-buttons" class="flex gap-x-1">
-          <li>
-  <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline border-b border-solid border-second" href="/users/2/whiistles" data-turbo-frame="user_tabs">
+          <li class="text-center flex-1">
+  <a class="block py-2 w-full h-full font-semibold no-underline border-b border-solid border-second" href="/users/2/whiistles" data-turbo-frame="user_tabs">
     Whiistles
   </a>
 </li>
-          <li>
-  <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline " href="/users/2/whiistles_with_replies" data-turbo-frame="user_tabs">
+          <li class="text-center flex-1">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/whiistles_with_replies" data-turbo-frame="user_tabs">
     Whiistles &amp; Replies
   </a>
 </li>
-          <li>
-  <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline " href="/users/2/medias" data-turbo-frame="user_tabs">
+          <li class="text-center flex-1">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/medias" data-turbo-frame="user_tabs">
     Media
   </a>
 </li>
-          <li>
-  <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline " href="/users/2/liked_whiistles" data-turbo-frame="user_tabs">
+          <li class="text-center flex-1">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/liked_whiistles" data-turbo-frame="user_tabs">
     Likes
   </a>
 </li>
-          <li>
-  <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline " href="/users/2/followings" data-turbo-frame="user_tabs">
-    Followings
+          <li class="text-center flex-1">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/followings" data-turbo-frame="user_tabs">
+    Following
   </a>
 </li>
-          <li>
-  <a class="block py-2 px-4 text-blue-500 hover:text-blue-700 font-semibold no-underline " href="/users/2/followers" data-turbo-frame="user_tabs">
+          <li class="text-center flex-1">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/followers" data-turbo-frame="user_tabs">
     Followers
   </a>
 </li>

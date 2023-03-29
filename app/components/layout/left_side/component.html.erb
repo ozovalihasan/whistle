@@ -1,68 +1,71 @@
-<aside id="cur-user-left-side" class="w-1/4 bg-first min-h-screen text-third">
-    <div class="flex p-4 items-center ">
-        <div class='mr-4'>
+<aside id="cur-user-left-side" class="w-1/4 bg-first min-h-screen text-third ">
+    <div class="sticky top-0">
+        <div class="flex p-4 items-center ">
+            <div class='mr-4'>
         
-            <%= link_to user_whiistles_path(@current_user), class: "hover:blur-xs" do %>
-                <%=  @current_user.profile_picture.attached? ? image_tag(@current_user.profile_picture, size:"50x50") : image_tag('default_profile_picture.png', size:"50x50") %>
-            <% end %>
+                <%= link_to user_whiistles_path(@current_user), class: "hover:blur-xs" do %>
+                    <%=  @current_user.profile_picture.attached? ? image_tag(@current_user.profile_picture, size:"50x50") : image_tag('default_profile_picture.png', size:"50x50") %>
+                <% end %>
+            </div>
+            <div class="text-center ">
+                <%= link_to user_whiistles_path(@current_user), class: "hover:text-sixth" do %>
+                    <%=  @current_user.fullname %>
+                <% end %>
+            </div>
         </div>
-        <div class="text-center ">
-            <%= link_to user_whiistles_path(@current_user), class: "hover:text-sixth" do %>
-                <%=  @current_user.fullname %>
-            <% end %>
-        </div>
-    </div>
-    <div class="flex px-0 py-3 w-full self-center mx-auto [&>a:hover]:text-sixth">
-            
-        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followings_path(@current_user) %> >
-            <div id=<%= user_left_side_followings_count_target(@current_user) %> class="font-bold text-sixth" >
-                <%=  @current_user.followings_count %>
-            </div>
-            <div>
-                Following
-            </div>
-        </a>
-            
-        <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followers_path(@current_user) %> >
-            <div id="left-side-followers-counter" class=" font-bold text-sixth" >
-                <%=  @current_user.followers_count %>
-            </div>
-            <div>
-                Followers
-            </div>
-        </a>
+        <div class="flex px-0 py-3 w-full self-center mx-auto [&>a:hover]:text-sixth">
         
+            <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followings_path(@current_user) %> >
+                <div id=<%= user_left_side_followings_count_target(@current_user) %> class="font-bold text-sixth" >
+                    <%=  @current_user.followings_count %>
+                </div>
+                <div>
+                    Following
+                </div>
+            </a>
+        
+            <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href=<%= user_followers_path(@current_user) %> >
+                <div id="left-side-followers-counter" class=" font-bold text-sixth" >
+                    <%=  @current_user.followers_count %>
+                </div>
+                <div>
+                    Followers
+                </div>
+            </a>
+        
+        </div>
+        <ul class="flex flex-col [&_a]:p-6 [&_a]:py-4 [&>*:hover]:bg-second [&>*:hover]:text-fourth [&_i]:text-2xl [&_i]:m-2 [&_a]:flex [&_a]:items-center  ">
+            <li class="nav-item">
+                <%= link_to root_path, class:"nav-link" do %>
+                    <i class="bi bi-house-door-fill"></i>
+                    HOME
+                <% end %>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-at"></i>
+                    CONNECT
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-hash"></i>
+                    DISCOVER
+                </a>
+            </li>
+            <li class="nav-item">
+                <%= link_to user_whiistles_path(@current_user) , class: " nav-link " do %>
+                    <i class="bi bi-person-fill"></i>
+                    PROFILE
+                <% end %>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-pie-chart-fill"></i>
+                    STATISTICS
+                </a>
+            </li>
+        </ul>
     </div>
-    <ul class="flex flex-col [&_a]:p-6 [&_a]:py-4 [&>*:hover]:bg-second [&>*:hover]:text-fourth [&_i]:text-2xl [&_i]:m-2 [&_a]:flex [&_a]:items-center  ">
-        <li class="nav-item">
-            <%= link_to root_path, class:"nav-link" do %>
-                <i class="bi bi-house-door-fill"></i>
-                HOME            
-            <% end %>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-at"></i>
-                CONNECT
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-hash"></i>
-                DISCOVER
-            </a>
-        </li>
-        <li class="nav-item">
-            <%= link_to user_whiistles_path(@current_user) , class: " nav-link " do %>
-                <i class="bi bi-person-fill"></i>
-                PROFILE
-            <% end %>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-pie-chart-fill"></i>
-                STATISTICS
-            </a>
-        </li>
-    </ul>
+    
 </aside>

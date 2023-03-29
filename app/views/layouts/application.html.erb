@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="font-sans">
+<html class="font-sans bg-fourth">
   <head>
     <title>Whistle</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,7 +12,7 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body class="w-full">
+  <body class="w-full max-w-screen-xl self-center mx-auto">
     <%= render component("shared/modal")do %>
       <div class='flex font-bold'>
         <%= render component("layout/left_side", current_user: current_user) %>
