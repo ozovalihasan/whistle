@@ -116,7 +116,7 @@ SimpleForm.setup do |config|
 
   # You can define the default class to be used on forms. Can be overriden
   # with `html: { :class }`. Defaulting to none.
-  config.default_form_class = 'my-8 mx-auto py-8 px-4 bg-second bg-opacity-5'
+  config.default_form_class = 'max-w-sm my-8 mx-auto py-8 px-4 bg-second bg-opacity-5'
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]

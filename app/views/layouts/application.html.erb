@@ -28,7 +28,9 @@
             </div>
           </div>
           
-          <%= yield %>
+          <%= render component("layout/user_content") do %>
+            <%= yield %>
+          <% end %>          
         </div>
       </div>
     <% end %>

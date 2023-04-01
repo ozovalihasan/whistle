@@ -1,13 +1,13 @@
-<%= simple_form_for resource, url: session_path(resource_name) do |f| %>
-  <h2 class="text-center pb-8">Log in</h2>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= simple_form_for resource, url: session_path(resource_name), html: {data: {turbo_frame: "_top"} } do |f| %>
+    <h2 class="text-center pb-8">Log in</h2>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= f.input :username, required: true, input_html: { autocomplete: "username" } %>
-  <%= f.input :password, as: :hidden, input_html: {value: 'aaaaaa'} %>
+    <%= f.input :username, required: true, input_html: { autocomplete: "username" } %>
+    <%= f.input :password, as: :hidden, input_html: {value: 'aaaaaa'} %>
 
 
-  <%= f.button :submit, "Log in" %>
-  
-  <%= render "devise/shared/links" %>  
-  
-<% end %>
+    <%= f.button :submit, "Log in" %>
+    
+    <%= render "devise/shared/links" %>  
+    
+  <% end %>

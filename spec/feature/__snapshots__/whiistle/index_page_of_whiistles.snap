@@ -12,73 +12,73 @@
 
   
       <div class="flex font-bold">
-        <aside id="cur-user-left-side" class="w-1/4 bg-first min-h-screen text-third ">
-    <div class="sticky top-0">
-        <div class="flex p-4 items-center ">
-            <div class="mr-4">
-        
-                <a class="hover:blur-xs" href="/users/1/whiistles">
-                    <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50">
-</a>            </div>
-            <div class="text-center ">
-                <a class="hover:text-sixth" href="/users/1/whiistles">
-                    mock_fullname_1
-</a>            </div>
+        <aside class="w-1/4 bg-first min-h-screen text-third ">
+    <turbo-frame id="cur-user-left-side" target="user-content"> 
+        <div class="sticky top-0">
+            <div class="flex p-4 items-center ">
+                <div class="mr-4">
+            
+                    <a class="hover:blur-xs" href="/users/1/whiistles">
+                        <img src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png" width="50" height="50">
+</a>                </div>
+                <div class="text-center ">
+                    <a class="hover:text-sixth" href="/users/1/whiistles">
+                        mock_fullname_1
+</a>                </div>
+            </div>
+            <div class="flex px-0 py-3 w-full self-center mx-auto [&amp;>a:hover]:text-sixth">
+            
+                <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="/users/1/followings">
+                    <div id="left_side_followings_count_user_1" class="font-bold text-sixth">
+                        0
+                    </div>
+                    <div>
+                        Following
+                    </div>
+                </a>
+            
+                <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="/users/1/followers">
+                    <div id="left-side-followers-counter" class=" font-bold text-sixth">
+                        0
+                    </div>
+                    <div>
+                        Followers
+                    </div>
+                </a>
+            
+            </div>
+            <ul class="flex flex-col [&amp;_a]:p-6 [&amp;_a]:py-4 [&amp;>*:hover]:bg-second [&amp;>*:hover]:text-fourth [&amp;_i]:text-2xl [&amp;_i]:m-2 [&amp;_a]:flex [&amp;_a]:items-center  ">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <i class="bi bi-house-door-fill"></i>
+                        HOME
+</a>                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-at"></i>
+                        CONNECT
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-hash"></i>
+                        DISCOVER
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class=" nav-link " href="/users/1/whiistles">
+                        <i class="bi bi-person-fill"></i>
+                        PROFILE
+</a>                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-pie-chart-fill"></i>
+                        STATISTICS
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="flex px-0 py-3 w-full self-center mx-auto [&amp;>a:hover]:text-sixth">
-        
-            <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="/users/1/followings">
-                <div id="left_side_followings_count_user_1" class="font-bold text-sixth">
-                    0
-                </div>
-                <div>
-                    Following
-                </div>
-            </a>
-        
-            <a class="w-100 flex flex-col items-center p-0 py-2 w-1/2" href="/users/1/followers">
-                <div id="left-side-followers-counter" class=" font-bold text-sixth">
-                    0
-                </div>
-                <div>
-                    Followers
-                </div>
-            </a>
-        
-        </div>
-        <ul class="flex flex-col [&amp;_a]:p-6 [&amp;_a]:py-4 [&amp;>*:hover]:bg-second [&amp;>*:hover]:text-fourth [&amp;_i]:text-2xl [&amp;_i]:m-2 [&amp;_a]:flex [&amp;_a]:items-center  ">
-            <li class="nav-item">
-                <a class="nav-link" href="/">
-                    <i class="bi bi-house-door-fill"></i>
-                    HOME
-</a>            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-at"></i>
-                    CONNECT
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-hash"></i>
-                    DISCOVER
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class=" nav-link " href="/users/1/whiistles">
-                    <i class="bi bi-person-fill"></i>
-                    PROFILE
-</a>            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-pie-chart-fill"></i>
-                    STATISTICS
-                </a>
-            </li>
-        </ul>
-    </div>
-    
-</aside>
+</turbo-frame></aside>
 
         <div class="center w-3/4 flex flex-col">
           <header class="bg-second w-full px-4 py-3 flex align-items-center sticky top-0">
@@ -113,12 +113,14 @@
             </div>
           </div>
           
-          <div class="flex grow">
+          <turbo-frame data-turbo-action="advance" id="user-content">
+  
+            <div class="flex grow">
     <main class="p-4 w-2/3">
 
           
 
-  <form class="simple_form my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_whiistle" id="new_whiistle" data-controller="flood" action="" accept-charset="UTF-8" method="post">
+  <form class="simple_form max-w-sm my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_whiistle" id="new_whiistle" data-controller="flood" action="" accept-charset="UTF-8" method="post">
     <div data-controller="tabs" data-tabs-active-tab="-mb-px border-l border-t border-r rounded-t" data-tabs-index="0">
       <ul class="list-reset border-b" data-flood-target="add_item">
         <div class="flex ">
@@ -189,7 +191,8 @@
     </aside>
 </div>
 
-        </div>
+
+</turbo-frame>        </div>
       </div>
 
 
@@ -205,7 +208,7 @@
           <turbo-frame data-modal-target="frame" id="modal_body" src="http://127.0.0.1:30303/whiistles/new" complete="" busy="" aria-busy="true">
     
 
-  <form class="simple_form my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_whiistle" id="new_whiistle" data-controller="flood" enctype="multipart/form-data" action="http://127.0.0.1:30303/whiistles" accept-charset="UTF-8" method="post" aria-busy="true">
+  <form class="simple_form max-w-sm my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_whiistle" id="new_whiistle" data-controller="flood" enctype="multipart/form-data" action="http://127.0.0.1:30303/whiistles" accept-charset="UTF-8" method="post" aria-busy="true">
     <div data-controller="tabs" data-tabs-active-tab="-mb-px border-l border-t border-r rounded-t">
       <ul class="list-reset border-b" data-flood-target="add_item">
         <div class="flex ">

@@ -1,4 +1,4 @@
-<form class="simple_form my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_whiistle" id="new_whiistle" action="/whiistles" accept-charset="UTF-8" method="post">  <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+<form class="simple_form max-w-sm my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_whiistle" id="new_whiistle" action="/whiistles" accept-charset="UTF-8" method="post">  <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
     <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_TEMPLATE_RECORD_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][TEMPLATE_RECORD][body]" id="whiistle_floods_TEMPLATE_RECORD_body" cols="60" rows="4">
 </textarea></div>
   </li>
