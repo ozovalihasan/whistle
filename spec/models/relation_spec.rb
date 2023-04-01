@@ -12,9 +12,10 @@ RSpec.describe Relation do
     it { is_expected.to validate_uniqueness_of(:following_id).scoped_to(:followed_id) }
 
     it 'raises an error if followed and follower one are same' do
-      relation = described_class.new(user_id: User.first.id, followed_id: User.first.id)
+      create_pair(:mock_user)
+      relation = described_class.new(following_id: User.first.id, followed_id: User.first.id)
       relation.valid?
-      relation.errors.full_messages.should include('Users cannot follow themselves')
+      expect(relation.errors.full_messages).to include('Users cannot follow themselves')
     end
   end
 
