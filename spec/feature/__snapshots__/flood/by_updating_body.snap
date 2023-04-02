@@ -12,7 +12,7 @@
 
   
       <div class="flex font-bold">
-        <aside class="w-1/4 bg-first min-h-screen text-third ">
+        <aside class="w-1/3 bg-first min-h-screen text-third ">
     <turbo-frame id="cur-user-left-side" target="user-content"> 
         <div class="sticky top-0">
             <div class="flex p-4 items-center ">
@@ -80,7 +80,7 @@
         </div>
 </turbo-frame></aside>
 
-        <div class="center w-3/4 flex flex-col">
+        <div class="center w-full flex flex-col">
           <header class="bg-second w-full px-4 py-3 flex align-items-center sticky top-0">
     <a href="/">
         <svg width="60" height="60" viewBox="0 0 999.99998 1000" inkscape:version="1.0 (b51213c273, 2020-08-10)">
@@ -275,16 +275,16 @@
                           </div>
                           <div class="mt-4">
                               <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-    <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_1680376769046_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][1680376769046][body]" id="whiistle_floods_1680376769046_body" cols="60" rows="4"></textarea></div>
+    <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_1680469028429_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][1680469028429][body]" id="whiistle_floods_1680469028429_body" cols="60" rows="4"></textarea></div>
   </li>
 
   <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
-    <div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_1680376769046_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][1680376769046][quoted_whiistle_url]" id="whiistle_floods_1680376769046_quoted_whiistle_url"></div>
+    <div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_1680469028429_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][1680469028429][quoted_whiistle_url]" id="whiistle_floods_1680469028429_quoted_whiistle_url"></div>
 
     <div class="w-full flex">
       
-<label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_1680376769046_pictures">
-</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_1680376769046_pictures">Pictures</label><input name="whiistle[floods][1680376769046][pictures][]" type="hidden" value="" autocomplete="off"><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][1680376769046][pictures][]" id="whiistle_floods_1680376769046_pictures"></div>
+<label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_1680469028429_pictures">
+</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_1680469028429_pictures">Pictures</label><input name="whiistle[floods][1680469028429][pictures][]" type="hidden" value="" autocomplete="off"><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][1680469028429][pictures][]" id="whiistle_floods_1680469028429_pictures"></div>
       <div class="ml-auto flex">
         
         <a data-action="click->flood#add_association" class="btn-second w-24 p-2  m-4" href="#">Add Flood</a>
@@ -302,16 +302,16 @@
                           </div>
                           <div class="mt-4">
                               <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
-    <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_1680376769178_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][1680376769178][body]" id="whiistle_floods_1680376769178_body" cols="60" rows="4"></textarea></div>
+    <div class="flex flex-col text optional whiistle_floods_body"><label class="py-2 text optional" for="whiistle_floods_1680469028570_body">Flood</label><textarea class="w-full rounded-md border border-solid text optional" name="whiistle[floods][1680469028570][body]" id="whiistle_floods_1680469028570_body" cols="60" rows="4"></textarea></div>
   </li>
 
   <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
-    <div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_1680376769178_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][1680376769178][quoted_whiistle_url]" id="whiistle_floods_1680376769178_quoted_whiistle_url"></div>
+    <div class="flex flex-col string optional whiistle_floods_quoted_whiistle_url"><label class="py-2 string optional" for="whiistle_floods_1680469028570_quoted_whiistle_url">Quoted whiistle url</label><input class="p-1 string optional" placeholder="Copy paste the link of a whiistle to quote" type="text" name="whiistle[floods][1680469028570][quoted_whiistle_url]" id="whiistle_floods_1680469028570_quoted_whiistle_url"></div>
 
     <div class="w-full flex">
       
-<label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_1680376769178_pictures">
-</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_1680376769178_pictures">Pictures</label><input name="whiistle[floods][1680376769178][pictures][]" type="hidden" value="" autocomplete="off"><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][1680376769178][pictures][]" id="whiistle_floods_1680376769178_pictures"></div>
+<label class="bi bi-images py-2 px-4 my-4 btn-second" for="whiistle_floods_1680469028570_pictures">
+</label><div class="flex flex-col file optional whiistle_floods_pictures"><label class="hidden file optional" for="whiistle_floods_1680469028570_pictures">Pictures</label><input name="whiistle[floods][1680469028570][pictures][]" type="hidden" value="" autocomplete="off"><input class="hidden file optional" multiple="multiple" type="file" name="whiistle[floods][1680469028570][pictures][]" id="whiistle_floods_1680469028570_pictures"></div>
       <div class="ml-auto flex">
         
         <a data-action="click->flood#add_association" class="btn-second w-24 p-2  m-4" href="#">Add Flood</a>

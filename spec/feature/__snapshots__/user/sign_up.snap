@@ -13,7 +13,7 @@
   
       <div class="flex font-bold">
         
-        <div class="center w-3/4 flex flex-col">
+        <div class="center w-full flex flex-col">
           <header class="bg-second w-full px-4 py-3 flex align-items-center sticky top-0">
     <a href="/">
         <svg width="60" height="60" viewBox="0 0 999.99998 1000" inkscape:version="1.0 (b51213c273, 2020-08-10)">
