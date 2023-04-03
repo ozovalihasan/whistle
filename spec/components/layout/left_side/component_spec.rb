@@ -7,7 +7,7 @@ RSpec.describe Layout::LeftSide::Component, type: :component do
     render_inline(described_class.new(current_user: cur_user))
 
     expect_snapshot_match
-    expect(rendered_content).to include('<turbo-frame id="cur-user-left-side" target="user-content">')
+    expect(rendered_content).to include('<turbo-frame class="sticky top-0" id="cur-user-left-side" target="user-content"> ')
     expect(rendered_content).to match(/Followers/)
     expect(rendered_content).to match(/Following/)
     expect(rendered_content).to match(/HOME/)
