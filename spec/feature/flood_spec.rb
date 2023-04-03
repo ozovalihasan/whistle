@@ -65,6 +65,36 @@ RSpec.describe 'Flood', type: :feature do
   end
 
   it 'is created by using form on the index page of whiistles by adding pictures' do
-    pending 'Test will be added'
+    visit whiistles_path
+
+    find('textarea').click
+
+    within '#modal_body' do
+      find("#whiistle_body")
+      
+      click_on "Add Flood", exact: true
+      click_on "Add Flood", exact: true
+      
+      all("textarea").each_with_index do |textarea, index|
+        textarea.click
+        fill_in(textarea[:id], with: "mock whiistle body #{index}")  
+        page.attach_file(Rails.root.join('app', 'assets', 'images', 'mock-1.jpg')) do
+          page.find('.bi-images').click
+        end
+        
+      end
+
+      click_button "Whiistle", exact: true
+    end
+    
+    expect_snapshot_match("by_adding_pictures")
+
+    within '#modal_body' do
+      expect(page).to have_content 'mock whiistle body 0'
+      expect(page).to have_content 'mock whiistle body 1'
+      expect(page).to have_content 'mock whiistle body 2'
+      expect(page).to have_css('img').exactly(6).times
+    end
+    
   end
 end
