@@ -76,7 +76,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn-first py-2 px-4 my-4'
+  config.button_class = 'ml-auto btn-first py-2 px-4 my-4'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -116,7 +116,7 @@ SimpleForm.setup do |config|
 
   # You can define the default class to be used on forms. Can be overriden
   # with `html: { :class }`. Defaulting to none.
-  config.default_form_class = 'max-w-sm my-8 mx-auto py-8 px-4 bg-second bg-opacity-5'
+  config.default_form_class = 'max-w-sm my-8 mx-auto py-8 px-4 '
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]

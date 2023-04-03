@@ -51,19 +51,25 @@
           
           <turbo-frame data-turbo-action="advance" id="user-content">
   
-              <form class="simple_form max-w-sm my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_user" id="new_user" data-turbo-frame="_top" action="/users/sign_in" accept-charset="UTF-8" method="post">
-    <h2 class="text-center pb-8">Log in</h2>
-    <div id="error_messages">
+            <form class="simple_form max-w-sm my-8 mx-auto py-8 px-4  new_user" id="new_user" data-turbo-frame="_top" action="/users/sign_in" accept-charset="UTF-8" method="post">
+  <h2 class="text-center pb-8">Log in</h2>
+  <div id="error_messages">
 </div>
 
 
-    <div class="flex flex-col string required user_username"><label class="py-2 string required" for="user_username"><abbr title="required">*</abbr> Username</label><input class="p-1 string required" autocomplete="username" required="required" aria-required="true" type="text" name="user[username]" id="user_username"></div>
-    <div class="flex flex-col hidden user_password"><input class="p-1 hidden" value="aaaaaa" autocomplete="off" type="hidden" name="user[password]" id="user_password"></div>
+  <div class="flex flex-col string required user_username"><label class="py-2 string required" for="user_username"><abbr title="required">*</abbr> Username</label><input class="p-1 string required" autocomplete="username" required="required" aria-required="true" type="text" name="user[username]" id="user_username"></div>
+  <div class="flex flex-col hidden user_password"><input class="p-1 hidden" value="aaaaaa" autocomplete="off" type="hidden" name="user[password]" id="user_password"></div>
 
+  <input type="submit" name="commit" value="Log in" class="ml-auto btn-first py-2 px-4 my-4" data-disable-with="Log in" disabled="">
 
-    <input type="submit" name="commit" value="Log in" class="btn-first py-2 px-4 my-4" data-disable-with="Log in" disabled="">
-    
-    <div class="py-4">
+</form>
+<form class="simple_form max-w-sm my-8 mx-auto py-8 px-4  new_user" id="new_user" data-turbo-frame="_top" action="/users/sign_in" accept-charset="UTF-8" method="post">
+  <div class="flex flex-col hidden user_username"><input class="p-1 hidden" value="guest" autocomplete="off" type="hidden" name="user[username]" id="user_username"></div>
+  <div class="flex flex-col hidden user_password"><input class="p-1 hidden" value="aaaaaa" autocomplete="off" type="hidden" name="user[password]" id="user_password"></div>
+
+  <input type="submit" name="commit" value="Log in as guest" class="ml-auto btn-first py-2 px-4 my-4 btn-second" data-disable-with="Log in as guest">
+
+  <div class="py-4 text-right">
   
     <a href="/users/sign_up">Sign up</a><br>
   
@@ -72,9 +78,9 @@
   
   
 </div>
-  
-    
-  </form>
+
+
+</form>
 
 </turbo-frame>        </div>
       </div>

@@ -27,64 +27,42 @@
             <div class="relative ">
               <div id="flashes" class="absolute right-0 bottom-0 flex flex-col items-end">
                 
-                <div data-controller="alert" data-alert-dismiss-after-value="2000" data-alert-remove-delay-value="1000" data-alert-show-class="translate-0 opacity-100 max-h-32" data-alert-hide-class="translate-full opacity-0 max-h-0" class="transition-all ease-in-out duration-1000 max-w-sm translate-0 opacity-100 max-h-32">
-  <div class="px-4 py-3 my-4 w-full shadow-lg rounded relative bg-danger text-white pointer-events-auto">
-    <div class="flex items-start">
-      <div class="ml-3 w-full flex-1 pt-0.5">
-        <p class="text-sm leading-5 font-bold">
-          You need to sign in or sign up before continuing.
-        </p>
-      </div>
-      <div class="ml-4 flex-shrink-0 flex">
-        <button data-action="alert#close" class="inline-flex text-white focus:outline-none focus:text-gray-300 transition ease-in-out duration-150">
-          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+                
               </div>
             </div>
           </div>
           
-          <turbo-frame data-turbo-action="advance" id="user-content" src="http://127.0.0.1:30303/users/sign_up" complete="">
-    <form class="simple_form max-w-sm my-8 mx-auto py-8 px-4  new_user" id="new_user" data-turbo-frame="_top" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post">
-  <h2 class="text-center pb-8">Sign Up</h2>
+          <turbo-frame data-turbo-action="advance" id="user-content">
   
+            <form class="simple_form max-w-sm my-8 mx-auto py-8 px-4  new_user" id="new_user" data-turbo-frame="_top" action="/users/sign_in" accept-charset="UTF-8" method="post">
+  <h2 class="text-center pb-8">Log in</h2>
   <div id="error_messages">
 </div>
 
-  
-  <div class="flex flex-col string required user_username"><label class="py-2 string required" for="user_username"><abbr title="required">*</abbr> Username</label><input class="p-1 string required" required="required" aria-required="true" type="text" name="user[username]" id="user_username"></div>
-  <div class="flex flex-col string required user_fullname"><label class="py-2 string required" for="user_fullname"><abbr title="required">*</abbr> Fullname</label><input class="p-1 string required" required="required" aria-required="true" type="text" name="user[fullname]" id="user_fullname"></div>
-  <div class="flex flex-col email required user_email"><label class="py-2 email required" for="user_email"><abbr title="required">*</abbr> Email</label><input class="p-1 string email required" required="required" aria-required="true" placeholder="example@example.com" type="email" value="" name="user[email]" id="user_email"></div>
-  
-  <div class="flex py-2">
-    <label class="file optional mr-auto self-center" for="user_cover_image">Cover image</label>
-    <div class="flex flex-col file optional user_cover_image"><label class="btn-second py-2 px-4 file optional" for="user_cover_image">Choose</label><input class="hidden file optional" type="file" name="user[cover_image]" id="user_cover_image"></div>
-  </div>
 
-  <div class="flex py-2">
-    <label class="file optional mr-auto self-center" for="user_profile_picture">Profile picture</label>
-    <div class="flex flex-col file optional user_profile_picture"><label class="btn-second py-2 px-4 file optional" for="user_profile_picture">Choose</label><input class="hidden file optional" type="file" name="user[profile_picture]" id="user_profile_picture"></div>
-  </div>
-
+  <div class="flex flex-col string required user_username"><label class="py-2 string required" for="user_username"><abbr title="required">*</abbr> Username</label><input class="p-1 string required" autocomplete="username" required="required" aria-required="true" type="text" name="user[username]" id="user_username"></div>
   <div class="flex flex-col hidden user_password"><input class="p-1 hidden" value="aaaaaa" autocomplete="off" type="hidden" name="user[password]" id="user_password"></div>
-  <div class="flex flex-col hidden user_password_confirmation"><input class="p-1 hidden" value="aaaaaa" autocomplete="off" type="hidden" name="user[password_confirmation]" id="user_password_confirmation"></div>
 
-  <input type="submit" name="commit" value="Sign Up" class="ml-auto btn-first py-2 px-4 my-4" data-disable-with="Sign Up" disabled="">
+  <input type="submit" name="commit" value="Log in" class="ml-auto btn-first py-2 px-4 my-4" data-disable-with="Log in">
+
+</form>
+<form class="simple_form max-w-sm my-8 mx-auto py-8 px-4  new_user" id="new_user" data-turbo-frame="_top" action="/users/sign_in" accept-charset="UTF-8" method="post">
+  <div class="flex flex-col hidden user_username"><input class="p-1 hidden" value="guest" autocomplete="off" type="hidden" name="user[username]" id="user_username"></div>
+  <div class="flex flex-col hidden user_password"><input class="p-1 hidden" value="aaaaaa" autocomplete="off" type="hidden" name="user[password]" id="user_password"></div>
+
+  <input type="submit" name="commit" value="Log in as guest" class="ml-auto btn-first py-2 px-4 my-4 btn-second" data-disable-with="Log in as guest" disabled="">
 
   <div class="py-4 text-right">
-    <a href="/users/sign_in">Log in</a><br>
   
+    <a href="/users/sign_up">Sign up</a><br>
   
+    <a href="/users/password/new">Forgot your password?</a><br>
   
   
   
 </div>
-  
+
+
 </form>
 
 </turbo-frame>        </div>

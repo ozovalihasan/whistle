@@ -175,31 +175,29 @@
         </ul>
 
         
-    
+  <form class="simple_form w-full" id="new_whiistle" data-controller="flood" action="" accept-charset="UTF-8" method="post">
+  <div data-controller="tabs" data-tabs-active-tab="-mb-px border-l border-t border-r rounded-t">
+    <ul class="list-reset border-b" data-flood-target="add_item">
+      <div class="flex ">
+        <div class="m-2 shrink-0">
+          <img class="h-[50px] w-[50px] " src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png">
+        </div>
+        
+        <div class="mt-4 shrink w-full">
+          <li class="-mb-px mr-1 border-l border-t border-r rounded-t" data-tabs-target="tab" data-action="click->tabs#change">
+            <div class="flex flex-col text optional whiistle_body"><label class="py-2 text optional" for="whiistle_body">Whiistle to mock_fullname_2</label><textarea class="w-full rounded-md border border-solid text optional" data-action="click->modal#openAndVisit" data-modal-path="/users/2/whiistles/new" name="whiistle[body]" id="whiistle_body" cols="60" rows="4">@mock_username_2 </textarea></div>
 
-  <form class="simple_form max-w-sm my-8 mx-auto py-8 px-4 bg-second bg-opacity-5 new_whiistle" id="new_whiistle" data-controller="flood" action="" accept-charset="UTF-8" method="post">
-    <div data-controller="tabs" data-tabs-active-tab="-mb-px border-l border-t border-r rounded-t">
-      <ul class="list-reset border-b" data-flood-target="add_item">
-        <div class="flex ">
-          <div class="m-2 shrink-0">
-            <img class="h-[50px] w-[50px] " src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png">
-          </div>
-          
-          <div class="mt-4 shrink w-full">
-            <li class="-mb-px mr-1 border-l border-t border-r rounded-t" data-tabs-target="tab" data-action="click->tabs#change">
-              <div class="flex flex-col text optional whiistle_body"><label class="py-2 text optional" for="whiistle_body">Whiistle to mock_fullname_2</label><textarea class="w-full rounded-md border border-solid text optional" data-action="click->modal#openAndVisit" data-modal-path="/users/2/whiistles/new" name="whiistle[body]" id="whiistle_body" cols="60" rows="4">@mock_username_2 </textarea></div>
-
-            </li>
-            <div class="py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
-          
-            </div>
+          </li>
+          <div class="py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
+        
           </div>
         </div>
-      
-      </ul>
-    </div>
+      </div>
+    
+    </ul>
+  </div>
 
-  </form>
+</form>
 
   <div data-controller="pagination" data-pagination-url-value="http://127.0.0.1:30303/users/2/paginated_whiistles" data-pagination-current-page-value="1" data-pagination-max-page-value="1" data-pagination-request-value="false" class="mt-4">
   <div id="pagination-body">
