@@ -7,7 +7,7 @@ RSpec.describe 'Navigation', type: :feature do
     page.driver.browser.manage.window.resize_to(1365,682)
   end
   
-  it 'opens the root path by logining' do
+  it 'opens the root path by logging in' do
     user
     visit user_session_path
 
@@ -20,7 +20,7 @@ RSpec.describe 'Navigation', type: :feature do
     expect(page).to have_current_path(root_path)
   end
   
-  it 'opens the root path by logining as guest' do
+  it 'opens the root path by logging in as guest' do
     create(:mock_user, username: "guest", fullname: "Guest")
     
     visit user_session_path
@@ -32,6 +32,23 @@ RSpec.describe 'Navigation', type: :feature do
     expect_snapshot_match("log_in_as_guest")
     expect(page).to have_current_path(root_path)
     expect(find("#cur-user-left-side")).to have_text("Guest")
+  end
+
+  it 'signs up a new user' do
+    visit user_session_path
+
+    within "#user-content" do
+      click_link("Sign up")
+      fill_in("Username", with: "new_user")
+      fill_in("Fullname", with: "New User")
+      fill_in("Email", with: "new_user@email.com")
+      click_button("Sign Up")
+    end
+      
+    expect_snapshot_match("sign_up")
+    expect(page).to have_current_path(root_path)
+    expect(find("#cur-user-left-side")).to have_text("New User")
+    expect(User.count).to be 1
   end
 
   
