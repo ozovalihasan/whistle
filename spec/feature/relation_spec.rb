@@ -10,16 +10,16 @@ RSpec.describe 'relation', type: :feature do
 
   it 'The current user can follow another user by using a button on the part "Who To Follow"' do
     visit root_path
-    
-    within "#cur-user-left-side" do
+
+    within '#cur-user-left-side' do
       expect(page).to have_content("0\nFollowing").once
     end
-    
-    within "#who-to-follow" do
-      find('button', text: "Follow").click
+
+    within '#who-to-follow' do
+      find('button', text: 'Follow').click
     end
 
-    within "#cur-user-left-side" do
+    within '#cur-user-left-side' do
       expect(page).to have_content("1\nFollowing").once
     end
   end
@@ -27,15 +27,15 @@ RSpec.describe 'relation', type: :feature do
   it 'The current user can follow another user by using a button on the right sidebar' do
     visit user_whiistles_path(user)
 
-    within "#cur-user-left-side" do
+    within '#cur-user-left-side' do
       expect(page).to have_content("0\nFollowing").once
     end
-    
-    within "#user-sidebar-right" do
-      find('.bi-plus-circle').click  
+
+    within '#user-sidebar-right' do
+      find('.bi-plus-circle').click
     end
 
-    within "#cur-user-left-side" do
+    within '#cur-user-left-side' do
       expect(page).to have_content("1\nFollowing").once
     end
   end
@@ -45,15 +45,15 @@ RSpec.describe 'relation', type: :feature do
 
     visit user_followings_path(user)
 
-    within "#cur-user-left-side" do
+    within '#cur-user-left-side' do
       expect(page).to have_content("0\nFollowing").once
     end
 
-    within "#user-tabs" do
-      find('button', text: "Follow").click
+    within '#user-tabs' do
+      find('button', text: 'Follow').click
     end
 
-    within "#cur-user-left-side" do
+    within '#cur-user-left-side' do
       expect(page).to have_content("1\nFollowing").once
     end
   end
@@ -64,19 +64,19 @@ RSpec.describe 'relation', type: :feature do
 
     visit user_whiistles_path(user)
 
-    within "#cur-user-left-side" do
+    within '#cur-user-left-side' do
       expect(page).to have_content("1\nFollowing").once
     end
 
-    within "#user-sidebar-right" do
+    within '#user-sidebar-right' do
       expect(page).to have_content("1\nFollowers").once
-      
+
       find('.bi-x').click
 
       expect(page).to have_content("0\nFollowers").once
     end
-    
-    within "#cur-user-left-side" do
+
+    within '#cur-user-left-side' do
       expect(page).to have_content("0\nFollowing").once
     end
   end

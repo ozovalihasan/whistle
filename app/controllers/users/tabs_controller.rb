@@ -19,8 +19,8 @@ class Users::TabsController < ApplicationController
   end
 
   def set_layout_for_user_tabs_frame
-    if turbo_frame_request? && (turbo_frame_request_id == "user-tabs")
-      false
-    end
+    return unless turbo_frame_request? && (turbo_frame_request_id == 'user-tabs')
+
+    false
   end
 end

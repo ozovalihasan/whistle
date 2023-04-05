@@ -5,7 +5,6 @@ require 'rails_helper'
 RSpec.describe Users::ProfileImage::Component, type: :component do
   describe 'renders with different shapes' do
     it 'renders correctly if its shape is empty' do
-
       render_inline(described_class.new(user:))
 
       expect_snapshot_match('without_shape')

@@ -1,4 +1,4 @@
-<body class="w-full max-w-screen-xl self-center mx-auto fixed inset-x-0 overflow-hidden" style="padding-right: 15px; top: -272px;">
+<body class="w-full max-w-screen-xl self-center mx-auto fixed inset-x-0 overflow-hidden" style="padding-right: 15px; top: -149px;">
     
 <div data-controller="modal" data-modal-allow-background-close="true">
   <template data-modal-target="loading">

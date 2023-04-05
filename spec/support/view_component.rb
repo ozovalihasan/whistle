@@ -4,7 +4,6 @@ require 'view_component/test_helpers'
 
 Dir[Rails.root.join('app', 'components', '**', '*.rb')].each { |f| require f }
 
-
 RSpec.configure do |config|
   config.include ViewComponent::TestHelpers, type: :component
 

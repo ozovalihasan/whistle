@@ -46,7 +46,7 @@ RSpec.describe User do
 
         user1.followers << user2
         user1.followers << user3
-        
+
         cur_user.followings << user3
 
         expect(user1.followers.with_current_user_situation(cur_user).map(&:is_followed_by_cur_user)).to eq [false, true]
@@ -55,7 +55,7 @@ RSpec.describe User do
 
     describe 'in_random_order' do
       it 'returns users in a random order' do
-        expect(User.all.in_random_order.to_sql).to include "ORDER BY RANDOM()"
+        expect(described_class.all.in_random_order.to_sql).to include 'ORDER BY RANDOM()'
       end
     end
   end

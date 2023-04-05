@@ -20,7 +20,7 @@ module MockComponents
           @args.map { |arg| arg.class.name }.concat(
             @kwargs.map { |param_key, param_value| "#{param_key}: #{param_value.class.name}" }
           ).join(', ') +
-        ')'
+          ')'
       end
     end
   end

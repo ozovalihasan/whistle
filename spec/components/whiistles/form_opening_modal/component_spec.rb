@@ -18,8 +18,8 @@ RSpec.describe Whiistles::FormOpeningModal::Component, type: :component do
     it 'renders correctly' do
       render_inline(
         described_class.new(
-          label: 'mock_label', 
-          whiistle: Whiistle.new, 
+          label: 'mock_label',
+          whiistle: Whiistle.new,
           path: 'mock_path',
           cur_user:
         )

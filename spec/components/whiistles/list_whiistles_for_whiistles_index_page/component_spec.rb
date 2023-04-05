@@ -31,7 +31,7 @@ RSpec.describe Whiistles::ListWhiistlesForWhiistlesIndexPage::Component, type: :
       expect(rendered_content).to include('::Component').exactly(2).times
     end
   end
-  
+
   context "if the whiistle doesn't have a label 'primary_whiistle'" do
     it 'renders correctly' do
       whiistle

@@ -25,18 +25,18 @@ RSpec.configure do |config|
   config.include_context 'Global let helpers', type: :component
   config.include_context 'Global let helpers', type: :view
   config.include_context 'Global let helpers', type: :feature
-  
+
   config.before do
     FactoryBot.reload
   end
 
   config.before(:all) do
-    [
-      "base_whiistles",
-      "likes",
-      "relations",
-      "rewhiistles",
-      "users"
+    %w[
+      base_whiistles
+      likes
+      relations
+      rewhiistles
+      users
     ].each do |table|
       ActiveRecord::Base.connection.execute(
         "ALTER SEQUENCE #{table}_id_seq RESTART WITH 1000"

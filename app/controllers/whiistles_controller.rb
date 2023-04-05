@@ -9,8 +9,8 @@ class WhiistlesController < PaginatedWhiistlesController
 
     @whiistle = Whiistle.new
     @suggested_users = current_user.suggested_users
-                                  .with_current_user_situation(current_user)
-                                  .with_attached_profile_picture
+                                   .with_current_user_situation(current_user)
+                                   .with_attached_profile_picture
   end
 
   def show

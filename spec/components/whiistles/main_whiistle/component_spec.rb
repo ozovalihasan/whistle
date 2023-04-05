@@ -4,11 +4,10 @@ require 'rails_helper'
 
 RSpec.describe Whiistles::MainWhiistle::Component, type: :component do
   it 'renders correctly' do
-
     travel_to(Time.zone.local(2000, 1, 1, 1, 1, 1)) do
       whiistle
     end
-    
+
     travel_to(Time.zone.local(2001, 1, 1, 1, 1, 1)) do
       render_inline(described_class.new(whiistle:, current_user_presenter:))
     end

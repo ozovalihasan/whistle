@@ -94,4 +94,4 @@ gem 'rubocop-rspec', require: false
 gem 'simple_form'
 gem 'view_component'
 
-gem "dockerfile-rails", ">= 1.2", :group => :development
+gem 'dockerfile-rails', '>= 1.2', group: :development

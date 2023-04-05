@@ -2,9 +2,9 @@
 
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   layout :set_layout
-  
+
   private
 
   def configure_permitted_parameters
@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_layout
-    if turbo_frame_request? && (turbo_frame_request_id == "user-content")
-      "user_content"
-    end
+    return unless turbo_frame_request? && (turbo_frame_request_id == 'user-content')
+
+    'user_content'
   end
 end
