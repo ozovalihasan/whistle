@@ -6,3 +6,4 @@ options:
   label:
     fly_launch_runtime: rails
   postgresql: true
+  swap: 512M
