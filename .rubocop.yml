@@ -16,7 +16,5 @@ AllCops:
 
 Style/ClassAndModuleChildren:
   Enabled: false
-
-Layout/MultilineMethodCallIndentation:
-  Enabled: true
-  EnforcedStyle: indented_relative_to_receiver
+Style/RedundantInitialize:
+  Enabled: false
