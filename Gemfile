@@ -95,3 +95,5 @@ gem 'simple_form'
 gem 'view_component'
 
 gem 'dockerfile-rails', '>= 1.2', group: :development
+
+gem 'aws-sdk-s3', require: false
