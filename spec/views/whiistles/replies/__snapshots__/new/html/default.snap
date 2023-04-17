@@ -1,5 +1,5 @@
 <turbo-frame id="modal_body" >
-  <div class='flex   '>
+  <div class='flex'>
     Users::ProfileImageButton::Component(user: User)
     
     <div class="pl-2">

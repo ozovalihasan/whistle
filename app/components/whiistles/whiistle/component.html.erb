@@ -3,7 +3,7 @@
   <%= render component("whiistles/rewhiistle_info", whiistle: @whiistle) %>
   <%= render component("whiistles/like_info", whiistle: @whiistle) %>
 
-  <div class='flex  <%= check_click(@whiistle) %> '>
+  <div class='flex'>
     
     <%= render component("users/profile_image_button", user: @whiistle.user) %>
     

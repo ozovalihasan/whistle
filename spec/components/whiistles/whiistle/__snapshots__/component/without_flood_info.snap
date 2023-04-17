@@ -3,7 +3,7 @@
   Whiistles::RewhiistleInfo::Component(whiistle: Whiistle)
   Whiistles::LikeInfo::Component(whiistle: Whiistle)
 
-  <div class='flex   '>
+  <div class='flex'>
     
     Users::ProfileImageButton::Component(user: User)
     

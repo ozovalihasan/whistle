@@ -197,7 +197,7 @@
   
   
 
-  <div class="flex   ">
+  <div class="flex">
     
     <a class="hover-image shrink-0" href="/users/2/whiistles">
   <img class="h-[50px] w-[50px] " src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png">
@@ -408,7 +408,7 @@
         </div>
         <div class="p-4">
           <turbo-frame data-modal-target="frame" id="modal_body" src="http://127.0.0.1:30303/whiistles/1/reply/new" complete="" busy="" aria-busy="true">
-  <div class="flex   ">
+  <div class="flex">
     <a class="hover-image shrink-0" href="/users/2/whiistles">
   <img class="h-[50px] w-[50px] " src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png">
 </a>
