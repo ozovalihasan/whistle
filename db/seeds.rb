@@ -8,17 +8,34 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-begin
-  unless User.find_by(username: "guest")
-    FactoryBot.create(:user, username: "guest", fullname: "Guest", email: "guest@email.com")
-  end
-rescue ActiveRecord::RecordInvalid
-  
+
+
+unless User.find_by(username: "guest")
+  FactoryBot.create(
+    :user, 
+    username: "guest", 
+    fullname: "Guest", 
+    email: "guest@email.com",
+    cover_image: Rack::Test::UploadedFile.new("app/assets/images/cover-image-guest.jpg", 'image/png'),
+    profile_picture: Rack::Test::UploadedFile.new("app/assets/images/avatar-guest.jpg", 'image/png') 
+  )
 end
 
-10.times do
-  FactoryBot.create(:user)
-rescue ActiveRecord::RecordInvalid
+case Rails.env
+when "development"
+
+  10.times do
+    FactoryBot.create(:user)
+  rescue ActiveRecord::RecordInvalid
+  end
+  
+when "production"
+  
+  10.times do
+    FactoryBot.create(:user_with_index)
+  rescue ActiveRecord::RecordInvalid
+  end
+
 end
 
 FactoryBot.create_list(:whiistle, 100)
