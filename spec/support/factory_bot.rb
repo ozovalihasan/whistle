@@ -29,18 +29,4 @@ RSpec.configure do |config|
   config.before do
     FactoryBot.reload
   end
-
-  config.before(:all) do
-    %w[
-      base_whiistles
-      likes
-      relations
-      rewhiistles
-      users
-    ].each do |table|
-      ActiveRecord::Base.connection.execute(
-        "ALTER SEQUENCE #{table}_id_seq RESTART WITH 1000"
-      )
-    end
-  end
 end
