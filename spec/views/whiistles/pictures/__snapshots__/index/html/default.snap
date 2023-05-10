@@ -3,11 +3,11 @@
   <div data-controller="tabs" class="bg-slate-300" data-tabs-index="1" data-tabs-active-tab="brightness-90 opacity-90">
     <div class="relative group">
         <div class="hidden py-4 px-4" data-tabs-target="panel">
-          <img class="object-contain w-full rounded-md" loading="lazy" src="http://test.host/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ade975e66cb78c55574663e6bf4d3039378be330/mock-1.jpg" />
+          <img class="object-contain w-full rounded-md" loading="lazy" src="http://test.host/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ade975e66cb78c55574663e6bf4d3039378be330/avatar1.jpg" />
         </div>
         
         <div class="hidden py-4 px-4" data-tabs-target="panel">
-          <img class="object-contain w-full rounded-md" loading="lazy" src="http://test.host/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2496c6bda09fff65fb1a95587e00b6bcaefc987f/mock-2.jpg" />
+          <img class="object-contain w-full rounded-md" loading="lazy" src="http://test.host/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2496c6bda09fff65fb1a95587e00b6bcaefc987f/avatar2.jpg" />
         </div>
         
 

@@ -77,7 +77,7 @@ RSpec.describe 'Flood', type: :feature do
       all('textarea').each_with_index do |textarea, index|
         textarea.click
         fill_in(textarea[:id], with: "mock whiistle body #{index}")
-        page.attach_file(Rails.root.join('app', 'assets', 'images', 'mock-1.jpg')) do
+        page.attach_file(Rails.root.join('app', 'assets', 'images', 'avatar1.jpg')) do
           page.find('.bi-images').click
         end
       end

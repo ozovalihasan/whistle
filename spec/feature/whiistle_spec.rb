@@ -21,7 +21,7 @@ RSpec.describe 'whiistle', type: :feature do
 
       fill_in('whiistle_body', with: 'mock whiistle body')
 
-      page.attach_file(Rails.root.join('app', 'assets', 'images', 'mock-1.jpg')) do
+      page.attach_file(Rails.root.join('app', 'assets', 'images', 'avatar1.jpg')) do
         page.find('.bi-images').click
       end
 

@@ -278,7 +278,7 @@
         <div class="flex items-center">
     
     <div class="rewhiistle_button_whiistle_1">
-    <form class="button_to" method="post" action="/whiistles/1000/rewhiistle/1000"><input type="hidden" name="_method" value="delete" autocomplete="off"><button type="submit">
+    <form class="button_to" method="post" action="/whiistles/1/rewhiistle/1"><input type="hidden" name="_method" value="delete" autocomplete="off"><button type="submit">
   <div class="p-2 flex whitespace-nowrap space-x-2 text-second">
   
     <i class="bi bi-repeat"></i>

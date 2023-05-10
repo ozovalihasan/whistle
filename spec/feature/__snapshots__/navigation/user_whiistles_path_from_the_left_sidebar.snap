@@ -113,9 +113,8 @@
             </div>
           </div>
           
-          <turbo-frame data-turbo-action="advance" id="user-content" src="http://127.0.0.1:30303/users/2/whiistles" busy="" aria-busy="true">
-  
-            <div class="bg-fourth flex grow">
+          <turbo-frame data-turbo-action="advance" id="user-content" src="http://127.0.0.1:30303/users/2/whiistles">
+    <div class="bg-fourth flex grow">
   <main class="w-2/3">
     <div style="background-image: url('');" ,="" class="h-60 bg-cover bg-center w-full bg-third">
     </div>
@@ -124,32 +123,32 @@
       <div class="p-4">
         <ul id="user-tab-buttons" class="flex gap-x-1">
           <li class="text-center flex-1">
-  <a class="block py-2 w-full h-full font-semibold no-underline border-b border-solid border-second" href="/users/1/whiistles" data-turbo-frame="user_tabs">
+  <a class="block py-2 w-full h-full font-semibold no-underline border-b border-solid border-second" href="/users/2/whiistles" data-turbo-frame="user_tabs">
     Whiistles
   </a>
 </li>
           <li class="text-center flex-1">
-  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/1/whiistles_with_replies" data-turbo-frame="user_tabs">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/whiistles_with_replies" data-turbo-frame="user_tabs">
     Whiistles &amp; Replies
   </a>
 </li>
           <li class="text-center flex-1">
-  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/1/medias" data-turbo-frame="user_tabs">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/medias" data-turbo-frame="user_tabs">
     Media
   </a>
 </li>
           <li class="text-center flex-1">
-  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/1/liked_whiistles" data-turbo-frame="user_tabs">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/liked_whiistles" data-turbo-frame="user_tabs">
     Likes
   </a>
 </li>
           <li class="text-center flex-1">
-  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/1/followings" data-turbo-frame="user_tabs">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/followings" data-turbo-frame="user_tabs">
     Following
   </a>
 </li>
           <li class="text-center flex-1">
-  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/1/followers" data-turbo-frame="user_tabs">
+  <a class="block py-2 w-full h-full font-semibold no-underline " href="/users/2/followers" data-turbo-frame="user_tabs">
     Followers
   </a>
 </li>
@@ -166,7 +165,7 @@
         
         <div class="mt-4 shrink w-full">
           <li class="-mb-px mr-1 border-l border-t border-r rounded-t" data-tabs-target="tab" data-action="click->tabs#change">
-            <div class="flex flex-col text optional whiistle_body"><label class="py-2 text optional" for="whiistle_body">Whiistle to mock_fullname_1</label><textarea class="w-full rounded-md border border-solid text optional" data-action="click->modal#openAndVisit" data-modal-path="/users/1/whiistles/new" name="whiistle[body]" id="whiistle_body" cols="60" rows="4">@mock_username_1 </textarea></div>
+            <div class="flex flex-col text optional whiistle_body"><label class="py-2 text optional" for="whiistle_body">Whiistle to mock_fullname_2</label><textarea class="w-full rounded-md border border-solid text optional" data-action="click->modal#openAndVisit" data-modal-path="/users/2/whiistles/new" name="whiistle[body]" id="whiistle_body" cols="60" rows="4">@mock_username_2 </textarea></div>
 
           </li>
           <div class="py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
@@ -180,7 +179,7 @@
 
 </form>
 
-  mock_fullname_1 doesn't have any whiistle to show.
+  mock_fullname_2 doesn't have any whiistle to show.
 
       </div>
       
@@ -192,11 +191,8 @@
     <div class="text-center pt-4 ">
         <div class="flex ">
             <div class="flex items-center gap-4 align-items-center mx-auto text-xl">
-                <div id="create_delete_relation_user_1">
-                        <form class="button_to" method="post" action="/relations"><button type="submit">
-    <i class="bi bi-plus-circle"></i>
-</button><input type="hidden" name="relation[followed_id]" value="1" autocomplete="off"></form>   
-
+                <div id="create_delete_relation_user_2">
+                    
                 </div>
                 <img class="h-[50px] w-[50px] rounded-full" src="/assets/default_profile_picture-ab2edcba709f8ecb140d2c477c2312687452a0d22396ad1a390558a2d9088add.png">
                 
@@ -206,14 +202,14 @@
             </div>
         </div>
         <div class="py-2">
-            mock_fullname_1
+            mock_fullname_2
         </div>
         <div class="pb-3 ">
-            @mock_username_1
+            @mock_username_2
         </div>
     </div>
     <div class="flex w-full content-evenly">
-        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href="/users/1/whiistles">
+        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href="/users/2/whiistles">
             <div class="text-dark w-full">
                 0
             </div>
@@ -221,7 +217,7 @@
                 Whiistles
             </div>
         </a>
-        <a class="border text-center col-4 py-2 w-1/3" href="/users/1/followings">
+        <a class="border text-center col-4 py-2 w-1/3" href="/users/2/followings">
             <div class="text-dark w-full">
                 0
             </div>
@@ -229,8 +225,8 @@
                 Following
             </div>
         </a>
-        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href="/users/1/followers">
-            <div id="followers_count_user_1" class="text-dark w-full">
+        <a class="border border-x-0 text-center col-4 py-2 w-1/3" href="/users/2/followers">
+            <div id="followers_count_user_2" class="text-dark w-full">
                 0
             </div>
             <div>
@@ -244,7 +240,6 @@
 </aside>
   </div>
 </div>
-
 
 </turbo-frame>        </div>
       </div>

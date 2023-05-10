@@ -16,8 +16,8 @@ RSpec.describe Whiistles::Pictures::Component, type: :component do
       whiistle
       whiistle.pictures.attach(
         [
-          io: Rails.root.join('app', 'assets', 'images', 'mock-1.jpg').open,
-          filename: 'mock-1.jpg',
+          io: Rails.root.join('app', 'assets', 'images', 'avatar1.jpg').open,
+          filename: 'avatar1.jpg',
           content_type: 'image/jpeg'
         ]
       )

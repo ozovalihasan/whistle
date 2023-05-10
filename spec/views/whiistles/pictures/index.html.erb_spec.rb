@@ -8,15 +8,15 @@ RSpec.describe 'whiistles/pictures/index' do
       whiistle
       whiistle.pictures.attach(
         [
-          io: Rails.root.join('app', 'assets', 'images', 'mock-1.jpg').open,
-          filename: 'mock-1.jpg',
+          io: Rails.root.join('app', 'assets', 'images', 'avatar1.jpg').open,
+          filename: 'avatar1.jpg',
           content_type: 'image/jpeg'
         ]
       )
       whiistle.pictures.attach(
         [
-          io: Rails.root.join('app', 'assets', 'images', 'mock-2.jpg').open,
-          filename: 'mock-2.jpg',
+          io: Rails.root.join('app', 'assets', 'images', 'avatar2.jpg').open,
+          filename: 'avatar2.jpg',
           content_type: 'image/jpeg'
         ]
       )
