@@ -1,0 +1,7 @@
+
+  Whiistles::Container::Component()
+  
+    
+      Whiistles::Whiistle::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter, show_flood_info: TrueClass)
+
+  

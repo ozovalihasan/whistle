@@ -1,0 +1,66 @@
+@import "./reset.css";
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .animate-cart-in {
+    animation: fade-in 0.25s ease-out,
+               slide-in 0.25s ease-out;
+  }
+  
+  .animate-cart-out {
+    animation: fade-out 0.25s ease-out,
+               slide-out 0.25s ease-out;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  @keyframes slide-in {
+    from { transform: translateX(4rem); }
+    to { transform: translateX(0); }
+  }
+  
+  @keyframes slide-out {
+    from { transform: translateX(0); }
+    to { transform: translateX(4rem); }
+  }
+}
+
+@layer components {
+
+  .btn {
+    @apply flex justify-center items-center
+    rounded-md cursor-pointer
+    
+  }
+  
+  .btn-first {
+    @apply btn bg-second hover:brightness-90 
+    text-first stroke-first 
+    border-first hover:border-first;
+  }
+  
+  .btn-second {
+    @apply btn border border-solid bg-fourth hover:brightness-90 
+    text-first stroke-first 
+    border-first hover:border-first;
+  }
+
+
+  .btn-danger {
+    @apply btn bg-danger-400 hover:bg-danger-500
+    font-bold border-none;
+  }
+}

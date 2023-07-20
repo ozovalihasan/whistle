@@ -1,0 +1,7 @@
+  <turbo-stream action="update" targets=".rewhiistle_button_whiistle_1"><template>
+    Whiistles::DestroyRewhiistleButton::Component(rewhiistle: Rewhiistle)
+</template></turbo-stream>
+  StreamAnimations::UpdateAll::Component(targets: String)
+    Whiistles::DestroyRewhiistleOrQuoteButton::Component(whiistle: Whiistle)
+
+Streams::UpdateFlashes::Component(notice: String, alert: NilClass)

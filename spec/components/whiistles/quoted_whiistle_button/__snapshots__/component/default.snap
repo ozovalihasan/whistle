@@ -1,0 +1,7 @@
+<a data-action="modal#openAndVisit" href="/whiistles/1/quoted_whiistle/new">
+  Whiistles::ButtonInner::Component()
+    <i class="bi bi-chat-left-quote" ></i>
+    <span>
+      Quoted Whiistle
+    </span>
+</a>

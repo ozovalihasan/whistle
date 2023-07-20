@@ -1,0 +1,2 @@
+Users::ProfileImageButton::Component(user: User, size: Symbol)
+

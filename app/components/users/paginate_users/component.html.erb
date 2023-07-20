@@ -1,0 +1,3 @@
+<%= render component("shared/infinite_scroll", paginate_records: @paginate_users) do %>
+  <%= render component("shared/list_users", paginate_users: @paginate_users) %>
+<% end %>

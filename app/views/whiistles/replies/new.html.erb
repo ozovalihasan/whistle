@@ -1,0 +1,29 @@
+<turbo-frame id="<%= modal_body_target %>" >
+  <div class='flex'>
+    <%= render component("users/profile_image_button", user: @whiistle.user) %>
+    
+    <div class="pl-2">
+
+      <%= render component("whiistles/user_names_with_timestamp", whiistle: @whiistle) %>
+      
+      <div class="mt-2">
+        <%= render component("whiistles/body_and_pictures", whiistle: @whiistle, show_pictures: false) %>
+      </div>
+
+      <%= render component("whiistles/reply_info", whiistle: @whiistle) %>
+
+    </div>
+  </div>
+  
+  <%= 
+    render component(
+      "whiistles/form", 
+      form_url: whiistle_reply_index_url(@whiistle), 
+      whiistle: @reply,
+      label: "Whiistle your reply",
+      cur_user: current_user,
+      enable_quoting_whiistle: true
+    ) 
+  %>
+  
+</turbo-frame>

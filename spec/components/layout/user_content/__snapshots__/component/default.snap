@@ -1,0 +1,3 @@
+<turbo-frame data-turbo-action="advance" id="user-content">
+  mock_content
+</turbo-frame>

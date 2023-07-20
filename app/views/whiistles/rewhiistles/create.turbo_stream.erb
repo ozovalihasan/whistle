@@ -1,0 +1,11 @@
+<% if @rewhiistle.saved_changes? %>
+  <%= turbo_stream.update_all classes_including whiistle_rewhiistle_button_target(@rewhiistle.whiistle) do %>
+    <%= render component("whiistles/destroy_rewhiistle_button", rewhiistle: @rewhiistle) %>
+  <% end %>
+
+  <%= render component("stream_animations/update_all", targets: classes_including( whiistle_rewhiistle_or_quote_button_target(@rewhiistle.whiistle) )) do %>
+    <%= render component("whiistles/destroy_rewhiistle_or_quote_button", whiistle: @rewhiistle.whiistle) %>
+  <% end %>
+<% end %>
+
+<%= render component("streams/update_flashes", notice: notice, alert: alert) %>

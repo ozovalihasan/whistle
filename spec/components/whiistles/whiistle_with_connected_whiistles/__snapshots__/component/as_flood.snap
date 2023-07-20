@@ -1,0 +1,7 @@
+Whiistles::Container::Component()
+    <div class="border-solid border-second py-2 ">
+      Whiistles::AllParentsUntilRoot::Component(whiistle: Whiistle, current_user_presenter: CurrentUserPresenter)
+    </div>
+
+  Whiistles::MainWhiistle::Component(whiistle: Flood, current_user_presenter: CurrentUserPresenter)
+

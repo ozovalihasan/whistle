@@ -1,0 +1,5 @@
+<%= render component("stream_animations/update_all", targets: classes_including( whiistle_like_button_target(@like.whiistle))) do %>
+  <%= render component("whiistles/create_like_button", whiistle: @like.whiistle) %>
+<% end %>
+
+<%= render component("streams/update_flashes", notice: notice, alert: alert) %>

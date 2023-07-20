@@ -1,0 +1,7 @@
+<div class="pl-2 pt-1">
+  <%= render component("whiistles/whiistle", whiistle: @flood, current_user_presenter: @current_user_presenter) %>
+</div>
+
+<% if @flood.flood.present? %>
+  <%= render component("whiistles/all_children_floods", flood: @flood.flood, current_user_presenter: @current_user_presenter) %>
+<% end %>

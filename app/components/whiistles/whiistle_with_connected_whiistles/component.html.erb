@@ -1,0 +1,15 @@
+<%= render component("whiistles/container") do %>
+  <% if @whiistle.is_a?(Reply) || @whiistle.is_a?(Flood)  %>
+    <div class="border-solid border-second py-2 ">
+      <%= render component("whiistles/all_parents_until_root", whiistle: @whiistle.whiistle, current_user_presenter: @current_user_presenter) %>
+    </div>
+  <% end %>
+
+  <%= render component("whiistles/main_whiistle", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+
+  <% if (@whiistle.is_a?(Whiistle) || @whiistle.is_a?(Flood)) && @whiistle.flood.present? %>
+    <div class="pl-2 ">
+      <%= render component("whiistles/all_children_floods", flood: @whiistle.flood, current_user_presenter: @current_user_presenter) %>
+    </div>
+  <% end %>
+<% end %>

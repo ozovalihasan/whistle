@@ -1,0 +1,1 @@
+Users::Tabs::Component(tab_presenter: UsersTabPresenter, sidebar_right_presenter: SidebarRightPresenter)

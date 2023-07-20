@@ -1,0 +1,5 @@
+<form class="button_to" method="post" action="/whiistles/1/likes/1"><input type="hidden" name="_method" value="delete" autocomplete="off" /><button type="submit">
+  Whiistles::ButtonInner::Component(active: TrueClass)
+    <i class="bi bi-heart-fill "></i>
+    <span>1</span> 
+</button></form>

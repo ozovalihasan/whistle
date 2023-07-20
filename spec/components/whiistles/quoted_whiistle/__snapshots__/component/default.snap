@@ -1,0 +1,10 @@
+Whiistles::Container::Component()
+  <div class="flex rounded-md" >
+
+    Users::ProfileImageButtonSmall::Component(user: User)
+    <div class="pl-2 text-base">
+      Whiistles::UserNamesWithTimestamp::Component(whiistle: Whiistle)
+      Whiistles::BodyAndPictures::Component(whiistle: Whiistle, show_quoted_whiistle: FalseClass)
+      Whiistles::FloodInfo::Component(whiistle: Whiistle)
+    </div>
+  </div>

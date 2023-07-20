@@ -1,0 +1,13 @@
+<li class="text-center flex-1">
+  <a 
+    <% if @active_tab %>
+      class="block py-2 w-full h-full font-semibold no-underline border-b border-solid border-second" 
+    <% else %>
+      class="block py-2 w-full h-full font-semibold no-underline "
+    <% end %>
+    href=<%= @url %>
+    data-turbo-frame="user_tabs"
+  >
+    <%= @text %>
+  </a>
+</li>

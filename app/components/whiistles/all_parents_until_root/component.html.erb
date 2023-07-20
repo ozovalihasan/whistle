@@ -1,0 +1,3 @@
+<% @whiistle.path.each do |parent| %>
+  <%= render component("whiistles/whiistle", whiistle: parent, current_user_presenter: @current_user_presenter) %>
+<% end %>

@@ -1,0 +1,12 @@
+<turbo-frame id="<%= modal_body_target %>" >
+  <%= 
+    render component(
+      "whiistles/form", 
+      form_url: whiistles_url, 
+      whiistle: @quoting_whiistle,
+      label: "Whiistle something by quoting the whiistle",
+      cur_user: current_user,
+      quoted_whiistle: @quoted_whiistle
+    ) 
+  %>
+</turbo-frame>

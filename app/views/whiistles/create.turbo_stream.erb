@@ -1,0 +1,11 @@
+<% if @completed_successfully %>
+  <%= turbo_stream.update "modal_body" do %>
+    <%= render component("whiistles/whiistle_with_connected_whiistles", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+  <% end %>
+
+  <%= turbo_stream.replace "whiistles_counter" do %>
+    <%= render component("whiistles/whiistles_counter", whiistles_count: @whiistles_size) %>
+  <% end %>
+<% end %>
+
+<%= render component("streams/update_flashes", notice: notice, alert: alert) %>

@@ -1,0 +1,9 @@
+<li class="text-center flex-1">
+  <a 
+      class="block py-2 w-full h-full font-semibold no-underline "
+    href=mock_url
+    data-turbo-frame="user_tabs"
+  >
+    mock_text
+  </a>
+</li>

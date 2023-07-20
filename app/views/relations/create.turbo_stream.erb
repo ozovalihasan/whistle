@@ -1,0 +1,21 @@
+
+<% if @relation.saved_changes? %>
+    <%= turbo_stream.update_all ".relation_user_#{@relation.followed_id}" do %>
+        ✓ Followed
+    <% end %>
+
+
+    <%= turbo_stream.update user_create_delete_relation_target(@relation.followed) do %>
+        <%= render component("users/delete_following", relation: @relation) %>
+    <% end %>
+
+    <%= turbo_stream.update user_left_side_followings_count_target(@relation.following) do %>
+        <%=  @relation.following.followings_count %>
+    <% end %>
+
+    <%= turbo_stream.update user_followers_count_target(@relation.followed)  do %>
+        <%=  @relation.followed.followers_count %>
+    <% end %>
+<% end %>
+
+<%= render component("streams/update_flashes", notice: notice, alert: alert) %>

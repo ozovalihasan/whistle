@@ -1,0 +1,18 @@
+<% @main_form.simple_fields_for :floods, Flood.new, index: 'TEMPLATE_RECORD' do |flood_form| %>
+  <li class="mr-1" data-tabs-target="tab" data-action="click->tabs#change">
+    <%= flood_form.input :body, as: :text, label: "Flood", wrapper: :whiistle_wrapper %>
+  </li>
+
+  <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
+    <%= flood_form.input :quoted_whiistle_url, as: :string, placeholder: "Copy paste the link of a whiistle to quote" %>
+
+    <div class="w-full flex">
+      <%= render component("whiistles/form_pictures_button", form: flood_form) %>
+      <div class="ml-auto flex">
+        
+        <%= link_to "Add Flood", "#", data: { action: "click->flood#add_association" }, class: "btn-second w-24 p-2  m-4" %>
+        <%= @main_form.button :submit, "Whiistle" %>
+      </div>
+    </div>
+  </div>                    
+<% end %>

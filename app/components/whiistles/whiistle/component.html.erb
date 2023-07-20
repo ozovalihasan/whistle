@@ -1,0 +1,25 @@
+<div class="my-4">
+
+  <%= render component("whiistles/rewhiistle_info", whiistle: @whiistle) %>
+  <%= render component("whiistles/like_info", whiistle: @whiistle) %>
+
+  <div class='flex'>
+    
+    <%= render component("users/profile_image_button", user: @whiistle.user) %>
+    
+    <div class="pl-2">
+      <%= render component("whiistles/user_names_with_timestamp", whiistle: @whiistle) %>
+      <%= render component("whiistles/reply_info", whiistle: @whiistle) %>
+      <div class="mt-2">
+        <%= render component("whiistles/body_and_pictures", whiistle: @whiistle) %>
+      </div>
+
+      <%= render component("whiistles/buttons", whiistle: @whiistle, current_user_presenter: @current_user_presenter) %>
+
+      <% if @show_flood_info %>
+        <%= render component("whiistles/flood_info", whiistle: @whiistle) %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

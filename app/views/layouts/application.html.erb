@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Whistle is a social network website" />
-        <meta name="keywords" content="Ruby on Rails, Ruby, Social website" />
-        <meta property="og:image" content="https://raw.githubusercontent.com/ozovalihasan/whistle/main-parts/app/assets/images/social-image.jpg"/>
-        <title>Whistle</title>
-        <%= favicon_link_tag asset_path('logo.png') %>
-        <%= csrf_meta_tags %>
-        <%= csp_meta_tag %>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/8c7f545978.js" crossorigin="anonymous"></script>
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
-    <body>
-        <main class='d-flex'>
-            <%= show_leftside %>
-            <div class='center w-100 min-vh-100 d-flex flex-column'>
-                <%= render 'layouts/header' %>
-                <%= check_notice %>
-                <%= check_alert %>
-                <%= yield %>
+<html class="font-sans bg-fourth">
+  <head>
+    <meta name="description" content="Whistle is a social network website" />
+    <meta name="keywords" content="Ruby on Rails, Ruby, Social website" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/ozovalihasan/whistle/main-parts/app/assets/images/social-image.jpg"/>
+    <title>Whistle</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
+  </head>
+
+  <body class="w-full max-w-screen-xl self-center mx-auto">
+    <%= render component("shared/modal")do %>
+      <div class='flex font-bold'>
+        <%= render component("layout/left_side", current_user: current_user) %>
+        <div class='center w-full flex flex-col'>
+          <%= render 'layouts/header' %>
+
+          <div class="fixed bottom-0 right-0 inset-x-0 m-4 z-30">
+            <div class="relative ">
+              <div id="flashes" class="absolute right-0 bottom-0 flex flex-col items-end">
+                <%= render component("layout/flash", message: notice) %>
+                <%= render component("layout/flash", message: alert, alert: true) %>
+              </div>
             </div>
-        </main>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    </body>
+          </div>
+          
+          <%= render component("layout/user_content") do %>
+            <%= yield %>
+          <% end %>          
+        </div>
+      </div>
+    <% end %>
+  </body>
 </html>

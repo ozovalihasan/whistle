@@ -1,0 +1,12 @@
+<%= 
+  render component(
+    "whiistles/form", 
+    form_url: "", 
+    whiistle: @whiistle, 
+    label: @label, 
+    cur_user: @cur_user,
+    value: @value, 
+    open_modal: true, 
+    modal_path: @path
+  ) 
+%>

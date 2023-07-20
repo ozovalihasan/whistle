@@ -1,0 +1,15 @@
+<turbo-stream 
+  action="<%= @action %>" 
+  <% if @target %>
+    target="<%= @target %>"
+  <% end %>
+  <% if @targets %>
+    targets="<%= @targets %>"
+  <% end %>
+  data-stream-enter-class="<%= @enter_class %>" 
+  data-stream-exit-class="<%= @exit_class %>" 
+>
+  <template>
+    <%= content %>
+  </template>
+</turbo-stream>

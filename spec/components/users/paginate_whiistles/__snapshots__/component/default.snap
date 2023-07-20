@@ -1,0 +1,3 @@
+Shared::InfiniteScroll::Component(paginate_records: PaginateWhiistles)
+  Whiistles::WhiistlesCounter::Component(whiistles_count: Integer)
+  Whiistles::ListPaginatedWhiistles::Component(paginate_whiistles: PaginateWhiistles)

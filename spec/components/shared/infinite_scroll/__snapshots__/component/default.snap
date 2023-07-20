@@ -1,0 +1,19 @@
+<div 
+  data-controller="pagination"
+  data-pagination-url-value="mock_url"
+  data-pagination-current-page-value="1"
+  data-pagination-max-page-value="1"
+  data-pagination-request-value="false"
+  class="mt-4"
+>
+  <div id="pagination-body">
+    mock_body
+  </div>
+
+  <div
+    class="w-full h-32 mt-32 flex justify-center"
+    data-pagination-target="loading"
+  >
+    Shared::Spinner::Component()
+  </div>
+</div>

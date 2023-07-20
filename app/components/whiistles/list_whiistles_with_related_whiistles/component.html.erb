@@ -1,0 +1,39 @@
+<% @whiistles.each do |whiistle|  %>
+
+  <%= render component("whiistles/container")do %>
+  
+    <% if whiistle.label == "primary_whiistle" %>
+
+      <% if whiistle.is_a? Reply %>
+      
+        <% if whiistle.path.count >= 3 %>
+          <%= render component("whiistles/whiistle", whiistle: whiistle.root, current_user_presenter: @current_user_presenter) %>
+          
+          <% if whiistle.path.count >= 4 %>
+
+            <%= link_to "Show more replies", whiistle_path(whiistle.root) %>
+
+          <% end %>
+          
+        <% end %>
+        
+        <%= render component("whiistles/whiistle", whiistle: whiistle.whiistle, current_user_presenter: @current_user_presenter) %>
+
+      <% end %>
+      
+      <%= render component("whiistles/whiistle", whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
+
+      <% if (whiistle.is_a? Whiistle) && whiistle.flood.present? %>
+
+        <%= render component("whiistles/minified_floods", whiistle: whiistle, current_user_presenter: @current_user_presenter) %>
+        
+      <% end %>  
+
+    <% elsif whiistle.label == "shared_whiistle" %>
+    
+      <%= render component("whiistles/whiistle", whiistle: whiistle, current_user_presenter: @current_user_presenter, show_flood_info: true) %>
+
+    <% end %>
+  <% end %>
+  
+<% end %>

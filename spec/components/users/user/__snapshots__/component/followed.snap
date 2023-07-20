@@ -1,0 +1,15 @@
+<div class="flex w-full">
+  <a class="hover-image" href="/users/1/whiistles">
+    <div class="px-4 py-2 flex w-full">
+      Users::ProfileImage::Component(user: User)
+      <div class="pl-2 flex flex-col self-center">
+        <div class="text-ellipsis">
+          mock_fullname_1
+        </div>
+        <div class=" text-ellipsis">
+          @mock_username_1
+        </div>
+      </div>
+    </div>
+</a>
+</div>

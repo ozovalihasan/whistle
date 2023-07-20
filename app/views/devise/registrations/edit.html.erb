@@ -1,47 +1,31 @@
-<div class="mx-auto bg-fourth-color mt-3 rounded p-5">
-    <h2 class="text-center h3 my-3 font-weight-normal">Edit <%= resource_name.to_s.humanize %></h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,class: 'text-left' }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="py-2">
-            <%= f.label :username %><br />
-            <%= f.text_field :username, autofocus: true, class:"w-100" %>
-        </div>
-        <div class="py-2">
-            <%= f.label :fullname %><br />
-            <%= f.text_field :fullname, autofocus: true, class:"w-100" %>
-        </div>
-        <div class="py-2">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-100" %>
-        </div>
-        <div class="py-2">
-            <div class="image-upload d-flex ">
-                <div class="w-50">Cover Image</div>
-                <label for="cover-image" class="ml-auto">
-                    <span class="custom_button">Choose</span>
-                </label>
-                <input id="cover-image" type="file"/>
-            </div>
-        </div>
-        <div class="py-2">
-            <div class="image-upload d-flex ">
-                <div class="w-50">Profile Picture</div>
-                <label for="profile-picture" class="ml-auto w-auto">
-                    <span class="custom_button">Choose</span>
-                </label>
-                <input id="profile-picture" type="file"/>
-            </div>
-        </div>
-        <%= f.hidden_field :current_password, value: 'aaaaaa' %>
-        <div class="actions mt-2 mb-5 d-flex justify-content-end pt-2 ">
-            <%= f.submit "Update", class: "custom_button w-100" %>
-        </div>
-    <% end %>
-    <div class="d-flex w-100 mb-5">
-        <div class="py-2 mr-2">Delete my account</div>
-        <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'custom_button' %>
+<%= simple_form_for resource, url: registration_path(resource_name) do |f| %>
+  <h2 class="text-center pb-8">Edit <%= resource_name.to_s.humanize %></h2>
+  
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <%= f.input :username, required: true %>
+  <%= f.input :fullname, required: true %>
+  <%= f.input :email, placeholder: 'example@example.com' %>
+  
+  <div class="flex py-2">
+    <%= f.label :cover_image, class: "mr-auto self-center" %>
+    <%= f.input :cover_image, as: :file, label: "Choose", wrapper: :file_wrapper %>
+  </div>
+
+  <div class="flex py-2">
+    <%= f.label :profile_picture, class: "mr-auto self-center" %>
+    <%= f.input :profile_picture, as: :file, label: "Choose", wrapper: :file_wrapper %>
+  </div>
+
+  <%= f.input :current_password, as: :hidden, input_html: {value: 'aaaaaa'} %>
+
+  <%= f.button :submit, "Update" %>
+
+  <%= link_to user_registration_path, class: "btn-first py-2 px-4 mb-8 my-4", data: { "turbo-method": :delete } do %>
+    <div class="w-auto">
+      Delete account
     </div>
-    <div class="pt-2">
-        <%= link_to "Back", :back, class:''  %>
-    </div>
-</div>
+  <% end %>
+<% end %>
+
+

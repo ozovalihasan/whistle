@@ -1,0 +1,18 @@
+<div class='flex grow'>
+    <main class='p-4 w-2/3'>
+
+        Whiistles::FormOpeningModal::Component(label: String, whiistle: Whiistle, path: String, cur_user: User)
+        
+        <div class="p-4 mt-4">
+            Whiistles::WhiistlesCounter::Component(whiistles_count: Integer)
+
+
+            Shared::InfiniteScroll::Component(paginate_records: PaginateWhiistles)
+                Whiistles::ListPaginatedWhiistles::Component(paginate_whiistles: PaginateWhiistles)
+        </div>
+    </main>
+    <aside id="who-to-follow" class='w-1/3'>
+        <h1 class="py-4 pl-4">Who To Follow</h1>
+        Users::User::Component(ActiveRecord::Relation)
+    </aside>
+</div>

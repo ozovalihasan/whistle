@@ -1,0 +1,4 @@
+<turbo-stream action="prepend" target="flashes"><template>
+    Layout::Flash::Component(message: String)
+    Layout::Flash::Component(message: String, alert: TrueClass)
+</template></turbo-stream>

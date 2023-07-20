@@ -1,0 +1,13 @@
+<%= render component("streams/update_flashes", notice: notice, alert: alert) %>
+
+<%= turbo_stream.update user_left_side_followings_count_target(@relation.following) do %>
+    <%=  @relation.following.followings_count %>
+<% end %>
+
+<%= turbo_stream.update user_followers_count_target(@relation.followed) do %>
+    <%=  @relation.followed.followers_count %>
+<% end %>
+
+<%= turbo_stream.update user_create_delete_relation_target(@relation.followed) do %>
+    <%= render component("users/add_following", user_id: @relation.followed_id) %>
+<% end %>

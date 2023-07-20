@@ -1,0 +1,3 @@
+<%= turbo_stream.append "pagination-body" do %>
+  <%= render component("shared/list_users", paginate_users: @paginate_users) %>
+<% end %>

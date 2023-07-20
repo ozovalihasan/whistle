@@ -1,0 +1,11 @@
+<%= render component("whiistles/container")do %>
+  <div class="flex rounded-md" >
+
+    <%= render component("users/profile_image_button_small", user: @whiistle.user) %>
+    <div class="pl-2 text-base">
+      <%= render component("whiistles/user_names_with_timestamp", whiistle: @whiistle) %>
+      <%= render component("whiistles/body_and_pictures", whiistle: @whiistle, show_quoted_whiistle: false) %>
+      <%= render component("whiistles/flood_info", whiistle: @whiistle) %>
+    </div>
+  </div>
+<% end %>

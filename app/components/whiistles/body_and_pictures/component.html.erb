@@ -1,0 +1,13 @@
+<div>
+  <%= link_to whiistle_path(@whiistle) do %>
+    <%= @whiistle.body  %>
+  <% end %>
+  
+  <% if @show_pictures %>
+    <%= render component("whiistles/pictures", whiistle: @whiistle) %>
+  <% end %>
+  
+  <% if @whiistle.quoted_whiistle && @show_quoted_whiistle %>
+    <%= render component("whiistles/quoted_whiistle", whiistle: @whiistle.quoted_whiistle) %>
+  <% end %>
+</div>

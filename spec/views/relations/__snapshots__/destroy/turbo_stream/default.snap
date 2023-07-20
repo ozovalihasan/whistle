@@ -1,0 +1,11 @@
+Streams::UpdateFlashes::Component(notice: String, alert: NilClass)
+
+<turbo-stream action="update" target="left_side_followings_count_user_1"><template>
+    0
+</template></turbo-stream>
+<turbo-stream action="update" target="followers_count_user_2"><template>
+    0
+</template></turbo-stream>
+<turbo-stream action="update" target="create_delete_relation_user_2"><template>
+    Users::AddFollowing::Component(user_id: Integer)
+</template></turbo-stream>

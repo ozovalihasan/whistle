@@ -1,0 +1,5 @@
+<form class="button_to" method="post" action="/whiistles/1/likes"><button type="submit">
+  Whiistles::ButtonInner::Component()
+    <i class="bi bi-heart"></i>
+    <span>2</span> 
+</button></form>
